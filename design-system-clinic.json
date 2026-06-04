@@ -1,0 +1,1103 @@
+{
+  "designSystem": {
+    "meta": {
+      "name": "Косметологическая клиника Анапа",
+      "reference": "https://www.sagedermatology.ca",
+      "description": "Дизайн-система в стиле Sage Dermatology — минималистичная, элегантная, медицинско-премиальная эстетика. Тёплые нейтралы, serif-акценты в курсиве, воздушные отступы.",
+      "version": "1.0.0"
+    },
+
+    "colorPalette": {
+      "primary": {
+        "description": "Тёплый тёмно-зелёный сланец — основной цвет бренда (взят с Sage Derm)",
+        "50":  "#f4f6f4",
+        "100": "#e4eae3",
+        "200": "#c9d5c7",
+        "300": "#a3b8a0",
+        "400": "#779372",
+        "500": "#4e6e49",
+        "600": "#3a5436",
+        "700": "#2e4229",
+        "800": "#243520",
+        "900": "#1a2718"
+      },
+      "secondary": {
+        "description": "Тёплый слоновой кости — фоновый и акцентный нейтрал",
+        "50":  "#fdfcf8",
+        "100": "#faf7f0",
+        "200": "#f5efe0",
+        "300": "#ede2c8",
+        "400": "#e0cfaa",
+        "500": "#d0b98a",
+        "600": "#b89a68",
+        "700": "#9a7c4f",
+        "800": "#7a6040",
+        "900": "#5a4530"
+      },
+      "neutral": {
+        "description": "Тёплые серо-бежевые нейтралы для текста и границ",
+        "0":   "#ffffff",
+        "50":  "#faf9f7",
+        "100": "#f3f1ed",
+        "200": "#e8e4dd",
+        "300": "#d4cfc5",
+        "400": "#b8b0a3",
+        "500": "#968e81",
+        "600": "#756d61",
+        "700": "#5a5349",
+        "800": "#3d3830",
+        "900": "#231f18"
+      },
+      "semantic": {
+        "success": "#4e6e49",
+        "successLight": "#e4eae3",
+        "warning": "#c9933a",
+        "warningLight": "#fef3e2",
+        "error": "#b84040",
+        "errorLight": "#fdeaea",
+        "info": "#4a6b8a",
+        "infoLight": "#e4edf5"
+      },
+      "background": {
+        "primary": "#fdfcf8",
+        "secondary": "#faf7f0",
+        "surface": "#ffffff",
+        "dark": "#1a2718",
+        "darkMuted": "#243520",
+        "overlay": "rgba(26, 39, 24, 0.55)"
+      },
+      "text": {
+        "primary": "#231f18",
+        "secondary": "#5a5349",
+        "muted": "#968e81",
+        "inverted": "#fdfcf8",
+        "invertedMuted": "rgba(253, 252, 248, 0.75)",
+        "accent": "#3a5436",
+        "link": "#3a5436",
+        "linkHover": "#2e4229"
+      },
+      "border": {
+        "light": "#e8e4dd",
+        "default": "#d4cfc5",
+        "strong": "#b8b0a3"
+      }
+    },
+
+    "typography": {
+      "fontFamilies": {
+        "primary": "'Involve', sans-serif",
+        "primaryFallback": "Georgia, 'Times New Roman', serif",
+        "description": "Единственная гарнитура — Involve. Для акцентных заголовков используется italic-начертание, создающее характерный визуальный контраст как на Sage Derm.",
+        "monospace": "'Courier New', Courier, monospace"
+      },
+      "fontImport": {
+        "method": "local или CDN",
+        "note": "Подключить шрифт Involve через @font-face или лицензионный CDN. Убедиться в наличии начертаний: 300, 400, 500, 600, 700 и italic-вариантов каждого."
+      },
+      "fontSizes": {
+        "xs":  "11px",
+        "sm":  "13px",
+        "base":"16px",
+        "md":  "17px",
+        "lg":  "19px",
+        "xl":  "22px",
+        "2xl": "26px",
+        "3xl": "32px",
+        "4xl": "40px",
+        "5xl": "52px",
+        "6xl": "68px",
+        "7xl": "88px"
+      },
+      "lineHeights": {
+        "none":    "1",
+        "tight":   "1.15",
+        "snug":    "1.3",
+        "normal":  "1.55",
+        "relaxed": "1.75",
+        "loose":   "2"
+      },
+      "letterSpacing": {
+        "tighter": "-0.03em",
+        "tight":   "-0.015em",
+        "normal":  "0em",
+        "wide":    "0.05em",
+        "wider":   "0.1em",
+        "widest":  "0.18em"
+      },
+      "fontWeights": {
+        "light":    "300",
+        "normal":   "400",
+        "medium":   "500",
+        "semibold": "600",
+        "bold":     "700"
+      },
+      "textStyles": {
+        "heroTitle": {
+          "description": "Главный заголовок Hero-блока — как на Sage Derm: часть слов в italic для акцента",
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "clamp(48px, 7vw, 88px)",
+          "fontWeight": "300",
+          "fontStyle": "normal + italic для выделенных слов",
+          "lineHeight": "1.1",
+          "letterSpacing": "-0.02em",
+          "color": "#fdfcf8",
+          "italicAccentColor": "#fdfcf8",
+          "italicAccentStyle": "font-style: italic; font-weight: 300"
+        },
+        "h1": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "clamp(36px, 5vw, 64px)",
+          "fontWeight": "300",
+          "lineHeight": "1.15",
+          "letterSpacing": "-0.02em",
+          "color": "#231f18"
+        },
+        "h2": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "clamp(26px, 3.5vw, 44px)",
+          "fontWeight": "300",
+          "lineHeight": "1.2",
+          "letterSpacing": "-0.015em",
+          "color": "#231f18"
+        },
+        "h3": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "clamp(18px, 2.2vw, 26px)",
+          "fontWeight": "400",
+          "lineHeight": "1.3",
+          "letterSpacing": "-0.01em",
+          "color": "#231f18"
+        },
+        "h4": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "17px",
+          "fontWeight": "500",
+          "lineHeight": "1.4",
+          "letterSpacing": "0em",
+          "color": "#3d3830"
+        },
+        "bodyLarge": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "19px",
+          "fontWeight": "400",
+          "lineHeight": "1.65",
+          "letterSpacing": "0em",
+          "color": "#5a5349"
+        },
+        "body": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "1.65",
+          "letterSpacing": "0em",
+          "color": "#5a5349"
+        },
+        "bodySmall": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "1.6",
+          "letterSpacing": "0em",
+          "color": "#756d61"
+        },
+        "caption": {
+          "description": "Подписи под фото до/после, мета-информация",
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "1.5",
+          "letterSpacing": "0.01em",
+          "color": "#968e81"
+        },
+        "label": {
+          "description": "Метки, теги, категории",
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "11px",
+          "fontWeight": "500",
+          "lineHeight": "1",
+          "letterSpacing": "0.12em",
+          "textTransform": "uppercase",
+          "color": "#756d61"
+        },
+        "navLink": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "1",
+          "letterSpacing": "0.02em",
+          "color": "#3d3830"
+        },
+        "cta": {
+          "description": "Текст кнопок",
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "lineHeight": "1",
+          "letterSpacing": "0.04em",
+          "textTransform": "none"
+        },
+        "price": {
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "300",
+          "letterSpacing": "-0.01em",
+          "color": "#3a5436"
+        },
+        "quote": {
+          "description": "Цитаты отзывов — как на Sage Derm: крупный, тонкий, italic",
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "clamp(20px, 2.5vw, 28px)",
+          "fontWeight": "300",
+          "fontStyle": "italic",
+          "lineHeight": "1.5",
+          "letterSpacing": "-0.01em",
+          "color": "#231f18"
+        }
+      }
+    },
+
+    "spacing": {
+      "scale": "exponential (base 4px, с нелинейными прыжками для крупных значений)",
+      "baseUnit": "4px",
+      "values": {
+        "0":   "0px",
+        "0.5": "2px",
+        "1":   "4px",
+        "2":   "8px",
+        "3":   "12px",
+        "4":   "16px",
+        "5":   "20px",
+        "6":   "24px",
+        "7":   "28px",
+        "8":   "32px",
+        "10":  "40px",
+        "12":  "48px",
+        "14":  "56px",
+        "16":  "64px",
+        "20":  "80px",
+        "24":  "96px",
+        "28":  "112px",
+        "32":  "128px",
+        "40":  "160px",
+        "48":  "192px",
+        "64":  "256px"
+      },
+      "sectionPadding": {
+        "vertical": {
+          "mobile":  "64px",
+          "tablet":  "96px",
+          "desktop": "128px"
+        },
+        "horizontal": {
+          "mobile":  "20px",
+          "tablet":  "40px",
+          "desktop": "80px"
+        }
+      }
+    },
+
+    "borderRadius": {
+      "none": "0px",
+      "xs":   "2px",
+      "sm":   "4px",
+      "md":   "6px",
+      "lg":   "10px",
+      "xl":   "16px",
+      "2xl":  "24px",
+      "card": "4px",
+      "button": "4px",
+      "input": "4px",
+      "tag":  "2px",
+      "full": "9999px",
+      "note": "Sage Derm использует почти прямые углы (2–6px) — очень сдержанный, архитектурный стиль. Избегать круглых форм."
+    },
+
+    "shadows": {
+      "none": "none",
+      "xs":   "0 1px 2px rgba(26, 39, 24, 0.04)",
+      "sm":   "0 2px 8px rgba(26, 39, 24, 0.06)",
+      "md":   "0 4px 16px rgba(26, 39, 24, 0.08)",
+      "lg":   "0 8px 32px rgba(26, 39, 24, 0.10)",
+      "xl":   "0 16px 48px rgba(26, 39, 24, 0.14)",
+      "card": "0 2px 12px rgba(26, 39, 24, 0.07)",
+      "cardHover": "0 8px 28px rgba(26, 39, 24, 0.13)",
+      "popup": "0 24px 64px rgba(26, 39, 24, 0.22)",
+      "note": "Тени очень мягкие и тёплые (тёмно-зелёный оттенок вместо серого)"
+    },
+
+    "borders": {
+      "widths": {
+        "thin":   "1px",
+        "medium": "1.5px",
+        "thick":  "2px"
+      },
+      "styles": {
+        "divider": "1px solid #e8e4dd",
+        "card":    "1px solid #e8e4dd",
+        "input":   "1px solid #d4cfc5",
+        "inputFocus": "1px solid #3a5436",
+        "accentLine": "2px solid #3a5436"
+      }
+    },
+
+    "components": {
+      "button": {
+        "description": "Кнопки Sage Derm — минималистичные, с arrow (⭢) в тексте для primary текстовых CTA",
+        "variants": {
+          "primary": {
+            "description": "Тёмная заливка — основной призыв к действию",
+            "backgroundColor": "#231f18",
+            "color": "#fdfcf8",
+            "border": "1px solid #231f18",
+            "borderRadius": "4px",
+            "padding": "14px 28px",
+            "fontSize": "14px",
+            "fontFamily": "'Involve', sans-serif",
+            "fontWeight": "500",
+            "letterSpacing": "0.03em",
+            "minHeight": "48px",
+            "transition": "all 200ms ease",
+            "states": {
+              "hover": {
+                "backgroundColor": "#3d3830",
+                "borderColor": "#3d3830",
+                "transform": "translateY(-1px)"
+              },
+              "active": {
+                "backgroundColor": "#1a1612",
+                "transform": "translateY(0)"
+              },
+              "disabled": {
+                "backgroundColor": "#b8b0a3",
+                "borderColor": "#b8b0a3",
+                "cursor": "not-allowed",
+                "opacity": "0.6"
+              },
+              "focus": {
+                "outline": "2px solid #3a5436",
+                "outlineOffset": "2px"
+              }
+            }
+          },
+          "primaryGreen": {
+            "description": "Зелёная заливка — для акцентных CTA",
+            "backgroundColor": "#3a5436",
+            "color": "#fdfcf8",
+            "border": "1px solid #3a5436",
+            "borderRadius": "4px",
+            "padding": "14px 28px",
+            "fontSize": "14px",
+            "fontWeight": "500",
+            "states": {
+              "hover": {
+                "backgroundColor": "#2e4229"
+              }
+            }
+          },
+          "outline": {
+            "description": "Контурная кнопка на светлом фоне",
+            "backgroundColor": "transparent",
+            "color": "#231f18",
+            "border": "1px solid #231f18",
+            "borderRadius": "4px",
+            "padding": "14px 28px",
+            "fontSize": "14px",
+            "fontWeight": "500",
+            "states": {
+              "hover": {
+                "backgroundColor": "#231f18",
+                "color": "#fdfcf8"
+              }
+            }
+          },
+          "outlineLight": {
+            "description": "Контурная кнопка на тёмном фоне",
+            "backgroundColor": "transparent",
+            "color": "#fdfcf8",
+            "border": "1px solid rgba(253, 252, 248, 0.6)",
+            "borderRadius": "4px",
+            "padding": "14px 28px",
+            "states": {
+              "hover": {
+                "borderColor": "#fdfcf8",
+                "backgroundColor": "rgba(253, 252, 248, 0.08)"
+              }
+            }
+          },
+          "text": {
+            "description": "Текстовая ссылка-кнопка со стрелкой — signature элемент Sage Derm",
+            "backgroundColor": "transparent",
+            "color": "#231f18",
+            "border": "none",
+            "padding": "0",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "textDecoration": "none",
+            "display": "inline-flex",
+            "alignItems": "center",
+            "gap": "6px",
+            "arrowChar": "⭢",
+            "arrowTransition": "transform 200ms ease",
+            "states": {
+              "hover": {
+                "arrowTransform": "translateX(4px)",
+                "textDecoration": "underline",
+                "textUnderlineOffset": "3px"
+              }
+            }
+          }
+        },
+        "sizes": {
+          "sm": {
+            "padding": "10px 20px",
+            "fontSize": "13px",
+            "minHeight": "38px"
+          },
+          "md": {
+            "padding": "14px 28px",
+            "fontSize": "14px",
+            "minHeight": "48px"
+          },
+          "lg": {
+            "padding": "18px 36px",
+            "fontSize": "15px",
+            "minHeight": "56px"
+          }
+        }
+      },
+
+      "input": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "border": "1px solid #d4cfc5",
+          "borderRadius": "4px",
+          "padding": "13px 16px",
+          "fontSize": "15px",
+          "fontFamily": "'Involve', sans-serif",
+          "fontWeight": "400",
+          "color": "#231f18",
+          "minHeight": "48px",
+          "width": "100%",
+          "transition": "border-color 200ms ease, box-shadow 200ms ease",
+          "placeholder": {
+            "color": "#b8b0a3",
+            "opacity": "1"
+          },
+          "states": {
+            "focus": {
+              "borderColor": "#3a5436",
+              "outline": "none",
+              "boxShadow": "0 0 0 3px rgba(58, 84, 54, 0.1)"
+            },
+            "error": {
+              "borderColor": "#b84040",
+              "boxShadow": "0 0 0 3px rgba(184, 64, 64, 0.1)"
+            },
+            "disabled": {
+              "backgroundColor": "#f3f1ed",
+              "color": "#968e81",
+              "cursor": "not-allowed"
+            },
+            "filled": {
+              "borderColor": "#d4cfc5",
+              "backgroundColor": "#fdfcf8"
+            }
+          }
+        },
+        "select": {
+          "extends": "base",
+          "appearance": "none",
+          "backgroundImage": "url(\"data:image/svg+xml,...\")",
+          "backgroundPosition": "right 14px center",
+          "paddingRight": "40px"
+        },
+        "textarea": {
+          "extends": "base",
+          "minHeight": "120px",
+          "resize": "vertical",
+          "padding": "13px 16px"
+        },
+        "label": {
+          "fontSize": "12px",
+          "fontWeight": "500",
+          "letterSpacing": "0.06em",
+          "textTransform": "uppercase",
+          "color": "#756d61",
+          "marginBottom": "6px",
+          "display": "block"
+        },
+        "errorMessage": {
+          "fontSize": "12px",
+          "color": "#b84040",
+          "marginTop": "4px"
+        },
+        "checkbox": {
+          "size": "18px",
+          "borderRadius": "2px",
+          "border": "1px solid #d4cfc5",
+          "checkedBackground": "#3a5436",
+          "checkmarkColor": "#ffffff"
+        }
+      },
+
+      "card": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "border": "1px solid #e8e4dd",
+          "borderRadius": "4px",
+          "padding": "32px",
+          "boxShadow": "0 2px 12px rgba(26, 39, 24, 0.07)",
+          "transition": "box-shadow 250ms ease, transform 250ms ease"
+        },
+        "hover": {
+          "boxShadow": "0 8px 28px rgba(26, 39, 24, 0.13)",
+          "transform": "translateY(-2px)"
+        },
+        "service": {
+          "description": "Карточка услуги — фото сверху, текст снизу",
+          "imageAspectRatio": "4/3",
+          "imageObjectFit": "cover",
+          "imageOverlay": "linear-gradient(to bottom, transparent 50%, rgba(26,39,24,0.4) 100%)",
+          "bodyPadding": "24px",
+          "categoryLabel": {
+            "position": "абсолютно над фото",
+            "fontSize": "11px",
+            "letterSpacing": "0.12em",
+            "textTransform": "uppercase",
+            "color": "#fdfcf8",
+            "backgroundColor": "rgba(26,39,24,0.5)",
+            "padding": "4px 10px"
+          }
+        },
+        "specialist": {
+          "imageAspectRatio": "3/4",
+          "imageObjectFit": "cover cover-top",
+          "bodyPadding": "20px 0 0 0",
+          "nameSize": "18px",
+          "nameFontWeight": "400",
+          "roleSize": "13px",
+          "roleColor": "#756d61",
+          "roleLetterSpacing": "0.06em",
+          "roleTextTransform": "uppercase"
+        },
+        "review": {
+          "backgroundColor": "#fdfcf8",
+          "border": "1px solid #e8e4dd",
+          "borderRadius": "4px",
+          "padding": "40px",
+          "quoteMarkSize": "48px",
+          "quoteMarkColor": "#d4cfc5",
+          "starColor": "#c9933a",
+          "starSize": "14px",
+          "authorSize": "13px",
+          "authorFontWeight": "500",
+          "sourceSize": "12px",
+          "sourceColor": "#968e81"
+        },
+        "beforeAfter": {
+          "borderRadius": "4px",
+          "overflow": "hidden",
+          "imageAspectRatio": "4/5",
+          "sliderType": "toggle-button или drag-divider",
+          "metaBlock": {
+            "padding": "12px 0 0 0",
+            "procedureName": {
+              "fontSize": "13px",
+              "fontWeight": "500",
+              "color": "#3d3830"
+            },
+            "metaDetails": {
+              "fontSize": "12px",
+              "fontWeight": "400",
+              "color": "#968e81",
+              "lineHeight": "1.6",
+              "fields": ["Процедура", "Количество процедур", "Интервал", "Результат"]
+            }
+          }
+        },
+        "promo": {
+          "description": "Акционный слайд / специальное предложение",
+          "backgroundColor": "#3a5436",
+          "color": "#fdfcf8",
+          "borderRadius": "4px",
+          "padding": "48px 56px"
+        }
+      },
+
+      "navbar": {
+        "height": {
+          "desktop": "72px",
+          "mobile":  "60px"
+        },
+        "backgroundColor": "#fdfcf8",
+        "borderBottom": "1px solid #e8e4dd",
+        "position": "sticky",
+        "top": "0",
+        "zIndex": "100",
+        "backdropFilter": "blur(8px)",
+        "scrolled": {
+          "backgroundColor": "rgba(253, 252, 248, 0.95)",
+          "boxShadow": "0 1px 12px rgba(26, 39, 24, 0.08)"
+        },
+        "logo": {
+          "height": "32px",
+          "fontFamily": "'Involve', sans-serif",
+          "fontSize": "18px",
+          "fontWeight": "400",
+          "letterSpacing": "0.02em",
+          "color": "#231f18"
+        },
+        "links": {
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "letterSpacing": "0.01em",
+          "color": "#5a5349",
+          "gap": "32px",
+          "hoverColor": "#231f18",
+          "hoverUnderlineOffset": "3px",
+          "activeColor": "#231f18",
+          "activeFontWeight": "500"
+        },
+        "ctaButton": {
+          "extends": "button.primary",
+          "padding": "10px 22px",
+          "fontSize": "13px"
+        },
+        "megaMenu": {
+          "backgroundColor": "#fdfcf8",
+          "border": "1px solid #e8e4dd",
+          "borderRadius": "0 0 8px 8px",
+          "padding": "32px 40px",
+          "boxShadow": "0 16px 40px rgba(26, 39, 24, 0.12)",
+          "columns": 3,
+          "categoryTitle": {
+            "fontSize": "11px",
+            "fontWeight": "500",
+            "letterSpacing": "0.1em",
+            "textTransform": "uppercase",
+            "color": "#968e81",
+            "marginBottom": "12px"
+          },
+          "item": {
+            "fontSize": "15px",
+            "color": "#3d3830",
+            "padding": "6px 0",
+            "hoverColor": "#3a5436"
+          }
+        },
+        "mobileMenu": {
+          "backgroundColor": "#fdfcf8",
+          "padding": "24px 20px",
+          "burger": {
+            "lineColor": "#231f18",
+            "lineWidth": "22px",
+            "lineHeight": "1.5px",
+            "lineGap": "6px",
+            "animationType": "cross"
+          }
+        }
+      },
+
+      "footer": {
+        "backgroundColor": "#231f18",
+        "color": "#fdfcf8",
+        "padding": "80px 80px 40px",
+        "borderTop": "none",
+        "logoColor": "#fdfcf8",
+        "linkColor": "rgba(253, 252, 248, 0.65)",
+        "linkHoverColor": "#fdfcf8",
+        "columnTitleSize": "11px",
+        "columnTitleWeight": "500",
+        "columnTitleLetterSpacing": "0.1em",
+        "columnTitleTextTransform": "uppercase",
+        "columnTitleColor": "rgba(253, 252, 248, 0.4)",
+        "linkSize": "14px",
+        "copyrightSize": "12px",
+        "copyrightColor": "rgba(253, 252, 248, 0.35)",
+        "divider": "1px solid rgba(253, 252, 248, 0.1)"
+      },
+
+      "accordion": {
+        "description": "FAQ и прайс-лист",
+        "borderTop": "1px solid #e8e4dd",
+        "borderBottom": "1px solid #e8e4dd",
+        "item": {
+          "borderBottom": "1px solid #e8e4dd"
+        },
+        "trigger": {
+          "padding": "20px 0",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "#231f18",
+          "cursor": "pointer",
+          "display": "flex",
+          "justifyContent": "space-between",
+          "alignItems": "center"
+        },
+        "icon": {
+          "type": "+ / −",
+          "size": "20px",
+          "color": "#3a5436",
+          "transition": "transform 300ms ease"
+        },
+        "content": {
+          "padding": "0 0 24px 0",
+          "fontSize": "15px",
+          "color": "#756d61",
+          "lineHeight": "1.7",
+          "maxHeightAnimation": "transition: max-height 350ms ease"
+        }
+      },
+
+      "slider": {
+        "description": "Горизонтальный слайдер для отзывов, специалистов",
+        "navigation": {
+          "arrowType": "круг с →",
+          "arrowSize": "48px",
+          "arrowBackground": "#ffffff",
+          "arrowBorder": "1px solid #e8e4dd",
+          "arrowColor": "#231f18",
+          "arrowHoverBackground": "#231f18",
+          "arrowHoverColor": "#ffffff",
+          "arrowBorderRadius": "50%"
+        },
+        "dots": {
+          "size": "6px",
+          "activeSize": "20px",
+          "color": "#d4cfc5",
+          "activeColor": "#3a5436",
+          "borderRadius": "3px",
+          "transition": "width 300ms ease, background 300ms ease"
+        },
+        "gap": "24px",
+        "transition": "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+
+      "heroSlider": {
+        "description": "5 дизайнов акционных слайдов для главной страницы",
+        "height": "100vh",
+        "minHeight": "600px",
+        "transition": "opacity 600ms ease",
+        "slides": {
+          "slide1": {
+            "style": "editorial",
+            "background": "dark solid #1a2718",
+            "layout": "centered",
+            "titleStyle": "heroTitle — часть italic",
+            "accentElement": "тонкая горизонтальная линия над заголовком (2px, 60px шириной, цвет accent)"
+          },
+          "slide2": {
+            "style": "split",
+            "layout": "50% текст слева + 50% фото справа",
+            "background": "#fdfcf8",
+            "textColor": "#231f18",
+            "accentPlashka": {
+              "background": "#3a5436",
+              "color": "#fdfcf8",
+              "padding": "16px 24px",
+              "fontSize": "13px"
+            }
+          },
+          "slide3": {
+            "style": "fullPhoto",
+            "background": "фото + gradient overlay rgba(26,39,24,0.5)",
+            "layout": "centered bottom",
+            "countdown": {
+              "display": "flex",
+              "gap": "24px",
+              "unitBackground": "rgba(255,255,255,0.1)",
+              "unitBorder": "1px solid rgba(255,255,255,0.2)",
+              "numberSize": "36px",
+              "labelSize": "10px",
+              "letterSpacing": "0.1em"
+            }
+          },
+          "slide4": {
+            "style": "colorBlock",
+            "layout": "левая панель зелёная + правая фото",
+            "leftBackground": "#3a5436",
+            "leftPadding": "80px",
+            "leftTextColor": "#fdfcf8",
+            "rightImageObjectFit": "cover"
+          },
+          "slide5": {
+            "style": "caption",
+            "layout": "полноэкранное фото + нижняя текстовая полоса",
+            "captionBar": {
+              "background": "#fdfcf8",
+              "height": "80px",
+              "padding": "0 80px",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between"
+            }
+          }
+        }
+      },
+
+      "popup": {
+        "overlay": {
+          "backgroundColor": "rgba(26, 39, 24, 0.7)",
+          "backdropFilter": "blur(4px)",
+          "zIndex": "1000"
+        },
+        "modal": {
+          "backgroundColor": "#ffffff",
+          "borderRadius": "6px",
+          "padding": "48px",
+          "maxWidth": "520px",
+          "width": "90%",
+          "boxShadow": "0 24px 64px rgba(26, 39, 24, 0.22)",
+          "animation": "scale(0.95) opacity(0) → scale(1) opacity(1), duration 250ms ease"
+        },
+        "closeButton": {
+          "position": "absolute top 16px right 16px",
+          "size": "32px",
+          "color": "#968e81",
+          "hoverColor": "#231f18"
+        }
+      },
+
+      "badges": {
+        "rating": {
+          "description": "Карточки рейтингов агрегаторов на странице отзывов",
+          "backgroundColor": "#ffffff",
+          "border": "1px solid #e8e4dd",
+          "borderRadius": "4px",
+          "padding": "24px 28px",
+          "logoHeight": "28px",
+          "ratingNumberSize": "36px",
+          "ratingFontWeight": "300",
+          "starColor": "#c9933a",
+          "countSize": "13px",
+          "countColor": "#968e81"
+        }
+      },
+
+      "tag": {
+        "backgroundColor": "#f3f1ed",
+        "color": "#5a5349",
+        "border": "none",
+        "borderRadius": "2px",
+        "padding": "4px 10px",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "letterSpacing": "0.02em"
+      },
+
+      "priceTable": {
+        "row": {
+          "padding": "18px 0",
+          "borderBottom": "1px solid #f3f1ed",
+          "display": "flex",
+          "justifyContent": "space-between",
+          "alignItems": "center"
+        },
+        "serviceName": {
+          "fontSize": "15px",
+          "color": "#3d3830"
+        },
+        "price": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "#3a5436",
+          "minWidth": "120px",
+          "textAlign": "right"
+        },
+        "note": {
+          "fontSize": "12px",
+          "color": "#968e81",
+          "marginTop": "2px"
+        },
+        "bookButton": {
+          "extends": "button.text",
+          "fontSize": "13px"
+        }
+      }
+    },
+
+    "layout": {
+      "grid": {
+        "columns": 12,
+        "gap": {
+          "mobile": "16px",
+          "tablet": "24px",
+          "desktop": "32px"
+        },
+        "maxWidth": "1280px",
+        "contentMaxWidth": "1140px",
+        "narrowContentMaxWidth": "720px"
+      },
+      "containers": {
+        "xs":  "480px",
+        "sm":  "640px",
+        "md":  "768px",
+        "lg":  "1024px",
+        "xl":  "1280px",
+        "2xl": "1440px"
+      },
+      "breakpoints": {
+        "mobile":  "375px",
+        "tablet":  "768px",
+        "desktop": "1024px",
+        "wide":    "1280px",
+        "ultra":   "1440px"
+      },
+      "pageStructure": {
+        "note": "Sage Derm использует ОЧЕНЬ щедрые вертикальные отступы между секциями. Минимум 96px, на десктопе — 128–160px. Это создаёт ощущение воздуха и премиальности."
+      }
+    },
+
+    "animations": {
+      "transitions": {
+        "instant": "0ms",
+        "fast":    "150ms ease",
+        "normal":  "250ms ease",
+        "medium":  "350ms ease",
+        "slow":    "500ms ease",
+        "verySlow":"700ms ease"
+      },
+      "easing": {
+        "easeOut":    "cubic-bezier(0.0, 0.0, 0.2, 1)",
+        "easeIn":     "cubic-bezier(0.4, 0.0, 1, 1)",
+        "easeInOut":  "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "spring":     "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+      "commonEffects": [
+        "fadeInUp: opacity 0→1 + translateY(20px→0), 500ms ease, при появлении в viewport (IntersectionObserver)",
+        "fadeIn: opacity 0→1, 400ms ease",
+        "slideInRight: translateX(40px→0) + opacity 0→1, 500ms ease",
+        "scaleIn: scale(0.95→1) + opacity 0→1, 250ms ease — для popup",
+        "arrowSlide: translateX(0→4px) при hover на текстовых кнопках, 200ms ease",
+        "cardLift: translateY(0→-2px) + shadow increase при hover, 250ms ease",
+        "accordionOpen: max-height expand, 350ms ease",
+        "staggerChildren: каждый дочерний элемент с animation-delay +80ms"
+      ],
+      "scrollReveal": {
+        "threshold": "0.15",
+        "rootMargin": "0px 0px -40px 0px",
+        "initialState": "opacity: 0; transform: translateY(20px)",
+        "animatedState": "opacity: 1; transform: translateY(0)"
+      }
+    },
+
+    "iconography": {
+      "style": "outline — тонкие линии, без заливки",
+      "strokeWidth": "1.5px",
+      "defaultSize": "24px",
+      "smallSize":   "16px",
+      "largeSize":   "32px",
+      "colors": {
+        "primary":   "#3a5436",
+        "secondary": "#968e81",
+        "inverted":  "#fdfcf8"
+      },
+      "note": "Sage Derm использует SVG иконки собственного дизайна — тонкие, элегантные. Рекомендуется Lucide Icons или Heroicons (outline) как замена."
+    },
+
+    "specificElements": {
+      "italicAccent": {
+        "description": "КЛЮЧЕВОЙ элемент стиля Sage Derm — часть слов в заголовке italic. Создаёт editorial-ощущение.",
+        "usage": "Первое или ключевое слово заголовка: <em>Transform</em> your skin. Тег <em> или класс .italic-accent с font-style: italic",
+        "fontStyle": "italic",
+        "fontWeight": "300",
+        "example": "<h1><em>Преображение</em> вашей кожи</h1>"
+      },
+      "arrowCTA": {
+        "description": "Текстовые ссылки-кнопки с символом стрелки ⭢ — signature элемент",
+        "arrowCharacter": "⭢",
+        "spacing": "gap: 6px между текстом и стрелкой",
+        "hoverAnimation": "стрелка сдвигается вправо на 4px"
+      },
+      "sectionLabel": {
+        "description": "Мелкая подпись над заголовком секции — uppercase, letter-spacing",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "letterSpacing": "0.14em",
+        "textTransform": "uppercase",
+        "color": "#756d61",
+        "marginBottom": "12px"
+      },
+      "dividerLine": {
+        "type": "тонкая горизонтальная линия",
+        "border": "1px solid #e8e4dd",
+        "margin": "0"
+      },
+      "videoContainer": {
+        "aspectRatio": "16/9",
+        "borderRadius": "4px",
+        "overflow": "hidden",
+        "placeholderBackground": "#1a2718",
+        "playButton": {
+          "size": "72px",
+          "backgroundColor": "rgba(253, 252, 248, 0.95)",
+          "color": "#231f18",
+          "borderRadius": "50%",
+          "iconSize": "24px"
+        }
+      },
+      "beforeAfterSlider": {
+        "dragHandle": {
+          "width": "44px",
+          "height": "44px",
+          "backgroundColor": "#ffffff",
+          "boxShadow": "0 2px 12px rgba(0,0,0,0.2)",
+          "borderRadius": "50%",
+          "arrows": "← →"
+        },
+        "label": {
+          "fontSize": "10px",
+          "fontWeight": "500",
+          "letterSpacing": "0.1em",
+          "textTransform": "uppercase",
+          "backgroundColor": "rgba(26,39,24,0.7)",
+          "color": "#ffffff",
+          "padding": "4px 10px"
+        }
+      },
+      "specialistCard": {
+        "imageShape": "прямоугольник, соотношение 3:4",
+        "imageFilter": "none (naturalный тон)",
+        "videoVisitka": {
+          "description": "Блок для видеовизитки врача",
+          "container": "extends videoContainer",
+          "label": "Видеовизитка врача",
+          "labelStyle": "extends sectionLabel"
+        }
+      },
+      "reviewsPage": {
+        "aggregatorRating": {
+          "platforms": ["Google", "Яндекс", "2ГИС", "ПроДокторов"],
+          "layout": "горизонтальная сетка 4 карточки",
+          "cardStyle": "extends badges.rating"
+        }
+      },
+      "countdown": {
+        "description": "Таймер обратного отсчёта для акций",
+        "units": ["дней", "часов", "минут", "секунд"],
+        "layout": "flex row с gap 16px",
+        "numberStyle": {
+          "fontSize": "clamp(28px, 4vw, 48px)",
+          "fontWeight": "300",
+          "color": "inherit"
+        },
+        "labelStyle": {
+          "fontSize": "10px",
+          "letterSpacing": "0.1em",
+          "textTransform": "uppercase",
+          "opacity": "0.6"
+        }
+      }
+    },
+
+    "implementationNotes": {
+      "cssVariables": "Все токены оформить как CSS custom properties в :root {}",
+      "fontNote": "Шрифт Involve — ЕДИНСТВЕННАЯ гарнитура на всём сайте. Разные веса и italic создают всю типографическую иерархию.",
+      "colorPhilosophy": "Тёплые нейтралы доминируют. Зелёный (#3a5436) — акцент, используется точечно: ссылки, фокус, цены, иконки.",
+      "spacingPhilosophy": "Больше воздуха = больше премиальности. Не жалеть отступы между секциями.",
+      "animationPhilosophy": "Деликатные, медленные анимации. Никаких резких движений. Всё плавно.",
+      "mobileFirst": "Начинать с mobile-стилей, расширять через min-width media queries.",
+      "accessibilityNotes": "focus-visible состояния для всех интерактивных элементов. ARIA-атрибуты для слайдеров, аккордеонов, попапов. Достаточный цветовой контраст текста."
+    }
+  }
+}

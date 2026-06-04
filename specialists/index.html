@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="../responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202606041800"/></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Специалисты — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
+em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}
+.pill-btn:hover{background:#0d2b23}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
+.site-hd__logo img{height:36px;width:auto}
+.site-hd__nav{display:flex;gap:48px}
+.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
+.site-hd__nav a:hover{opacity:0.7}
+.site-hd__actions{display:flex;align-items:center;gap:36px}
+.site-hd__cta{padding:16px 24px;font-size:18px}
+
+.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
+.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
+.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+
+.sec-spec-page{background:var(--c-bg);padding:72px 0}
+.sec-spec-page .sec-h{color:var(--c-text);margin-bottom:72px}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.spec-card{
+  border-radius:20px;overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(53,40,26,0.08);
+  display:flex;flex-direction:column;
+  text-decoration:none;
+  transition:transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
+}
+.spec-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(53,40,26,0.12)}
+.spec-card__photo{width:100%;height:380px;overflow:hidden;background:#f5f2ed;flex-shrink:0}
+.spec-card__photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1)}
+.spec-card:hover .spec-card__photo img{transform:scale(1.04)}
+.spec-card__info{padding:24px 24px 28px;display:flex;flex-direction:column;gap:8px}
+.spec-card__name{font-size:22px;font-weight:500;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;font-style:normal}
+.spec-card__role{font-size:16px;font-weight:400;color:var(--c-muted);letter-spacing:-0.01em;line-height:1.3;font-style:normal}
+
+.sec-cta{background:var(--c-bg);padding:72px 0;text-align:center}
+.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+.cta-sub{font-size:24px;font-weight:400;color:var(--c-muted);letter-spacing:-0.02em;margin-bottom:48px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.4}
+
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}
+.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
+.footer-logo{margin-bottom:24px}
+.footer-logo img{height:40px;width:auto}
+.footer-tagline{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal;margin-bottom:24px}
+.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
+.footer-addr{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal}
+.footer-col h3{font-size:15px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
+.footer-links{display:flex;flex-direction:column;gap:16px}
+.footer-links a{font-size:13px;font-weight:500;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
+.footer-links a:hover{color:var(--c-white)}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:var(--c-w50);font-style:normal}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+</style>
+</head>
+<body>
+
+<header class="site-hd">
+  <a href="../index.html" class="site-hd__logo">
+    <img src="../assets/icons/logo.svg" alt="RA|RÉ"/>
+  </a>
+  <nav class="site-hd__nav">
+    <a href="../about.html">О клинике</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../services.html">Услуги</a>
+    <a href="index.html" style="opacity:0.5">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="../reviews/index.html">Отзывы</a><a href="../articles/index.html">Статьи</a>
+  </nav>
+  <div class="site-hd__actions">
+    <a href="tel:+79002761116" style="display:flex;align-items:center;">
+      <img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
+    </a>
+    <a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+  </div>
+</header>
+
+<section class="inner-hero">
+  <div class="inner-hero__bg" style="background-image:url('../assets/photos/hero-specialists-new.webp');"></div>
+  <div class="inner-hero__overlay"></div>
+  <div class="inner-hero__cnt wrap">
+    <h1 class="inner-hero__title">Специалисты</h1>
+  </div>
+</section>
+
+<section class="sec-spec-page">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white);margin-bottom:72px;">Наша команда</h2>
+    <div class="spec-grid">
+      <a href="mariya-viktorovna.html" class="spec-card" data-rr="up" style="--rr-del:0.00s">
+        <div class="spec-card__photo"><img src="../assets/photos/spec-mariya.webp" alt="Мария Викторовна" loading="lazy"/></div>
+        <div class="spec-card__info">
+          <p class="spec-card__name">Мария Викторовна</p>
+          <p class="spec-card__role">Главный врач, врач-косметолог</p>
+        </div>
+      </a>
+      <a href="elena-tigranovna.html" class="spec-card" data-rr="up" style="--rr-del:0.08s">
+        <div class="spec-card__photo"><img src="../assets/photos/spec-elena.webp" alt="Елена Тиграновна" loading="lazy"/></div>
+        <div class="spec-card__info">
+          <p class="spec-card__name">Елена Тиграновна</p>
+          <p class="spec-card__role">Медицинский массажист</p>
+        </div>
+      </a>
+      <a href="yana-vladimirovna.html" class="spec-card" data-rr="up" style="--rr-del:0.16s">
+        <div class="spec-card__photo"><img src="../assets/photos/spec-yana.webp" alt="Яна Владимировна" loading="lazy"/></div>
+        <div class="spec-card__info">
+          <p class="spec-card__name">Яна Владимировна</p>
+          <p class="spec-card__role">Медицинский массажист</p>
+        </div>
+      </a>
+      <a href="ksenia-aleksandrovna.html" class="spec-card" data-rr="up" style="--rr-del:0.24s">
+        <div class="spec-card__photo"><img src="../assets/photos/spec-ksenia.webp" alt="Ксения Александровна" loading="lazy"/></div>
+        <div class="spec-card__info">
+          <p class="spec-card__name">Ксения Александровна</p>
+          <p class="spec-card__role">Косметолог-эстетист</p>
+        </div>
+      </a>
+      <a href="alisa-alekseevna.html" class="spec-card" data-rr="up" style="--rr-del:0.32s">
+        <div class="spec-card__photo"><img src="../assets/photos/spec-alisa.webp" alt="Алиса Алексеевна" loading="lazy"/></div>
+        <div class="spec-card__info">
+          <p class="spec-card__name">Алиса Алексеевна</p>
+          <p class="spec-card__role">Врач-дерматовенеролог, косметолог, трихолог</p>
+        </div>
+      </a>
+      <a href="inna-viktorovna.html" class="spec-card" data-rr="up" style="--rr-del:0.40s">
+        <div class="spec-card__photo"><img src="../assets/photos/spec-inna.webp" alt="Инна Викторовна" loading="lazy"/></div>
+        <div class="spec-card__info">
+          <p class="spec-card__name">Инна Викторовна</p>
+          <p class="spec-card__role">Медицинский массажист</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cta">
+  <div class="wrap">
+    <h2 class="cta-heading">Запишитесь к нужному специалисту</h2>
+    <p class="cta-sub">Не уверены, кто вам нужен? Позвоните нам — мы поможем выбрать специалиста под ваш запрос.</p>
+    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="../index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться онлайн</a>
+      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-text);text-decoration:none;letter-spacing:-0.02em;">+7 (900) 276-11-16</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="../services/smas.html">SMAS-лифтинг</a>
+    <a href="../services/injections.html">Инъекционная косметология</a>
+    <a href="../services/laser.html">Лазерная эпиляция</a>
+    <a href="../services/lifts.html">Аппаратные лифтинги</a>
+    <a href="../services/skin.html">Уход за кожей</a>
+    <a href="../services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="../about.html">О клинике</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="../docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="../index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+
+<script src="./docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../mobile-nav.js?v=202606041800" defer></script>
+<script src="../accessibility.js" defer></script></body>
+</html>

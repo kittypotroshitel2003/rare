@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202606041800"/></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Акции — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
+em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}
+.pill-btn:hover{background:#0d2b23}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
+.site-hd__logo img{height:36px;width:auto}
+.site-hd__nav{display:flex;gap:48px}
+.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
+.site-hd__nav a:hover{opacity:0.7}
+.site-hd__actions{display:flex;align-items:center;gap:36px}
+.site-hd__cta{padding:16px 24px;font-size:18px}
+
+.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
+.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
+.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+
+.sec-promos-page{padding:72px 0}
+.promo-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:72px}
+.promo-card{border:none;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;cursor:pointer;background:#fff;box-shadow:0 2px 20px rgba(53,40,26,0.08),0 1px 4px rgba(53,40,26,0.05);transition:box-shadow 0.3s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94)}
+.promo-card:hover{box-shadow:0 16px 52px rgba(53,40,26,0.15),0 4px 14px rgba(53,40,26,0.08);transform:translateY(-5px)}
+.promo-card__img-wrap{position:relative;height:220px;overflow:hidden;flex-shrink:0}
+.promo-card__img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)}
+.promo-card:hover .promo-card__img{transform:scale(1.05)}
+.promo-card__img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(16,47,39,0.5) 100%);pointer-events:none}
+.promo-card__img-wrap .promo-tag{position:absolute;bottom:14px;left:14px;z-index:2}
+.promo-tag{background:var(--c-accent);color:var(--c-white);border-radius:var(--r-pill);padding:9px 15px;font-size:15px;font-weight:500;letter-spacing:-0.01em;line-height:1;font-style:normal}
+.promo-card__body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;gap:0}
+.promo-card__btm{flex:1;display:flex;flex-direction:column;gap:7px;padding-bottom:14px}
+.promo-card__title{font-size:19px;font-weight:500;color:var(--c-text);letter-spacing:-0.02em;line-height:1.25;font-style:normal}
+.promo-card__desc{font-size:14px;font-weight:400;color:var(--c-muted);letter-spacing:-0.01em;line-height:1.45;font-style:normal}
+.promo-card__top{display:flex;justify-content:flex-end;align-items:center;margin-top:auto}
+.promo-arr{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(53,40,26,0.18);display:inline-flex;align-items:center;justify-content:center;font-size:15px;color:var(--c-text);font-style:normal;flex-shrink:0;transition:background 0.2s,border-color 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.promo-card:hover .promo-arr{background:var(--c-accent);border-color:var(--c-accent);color:#fff;transform:rotate(-45deg)}
+
+.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center}
+.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}
+.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
+.footer-logo{margin-bottom:24px}
+.footer-logo img{height:40px;width:auto}
+.footer-tagline{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal;margin-bottom:24px}
+.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
+.footer-addr{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal}
+.footer-col h3{font-size:15px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
+.footer-links{display:flex;flex-direction:column;gap:16px}
+.footer-links a{font-size:13px;font-weight:500;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
+.footer-links a:hover{color:var(--c-white)}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:var(--c-w50);font-style:normal}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+</style>
+</head>
+<body>
+
+<header class="site-hd">
+  <a href="index.html" class="site-hd__logo">
+    <img src="assets/icons/logo.svg" alt="RA|RÉ"/>
+  </a>
+  <nav class="site-hd__nav">
+    <a href="about.html">О клинике</a>
+    <a href="promos.html" style="opacity:0.5">Акции</a>
+    <a href="services.html">Услуги</a>
+    <a href="specialists/index.html">Специалисты</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
+  </nav>
+  <div class="site-hd__actions">
+    <a href="tel:+79002761116" style="display:flex;align-items:center;">
+      <img src="assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
+    </a>
+    <a href="index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+  </div>
+</header>
+
+<section class="inner-hero">
+  <div class="inner-hero__bg" style="background-image:url('assets/photos/hero-promos-new.webp');"></div>
+  <div class="inner-hero__overlay"></div>
+  <div class="inner-hero__cnt wrap">
+    <h1 class="inner-hero__title">Акции</h1>
+  </div>
+</section>
+
+<section class="sec-promos-page">
+  <div class="wrap">
+    <h2 class="sec-h">Текущие акции</h2>
+    <p style="font-size:24px;font-weight:400;color:var(--c-muted);letter-spacing:-0.02em;margin-top:24px;">Специальные предложения для новых и постоянных гостей клиники</p>
+    <div class="promo-cards-grid">
+      <a href="promos/rf-lifting.html" class="promo-card">
+        <div class="promo-card__img-wrap"><img src="assets/photos/hero-lifts.webp" alt="РФ-лифтинг" class="promo-card__img" loading="lazy"/><div class="promo-card__img-overlay"></div><span class="promo-tag">Скидка 30%</span></div>
+        <div class="promo-card__body"><div class="promo-card__btm"><p class="promo-card__title">Монополярный РФ-лифтинг от 400 импульсов</p><p class="promo-card__desc">Инновационное омоложение без боли и реабилитации</p></div><div class="promo-card__top"><span class="promo-arr">→</span></div></div>
+      </a>
+      <a href="promos/smas-lifting.html" class="promo-card">
+        <div class="promo-card__img-wrap"><img src="assets/photos/hero-smas.webp" alt="SMAS-лифтинг" class="promo-card__img" loading="lazy"/><div class="promo-card__img-overlay"></div><span class="promo-tag">Скидка 20%</span></div>
+        <div class="promo-card__body"><div class="promo-card__btm"><p class="promo-card__title">SMAS-лифтинг от 500 линий</p><p class="promo-card__desc">Весь май — скидка 20% на процедуру SMAS-лифтинга</p></div><div class="promo-card__top"><span class="promo-arr">→</span></div></div>
+      </a>
+      <a href="promos/laser-new-client.html" class="promo-card">
+        <div class="promo-card__img-wrap"><img src="assets/photos/hero-laser.webp" alt="Лазерная эпиляция" class="promo-card__img" loading="lazy"/><div class="promo-card__img-overlay"></div><span class="promo-tag">Скидка 30%</span></div>
+        <div class="promo-card__body"><div class="promo-card__btm"><p class="promo-card__title">Лазерная эпиляция для новых клиентов</p><p class="promo-card__desc">Скидка 30% при первом посещении на аппарате Candela</p></div><div class="promo-card__top"><span class="promo-arr">→</span></div></div>
+      </a>
+      <a href="promos/first-visit.html" class="promo-card">
+        <div class="promo-card__img-wrap"><img src="assets/photos/hero-skin.webp" alt="Первый визит" class="promo-card__img" loading="lazy"/><div class="promo-card__img-overlay"></div><span class="promo-tag">До 20%</span></div>
+        <div class="promo-card__body"><div class="promo-card__btm"><p class="promo-card__title">Скидка на первый визит</p><p class="promo-card__desc">До 20% на первую процедуру для новых гостей клиники</p></div><div class="promo-card__top"><span class="promo-arr">→</span></div></div>
+      </a>
+      <a href="promos/biorev-meso.html" class="promo-card">
+        <div class="promo-card__img-wrap"><img src="assets/photos/hero-injections.webp" alt="Биоревитализация и мезотерапия" class="promo-card__img" loading="lazy"/><div class="promo-card__img-overlay"></div><span class="promo-tag">Комплекс</span></div>
+        <div class="promo-card__body"><div class="promo-card__btm"><p class="promo-card__title">Биоревитализация + мезотерапия</p><p class="promo-card__desc">Два шага к идеальной коже — по цене одного</p></div><div class="promo-card__top"><span class="promo-arr">→</span></div></div>
+      </a>
+      <a href="promos/spa-transformation.html" class="promo-card">
+        <div class="promo-card__img-wrap"><img src="assets/photos/hero-spa.webp" alt="SPA программа" class="promo-card__img" loading="lazy"/><div class="promo-card__img-overlay"></div><span class="promo-tag">SPA-программа</span></div>
+        <div class="promo-card__body"><div class="promo-card__btm"><p class="promo-card__title">«Полное преображение»</p><p class="promo-card__desc">Уход лицо + тело, 2 часа. Для тех, кто выбирает лучшее</p></div><div class="promo-card__top"><span class="promo-arr">→</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cta">
+  <div class="wrap">
+    <h2 class="cta-heading">Воспользуйтесь<br>специальным предложением</h2>
+    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться на приём</a>
+      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="services/smas.html">SMAS-лифтинг</a>
+    <a href="services/injections.html">Инъекционная косметология</a>
+    <a href="services/laser.html">Лазерная эпиляция</a>
+    <a href="services/lifts.html">Аппаратные лифтинги</a>
+    <a href="services/skin.html">Уход за кожей</a>
+    <a href="services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="about.html">О клинике</a>
+    <a href="specialists/index.html">Специалисты</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a>
+    <a href="articles/index.html">Статьи</a>
+    <a href="promos.html">Акции</a>
+    <a href="prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+
+<script src="docs-popup.js" defer></script><script src="animations.js?v=202606041800" defer></script>
+<script src="mobile-nav.js?v=202606041800" defer></script>
+<script src="./accessibility.js" defer></script></body>
+</html>

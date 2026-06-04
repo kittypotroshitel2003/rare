@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202606041800"/></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>О клинике — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<style>
+:root {
+  --c-dark:   #102f27;
+  --c-accent: #568673;
+  --c-bg:     #F3EEE8;
+  --c-text:   #35281a;
+  --c-muted:  #71685d;
+  --c-white:  #F3EEE8;
+  --c-w50:    rgba(253,252,248,0.5);
+  --f:        'Involve', sans-serif;
+  --r-card:10px;
+  --r-pill:6px;
+  --gutter:clamp(20px,4.5vw,72px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--f); background: var(--c-bg); color: var(--c-text); overflow-x: hidden; }
+em { font-style: normal; } img { display: block; max-width: 100%; } a { color: inherit; }
+.wrap { max-width: 1920px; margin: 0 auto; padding: 0 var(--gutter); }
+.pill-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-accent); color: var(--c-white); border-radius: var(--r-pill);
+  font-family: var(--f); font-weight: 500; font-style: normal;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s; line-height: 1;
+}
+.pill-btn:hover { background: #4a7262; transform: translateY(-1px); }
+.pill-btn:active { transform: translateY(0); }
+
+/* ───── HERO ───── */
+.page-hero {
+  position: relative;
+  background: var(--c-dark);
+  height: clamp(420px, 36.5vw, 701px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.page-hero__bg {
+  position: absolute; inset: 0;
+  background-image: url('assets/photos/hero-about-new.webp');
+  background-size: cover; background-position: center top;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.site-hd {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 33px var(--gutter);
+}
+.site-hd__logo img { height: 36px; width: auto; }
+.site-hd__nav { display: flex; gap: 48px; }
+.site-hd__nav a {
+  font-size: 18px; font-weight: 500; color: var(--c-white);
+  text-decoration: none; font-style: normal; white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.site-hd__nav a:hover { opacity: 0.7; }
+.site-hd__nav a.active { opacity: 0.5; }
+.site-hd__actions { display: flex; align-items: center; gap: 36px; }
+.site-hd__cta { padding: 16px 24px; font-size: 18px; }
+.page-hero__cnt {
+  position: relative; z-index: 2;
+  padding: 0 var(--gutter) clamp(28px, 2.4vw, 46px);
+}
+.page-hero__title {
+  font-size: clamp(48px, 6.25vw, 120px);
+  font-weight: 400; color: var(--c-white);
+  letter-spacing: -0.02em; line-height: 1; font-style: normal;
+  text-align: left;
+}
+
+/* ───── ABOUT SECTION ───── */
+.sec-about { padding: clamp(48px, 7vw, 120px) 0 clamp(48px, 6vw, 100px); }
+.about-photo-wrap {
+  border-radius: 16px; overflow: hidden;
+  height: clamp(260px, 42vw, 680px);
+  margin-bottom: clamp(56px, 7vw, 100px);
+  position: relative;
+}
+.about-photo-wrap::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(46,65,40,0.18));
+  pointer-events: none;
+}
+.about-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+
+/* ── Two-column editorial: text left, stats right ── */
+.about-content-row {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: clamp(48px, 7vw, 120px);
+  align-items: start;
+}
+.about-text { display: flex; flex-direction: column; gap: 24px; }
+.about-text__heading {
+  font-size: clamp(28px, 2.8vw, 52px);
+  font-weight: 400; letter-spacing: -0.03em; line-height: 1.02;
+  color: var(--c-text); font-style: normal;
+}
+.about-text__body {
+  font-size: clamp(15px, 1.1vw, 19px);
+  font-weight: 400; line-height: 1.75; color: var(--c-muted);
+  letter-spacing: -0.005em; font-style: normal;
+}
+.about-text__body p { margin-bottom: 1.1em; }
+.about-text__body p:last-child { margin: 0; }
+
+/* Stats column — stacked cards */
+.about-stats {
+  display: flex; flex-direction: column;
+  border-top: none; border-bottom: none; margin-top: 0;
+}
+.about-stat {
+  padding: clamp(20px, 2.5vw, 32px) 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0 clamp(12px, 1.5vw, 20px);
+  position: relative;
+}
+.about-stat:first-child { border-top: none; }
+.about-stat__n {
+  font-size: clamp(52px, 5.5vw, 96px);
+  font-weight: 300; letter-spacing: -0.05em; line-height: 0.9;
+  color: var(--c-accent); font-style: normal;
+  grid-column: 1; grid-row: 1;
+}
+.about-stat__l {
+  font-size: clamp(12px, 0.85vw, 14px); font-weight: 600;
+  color: var(--c-muted); letter-spacing: 0.1em; line-height: 1.3;
+  font-style: normal; text-transform: uppercase;
+  grid-column: 2; grid-row: 1;
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .about-content-row { grid-template-columns: 1fr; gap: 48px; }
+  .about-stats { flex-direction: row; flex-wrap: wrap; gap: 0; }
+  .about-stat { flex: 1 1 calc(50% - 1px); grid-template-columns: 1fr; gap: 4px; padding: 20px 0; }
+  .about-stat:nth-child(odd) { border-right: 1px solid rgba(53,40,26,0.1); padding-right: 20px; }
+  .about-stat:nth-child(even) { padding-left: 20px; }
+  .about-stat__n { font-size: clamp(44px, 10vw, 72px); grid-column: 1; }
+  .about-stat__l { grid-column: 1; grid-row: 2; margin-top: 2px; }
+}
+
+/* ───── GALLERY ───── */
+.sec-gallery { padding: clamp(60px, 6.25vw, 120px) 0; overflow: hidden; }
+.gallery-heading {
+  font-size: clamp(36px, 4.17vw, 80px);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1;
+  color: var(--c-text); font-style: normal;
+  padding: 0 var(--gutter);
+  margin-bottom: clamp(24px, 4.4vw, 85px);
+  text-align: left;
+}
+.gallery-track {
+  display: flex; gap: 24px;
+  padding-left: var(--gutter);
+  padding-right: 0;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+.gallery-track:active { cursor: grabbing; }
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-slide {
+  flex-shrink: 0;
+  width: clamp(280px, 53.75vw, 1032px);
+  height: clamp(200px, 35.8vw, 688px);
+  border-radius: var(--r-card); overflow: hidden;
+  scroll-snap-align: start;
+  background: var(--c-dark);
+}
+.gallery-slide img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.gallery-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter);
+  margin-top: clamp(20px, 2.5vw, 48px);
+}
+.gallery-counter {
+  font-size: 17px; font-weight: 500; color: var(--c-muted);
+  letter-spacing: -0.01em; font-style: normal;
+}
+.gallery-arrows { display: flex; gap: 12px; }
+.gallery-arr {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1.5px solid rgba(53,40,26,0.2); background: none;
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--c-text); transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.gallery-arr:hover { background: var(--c-dark); border-color: var(--c-dark); color: #F3EEE8; }
+.gallery-arr:active { transform: scale(0.94); }
+.gallery-arr:disabled { opacity: 0.28; cursor: default; }
+.gallery-arr:disabled:hover { background: none; border-color: rgba(53,40,26,0.2); color: var(--c-text); }
+
+/* ───── ARTICLES ───── */
+.sec-articles { padding: clamp(60px, 6.25vw, 120px) 0; }
+.articles-heading {
+  font-size: clamp(36px, 4.17vw, 80px);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1;
+  color: var(--c-text); font-style: normal;
+  margin-bottom: clamp(28px, 2.2vw, 42px);
+  text-align: left;
+}
+.articles-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-bottom: clamp(28px, 2.2vw, 42px);
+}
+.article-card {
+  height: clamp(220px, 17.9vw, 344px);
+  border-radius: var(--r-card); overflow: hidden;
+  border: 1px solid var(--c-text);
+  padding: 28px 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.35s ease,
+              border-color 0.25s ease;
+}
+.article-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(53,40,26,0.16), 0 4px 12px rgba(53,40,26,0.08);
+  border-color: var(--c-accent);
+}
+.article-card--light { background: #fff; }
+.article-card--cream { background: var(--c-bg); }
+.article-card--photo { background: #1a1a1a; border-color: transparent; }
+.article-card--photo:hover { border-color: transparent; }
+
+.article-card__bg {
+  position: absolute; inset: 0;
+  object-fit: cover; width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  transform-origin: center;
+}
+.article-card:hover .article-card__bg { transform: scale(1.07); }
+
+.article-card__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.42) 100%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+.article-card--photo:hover .article-card__overlay {
+  background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.42) 100%);
+}
+
+.article-card__arrow {
+  text-align: right; font-size: 24px; font-weight: 500;
+  line-height: 1; position: relative; z-index: 2;
+  display: inline-block; align-self: flex-end;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.article-card:hover .article-card__arrow { transform: translate(5px, -5px); }
+.article-card--light .article-card__arrow,
+.article-card--cream .article-card__arrow { color: var(--c-text); }
+.article-card--photo .article-card__arrow { color: var(--c-white); }
+.article-card__foot {
+  display: flex; flex-direction: column; gap: 16px;
+  position: relative; z-index: 2;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.article-card:hover .article-card__foot { transform: translateY(-4px); }
+
+.article-card__title {
+  font-size: clamp(15px, 1.25vw, 24px); font-weight: 500;
+  letter-spacing: -0.02em; line-height: 1.15; font-style: normal;
+}
+.article-card--light .article-card__title,
+.article-card--cream .article-card__title { color: var(--c-text); }
+.article-card--photo .article-card__title { color: var(--c-white); }
+.article-card__date {
+  font-size: clamp(13px, 0.94vw, 18px); font-weight: 500;
+  letter-spacing: -0.02em; opacity: 0.7;
+  text-align: right; font-style: normal;
+}
+.article-card--light .article-card__date,
+.article-card--cream .article-card__date { color: var(--c-text); }
+.article-card--photo .article-card__date { color: var(--c-white); }
+.articles-cta { display: flex; justify-content: center; }
+
+/* ───── ABOUT STATS ───── */
+.about-stats {
+  display: flex; flex-direction: column; gap: 0;
+}
+.about-stat {
+  padding: clamp(16px, 2vw, 28px) 0;
+  display: flex; flex-direction: column; gap: 4px;
+  align-items: flex-start;
+}
+.about-stat__n {
+  font-size: clamp(28px, 3vw, 52px);
+  font-weight: 400; letter-spacing: -0.04em; line-height: 1;
+  color: var(--c-accent); font-style: normal;
+}
+.about-stat__l {
+  font-size: clamp(12px, 0.9vw, 14px); font-weight: 500;
+  color: var(--c-muted); letter-spacing: 0.06em; line-height: 1.3;
+  font-style: normal; text-transform: uppercase; align-self: flex-start;
+}
+
+/* ───── BOOKING FORM ───── */
+.sec-booking {
+  padding: clamp(60px, 6.25vw, 120px) 0;
+  background: #fff;
+}
+.booking-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 96px); align-items: start;
+}
+.booking-left {}
+.booking-heading {
+  font-size: clamp(36px, 4.17vw, 80px);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1;
+  color: var(--c-text); font-style: normal; margin-bottom: 28px;
+  text-align: left;
+}
+.booking-desc {
+  font-size: clamp(15px, 1.04vw, 20px); font-weight: 400;
+  letter-spacing: -0.01em; line-height: 1.65;
+  color: var(--c-muted); font-style: normal;
+}
+.booking-form {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  padding: clamp(28px, 3vw, 48px);
+  box-shadow: 0 4px 32px rgba(53,40,26,0.10), 0 1px 6px rgba(53,40,26,0.06);
+  border: 1px solid rgba(53,40,26,0.07);
+}
+.form-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin-bottom: 0;
+}
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-label {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted); line-height: 1; font-style: normal;
+  display: block;
+}
+.form-input {
+  padding: 16px 20px;
+  background: #f5f0e8;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  font-family: var(--f); font-size: 17px; font-weight: 500;
+  color: var(--c-text); letter-spacing: -0.01em;
+  line-height: 1; outline: none; width: 100%;
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-input:focus { border-color: var(--c-accent); background: #fff; }
+.form-input::placeholder { color: rgba(53,40,26,0.4); }
+.form-select-wrap {
+  margin-top: 0;
+  background: #f5f0e8;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; cursor: pointer; position: relative;
+  transition: border-color 0.2s;
+}
+.form-select-wrap:hover { border-color: var(--c-accent); }
+.form-select-label {
+  font-size: 17px; font-weight: 500;
+  color: rgba(53,40,26,0.4); letter-spacing: -0.01em;
+  line-height: 1; font-style: normal;
+}
+.form-arrow { width: 24px; height: 24px; flex-shrink: 0; display: block; }
+.form-submit {
+  margin-top: 24px; padding: 20px 36px;
+  font-size: 18px; letter-spacing: -0.02em;
+  width: 100%;
+}
+.form-service-group { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+
+/* ───── CONTACT BANNER ───── */
+.sec-contact {
+  background: var(--c-dark);
+  overflow: hidden;
+  min-height: clamp(300px, 36.1vw, 694px);
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.contact-info {
+  padding: clamp(48px, 6.25vw, 120px) var(--gutter);
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 48px;
+}
+.contact-heading {
+  font-size: clamp(36px, 4.17vw, 80px);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1;
+  color: var(--c-white); font-style: normal;
+  text-align: left;
+}
+.contact-details { display: flex; flex-direction: column; gap: 40px; }
+.contact-addr-block { display: flex; flex-direction: column; gap: 12px; }
+.contact-addr-line {
+  font-size: clamp(15px, 1.15vw, 22px); font-weight: 500;
+  color: var(--c-white); line-height: 1.4; font-style: normal;
+}
+.contact-divider {
+  border: none; height: 1px;
+  background: rgba(253,252,248,0.2);
+}
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link {
+  font-size: clamp(15px, 1.15vw, 22px); font-weight: 500;
+  color: var(--c-white); text-decoration: none;
+  line-height: 1.25; font-style: normal;
+  transition: opacity 0.2s; display: inline-block;
+}
+.contact-link:hover { opacity: 0.7; }
+.contact-map { position: relative; overflow: hidden; }
+.contact-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ───── FOOTER ───── */
+.site-footer {
+  background: var(--c-dark);
+  padding: 90px 0 60px;
+  border-top: 1px solid rgba(253,252,248,0.08);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(220px,335px) repeat(3,1fr);
+  gap: 60px; align-items: start;
+}
+.footer-logo { margin-bottom: 24px; }
+.footer-logo img { height: 131px; width: auto; }
+.footer-tagline { font-size: 18px; font-weight: 500; color: var(--c-w50); line-height: 1.25; font-style: normal; margin-bottom: 24px; }
+.footer-phone { font-size: 32px; font-weight: 500; color: var(--c-white); line-height: 1.25; text-decoration: none; display: block; font-style: normal; margin-bottom: 8px; transition: opacity 0.2s; }
+.footer-phone:hover { opacity: 0.75; }
+.footer-addr { font-size: 18px; font-weight: 500; color: var(--c-w50); line-height: 1.25; font-style: normal; }
+.footer-col h3 { font-size: 32px; font-weight: 500; color: var(--c-white); line-height: 1.25; margin-bottom: 24px; font-style: normal; }
+.footer-links { display: flex; flex-direction: column; gap: 16px; }
+.footer-links a { font-size: 18px; font-weight: 500; color: var(--c-w50); text-decoration: none; line-height: 1.25; font-style: normal; transition: color 0.2s; }
+.footer-links a:hover { color: var(--c-white); }
+.footer-copy { margin-top: 60px; font-size: 24px; font-weight: 500; color: var(--c-w50); font-style: normal; }
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+
+/* ── ADVANTAGES BLOCK ── */
+.sec-adv { padding: 72px 0; background: var(--c-bg); }
+.adv-row { display: flex !important; flex-direction: row !important; align-items: stretch; }
+.adv-item {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 28px;
+  padding: 0 clamp(20px, 4vw, 56px); position: relative; border-radius: 0;
+  transition: background 0.3s ease; cursor: default;
+}
+.adv-item + .adv-item { border-left: 1px solid rgba(53,40,26,0.12); }
+.adv-item:hover { background: rgba(86,134,115,0.05); }
+.adv-icon {
+  height: 140px; display: flex; align-items: center; justify-content: center;
+  overflow: visible; padding-top: 28px;
+}
+.adv-icon img { max-height: 120px; max-width: 160px; object-fit: contain; }
+.adv-label {
+  font-size: clamp(14px, 1.2vw, 20px); font-weight: 500;
+  color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2;
+  text-align: center; font-style: normal;
+}
+@media (max-width: 767px) {
+  .adv-row { flex-direction: column !important; gap: 32px; }
+  .adv-item + .adv-item { border-left: none; border-top: 1px solid rgba(53,40,26,0.12); padding-top: 32px; }
+  .adv-item { padding: 0 16px; }
+  .adv-icon { height: 110px; padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO (header + title inside)
+══════════════════════════════════════ -->
+<div class="page-hero">
+  <div class="page-hero__bg"></div>
+
+  <header class="site-hd">
+    <a href="index.html" class="site-hd__logo">
+      <img src="assets/icons/logo.svg" alt="RA|RÉ" width="92" height="36" style="width:92px;height:36px;object-fit:contain;"/>
+    </a>
+    <nav class="site-hd__nav">
+      <a href="about.html" class="active">О клинике</a>
+      <a href="promos.html">Акции</a>
+      <a href="services.html">Услуги</a>
+      <a href="specialists/index.html">Специалисты</a>
+      <a href="certificates.html">Сертификаты</a>
+      <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
+    </nav>
+    <div class="site-hd__actions">
+      <a href="tel:+79002761116" style="display:flex;align-items:center;">
+        <img src="assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
+      </a>
+      <a href="index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+    </div>
+  </header>
+
+  <div class="page-hero__cnt">
+    <h1 class="page-hero__title">О клинике</h1>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     О КЛИНИКЕ
+══════════════════════════════════════ -->
+<section class="sec-about">
+  <div class="wrap">
+    <div class="about-photo-wrap">
+      <img src="assets/photos/about-hero.webp" alt="Команда клиники RA|RÉ" loading="lazy"/>
+    </div>
+    <div class="about-content-row">
+      <div class="about-text">
+        <h2 class="about-text__heading">О клинике</h2>
+        <div class="about-text__body">
+          <p>RA|RÉ — клиника экспертной косметологии в Анапе. Мы объединяем передовые технологии, глубокую медицинскую экспертизу и внимательный индивидуальный подход к каждому гостю.</p>
+          <p>Каждая процедура разработана под ваш тип кожи и задачи. Никаких шаблонных решений — только персональный протокол с доказанным результатом.</p>
+          <p>Наша миссия — улучшить качество здоровья и жизни каждого гостя. Мы применяем самые эффективные и прогрессивные методы, постоянно повышая уровень квалификации наших специалистов.</p>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="about-stat__n">7+</span>
+          <span class="about-stat__l">лет работы</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat__n">3000+</span>
+          <span class="about-stat__l">довольных пациентов</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat__n">40+</span>
+          <span class="about-stat__l">видов процедур</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ПРЕИМУЩЕСТВА
+══════════════════════════════════════ -->
+<section class="sec-adv">
+  <div class="wrap">
+    <div class="adv-row">
+      <div class="adv-item">
+        <div class="adv-icon">
+          <img src="assets/icons/adv-preparations.svg" alt="Опытные специалисты" loading="lazy"/>
+        </div>
+        <p class="adv-label">Опытные специалисты</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">
+          <img src="assets/icons/adv-specialists.svg" alt="Оборудование" loading="lazy"/>
+        </div>
+        <p class="adv-label">Лучшее оборудование с РУ</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">
+          <img src="assets/icons/adv-equipment.svg" alt="Препараты" loading="lazy"/>
+        </div>
+        <p class="adv-label">Сертифицированные препараты</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ГАЛЕРЕЯ
+══════════════════════════════════════ -->
+<section class="sec-gallery">
+  <h2 class="gallery-heading">Галерея</h2>
+  <div class="gallery-track" id="galleryTrack">
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-team-1.webp" alt="Команда RA|RÉ" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-team-2.webp" alt="Команда RA|RÉ" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3373.webp" alt="RA|RÉ клиника" loading="lazy" style="object-position: center 25%;"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3660.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3704.webp" alt="RA|RÉ клиника" loading="lazy" style="object-position: center 25%;"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3807.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3836.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3846.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3868.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a3939.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4024.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4115.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4122.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4152.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4158.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4231.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4250.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4280.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4354.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4408.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4435.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4445.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4453.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4459.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4465.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4467.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4473.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4486.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4500.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4503.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4513.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4525.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4537.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4584.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4591.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4609.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4640.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+    <div class="gallery-slide">
+      <img src="assets/photos/gallery-eu4a4648.webp" alt="RA|RÉ клиника" loading="lazy"/>
+    </div>
+  </div>
+  <div class="gallery-nav">
+    <span class="gallery-counter" id="galleryCounter">01 / 42</span>
+    <div class="gallery-arrows">
+      <button class="gallery-arr" id="galleryPrev" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L7 10l5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="gallery-arr" id="galleryNext" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4l5 6-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     СТАТЬИ И НОВОСТИ
+══════════════════════════════════════ -->
+<section class="sec-articles">
+  <div class="wrap">
+    <h2 class="articles-heading">Статьи и новости</h2>
+    <div class="articles-grid">
+      <!-- Card 1 — переезд -->
+      <a href="articles/article-move.html" class="article-card article-card--photo">
+        <img class="article-card__bg" src="assets/photos/article-move-cover.webp" alt="" style="object-position:center;" loading="lazy"/>
+        <div class="article-card__overlay"></div>
+        <div class="article-card__arrow">→</div>
+        <div class="article-card__foot">
+          <p class="article-card__title">У нас переезд! Открываем двери новой клиники</p>
+          <p class="article-card__date">22 мая 2026</p>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="articles/article-hydra.html" class="article-card article-card--photo">
+        <img class="article-card__bg" src="assets/photos/article1.webp" alt="" style="object-position:center top;" loading="lazy"/>
+        <div class="article-card__overlay"></div>
+        <div class="article-card__arrow">→</div>
+        <div class="article-card__foot">
+          <p class="article-card__title">Hydra Touch H2: Ваш секрет «вау»-эффекта на корпоративе</p>
+          <p class="article-card__date">3 декабря 2025</p>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <a href="articles/article-photodynamic.html" class="article-card article-card--photo">
+        <img class="article-card__bg" src="assets/photos/article2.webp" alt="" loading="lazy"/>
+        <div class="article-card__overlay" style="background:linear-gradient(to bottom,rgba(102,102,102,0) 0%,rgba(0,0,0,0.2) 100%)"></div>
+        <div class="article-card__arrow">→</div>
+        <div class="article-card__foot">
+          <p class="article-card__title">С какими процедурами сочетают фотодинамическую терапию?</p>
+          <p class="article-card__date">21 октября 2025</p>
+        </div>
+      </a>
+    </div>
+    <div class="articles-cta">
+      <a href="articles/index.html" class="pill-btn" style="padding:16px 36px;font-size:clamp(16px,1.25vw,24px);letter-spacing:-0.02em;">Смотреть все</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ОНЛАЙН-ЗАПИСЬ
+══════════════════════════════════════ -->
+<section class="sec-booking">
+  <div class="wrap">
+    <div class="booking-inner">
+      <div class="booking-left">
+        <h2 class="booking-heading">Онлайн-запись</h2>
+        <p class="booking-desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
+      </div>
+      <form class="booking-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">Ваше имя</label>
+            <input class="form-input" type="text" placeholder="Анна" required/>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Телефон</label>
+            <input class="form-input" type="tel" placeholder="+7 (900) 000-00-00" required/>
+          </div>
+        </div>
+        <div class="form-service-group">
+          <label class="form-label" for="booking-service">Услуга</label>
+          <select id="booking-service" class="form-input" style="appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2371685d' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px;">
+            <option value="" disabled selected>Выбрать услугу</option>
+            <option>SMAS-лифтинг</option>
+            <option>Монополярный РФ-лифтинг</option>
+            <option>Лазерная эпиляция</option>
+            <option>Инъекционная косметология</option>
+            <option>Биоревитализация / мезотерапия</option>
+            <option>Уход за кожей</option>
+            <option>SPA-программы</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <button type="submit" class="pill-btn form-submit">Отправить заявку</button>
+        <p style="font-size:13px;color:rgba(53,40,26,0.45);letter-spacing:-0.01em;line-height:1.5;margin-top:14px;">
+          Отправляя форму вы соглашаетесь с <a href="docs/processing.docx" style="color:inherit;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener noreferrer">обработкой персональных данных</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ЖДЁМ ВАС НА ПРИЁМЕ
+══════════════════════════════════════ -->
+<section class="sec-contact">
+  <div class="contact-info">
+    <h2 class="contact-heading">Ждём вас<br>на приёме</h2>
+    <div class="contact-details">
+      <div class="contact-addr-block">
+        <p class="contact-addr-line">Анапа, Владимирская 120</p>
+        <p class="contact-addr-line">пн-вс: 9:00 — 20:00</p>
+      </div>
+      <hr class="contact-divider"/>
+      <div class="contact-links">
+        <a href="mailto:rare.clinic@mail.ru" class="contact-link">rare.clinic@mail.ru</a>
+        <a href="tel:+79002761116" class="contact-link">+7 (900) 276-11-16</a>
+      </div>
+    </div>
+  </div>
+  <div class="contact-map">
+    <iframe
+      src="https://yandex.ru/map-widget/v1/?ll=37.331145%2C44.879223&z=17&pt=37.331145%2C44.879223%2Cpm2rdm&text=%D0%90%D0%BD%D0%B0%D0%BF%D0%B0%2C+%D1%83%D0%BB.+%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D1%81%D0%BA%D0%B0%D1%8F%2C+120"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Карта клиники RA|RÉ"
+    ></iframe>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="services/smas.html">SMAS-лифтинг</a>
+    <a href="services/injections.html">Инъекционная косметология</a>
+    <a href="services/laser.html">Лазерная эпиляция</a>
+    <a href="services/lifts.html">Аппаратные лифтинги</a>
+    <a href="services/skin.html">Уход за кожей</a>
+    <a href="services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="about.html">О клинике</a>
+    <a href="specialists/index.html">Специалисты</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a>
+    <a href="articles/index.html">Статьи</a>
+    <a href="promos.html">Акции</a>
+    <a href="prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+
+<script>
+(function(){
+  const track = document.getElementById('galleryTrack');
+  const prevBtn = document.getElementById('galleryPrev');
+  const nextBtn = document.getElementById('galleryNext');
+  const counter = document.getElementById('galleryCounter');
+  if (!track) return;
+  const slides = Array.from(track.querySelectorAll('.gallery-slide'));
+  const total = slides.length;
+  let current = 0;
+
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+
+  function goTo(idx) {
+    idx = Math.max(0, Math.min(idx, total - 1));
+    current = idx;
+    const slideW = slides[0].offsetWidth + 24;
+    track.scrollTo({ left: idx * slideW, behavior: 'smooth' });
+    if (counter) counter.textContent = pad(idx+1) + ' / ' + pad(total);
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === total - 1;
+  }
+
+  goTo(0);
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Update counter on free scroll
+  track.addEventListener('scroll', () => {
+    if (!slides.length) return;
+    const slideW = slides[0].offsetWidth + 24;
+    const idx = Math.round(track.scrollLeft / slideW);
+    if (idx !== current) { current = idx;
+      if (counter) counter.textContent = pad(idx+1) + ' / ' + pad(total);
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === total - 1;
+    }
+  }, { passive: true });
+
+  // Drag scroll
+  let isDragging = false, startX = 0, scrollStart = 0;
+  track.addEventListener('mousedown', e => { isDragging = true; startX = e.pageX; scrollStart = track.scrollLeft; });
+  document.addEventListener('mouseup', () => isDragging = false);
+  document.addEventListener('mousemove', e => { if (!isDragging) return; track.scrollLeft = scrollStart - (e.pageX - startX); });
+})();
+</script>
+<script src="docs-popup.js" defer></script><script src="animations.js?v=202606041800" defer></script>
+<script src="mobile-nav.js?v=202606041800" defer></script>
+<script src="./accessibility.js" defer></script>
+<script>
+(function(){
+  function animateCount(el, target, suffix, duration) {
+    var start = 0, startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var observed = false;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !observed) {
+        observed = true;
+        document.querySelectorAll('.about-stat__n').forEach(function(el) {
+          var text = el.textContent.trim();
+          var suffix = text.replace(/[0-9]/g, '');
+          var num = parseInt(text.replace(/[^0-9]/g, ''), 10);
+          if (!isNaN(num)) animateCount(el, num, suffix, 1800);
+        });
+        io.disconnect();
+      }
+    });
+  }, {threshold: 0.3});
+  document.querySelectorAll('.about-stats').forEach(function(s){ io.observe(s); });
+})();
+</script></body>
+</html>

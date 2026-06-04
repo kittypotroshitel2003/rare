@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="../responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202606041800"/></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SPA-программы — RA|RÉ Клиника в Анапе</title>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:16px;--r-pill:100px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--gutter)}.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-accent);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}.pill-btn:hover{background:#4a7262}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:33px var(--gutter)}.site-hd__logo img{height:36px;width:auto}.site-hd__nav{display:flex;gap:48px}.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}.site-hd__nav a:hover{opacity:0.7}.site-hd__actions{display:flex;align-items:center;gap:36px}.site-hd__cta{padding:16px 24px;font-size:18px}
+.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+.sec-svc-intro{padding:72px 0}.svc-intro-inner{display:flex;gap:72px;align-items:flex-start}.svc-intro-photo{flex-shrink:0;width:460px;height:580px;border-radius:var(--r-card);overflow:hidden}.svc-intro-photo img{width:100%;height:100%;object-fit:cover}.svc-intro-text{flex:1;display:flex;flex-direction:column;gap:40px}.svc-body{font-size:16px;font-weight:400;line-height:1.4;color:var(--c-text);letter-spacing:-0.02em}.svc-body p{margin-bottom:1em}.svc-body p:last-child{margin:0}.svc-list{display:flex;flex-direction:column;gap:16px;list-style:none}.svc-list li{font-size:15px;font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.3;display:flex;gap:12px}.svc-list li::before{content:'—';color:var(--c-accent);flex-shrink:0}
+.sec-procedures{background:var(--c-dark);padding:72px 0}.proc-list{display:flex;flex-direction:column;margin-top:44px;border-top:1px solid rgba(253,252,248,0.08)}.proc-row{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:24px;padding:20px 0;border-bottom:1px solid rgba(253,252,248,0.08);transition:background 0.15s,padding-left 0.15s,padding-right 0.15s;border-radius:0}.proc-row:hover{background:rgba(253,252,248,0.04);padding-left:12px;padding-right:12px;border-radius:6px}.proc-num{font-size:11px;font-weight:600;color:rgba(253,252,248,0.22);letter-spacing:0.1em;line-height:1}.proc-info{display:flex;flex-direction:column;gap:3px}.proc-name{font-size:16px;font-weight:500;color:var(--c-white);letter-spacing:-0.01em;line-height:1.2;font-style:normal}.proc-desc{font-size:13px;font-weight:400;color:rgba(253,252,248,0.45);line-height:1.4;font-style:normal}.proc-price{font-size:16px;font-weight:600;color:var(--c-accent);letter-spacing:-0.01em;white-space:nowrap;font-style:normal}
+.sec-cta{padding:64px 0;text-align:center}.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:500;color:var(--c-text);letter-spacing:-0.03em;line-height:1.05;margin-bottom:32px;font-style:normal}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+.sec-svc-specs{background:var(--c-dark);padding:72px 0}.svc-spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}.svc-spec-card{height:340px;border-radius:var(--r-card);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;gap:8px;text-decoration:none;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)}.svc-spec-card:hover{transform:translateY(-4px)}.svc-spec-card:hover .svc-spec-card__photo img{transform:scale(1.07)}.svc-spec-card__photo{position:absolute;inset:0}.svc-spec-card__photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.55s cubic-bezier(0.22,1,0.36,1)}.svc-spec-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(16,47,39,0.75) 100%);border-radius:var(--r-card)}.svc-spec-name,.svc-spec-role{position:relative;z-index:2;color:var(--c-white);font-style:normal;line-height:1}.svc-spec-name{font-size:17px;font-weight:500;letter-spacing:-0.02em;margin-bottom:5px}.svc-spec-role{font-size:13px;font-weight:400;opacity:0.75}
+.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+
+.sec-bullets{padding:72px 0;background:var(--c-dark)}.bullets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:44px}
+.bullet-card{display:flex;flex-direction:column;gap:14px}
+.bullet-icon{width:48px;height:48px;border-radius:50%;background:rgba(86,134,115,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bullet-title{font-size:18px;font-weight:500;color:var(--c-white);letter-spacing:-0.02em;line-height:1.2}
+.bullet-text{font-size:15px;font-weight:400;color:var(--c-w50);line-height:1.55}
+.sec-promo-svc{background:var(--c-accent);padding:72px 0}.promo-inner{display:flex;justify-content:space-between;align-items:center;gap:60px}
+.promo-text h2{font-size:clamp(24px,2.5vw,44px);font-weight:500;color:var(--c-white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:14px}
+.promo-text p{font-size:16px;font-weight:400;color:rgba(253,252,248,0.8);line-height:1.55}
+.promo-cta{display:flex;flex-direction:column;align-items:flex-end;gap:16px;flex-shrink:0}
+.pill-btn--white{background:var(--c-white);color:var(--c-dark)!important;border-color:var(--c-white)!important}.pill-btn--white:hover{background:rgba(253,252,248,0.92)}
+.sec-svc-reviews{padding:72px 0}.svc-reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.svc-rev-card{border:1px solid rgba(53,40,26,0.1);border-radius:var(--r-card);padding:28px;display:flex;flex-direction:column;gap:12px}
+.svc-rev-stars{font-size:16px;color:#c8a84b;letter-spacing:2px}
+.svc-rev-text{font-size:15px;font-weight:400;color:var(--c-text);line-height:1.6;flex:1}
+.svc-rev-author{font-size:13px;font-weight:500;color:var(--c-muted)}
+.svc-rev-service{font-size:12px;font-weight:600;color:var(--c-accent);letter-spacing:0.06em;text-transform:uppercase}
+.sec-svc-booking{padding:72px 0;background:var(--c-dark)}.svc-booking-inner{display:flex;gap:80px;align-items:flex-start}
+.svc-booking-text{flex:1;display:flex;flex-direction:column;gap:28px}
+.svc-booking-text h2{font-size:clamp(22px,2.2vw,38px);font-weight:500;color:var(--c-white);letter-spacing:-0.03em;line-height:1.05}
+.svc-booking-text p{font-size:15px;font-weight:400;color:var(--c-w50);line-height:1.6}
+.svc-booking-contact{display:flex;flex-direction:column;gap:6px}
+.svc-booking-contact a{font-size:22px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em}
+.svc-booking-form{flex:0 0 480px;background:rgba(253,252,248,0.06);border-radius:var(--r-card);padding:40px 36px;display:flex;flex-direction:column;gap:18px}
+.svc-form-row{display:flex;flex-direction:column;gap:6px}
+.svc-form-label{font-size:13px;font-weight:600;color:var(--c-w50);letter-spacing:0.08em;text-transform:uppercase}
+.svc-form-input,.svc-form-select{width:100%;padding:14px 16px;border:1.5px solid rgba(253,252,248,0.15);border-radius:8px;font-family:var(--f);font-size:15px;font-weight:400;color:var(--c-white);background:rgba(253,252,248,0.06);outline:none;transition:border-color 0.2s}
+.svc-form-input::placeholder{color:var(--c-w50)}.svc-form-input:focus,.svc-form-select:focus{border-color:var(--c-accent)}
+.svc-form-select option{color:var(--c-text);background:var(--c-bg)}
+.svc-form-agree{font-size:12px;color:var(--c-w50);line-height:1.4}.svc-form-agree a{color:var(--c-accent)}
+
+.svc-spec-card:last-child::after{background:none!important}
+.svc-spec-card:last-child:hover{transform:scale(1.03) translateY(-3px)!important}
+.svc-spec-card:last-child span{transition:background 0.3s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)}
+.svc-spec-card:last-child:hover span{background:var(--c-accent)!important;border-color:var(--c-accent)!important;transform:rotate(-45deg)!important}
+</style>
+</head>
+<body>
+<header class="site-hd"><a href="../index.html" class="site-hd__logo"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a><nav class="site-hd__nav"><a href="../about.html">О клинике</a><a href="../promos.html">Акции</a><a href="../services.html" style="opacity:0.5">Услуги</a><a href="../specialists/index.html">Специалисты</a><a href="../certificates.html">Сертификаты</a><a href="../reviews/index.html">Отзывы</a><a href="../articles/index.html">Статьи</a></nav><div class="site-hd__actions"><a href="tel:+79002761116" style="display:flex;align-items:center;"><img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/></a><a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a></div></header>
+<section class="inner-hero"><div class="inner-hero__bg" style="background-image:url('../assets/photos/hero-spa.webp');"></div><div class="inner-hero__overlay"></div><div class="inner-hero__cnt wrap"><h1 class="inner-hero__title">SPA-программы</h1></div></section>
+
+<section class="sec-bullets">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white)">Почему выбирают SPA-программы</h2>
+    <div class="bullets-grid">
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Полное расслабление</p>
+        <p class="bullet-text">Авторские программы сочетают массаж, обёртывание и уходовые процедуры для тела и лица</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Премиальные средства</p>
+        <p class="bullet-text">Используем продукты Thalion, Comfort Zone и натуральные масла — для кожи и ощущений</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Опытные массажисты</p>
+        <p class="bullet-text">Специалисты с медицинским образованием и многолетним опытом в SPA-процедурах</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec-svc-intro"><div class="wrap"><div class="svc-intro-inner">
+  <div class="svc-intro-photo"><img src="../assets/photos/service-spa.webp" alt="SPA-программы" loading="lazy"/></div>
+  <div class="svc-intro-text">
+    <h2 class="sec-h">Пространство красоты и гармонии</h2>
+    <div class="svc-body"><p>SPA-программы в RA|RÉ — это не просто отдых, а целостный уход за телом и духом. Мы сочетаем расслабляющие и лечебные методики для достижения максимального результата.</p><p>Каждая программа составляется индивидуально. Уходовые процедуры для лица и тела, ароматерапия, стоун-терапия — всё в атмосфере элегантного спокойствия.</p></div>
+    <ul class="svc-list"><li>Релаксирующий массаж тела — 60 и 90 минут</li><li>Антицеллюлитные программы</li><li>Stоун-терапия — горячими камнями</li><li>Программа «Полное преображение» — лицо + тело, 2 часа</li><li>Подарочные сертификаты на SPA</li></ul>
+    <a href="../index.html#booking" class="pill-btn" style="padding:14px 36px;font-size:15px;align-self:flex-start;">Записаться на процедуру</a>
+  </div>
+</div></div></section>
+<section class="sec-procedures"><div class="wrap"><h2 class="sec-h" style="color:var(--c-white);margin-bottom:0">Программы и цены</h2><div class="proc-list">
+  <div class="proc-row"><span class="proc-num">01</span><div class="proc-info"><p class="proc-name">Классический SPA-массаж</p><p class="proc-desc">Расслабляющий массаж тела 60 минут.</p></div><p class="proc-price">от 4 500 ₽</p></div>
+  <div class="proc-row"><span class="proc-num">02</span><div class="proc-info"><p class="proc-name">Антицеллюлитный массаж</p><p class="proc-desc">Интенсивный массаж для коррекции фигуры.</p></div><p class="proc-price">от 4 000 ₽</p></div>
+  <div class="proc-row"><span class="proc-num">03</span><div class="proc-info"><p class="proc-name">Стоун-терапия</p><p class="proc-desc">Массаж горячими базальтовыми камнями.</p></div><p class="proc-price">от 5 500 ₽</p></div>
+  <div class="proc-row"><span class="proc-num">04</span><div class="proc-info"><p class="proc-name">«Полное преображение»</p><p class="proc-desc">Уход лицо + тело. 2 часа полного блаженства.</p></div><p class="proc-price">от 9 000 ₽</p></div>
+  <div class="proc-row"><span class="proc-num">05</span><div class="proc-info"><p class="proc-name">Уходовый массаж лица</p><p class="proc-desc">Классический уходовый массаж лица и декольте.</p></div><p class="proc-price">от 2 500 ₽</p></div>
+  <div class="proc-row"><span class="proc-num">06</span><div class="proc-info"><p class="proc-name">Ароматерапия</p><p class="proc-desc">Массаж с эфирными маслами. Гармония тела и духа.</p></div><p class="proc-price">от 5 000 ₽</p></div>
+</div></div></section>
+
+
+<section class="sec-promo-svc">
+  <div class="wrap">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <h2>Подарочный сертификат на SPA</h2>
+        <p>Подарите незабываемые впечатления близкому человеку. Подарочные сертификаты на SPA-программы — идеальный подарок на любой праздник.</p>
+      </div>
+      <div class="promo-cta">
+        <a href="../index.html#booking" class="pill-btn pill-btn--white" style="padding:14px 36px;font-size:15px;">Записаться онлайн</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-svc-reviews">
+  <div class="wrap">
+    <h2 class="sec-h">Отзывы клиентов</h2>
+    <div class="svc-reviews-grid">
+      <div class="svc-rev-card">
+        <div class="svc-rev-stars">★★★★★</div>
+        <p class="svc-rev-text">«SPA-программа "Прованс" — 2 часа блаженства! Обёртывание + массаж + уход за лицом. Кожа нежная, настроение отличное. Обязательно вернусь!»</p>
+        <p class="svc-rev-author">Виктория Л. · Яндекс · май 2026</p>
+        <p class="svc-rev-service">SPA-программа Прованс</p>
+      </div>
+      <div class="svc-rev-card">
+        <div class="svc-rev-stars">★★★★★</div>
+        <p class="svc-rev-text">«Массаж горячими камнями — снял всё напряжение после сложной недели. Мастер профессиональный, техника отличная. Очень советую!»</p>
+        <p class="svc-rev-author">Елена Р. · 2ГИС · апрель 2026</p>
+        <p class="svc-rev-service">Массаж горячими камнями</p>
+      </div>
+      <div class="svc-rev-card">
+        <div class="svc-rev-stars">★★★★★</div>
+        <p class="svc-rev-text">«Шоколадное обёртывание — кожа стала шелковистой, аромат потрясающий. Провела 1,5 часа как на курорте. Спасибо RA|RÉ!»</p>
+        <p class="svc-rev-author">Ольга М. · Google · март 2026</p>
+        <p class="svc-rev-service">Шоколадное обёртывание</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec-svc-specs">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white)">Специалисты, выполняющие процедуру</h2>
+    <div class="svc-spec-grid">
+      <a href="../specialists/elena-tigranovna.html" class="svc-spec-card">
+        <div class="svc-spec-card__photo"><img src="../assets/photos/spec-elena.webp" alt="Елена Тиграновна" loading="lazy"/></div>
+        <p class="svc-spec-name">Елена Тиграновна</p>
+        <p class="svc-spec-role">Медицинский массажист</p>
+      </a>
+      <a href="../specialists/yana-vladimirovna.html" class="svc-spec-card">
+        <div class="svc-spec-card__photo"><img src="../assets/photos/spec-yana.webp" alt="Яна Владимировна" loading="lazy"/></div>
+        <p class="svc-spec-name">Яна Владимировна</p>
+        <p class="svc-spec-role">Медицинский массажист</p>
+      </a>
+      <a href="../specialists/inna-viktorovna.html" class="svc-spec-card">
+        <div class="svc-spec-card__photo"><img src="../assets/photos/spec-inna.webp" alt="Инна Викторовна" loading="lazy"/></div>
+        <p class="svc-spec-name">Инна Викторовна</p>
+        <p class="svc-spec-role">Медицинский массажист</p>
+      </a>
+      <a href="../specialists/index.html" class="svc-spec-card" style="justify-content:center;align-items:center;background:transparent">
+        <div style="text-align:center;z-index:2;position:relative;display:flex;flex-direction:column;align-items:center;gap:14px">
+          <p style="font-size:17px;font-weight:500;color:var(--c-white);letter-spacing:-0.02em">Все специалисты</p>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(253,252,248,0.35);color:var(--c-white);font-size:18px">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-svc-booking">
+  <div class="wrap">
+    <div class="svc-booking-inner">
+      <div class="svc-booking-text">
+        <h2>Запишитесь на<br>консультацию</h2>
+        <p>Оставьте заявку — врач свяжется с вами в течение 30 минут, ответит на вопросы и подберёт удобное время.</p>
+        <div class="svc-booking-contact">
+          <a href="tel:+79002761116">+7 (900) 276-11-16</a>
+          <span style="font-size:14px;color:var(--c-w50)">Пн–Вс: 9:00 – 20:00</span>
+        </div>
+      </div>
+      <div class="svc-booking-form">
+        <div class="svc-form-row"><label class="svc-form-label">Ваше имя</label><input class="svc-form-input" type="text" placeholder="Анна"/></div>
+        <div class="svc-form-row"><label class="svc-form-label">Телефон</label><input class="svc-form-input" type="tel" placeholder="+7 (___) ___-__-__"/></div>
+        <div class="svc-form-row"><label class="svc-form-label">Процедура</label>
+          <select class="svc-form-select"><option value="">Выбрать процедуру</option><option>SPA-программа (2 часа)</option><option>Массаж горячими камнями</option><option>Обёртывание</option><option>Комплексная программа</option><option>Консультация</option></select>
+        </div>
+        <p class="svc-form-agree">Нажимая кнопку, вы соглашаетесь с <a href="../docs/processing.docx">обработкой персональных данных</a></p>
+        <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" class="pill-btn" style="width:100%;justify-content:center;padding:16px;font-size:15px;">Записаться онлайн</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec-cta"><div class="wrap"><h2 class="cta-heading">Подарите себе<br>час совершенного покоя</h2><div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="../index.html#booking" class="pill-btn" style="padding:14px 40px;font-size:15px;letter-spacing:-0.01em;">Записаться на приём</a><a href="tel:+79002761116" style="font-size:15px;font-weight:500;color:var(--c-text);text-decoration:none;">+7 (900) 276-11-16</a></div></div></section>
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="../services/smas.html">SMAS-лифтинг</a>
+    <a href="../services/injections.html">Инъекционная косметология</a>
+    <a href="../services/laser.html">Лазерная эпиляция</a>
+    <a href="../services/lifts.html">Аппаратные лифтинги</a>
+    <a href="../services/skin.html">Уход за кожей</a>
+    <a href="../services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="../about.html">О клинике</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="../docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="../index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+<script src="./docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../mobile-nav.js?v=202606041800" defer></script>
+<script src="../accessibility.js" defer></script></body>
+</html>

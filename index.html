@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RA|RÉ — Клиника экспертной косметологии в Анапе</title>
+  <meta name="description" content="RA|RÉ — клиника экспертной косметологии и лазерной эпиляции в Анапе. Профессиональный уход за собой с доказанным результатом."/>
+  <link rel="preload" href="styles/fonts/Involve-VF.woff2" as="font" type="font/woff2" crossorigin/>
+  <link rel="preload" href="assets/hero.webp" as="image"/>
+  <link rel="dns-prefetch" href="https://yandex.ru"/>
+  <!-- styles.css загружается без блокировки рендера -->
+  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="styles.css"/></noscript>
+  <style>
+    @font-face {
+      font-family: 'Involve';
+      src: url('styles/fonts/Involve-VF.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    :root {
+      --c-dark:     #102f27;
+      --c-accent:   #568673;
+      --c-bg:       #F3EEE8;
+      --c-text:     #35281a;
+      --c-muted:    #71685d;
+      --c-white:    #F3EEE8;
+      --c-w50:      rgba(253,252,248,0.5);
+      --f:          'Involve', sans-serif;
+      --r-card:     10px;
+      --r-pill:     6px;
+      --gutter:     clamp(20px, 4.5vw, 72px);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--f); background: var(--c-bg); color: var(--c-text); overflow-x: hidden; }
+    em { font-style: normal; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .wrap {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--c-bg);
+      color: var(--c-dark);
+      border-radius: var(--r-pill);
+      font-family: var(--f);
+      font-weight: 500;
+      font-style: normal;
+      text-decoration: none;
+      border: 1.5px solid rgba(16,47,39,0.15);
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+      line-height: 1;
+      box-shadow: 0 2px 12px rgba(16,47,39,0.08);
+    }
+    .pill-btn:hover {
+      background: #f0ece3;
+      border-color: rgba(16,47,39,0.25);
+      box-shadow: 0 6px 24px rgba(16,47,39,0.14);
+      transform: translateY(-1px);
+    }
+    .pill-btn:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(16,47,39,0.1); }
+    /* Filled dark variant — for CTAs on cream/light backgrounds */
+    .pill-btn--dark {
+      background: var(--c-dark);
+      color: var(--c-white);
+      border-color: var(--c-dark);
+      box-shadow: 0 4px 20px rgba(16,47,39,0.25);
+    }
+    .pill-btn--dark:hover {
+      background: #0d2b23;
+      border-color: #0d2b23;
+      box-shadow: 0 8px 28px rgba(16,47,39,0.32);
+    }
+    /* Outline ghost variant — for dark-bg sections */
+    .pill-btn--ghost {
+      background: transparent;
+      color: var(--c-white);
+      border: 1.5px solid rgba(253,252,248,0.45);
+      box-shadow: none;
+    }
+    .pill-btn--ghost:hover {
+      background: rgba(253,252,248,0.1);
+      border-color: rgba(253,252,248,0.75);
+      box-shadow: none;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ─────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 680px;
+      height: clamp(680px, 58.4vw, 1100px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background: url('assets/hero.webp') center/cover no-repeat;
+      transition: opacity 0.5s ease;
+    }
+    .hero__bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(102,102,102,0.2), rgba(0,0,0,0.2));
+    }
+    .hero .wrap { display: flex; flex-direction: column; height: 100%; position: relative; z-index: 5; width: 100%; margin: 0; }
+
+    /* header */
+    .site-header {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 500 !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px clamp(20px, 4.5vw, 72px);
+      flex-shrink: 0;
+    }
+    .site-header__logo img { height: 28px; width: auto; }
+    .site-header__nav { display: flex; gap: 48px; }
+    .site-header__nav a {
+      font-size: 18px; font-weight: 500; color: var(--c-white);
+      text-decoration: none; font-style: normal; white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .site-header__nav a:hover { opacity: 0.7; }
+    .site-header__actions { display: flex; align-items: center; gap: 36px; }
+    .site-header__phone { width: 32px; height: 32px; }
+    .site-header__cta { padding: 16px 24px; font-size: 18px; background: rgba(253,252,248,0.12); color: var(--c-white); border-color: rgba(253,252,248,0.35); box-shadow: none; }
+    .site-header__cta:hover { background: rgba(253,252,248,0.22); border-color: rgba(253,252,248,0.6); box-shadow: none; }
+
+    /* hero body */
+    .hero__body {
+      flex: 1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      gap: 72px;
+      padding: 0 var(--gutter) 80px;
+      transition: opacity 0.25s ease;
+    }
+    .hero__body--left {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .hero__headline { display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: 1420px; width: 100%; }
+    .hero__body--left .hero__headline { align-items: flex-start; max-width: 900px; }
+    .hero__title {
+      font-size: clamp(36px, 4.17vw, 80px);
+      font-weight: 400; line-height: 1;
+      letter-spacing: -0.02em; color: var(--c-white); font-style: normal;
+      text-align: center; max-width: none; margin-bottom: 0;
+      align-self: stretch;
+    }
+    .hero__body--left .hero__title { text-align: left; }
+    .hero__sub {
+      font-size: clamp(15px, 1.25vw, 22px);
+      font-weight: 400; color: rgba(253,252,248,0.72);
+      letter-spacing: 0.01em; line-height: 1.65;
+      max-width: 680px; font-style: normal;
+    }
+    .hero__body--left .hero__sub { text-align: left; }
+    .hero__cta { padding: 22px 52px; font-size: clamp(15px, 1.04vw, 18px); letter-spacing: -0.01em; }
+
+    /* hero controls */
+    .hero__controls {
+      position: absolute; bottom: 40px;
+      left: clamp(20px, 4.5vw, 72px); z-index: 10;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .hero__counter {
+      font-size: 24px; font-weight: 400;
+      color: var(--c-white); letter-spacing: -0.02em; font-style: normal;
+    }
+    .hero__arrows { display: flex; gap: 16px; }
+    .hero__arr {
+      width: 32px; height: 32px;
+      border: 1.5px solid var(--c-white);
+      border-radius: 4px; background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; padding: 4px;
+    }
+    .hero__arr svg { width: 18px; height: 18px; stroke: var(--c-white); fill: none; stroke-width: 2; }
+
+    /* ── НАЧНИТЕ С ЭТОГО ──────────────────────── */
+    .sec-start { padding: 72px 0; }
+    .sec-h { font-size: clamp(24px, 2.5vw, 44px); font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; color: var(--c-text); font-style: normal; }
+    .sec-start .sec-h { margin-bottom: 48px; }
+    /* Editorial eyebrow label */
+    .sec-eyebrow {
+      display: block; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--c-accent); margin-bottom: 18px; font-style: normal; line-height: 1;
+    }
+    .sec-eyebrow--light { color: rgba(253,252,248,0.45); }
+    .svc-cards { display: flex; gap: 0; margin-bottom: 56px; border-top: 1px solid rgba(53,40,26,0.12); border-bottom: 1px solid rgba(53,40,26,0.12); }
+    .svc-card {
+      flex: 1;
+      border-right: 1px solid rgba(53,40,26,0.12);
+      padding: 36px 32px 32px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 300px; font-style: normal; cursor: pointer;
+      text-decoration: none;
+      position: relative; overflow: hidden;
+      background: var(--c-bg);
+      transition: background 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .svc-card:last-child { border-right: none; }
+    .svc-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 3px; background: var(--c-accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .svc-card:hover { background: var(--c-dark); }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-card__num {
+      font-size: clamp(32px, 3.5vw, 60px); font-weight: 400;
+      color: rgba(53,40,26,0.07); letter-spacing: -0.04em; line-height: 1;
+      display: block; margin-bottom: 0;
+      transition: color 0.45s;
+    }
+    .svc-card:hover .svc-card__num { color: rgba(86,134,115,0.22); }
+    .svc-card__top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      font-size: clamp(14px, 1.1vw, 18px); font-weight: 500; color: rgba(53,40,26,0.5);
+      letter-spacing: -0.01em; margin-bottom: 20px;
+      transition: color 0.45s;
+    }
+    .svc-card:hover .svc-card__top { color: rgba(253,252,248,0.5); }
+    .svc-card__arr {
+      display: inline-block; font-size: 20px; flex-shrink: 0;
+      color: var(--c-text);
+      transition: color 0.45s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .svc-card:hover .svc-card__arr { color: var(--c-white); transform: translate(5px,-5px); }
+    .svc-card__btm { display: flex; flex-direction: column; gap: 10px; }
+    .svc-card__name { font-size: clamp(20px, 1.875vw, 28px); font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; transition: color 0.45s; }
+    .svc-card:hover .svc-card__name { color: var(--c-white); }
+    .svc-card__desc { font-size: clamp(14px, 1.04vw, 18px); font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.4; transition: color 0.45s; }
+    .svc-card:hover .svc-card__desc { color: rgba(253,252,248,0.55); }
+    .sec-start__cta-wrap { display: flex; justify-content: center; }
+    .sec-start__cta { padding: 16px 48px; font-size: clamp(18px, 1.25vw, 22px); letter-spacing: -0.02em; }
+
+    /* ── О КЛИНИКЕ ────────────────────────────── */
+    .sec-about { padding: 72px 0; }
+    .about-inner { display: flex; gap: clamp(40px, 6.5vw, 132px); align-items: flex-start; }
+    .about-photos {
+      flex-shrink: 0;
+      position: relative;
+      width: min(768px, 42vw);
+      aspect-ratio: 768 / 738;
+    }
+    .about-ph {
+      position: absolute; border-radius: 12px; overflow: hidden; background: #f2f2f2;
+    }
+    .about-ph img { width: 100%; height: 100%; object-fit: cover; }
+    .about-ph--1 { left: 0; top: 0; width: 48.4%; height: 61.1%; }
+    .about-ph--2 { left: 0; top: 64.4%; width: 48.4%; height: 35.6%; }
+    .about-ph--3 { left: 51.6%; top: 0; width: 48.4%; height: 100%; }
+    .about-text { flex: 1; display: flex; flex-direction: column; gap: 36px; min-width: 0; }
+    .about-text .sec-h { margin-bottom: 0; }
+    .about-body {
+      font-size: clamp(16px, 1.45vw, 24px); font-weight: 400; line-height: 1.5;
+      color: var(--c-text); letter-spacing: -0.02em; font-style: normal;
+    }
+    .about-body p { margin-bottom: 1em; }
+    .about-body p:last-child { margin: 0; }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(53,40,26,0.12);
+      margin-top: clamp(48px, 5vw, 80px);
+    }
+    .about-stat {
+      padding: clamp(20px, 2.5vw, 40px) clamp(16px, 2vw, 32px);
+      border-right: 1px solid rgba(53,40,26,0.12);
+      text-align: center;
+    }
+    .about-stat:last-child { border-right: none; }
+    .about-stat__n {
+      font-size: clamp(36px, 3.5vw, 64px); font-weight: 400; color: var(--c-accent);
+      letter-spacing: -0.04em; line-height: 1; font-style: normal; display: block; margin-bottom: 8px;
+    }
+    .about-stat__l {
+      font-size: clamp(12px, 0.9vw, 15px); font-weight: 600; color: var(--c-muted);
+      letter-spacing: 0.06em; text-transform: uppercase; font-style: normal; display: block;
+    }
+
+    /* ── ADVANTAGES ───────────────────────────── */
+    .sec-adv { padding: 72px 0; }
+    .adv-row { display: flex; align-items: stretch; }
+    .adv-item {
+      flex: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 40px;
+      padding: 0 40px; position: relative;
+    }
+    .adv-item + .adv-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--c-accent);
+    }
+    .adv-icon { height: 155px; display: flex; align-items: center; justify-content: center; overflow: visible; padding-top: 32px; }
+    .adv-icon img { max-height: 140px; max-width: 180px; object-fit: contain; }
+    .adv-label {
+      font-size: clamp(16px, 1.67vw, 32px); font-weight: 500;
+      color: #35281a !important; letter-spacing: -0.02em; line-height: 1.2;
+      text-align: center; font-style: normal; display: block;
+      visibility: visible; opacity: 1;
+    }
+
+    /* ── ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ───────────────── */
+    .sec-dir { background: var(--c-dark); padding: 72px 0 56px; }
+    .dir-head {
+      display: flex; align-items: center; gap: 48px;
+      justify-content: space-between; margin-bottom: 56px;
+    }
+    .dir-heading {
+      font-size: clamp(32px, 4.17vw, 80px); font-weight: 500;
+      color: var(--c-white); letter-spacing: -0.02em; line-height: 1; font-style: normal;
+    }
+    .dir-all {
+      font-size: clamp(16px, 1.25vw, 24px); font-weight: 500;
+      color: rgba(253,252,248,0.6); letter-spacing: -0.01em;
+      text-decoration: none; white-space: nowrap; font-style: normal; flex-shrink: 0;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.25s;
+    }
+    .dir-all:hover { color: var(--c-white); }
+    .dir-all__arr {
+      display: inline-block;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .dir-all:hover .dir-all__arr { transform: translateX(5px); }
+
+    .dir-mosaic {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 500px 380px;
+      gap: 12px;
+    }
+    .dir-mosaic__card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px;
+      opacity: 0;
+      transform: translateY(44px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
+    }
+    .dir-mosaic__card.is-visible {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0s !important;
+    }
+    .dir-mosaic__card:nth-child(1) { grid-column: 1; grid-row: 1 / 3; padding: 44px; transition-delay: 0s; }
+    .dir-mosaic__card:nth-child(2) { grid-column: 2; grid-row: 1;     transition-delay: 0.10s; }
+    .dir-mosaic__card:nth-child(3) { grid-column: 3; grid-row: 1;     transition-delay: 0.18s; }
+    .dir-mosaic__card:nth-child(4) { grid-column: 2 / 4; grid-row: 2; transition-delay: 0.07s; }
+
+    .dir-mosaic__img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);
+      z-index: 0;
+    }
+    .dir-mosaic__card:hover .dir-mosaic__img { transform: scale(1.07); }
+
+    .dir-mosaic__overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(10,32,25,0.94) 0%,
+        rgba(10,32,25,0.55) 38%,
+        rgba(10,32,25,0.08) 100%
+      );
+      transition: background 0.5s ease;
+    }
+    .dir-mosaic__card:hover .dir-mosaic__overlay {
+      background: linear-gradient(
+        to top,
+        rgba(10,32,25,0.88) 0%,
+        rgba(10,32,25,0.42) 45%,
+        rgba(10,32,25,0.04) 100%
+      );
+    }
+
+    .dir-mosaic__content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .dir-mosaic__tag { display: none; }
+
+    .dir-mosaic__title {
+      font-size: clamp(22px, 2.1vw, 40px); font-weight: 500;
+      color: var(--c-white); letter-spacing: -0.02em; line-height: 1.15;
+      font-style: normal;
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .dir-mosaic__card:nth-child(1) .dir-mosaic__title { font-size: clamp(28px, 2.6vw, 50px); }
+    .dir-mosaic__card:nth-child(4) .dir-mosaic__title { font-size: clamp(24px, 2.2vw, 42px); }
+
+    .dir-mosaic__list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 7px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.05s,
+                  opacity 0.35s ease 0.08s;
+    }
+    .dir-mosaic__card:hover .dir-mosaic__list { max-height: 220px; opacity: 1; }
+    .dir-mosaic__list li {
+      font-size: clamp(13px, 1vw, 19px); font-weight: 400;
+      color: rgba(253,252,248,0.7); font-style: normal;
+      letter-spacing: -0.01em; line-height: 1.35;
+      padding-left: 14px; position: relative;
+    }
+    .dir-mosaic__list li::before {
+      content: '—'; position: absolute; left: 0;
+      color: rgba(253,252,248,0.5);
+    }
+
+    .dir-mosaic__cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: clamp(13px, 0.94vw, 18px); font-weight: 500;
+      color: var(--c-accent); font-style: normal; letter-spacing: -0.01em;
+      opacity: 0; transform: translateY(5px);
+      transition: opacity 0.3s ease 0.12s, transform 0.3s ease 0.12s;
+    }
+    .dir-mosaic__cta span {
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .dir-mosaic__card:hover .dir-mosaic__cta { opacity: 1; transform: none; }
+    .dir-mosaic__card:hover .dir-mosaic__cta span { transform: translateX(4px); }
+
+    .dir-mosaic__card:hover {
+      box-shadow: 0 28px 72px rgba(0,0,0,0.45), 0 6px 20px rgba(86,134,115,0.12);
+    }
+
+    /* ── СПЕЦИАЛИСТЫ ──────────────────────────── */
+    .sec-spec { background: var(--c-dark); padding: 72px 0; }
+    .spec-heading { margin-bottom: 90px; }
+    .spec-heading.sec-h { color: var(--c-white); }
+    .spec-card {
+      flex: 0 0 calc(25% - 18px); height: 532px; border-radius: var(--r-card);
+      overflow: hidden; position: relative; text-decoration: none;
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 28px; gap: 8px;
+    }
+    .spec-card__photo { position: absolute; inset: 0; overflow: hidden; }
+    .spec-card__photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .spec-card:hover .spec-card__photo img { transform: scale(1.06); }
+    .spec-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(16,47,39,0) 30%, rgba(16,47,39,0.72) 100%);
+      border-radius: var(--r-card);
+      transition: background 0.45s;
+    }
+    .spec-card:hover::after {
+      background: linear-gradient(to bottom, rgba(16,47,39,0) 15%, rgba(16,47,39,0.85) 100%);
+    }
+    .spec-card__name, .spec-card__role {
+      position: relative; z-index: 2;
+      color: var(--c-white); font-style: normal; line-height: 1;
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .spec-card:hover .spec-card__name { transform: translateY(-4px); }
+    .spec-card:hover .spec-card__role { transform: translateY(-4px); }
+    .spec-card__name { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
+    .spec-card__role { font-size: 15px; font-weight: 400; letter-spacing: -0.01em; opacity: 0.72; }
+    .spec-card__view {
+      position: relative; z-index: 2;
+      font-size: 13px; font-weight: 500; color: rgba(253,252,248,0.55);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 7px;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .spec-card:hover .spec-card__view { opacity: 1; transform: translateY(-4px); }
+    .spec-card__view::after {
+      content: '→';
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .spec-card:hover .spec-card__view::after { transform: translateX(4px); }
+    /* spec slider */
+    .spec-slider { overflow: hidden; }
+    .spec-track { display: flex; gap: 24px; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .spec-dots { display: flex; justify-content: center; gap: 12px; margin-top: 64px; }
+
+    /* interactive dots */
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%; border: none;
+      cursor: pointer; padding: 0;
+      background: rgba(53,40,26,0.2);
+      transition: background 0.25s;
+      flex-shrink: 0;
+    }
+    .dot--active { background: var(--c-accent); }
+    .sec-spec .dot { background: rgba(253,252,248,0.3); }
+    .sec-spec .dot--active { background: var(--c-white); }
+
+    /* ── ОСНОВАТЕЛЬНИЦА ───────────────────────── */
+    .sec-founder { background: var(--c-dark); padding: 72px 0; }
+    .founder-inner { display: flex; gap: 156px; align-items: flex-start; }
+    .founder-photo { flex-shrink: 0; width: 580px; height: 780px; border-radius: var(--r-card); overflow: hidden; background: var(--c-dark); }
+    .founder-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .founder-cnt { flex: 1; display: flex; flex-direction: column; gap: 48px; }
+    .founder-top { display: flex; flex-direction: column; gap: 80px; }
+    .founder-qi img { height: 49px; width: auto; }
+    .founder-meta { display: flex; flex-direction: column; gap: 18px; }
+    .founder-lbl { font-size: 18px; font-weight: 500; color: var(--c-w50); line-height: 1.2; font-style: normal; }
+    .founder-name {
+      font-size: clamp(32px, 4.17vw, 80px); font-weight: 500;
+      color: var(--c-white); letter-spacing: -0.02em; line-height: 1; font-style: normal;
+    }
+    .founder-quote { font-size: 24px; font-weight: 400; color: var(--c-white); line-height: 1.5; font-style: normal; }
+    .founder-quote p { margin-bottom: 1em; }
+    .founder-quote p:last-child { margin: 0; }
+
+    /* ── АКЦИИ ────────────────────────────────── */
+    .sec-promos { padding: 72px 0; }
+    .promos-inner { display: flex; flex-direction: column; gap: 42px; align-items: center; }
+    .promos-heading { align-self: flex-start; width: 100%; }
+    .promo-cards { display: flex; gap: 20px; width: 100%; }
+    .promo-card {
+      flex: 1; border-radius: 20px; overflow: hidden;
+      display: flex; flex-direction: column;
+      text-decoration: none; cursor: pointer; background: #fff;
+      box-shadow: 0 2px 20px rgba(53,40,26,0.08), 0 1px 4px rgba(53,40,26,0.05);
+      transition: box-shadow 0.35s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .promo-card:hover { box-shadow: 0 16px 52px rgba(53,40,26,0.15), 0 4px 14px rgba(53,40,26,0.08); transform: translateY(-5px); }
+    .promo-card__img-wrap { position: relative; height: 220px; overflow: hidden; flex-shrink: 0; }
+    .promo-card__img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .promo-card:hover .promo-card__img { transform: scale(1.05); }
+    .promo-card__img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(16,47,39,0.5) 100%); pointer-events: none; }
+    .promo-card__img-wrap .promo-tag { position: absolute; bottom: 14px; left: 14px; z-index: 2; }
+    .promo-tag { background: var(--c-accent); color: var(--c-white); border-radius: 100px; padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1; font-style: normal; }
+    .promo-card__body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+    .promo-card__btm { flex: 1; display: flex; flex-direction: column; gap: 7px; padding-bottom: 14px; }
+    .promo-card__title { font-size: 19px; font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.25; font-style: normal; }
+    .promo-card__desc { font-size: 14px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.45; font-style: normal; }
+    .promo-card__top { display: flex; justify-content: flex-end; align-items: center; margin-top: auto; }
+    .promo-arr { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(53,40,26,0.18); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; color: var(--c-text); font-style: normal; flex-shrink: 0; transition: background 0.2s, border-color 0.2s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .promo-card:hover .promo-arr { background: var(--c-accent); border-color: var(--c-accent); color: #fff; transform: rotate(-45deg); }
+    .promos-cta { padding: 16px 36px; font-size: 24px; letter-spacing: -0.02em; }
+
+    /* ── ВНУТРИ КЛИНИКИ ───────────────────────── */
+    .sec-interior { padding: 72px 0; }
+    .sec-interior__h { padding: 0 var(--gutter); margin-bottom: 48px; }
+    .sec-interior__h.sec-h { color: var(--c-text); }
+    /* interior slider */
+    .interior-slider { overflow: hidden; }
+    .interior-track { display: flex; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .interior-slide { flex: 0 0 100%; padding: 0 var(--gutter); box-sizing: border-box; }
+    .interior-img { width: 100%; height: clamp(220px, 35.8vw, 688px); border-radius: var(--r-card); overflow: hidden; }
+    .interior-img img { width: 100%; height: 100%; object-fit: cover; }
+    .interior-nav { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); margin-top: 32px; }
+    .interior-counter { font-size: 17px; font-weight: 500; color: var(--c-muted); letter-spacing: -0.01em; font-style: normal; }
+    .interior-arrows { display: flex; gap: 12px; }
+    .interior-arr { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(53,40,26,0.2); background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: var(--c-text); transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
+    .interior-arr:hover { background: var(--c-dark); border-color: var(--c-dark); color: var(--c-white); }
+    .interior-arr:active { transform: scale(0.94); }
+    .interior-arr:disabled { opacity: 0.3; cursor: default; }
+    .interior-arr:disabled:hover { background: none; border-color: rgba(53,40,26,0.2); color: var(--c-text); }
+
+    /* ── РЕЗУЛЬТАТЫ ───────────────────────────── */
+    .sec-results { padding: 72px 0; }
+    .results-heading { margin-bottom: 60px; }
+    /* results slider */
+    .result-slider { overflow: hidden; margin-bottom: 40px; }
+    .result-track { display: flex; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .result-page { flex: 0 0 100%; display: flex; gap: 24px; }
+    .result-page .result-card { flex: 1; }
+    .result-card { }
+    .result-photo { width: 100%; height: clamp(300px, 36vw, 680px); border-radius: 12px; overflow: hidden; background: #f2f2f2; }
+    .result-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .result-lbl { font-size: 24px; font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; font-style: normal; margin-top: 16px; display: block; }
+    .results-dots { display: flex; justify-content: center; gap: 12px; }
+
+    /* ── ОНЛАЙН-ЗАПИСЬ ────────────────────────── */
+    .sec-booking { padding: 72px 0; background: var(--c-bg); }
+    .booking-inner { display: flex; gap: 96px; align-items: flex-start; }
+    .booking-text { flex: 0 0 400px; }
+    .booking-heading { font-size: clamp(24px, 2.5vw, 44px); font-weight: 500; color: var(--c-text); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; font-style: normal; }
+    .booking-desc { font-size: 16px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.55; font-style: normal; }
+    .booking-form { flex: 1; display: flex; flex-direction: column; gap: 0; }
+    .booking-row { display: flex; }
+    .booking-field { flex: 1; display: flex; flex-direction: column; }
+    .booking-field label {
+      font-size: 11px; font-weight: 600; color: var(--c-muted); letter-spacing: 0.12em;
+      text-transform: uppercase; line-height: 1; display: block; font-style: normal; padding: 20px 0 0;
+    }
+    .booking-field input {
+      background: var(--c-bg); border: none; border-bottom: 1px solid rgba(53,40,26,0.25);
+      padding: 14px 0; font-size: 16px; font-weight: 400; color: var(--c-text);
+      letter-spacing: -0.01em; font-family: var(--f); width: 100%;
+      font-style: normal; outline: none;
+    }
+    .booking-field input::placeholder { color: rgba(53,40,26,0.4); }
+    /* service select */
+    .booking-svc-field { display: flex; flex-direction: column; }
+    .booking-svc-label {
+      font-size: 11px; font-weight: 600; color: var(--c-muted); letter-spacing: 0.12em;
+      text-transform: uppercase; display: block; font-style: normal; padding: 20px 0 0;
+    }
+    .booking-svc-wrap { position: relative; border-bottom: 1px solid rgba(53,40,26,0.25); }
+    .booking-svc-sel {
+      appearance: none; -webkit-appearance: none;
+      background: var(--c-bg); border: none; width: 100%;
+      padding: 20px 40px 20px 0;
+      font-size: 24px; font-weight: 400; color: rgba(53,40,26,0.5);
+      letter-spacing: -0.02em; font-family: var(--f);
+      cursor: pointer; outline: none; font-style: normal;
+    }
+    .booking-svc-sel option { color: var(--c-text); font-weight: 400; }
+    .booking-svc-wrap svg { position: absolute; right: 0; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    .booking-submit {
+      background: var(--c-dark); color: var(--c-white); border: none;
+      border-radius: var(--r-pill); padding: 16px; font-size: 15px; font-weight: 500;
+      letter-spacing: -0.01em; font-family: var(--f); cursor: pointer; width: 100%;
+      font-style: normal; margin-top: 32px;
+      transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .booking-submit:hover { background: #0d2b23; transform: translateY(-1px); }
+    .booking-submit:active { transform: translateY(0); }
+
+    /* ── ЖДЁМ ВАС ─────────────────────────────── */
+    .sec-contacts { background: var(--c-dark); }
+    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 694px; }
+    /* Smooth booking→contacts transition */
+    .sec-booking { border-bottom: 1px solid rgba(86,134,115,0.18); }
+    .contacts-left {
+      padding: 64px var(--gutter);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .contacts-heading {
+      font-size: clamp(24px, 2.5vw, 44px); font-weight: 500;
+      color: var(--c-white); letter-spacing: -0.03em; line-height: 1.05;
+      max-width: 400px; font-style: normal;
+    }
+    .contacts-bottom { display: flex; flex-direction: column; gap: 32px; }
+    .contacts-info { display: flex; flex-direction: column; gap: 8px; }
+    .contacts-info p { font-size: 15px; font-weight: 400; color: var(--c-white); line-height: 1.5; font-style: normal; }
+    .contacts-div { height: 1px; background: rgba(253,252,248,0.3); }
+    .contacts-links { display: flex; justify-content: space-between; }
+    .contacts-links a { font-size: 15px; font-weight: 500; color: var(--c-white); text-decoration: none; line-height: 1.25; font-style: normal; }
+    .contacts-links a:hover { opacity: 0.75; }
+    .contacts-grid { min-height: 520px; }
+    .contacts-map { overflow: hidden; position: relative !important; height: 520px !important; }
+    .contacts-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+    /* override old styles.css conflicts */
+    .contacts-info { background: transparent !important; padding: 0 !important; }
+    .contacts-map  { background: transparent !important; }
+
+    /* ── FOOTER ───────────────────────────────── */
+    .site-footer { background: var(--c-dark); padding: 60px 0 40px; border-top: 1px solid rgba(253,252,248,0.1); }
+    .footer-grid { display: grid; grid-template-columns: minmax(220px, 335px) repeat(3, 1fr); gap: 60px; align-items: start; }
+    .footer-logo { margin-bottom: 24px; }
+    .footer-logo img { height: 40px; width: auto; }
+    .footer-tagline { font-size: 18px; font-weight: 500; color: var(--c-w50); line-height: 1.25; font-style: normal; margin-bottom: 24px; }
+    .footer-phone { font-size: 22px; font-weight: 500; color: var(--c-white); line-height: 1.25; text-decoration: none; display: block; font-style: normal; margin-bottom: 8px; }
+    .footer-addr { font-size: 14px; font-weight: 400; color: var(--c-w50); line-height: 1.25; font-style: normal; }
+    .footer-col h3 { font-size: 16px; font-weight: 600; color: var(--c-white); line-height: 1.25; margin-bottom: 20px; letter-spacing: 0.04em; font-style: normal; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 14px; font-weight: 400; color: var(--c-w50); text-decoration: none; line-height: 1.25; font-style: normal; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--c-white); }
+    .footer-copy { margin-top: 48px; font-size: 13px; font-weight: 400; color: var(--c-w50); font-style: normal; }
+
+    /* ── ADV ANIMATION ──────────────────────── */
+    @keyframes advIconIn {
+      from { opacity: 0; transform: scale(0.55) translateY(24px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes advFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes advSepIn {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+
+    /* float фазы через CSS-переменные, чтобы иконки не качались синхронно */
+    .adv-item           { --float-del: 0s;    --ai-del: 0.18s; }
+    .adv-item:nth-child(2) { --float-del: 1.85s; --ai-del: 0.36s; }
+    .adv-item:nth-child(3) { --float-del: 3.7s;  --ai-del: 0.54s; }
+
+    /* Всегда видны + всегда плавают — fallback если animations.js не запустился */
+    .adv-icon img {
+      transition: filter 0.35s ease, transform 0.35s ease;
+      animation: advFloat 5.5s ease-in-out var(--float-del, 0s) infinite;
+    }
+
+    /* Когда rr-in добавлен — пружинящий вход + сдвинутый float */
+    .adv-item.rr-in .adv-icon img {
+      animation:
+        advIconIn 0.85s cubic-bezier(0.34,1.56,0.64,1) var(--ai-del, 0.2s) both,
+        advFloat  5.5s ease-in-out calc(var(--ai-del, 0.2s) + 0.85s + var(--float-del, 0s)) infinite;
+    }
+
+    .adv-item:hover .adv-icon img {
+      animation-play-state: paused;
+      filter: drop-shadow(0 14px 32px rgba(86,134,115,0.42));
+    }
+    .adv-item {
+      
+      cursor: default;
+    }
+    .adv-item:hover { background: rgba(86,134,115,0.06); }
+
+    .adv-item + .adv-item.rr-in::before {
+      transform-origin: top center;
+      animation: advSepIn 0.7s ease calc(var(--ai-del, 0.3s) + 0.2s) both;
+    }
+
+    /* ── COOKIE BANNER ──────────────────────── */
+    @keyframes cookieUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(120%); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @keyframes cookieDown {
+      to { opacity: 0; transform: translateX(-50%) translateY(130%); }
+    }
+
+    .cookie-banner {
+      position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 900; width: calc(100% - 40px); max-width: 740px;
+      background: var(--c-dark);
+      border-radius: 20px; padding: 26px 36px;
+      display: flex; align-items: center; gap: 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.12);
+      animation: cookieUp 0.65s cubic-bezier(0.34,1.56,0.64,1) 1s both;
+    }
+    .cookie-banner.is-hidden { animation: cookieDown 0.4s ease forwards; }
+
+    .cookie-banner__text { flex: 1; min-width: 0; }
+    .cookie-banner__title {
+      font-size: 17px; font-weight: 600; color: var(--c-white);
+      letter-spacing: -0.02em; margin-bottom: 6px; font-style: normal;
+    }
+    .cookie-banner__desc {
+      font-size: 14px; font-weight: 400; color: rgba(253,252,248,0.6);
+      letter-spacing: -0.01em; line-height: 1.5; font-style: normal;
+    }
+    .cookie-banner__desc a {
+      color: rgba(253,252,248,0.6); text-decoration: underline;
+      text-underline-offset: 3px; transition: color 0.2s;
+    }
+    .cookie-banner__desc a:hover { color: var(--c-white); }
+
+    .cookie-banner__actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .cookie-accept { padding: 12px 28px; font-size: 15px; white-space: nowrap; }
+    .cookie-decline {
+      font-size: 14px; font-weight: 500; color: rgba(253,252,248,0.45);
+      background: none; border: none; cursor: pointer; font-family: var(--f);
+      letter-spacing: -0.01em; white-space: nowrap; font-style: normal;
+      transition: color 0.2s;
+    }
+    .cookie-decline:hover { color: rgba(253,252,248,0.75); }
+
+    /* ── FORM VALIDATION ────────────────────── */
+    @keyframes fieldShake {
+      0%, 100% { transform: translateX(0); }
+      20%  { transform: translateX(-7px); }
+      40%  { transform: translateX(7px); }
+      60%  { transform: translateX(-4px); }
+      80%  { transform: translateX(4px); }
+    }
+
+    .booking-field input { transition: border-color 0.25s ease, color 0.25s ease; }
+    .booking-field input:focus { border-bottom-color: var(--c-accent); outline: none; }
+
+    .booking-field__err {
+      font-size: 13px; font-weight: 400; color: #c94444;
+      letter-spacing: -0.01em; line-height: 1; font-style: normal;
+      margin-top: 8px; display: none; font-family: var(--f);
+    }
+    .booking-svc-field .booking-field__err { font-size: 13px; color: #c94444; margin-top: 8px; display: none; font-family: var(--f); font-style: normal; }
+
+    .booking-field.has-error .booking-field__err,
+    .booking-svc-field.has-error .booking-field__err { display: block; }
+
+    .booking-field.has-error input {
+      border-bottom-color: #c94444;
+      animation: fieldShake 0.38s ease;
+    }
+    .booking-svc-field.has-error .booking-svc-wrap {
+      border-bottom-color: #c94444;
+      animation: fieldShake 0.38s ease;
+    }
+    .booking-field.has-ok input { border-bottom-color: var(--c-accent); }
+
+    /* ── GIFT CERT POPUP ────────────────────── */
+    .gift-popup {
+      position: fixed; inset: 0; z-index: 1100;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; visibility: hidden;
+    }
+    .gift-popup.is-open { pointer-events: auto; visibility: visible; }
+    .gift-popup__overlay {
+      position: absolute; inset: 0;
+      background: rgba(16,47,39,0.65);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      opacity: 0; transition: opacity 0.35s ease;
+    }
+    .gift-popup.is-open .gift-popup__overlay { opacity: 1; }
+    .gift-popup__card {
+      position: relative; z-index: 1;
+      background: var(--c-dark); border-radius: 28px;
+      padding: 52px 48px; max-width: 560px; width: calc(100% - 40px);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+      opacity: 0; transform: scale(0.9) translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .gift-popup.is-open .gift-popup__card { opacity: 1; transform: scale(1) translateY(0); }
+    .gift-popup__close {
+      position: absolute; top: 20px; right: 20px;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: none; background: rgba(253,252,248,0.1);
+      color: var(--c-white); cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .gift-popup__close:hover { background: rgba(253,252,248,0.2); }
+    .gift-popup__tag {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-accent);
+      margin-bottom: 16px; display: block; font-style: normal;
+    }
+    .gift-popup__title {
+      font-size: clamp(28px, 3vw, 48px); font-weight: 400;
+      color: var(--c-white); letter-spacing: -0.02em; line-height: 1.05;
+      margin-bottom: 20px; font-style: normal;
+    }
+    .gift-popup__desc {
+      font-size: 18px; font-weight: 400; color: var(--c-w50);
+      letter-spacing: -0.01em; line-height: 1.55; margin-bottom: 36px;
+      font-style: normal;
+    }
+    .gift-popup__amounts { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+    .gift-popup__amt {
+      flex: 1; min-width: 120px;
+      border: 1.5px solid rgba(253,252,248,0.2); border-radius: 12px;
+      padding: 16px 12px; text-align: center; cursor: pointer;
+      background: transparent; transition: border-color 0.2s, background 0.2s;
+      font-family: var(--f); font-style: normal;
+    }
+    .gift-popup__amt:hover,
+    .gift-popup__amt.is-sel { border-color: var(--c-accent); background: rgba(86,134,115,0.12); }
+    .gift-popup__amt-n {
+      display: block; font-size: 28px; font-weight: 400;
+      color: var(--c-white); letter-spacing: -0.03em; line-height: 1;
+    }
+    .gift-popup__amt-l { display: block; font-size: 13px; font-weight: 500; color: var(--c-w50); margin-top: 4px; }
+    .gift-popup__actions { display: flex; flex-direction: column; gap: 12px; }
+    .gift-popup__buy { padding: 20px; font-size: 18px; width: 100%; justify-content: center; letter-spacing: -0.02em; }
+    .gift-popup__call {
+      text-align: center; font-size: 16px; font-weight: 500;
+      color: var(--c-w50); text-decoration: none; display: block;
+      transition: color 0.2s; font-style: normal;
+    }
+    .gift-popup__call:hover { color: var(--c-white); }
+    @media (max-width: 767px) {
+      .gift-popup__card { padding: 36px 24px; border-radius: 20px; }
+      .gift-popup__title { font-size: 26px; }
+    }
+
+    /* ── MOBILE NAV OVERFLOW FIX ─────────────── */
+    @media (max-width: 1024px) {
+      html { overflow-x: hidden; }
+    }
+
+    /* ── SUCCESS POPUP ──────────────────────── */
+    @keyframes popCardIn {
+      from { opacity: 0; transform: scale(0.88) translateY(24px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes popCheckBounce {
+      from { transform: scale(0); opacity: 0; }
+      60%  { transform: scale(1.18); opacity: 1; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes popCheckDraw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .booking-popup {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; visibility: hidden;
+    }
+    .booking-popup.is-open { pointer-events: auto; visibility: visible; }
+
+    .booking-popup__overlay {
+      position: absolute; inset: 0;
+      background: rgba(16,47,39,0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      opacity: 0; transition: opacity 0.35s ease;
+    }
+    .booking-popup.is-open .booking-popup__overlay { opacity: 1; }
+
+    .booking-popup__card {
+      position: relative; z-index: 1;
+      background: var(--c-bg); border-radius: 28px;
+      padding: 56px 52px; max-width: 500px; width: calc(100% - 40px);
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.22);
+      opacity: 0; transform: scale(0.88) translateY(24px);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .booking-popup.is-open .booking-popup__card {
+      opacity: 1; transform: scale(1) translateY(0);
+    }
+
+    .booking-popup__check {
+      width: 76px; height: 76px; border-radius: 50%;
+      background: var(--c-accent);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      transform: scale(0); opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1) 0.2s,
+                  opacity 0.3s ease 0.2s;
+    }
+    .booking-popup.is-open .booking-popup__check { transform: scale(1); opacity: 1; }
+
+    .booking-popup__check svg {
+      width: 34px; height: 34px; stroke: var(--c-white);
+      stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 52; stroke-dashoffset: 52;
+      transition: stroke-dashoffset 0.45s ease 0.6s;
+    }
+    .booking-popup.is-open .booking-popup__check svg { stroke-dashoffset: 0; }
+
+    .booking-popup__title {
+      font-size: clamp(24px, 3vw, 40px); font-weight: 500; color: var(--c-text);
+      letter-spacing: -0.02em; line-height: 1; margin-bottom: 14px; font-style: normal;
+    }
+    .booking-popup__desc {
+      font-size: 18px; font-weight: 400; color: var(--c-muted);
+      letter-spacing: -0.02em; line-height: 1.45; font-style: normal; margin-bottom: 36px;
+    }
+    .booking-popup__close { padding: 16px 52px; font-size: 18px; background: var(--c-dark); color: var(--c-white); border-color: var(--c-dark); box-shadow: 0 4px 20px rgba(16,47,39,0.25); }
+    .booking-popup__close:hover { background: #0d2b23; border-color: #0d2b23; }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 1023px) {
+      .booking-inner { gap: 60px; }
+      .booking-text { flex: 0 0 280px; }
+    }
+    @media (max-width: 767px) {
+      /* Advantages */
+      .adv-row { flex-direction: column; gap: 48px; }
+      .adv-item + .adv-item::before { display: none; }
+      .adv-item { padding: 0 24px; }
+      .adv-icon { height: 160px; }
+      .adv-icon img { max-height: 160px; }
+
+      /* Booking form */
+      .booking-inner { flex-direction: column; gap: 36px; }
+      .booking-text { flex: none; width: 100%; }
+      .booking-row { flex-direction: column; }
+      .booking-heading { font-size: clamp(28px, 8vw, 48px); }
+
+      /* Cookie */
+      .cookie-banner {
+        flex-direction: column; gap: 18px;
+        padding: 22px 20px; bottom: 16px; border-radius: 16px;
+      }
+      .cookie-banner__actions { width: 100%; justify-content: space-between; }
+      .cookie-accept { flex: 1; text-align: center; }
+
+      /* Popup */
+      .booking-popup__card { padding: 40px 24px; border-radius: 20px; }
+      .booking-popup__title { font-size: 26px; }
+      .booking-popup__desc { font-size: 16px; }
+      .booking-popup__close { padding: 14px 40px; font-size: 16px; }
+    }
+  </style>
+  <link rel="preload" href="responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202606041800"/></noscript>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-header__logo">
+    <img src="assets/icons/logo.svg" alt="RA|RÉ"/>
+  </a>
+  <nav class="site-header__nav">
+    <a href="about.html">О клинике</a>
+    <a href="promos.html">Акции</a>
+    <a href="services.html">Услуги</a>
+    <a href="specialists.html">Специалисты</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
+  </nav>
+  <div class="site-header__actions">
+    <a href="tel:+79002761116" class="site-header__phone" style="display:flex;align-items:center;">
+      <img src="assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;flex-shrink:0;"/>
+    </a>
+    <a href="#booking" class="pill-btn site-header__cta">Записаться</a>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg" id="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero__body" id="hero-body">
+      <div class="hero__headline">
+        <h1 class="hero__title" id="hero-title">Клиника экспертной косметологии<br>и лазерной эпиляции в Анапе</h1>
+        <p class="hero__sub" id="hero-sub">Доказанный результат. Деликатный подход.<br/>Лучшие специалисты города.</p>
+      </div>
+      <a href="#booking" class="pill-btn hero__cta" id="hero-cta">Записаться на приём</a>
+    </div>
+  </div>
+  <div class="hero__controls">
+    <span class="hero__counter" id="hero-counter">01 / 05</span>
+    <div class="hero__arrows">
+      <button class="hero__arr" id="hero-prev" aria-label="Назад">
+        <svg viewBox="0 0 18 18"><polyline points="11,4 6,9 11,14"/></svg>
+      </button>
+      <button class="hero__arr" id="hero-next" aria-label="Вперёд">
+        <svg viewBox="0 0 18 18"><polyline points="7,4 12,9 7,14"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ НАЧНИТЕ С ЭТОГО ════════════════════════════════════════════ -->
+<section class="sec-start" id="start">
+  <div class="wrap">
+    
+    <h2 class="sec-h">Начните с этого</h2>
+    <div class="svc-cards">
+      <a href="services/laser.html" class="svc-card">
+        <div>
+          <span class="svc-card__num">01</span>
+          <div class="svc-card__top">
+            <span>Убрать лишние волосы</span>
+            <span class="svc-card__arr">→</span>
+          </div>
+        </div>
+        <div class="svc-card__btm">
+          <p class="svc-card__name">Лазерная эпиляция</p>
+          <p class="svc-card__desc">Гладкая кожа надолго без раздражения и бритья</p>
+        </div>
+      </a>
+      <a href="services/smas.html" class="svc-card">
+        <div>
+          <span class="svc-card__num">02</span>
+          <div class="svc-card__top">
+            <span>Подтянуть и омолодить</span>
+            <span class="svc-card__arr">→</span>
+          </div>
+        </div>
+        <div class="svc-card__btm">
+          <p class="svc-card__name">SMAS-лифтинг</p>
+          <p class="svc-card__desc">Лифтинг без операций с долгосрочным эффектом</p>
+        </div>
+      </a>
+      <a href="services/injections.html" class="svc-card">
+        <div>
+          <span class="svc-card__num">03</span>
+          <div class="svc-card__top">
+            <span>Улучшить качество кожи</span>
+            <span class="svc-card__arr">→</span>
+          </div>
+        </div>
+        <div class="svc-card__btm">
+          <p class="svc-card__name">Инъекционная косметология</p>
+          <p class="svc-card__desc">Биоревитализация, мезотерапия, контурная пластика</p>
+        </div>
+      </a>
+    </div>
+    <div class="sec-start__cta-wrap">
+      <a href="services.html" class="pill-btn pill-btn--dark sec-start__cta">Все услуги</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ О КЛИНИКЕ ══════════════════════════════════════════════════ -->
+<section class="sec-about" id="about">
+  <div class="wrap">
+    <div class="about-inner">
+      <div class="about-photos">
+        <div class="about-ph about-ph--1">
+          <img src="assets/photos/rare-consultation.webp" alt="Клиника RA|RÉ" loading="lazy"/>
+        </div>
+        <div class="about-ph about-ph--2">
+          <img src="assets/photos/rare-hydro-procedure.webp" alt="Клиника RA|RÉ" loading="lazy"/>
+        </div>
+        <div class="about-ph about-ph--3">
+          <img src="assets/photos/rare-laser-room.webp" alt="Клиника RA|RÉ" loading="lazy"/>
+        </div>
+      </div>
+      <div class="about-text">
+        
+        <h2 class="sec-h">О нас</h2>
+        <div class="about-body">
+          <p>RA|RÉ — клиника экспертной косметологии в Анапе. Мы объединяем передовые технологии, глубокую медицинскую экспертизу и внимательный индивидуальный подход к каждому гостю.</p>
+          <p>Каждая процедура разработана под ваш тип кожи и задачи. Никаких шаблонных решений — только персональный протокол с доказанным результатом.</p>
+          <p>Наша миссия — улучшить качество здоровья и жизни каждого гостя. Мы применяем самые эффективные и прогрессивные методы, постоянно повышая уровень квалификации наших специалистов.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat">
+        <span class="about-stat__n">7+</span>
+        <span class="about-stat__l">Лет работы</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat__n">3000+</span>
+        <span class="about-stat__l">Довольных клиентов</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat__n">12</span>
+        <span class="about-stat__l">Специалистов</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat__n">40+</span>
+        <span class="about-stat__l">Процедур</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ═════════════════════════════════════ -->
+<section class="sec-dir" id="services">
+  <div class="wrap">
+    <div class="dir-head">
+      <h2 class="dir-heading">Популярные направления</h2>
+      <a href="services.html" class="dir-all">Смотреть все <span class="dir-all__arr">→</span></a>
+    </div>
+  </div>
+  <div class="dir-mosaic wrap">
+
+    <!-- Card 1: Уход за лицом — large left, spans 2 rows -->
+    <a href="services/skin.html" class="dir-mosaic__card">
+      <img class="dir-mosaic__img" src="assets/photos/service-skin.webp" alt="" loading="lazy"/>
+      <div class="dir-mosaic__overlay"></div>
+      <div class="dir-mosaic__content">
+        <span class="dir-mosaic__tag">Лицо</span>
+        <h3 class="dir-mosaic__title">Уход за лицом</h3>
+        <ul class="dir-mosaic__list">
+          <li>Профессиональная чистка</li>
+          <li>Химические и энзимные пилинги</li>
+          <li>Биоревитализация</li>
+          <li>Мезотерапия лица</li>
+          <li>Уходовые программы</li>
+        </ul>
+        <span class="dir-mosaic__cta">Подробнее <span>→</span></span>
+      </div>
+    </a>
+
+    <!-- Card 2: Тело — top right -->
+    <a href="services/lifts.html" class="dir-mosaic__card">
+      <img class="dir-mosaic__img" src="assets/photos/service-lifts.webp" alt="" loading="lazy"/>
+      <div class="dir-mosaic__overlay"></div>
+      <div class="dir-mosaic__content">
+        <span class="dir-mosaic__tag">Тело</span>
+        <h3 class="dir-mosaic__title">Тело и коррекция фигуры</h3>
+        <ul class="dir-mosaic__list">
+          <li>Криолиполиз</li>
+          <li>RF-лифтинг тела</li>
+          <li>LPG-массаж</li>
+          <li>Прессотерапия</li>
+        </ul>
+        <span class="dir-mosaic__cta">Подробнее <span>→</span></span>
+      </div>
+    </a>
+
+    <!-- Card 3: Волосы — middle right -->
+    <a href="services.html" class="dir-mosaic__card">
+      <img class="dir-mosaic__img" src="assets/photos/face-massage.webp" alt="" loading="lazy"/>
+      <div class="dir-mosaic__overlay"></div>
+      <div class="dir-mosaic__content">
+        <span class="dir-mosaic__tag">Волосы</span>
+        <h3 class="dir-mosaic__title">Волосы и трихология</h3>
+        <ul class="dir-mosaic__list">
+          <li>Мезотерапия волос</li>
+          <li>Плазмотерапия (PRP)</li>
+          <li>Трихоскопия</li>
+        </ul>
+        <span class="dir-mosaic__cta">Подробнее <span>→</span></span>
+      </div>
+    </a>
+
+    <!-- Card 4: SPA — wide bottom -->
+    <a href="services/spa.html" class="dir-mosaic__card">
+      <img class="dir-mosaic__img" src="assets/photos/service-spa.webp" alt="" loading="lazy"/>
+      <div class="dir-mosaic__overlay"></div>
+      <div class="dir-mosaic__content">
+        <span class="dir-mosaic__tag">SPA</span>
+        <h3 class="dir-mosaic__title">Массажи и SPA</h3>
+        <ul class="dir-mosaic__list">
+          <li>Классический массаж</li>
+          <li>Стоун-терапия</li>
+          <li>Гидропилинг</li>
+          <li>Комплексные ритуалы</li>
+          <li>SPA-программы</li>
+        </ul>
+        <span class="dir-mosaic__cta">Подробнее <span>→</span></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ СПЕЦИАЛИСТЫ ════════════════════════════════════════════════ -->
+<section class="sec-spec" id="specialists">
+  <div class="wrap">
+    
+    <h2 class="sec-h spec-heading" style="color:var(--c-white)">Специалисты нашей клиники</h2>
+    <div class="spec-slider">
+      <div class="spec-track" id="spec-track">
+        <a href="specialists/mariya-viktorovna.html" class="spec-card">
+          <div class="spec-card__photo"><img src="assets/photos/spec-mariya.webp" alt="Мария Викторовна" loading="lazy"/></div>
+          <p class="spec-card__name">Мария Викторовна</p>
+          <p class="spec-card__role">Главный врач, врач-косметолог</p>
+          <span class="spec-card__view">Профиль</span>
+        </a>
+        <a href="specialists/elena-tigranovna.html" class="spec-card">
+          <div class="spec-card__photo"><img src="assets/photos/spec-elena.webp" alt="Елена Тиграновна" loading="lazy"/></div>
+          <p class="spec-card__name">Елена Тиграновна</p>
+          <p class="spec-card__role">Медицинский массажист</p>
+          <span class="spec-card__view">Профиль</span>
+        </a>
+        <a href="specialists/yana-vladimirovna.html" class="spec-card">
+          <div class="spec-card__photo"><img src="assets/photos/spec-yana.webp" alt="Яна Владимировна" loading="lazy"/></div>
+          <p class="spec-card__name">Яна Владимировна</p>
+          <p class="spec-card__role">Медицинский массажист</p>
+          <span class="spec-card__view">Профиль</span>
+        </a>
+        <a href="specialists/ksenia-aleksandrovna.html" class="spec-card">
+          <div class="spec-card__photo"><img src="assets/photos/spec-ksenia.webp" alt="Ксения Александровна" loading="lazy"/></div>
+          <p class="spec-card__name">Ксения Александровна</p>
+          <p class="spec-card__role">Косметолог-эстетист</p>
+          <span class="spec-card__view">Профиль</span>
+        </a>
+        <a href="specialists/alisa-alekseevna.html" class="spec-card">
+          <div class="spec-card__photo"><img src="assets/photos/spec-alisa.webp" alt="Алиса Алексеевна" loading="lazy"/></div>
+          <p class="spec-card__name">Алиса Алексеевна</p>
+          <p class="spec-card__role">Врач-дерматовенеролог, косметолог, трихолог</p>
+          <span class="spec-card__view">Профиль</span>
+        </a>
+        <a href="specialists/inna-viktorovna.html" class="spec-card">
+          <div class="spec-card__photo"><img src="assets/photos/spec-inna.webp" alt="Инна Викторовна" loading="lazy"/></div>
+          <p class="spec-card__name">Инна Викторовна</p>
+          <p class="spec-card__role">Медицинский массажист</p>
+          <span class="spec-card__view">Профиль</span>
+        </a>
+      </div>
+    </div>
+    <div class="spec-dots" id="spec-dots">
+      <button class="dot dot--active" aria-label="Позиция 1"></button>
+      <button class="dot" aria-label="Позиция 2"></button>
+      <button class="dot" aria-label="Позиция 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ОСНОВАТЕЛЬНИЦА ═════════════════════════════════════════════ -->
+<section class="sec-founder">
+  <div class="wrap">
+    <div class="founder-inner">
+      <div class="founder-photo">
+        <img src="assets/photos/founder-anush.webp" alt="Ануш Арташевна" loading="lazy"/>
+      </div>
+      <div class="founder-cnt">
+        <div class="founder-top">
+          <div class="founder-meta">
+            <p class="founder-lbl">Основательница клиники</p>
+            <h2 class="founder-name">Ануш Арташевна</h2>
+          </div>
+        </div>
+        <div class="founder-quote">
+          <p>В современном мире красота, здоровье и энергия – одни из решающих факторов в достижении успеха и гармонии с собой и окружающими.</p>
+          <p>Именно поэтому мы создали место, где Вы, в уютной атмосфере, с помощью команды настоящих профессионалов, можете стать лучшей версией себя.</p>
+          <p>Мы тщательно подходим к выбору оборудования и оснащения клиники, останавливаясь только на самых современных аппаратах с доказанной эффективностью. Будьте всегда здоровы и красивы — а мы Вам в этом поможем.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ АКЦИИ ══════════════════════════════════════════════════════ -->
+<section class="sec-promos" id="promos">
+  <div class="wrap">
+    <div class="promos-inner">
+      
+      <h2 class="sec-h promos-heading">Акции для гостей клиники</h2>
+      <div class="promo-cards">
+        <a href="promos/first-visit.html" class="promo-card">
+          <div class="promo-card__img-wrap">
+            <img class="promo-card__img" src="assets/photos/hero-skin.webp" alt="Первый визит" loading="lazy"/>
+            <div class="promo-card__img-overlay"></div>
+            <span class="promo-tag">Новым гостям</span>
+          </div>
+          <div class="promo-card__body">
+            <div class="promo-card__btm">
+              <p class="promo-card__title">Скидка до 20% на первый визит</p>
+              <p class="promo-card__desc">Скидка на любые услуги при первом посещении</p>
+            </div>
+            <div class="promo-card__top"><span class="promo-arr">→</span></div>
+          </div>
+        </a>
+        <a href="promos/smas-lifting.html" class="promo-card">
+          <div class="promo-card__img-wrap">
+            <img class="promo-card__img" src="assets/photos/hero-smas.webp" alt="SMAS-лифтинг" loading="lazy"/>
+            <div class="promo-card__img-overlay"></div>
+            <span class="promo-tag">Скидка 20%</span>
+          </div>
+          <div class="promo-card__body">
+            <div class="promo-card__btm">
+              <p class="promo-card__title">Скидка 20% на SMAS от 500 линий</p>
+              <p class="promo-card__desc">Весь май — скидка на SMAS-лифтинг</p>
+            </div>
+            <div class="promo-card__top"><span class="promo-arr">→</span></div>
+          </div>
+        </a>
+        <a href="promos/laser-new-client.html" class="promo-card">
+          <div class="promo-card__img-wrap">
+            <img class="promo-card__img" src="assets/photos/hero-laser.webp" alt="Лазерная эпиляция" loading="lazy"/>
+            <div class="promo-card__img-overlay"></div>
+            <span class="promo-tag">Скидка 30%</span>
+          </div>
+          <div class="promo-card__body">
+            <div class="promo-card__btm">
+              <p class="promo-card__title">Скидка 30% на лазерную эпиляцию для новых клиентов</p>
+              <p class="promo-card__desc">При первом посещении на аппарате Candela</p>
+            </div>
+            <div class="promo-card__top"><span class="promo-arr">→</span></div>
+          </div>
+        </a>
+      </div>
+      <a href="promos.html" class="pill-btn pill-btn--dark promos-cta">Все акции</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ВНУТРИ КЛИНИКИ ═════════════════════════════════════════════ -->
+<section class="sec-interior">
+  
+  <h2 class="sec-h sec-interior__h">Внутри клиники</h2>
+  <div class="interior-slider">
+    <div class="interior-track" id="interior-track">
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3427.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3480.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3516.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3549.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3605.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3763.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3867.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3983.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3988.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a4149.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a4223.webp" alt="Внутри клиники" loading="lazy"/></div></div>
+    </div>
+  </div>
+  <div class="interior-nav">
+    <span class="interior-counter" id="interior-counter">01 / 11</span>
+    <div class="interior-arrows">
+      <button class="interior-arr" id="interior-prev" aria-label="Назад">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L7 10l5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="interior-arr" id="interior-next" aria-label="Вперёд">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4l5 6-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ РЕЗУЛЬТАТЫ ═════════════════════════════════════════════════ -->
+<section class="sec-results">
+  <div class="wrap">
+    
+    <h2 class="sec-h results-heading">Результаты наших пациентов</h2>
+    <div class="result-slider">
+      <div class="result-track" id="result-track">
+        <div class="result-page">
+          <div class="result-card">
+            <div class="result-photo"><img src="assets/photos/result-1.webp" alt="До и после" loading="lazy"/></div>
+            <span class="result-lbl">Лечение пигментации</span>
+          </div>
+          <div class="result-card">
+            <div class="result-photo"><img src="assets/photos/result-2.webp" alt="До и после" loading="lazy"/></div>
+            <span class="result-lbl">Коррекция контура шеи</span>
+          </div>
+        </div>
+        <div class="result-page">
+          <div class="result-card">
+            <div class="result-photo"><img src="assets/photos/result-3.webp" alt="До и после" loading="lazy"/></div>
+            <span class="result-lbl">Контурная пластика губ</span>
+          </div>
+          <div class="result-card">
+            <div class="result-photo"><img src="assets/photos/result-4.webp" alt="До и после" loading="lazy"/></div>
+            <span class="result-lbl">Удаление сосудистых звёздочек</span>
+          </div>
+        </div>
+        <div class="result-page">
+          <div class="result-card">
+            <div class="result-photo"><img src="assets/photos/result-5.webp" alt="До и после" loading="lazy"/></div>
+            <span class="result-lbl">Биоревитализация и контурная пластика</span>
+          </div>
+          <div class="result-card">
+            <div class="result-photo"><img src="assets/photos/result-6.webp" alt="До и после" loading="lazy"/></div>
+            <span class="result-lbl">Лечение акне</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="results-dots" id="results-dots">
+      <button class="dot dot--active" data-idx="0" aria-label="Страница 1"></button>
+      <button class="dot" data-idx="1" aria-label="Страница 2"></button>
+      <button class="dot" data-idx="2" aria-label="Страница 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ОНЛАЙН-ЗАПИСЬ ══════════════════════════════════════════════ -->
+<section class="sec-booking" id="booking">
+  <div class="wrap">
+    <div class="booking-inner">
+      <div class="booking-text">
+        
+        <h2 class="booking-heading">Онлайн-запись</h2>
+        <p class="booking-desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
+      </div>
+      <form class="booking-form" action="#" method="POST">
+        <div class="booking-row">
+          <div class="booking-field">
+            <label for="b-name">Ваше имя*</label>
+            <input id="b-name" type="text" name="name" placeholder="Анна" autocomplete="name" required/>
+            <span class="booking-field__err">Пожалуйста, введите имя</span>
+          </div>
+          <div class="booking-field">
+            <label for="b-phone">Телефон*</label>
+            <input id="b-phone" type="tel" name="phone" placeholder="Ваш номер телефона" autocomplete="tel" required/>
+            <span class="booking-field__err">Введите корректный номер</span>
+          </div>
+        </div>
+        <div class="booking-svc-field">
+          <label class="booking-svc-label">Услуга</label>
+          <div class="booking-svc-wrap">
+            <select class="booking-svc-sel" name="service">
+              <option value="" disabled selected>Выбрать услугу</option>
+              <optgroup label="Лицо">
+                <option value="smas">SMAS-лифтинг</option>
+                <option value="rf-lifting">РФ-лифтинг (монополярный)</option>
+                <option value="injections">Инъекционная косметология</option>
+                <option value="biorev">Биоревитализация</option>
+                <option value="peeling">Химический пилинг</option>
+                <option value="care">Уходовые программы</option>
+              </optgroup>
+              <optgroup label="Тело">
+                <option value="laser">Лазерная эпиляция</option>
+                <option value="cryo">Криолиполиз</option>
+                <option value="rf-body">RF-лифтинг тела</option>
+                <option value="lpg">LPG-массаж</option>
+                <option value="press">Прессотерапия</option>
+              </optgroup>
+              <optgroup label="Волосы">
+                <option value="meso-hair">Мезотерапия волос</option>
+                <option value="prp">Плазмотерапия (PRP)</option>
+                <option value="tricho">Трихоскопия</option>
+              </optgroup>
+              <optgroup label="SPA">
+                <option value="massage">Классический массаж</option>
+                <option value="stone">Стоун-терапия</option>
+                <option value="spa">SPA-программы</option>
+              </optgroup>
+              <option value="other">Другое</option>
+            </select>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#35281a" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          </div>
+        </div>
+        <button type="submit" class="booking-submit">Отправить заявку</button>
+        <p style="font-size:14px;color:rgba(53,40,26,0.5);letter-spacing:-0.01em;line-height:1.4;margin-top:16px;font-style:normal;">
+          Отправляя данную форму вы соглашаетесь с <a href="docs/processing.docx" style="color:inherit;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener noreferrer">обработкой персональных данных</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ЖДЁМ ВАС ═══════════════════════════════════════════════════ -->
+<section class="sec-contacts" id="contacts">
+  <div class="contacts-grid">
+    <div class="contacts-left">
+      <h2 class="contacts-heading">Ждём вас на приёме</h2>
+      <div class="contacts-bottom">
+        <div class="contacts-info">
+          <p>Анапа, Владимирская 120</p>
+          <p>пн-вс: 9:00 — 20:00</p>
+        </div>
+        <div class="contacts-div"></div>
+        <div class="contacts-links">
+          <a href="mailto:rare.clinic@mail.ru">rare.clinic@mail.ru</a>
+          <a href="tel:+79002761116">+7 (900) 276-11-16</a>
+        </div>
+      </div>
+    </div>
+    <div class="contacts-map" id="contacts-map-leaflet">
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?ll=37.331145%2C44.879223&z=17&pt=37.331145%2C44.879223%2Cpm2rdm&text=%D0%90%D0%BD%D0%B0%D0%BF%D0%B0%2C+%D1%83%D0%BB.+%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D1%81%D0%BA%D0%B0%D1%8F%2C+120"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Клиника RA|RÉ — Анапа, Владимирская 120"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/icons/logo.svg" alt="RA|RÉ"/>
+        </div>
+        <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+        <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+        <p class="footer-addr">Анапа, Владимирская 120</p>
+      </div>
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <div class="footer-links">
+          <a href="services/smas.html">SMAS-лифтинг</a>
+          <a href="services/injections.html">Инъекционная косметология</a>
+          <a href="services/laser.html">Лазерная эпиляция</a>
+          <a href="services/lifts.html">Аппаратные лифтинги</a>
+          <a href="services/skin.html">Уход за кожей</a>
+          <a href="services/spa.html">SPA-программы</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Клиника</h3>
+        <div class="footer-links">
+          <a href="about.html">О клинике</a>
+          <a href="specialists.html">Специалисты</a>
+          <a href="certificates.html">Сертификаты</a>
+          <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
+          <a href="promos.html">Акции</a>
+          <a href="prices.html">Цены</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <div class="footer-links">
+          <a href="docs/license.pdf">Выписка из реестра лицензий</a>
+          <a href="docs/processing.docx">Обработка персональных данных</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:48px;">
+      <p class="footer-copy" style="margin-top:0;">© 2026 RA|RÉ. Все права защищены.</p>
+      <a href="https://podpisait.ru/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='0.5'">
+        <span style="font-size:12px;color:rgba(253,252,248,0.7);font-style:normal;">Разработано</span>
+        <img src="assets/icons/podpisait.svg" alt="Подписайт" style="height:18px;width:auto;"/>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ── COUNTER ANIMATION ─────────────────────────────────────────── */
+  function animateCounter(el, target, suffix, duration) {
+    var start = performance.now();
+    function update(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+  var stats = [
+    { sel: '.about-stat:nth-child(1) .about-stat__n', val: 7,    sfx: '+' },
+    { sel: '.about-stat:nth-child(2) .about-stat__n', val: 3000, sfx: '+' },
+    { sel: '.about-stat:nth-child(3) .about-stat__n', val: 12,   sfx: ''  },
+    { sel: '.about-stat:nth-child(4) .about-stat__n', val: 40,   sfx: '+' },
+  ];
+  var statsTrigger = document.querySelector('.about-stats');
+  if (statsTrigger) {
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      stats.forEach(function (s) {
+        var el = document.querySelector(s.sel);
+        if (el) animateCounter(el, s.val, s.sfx, 1600);
+      });
+    }, { threshold: 0.4 }).observe(statsTrigger);
+  }
+
+  /* ── HERO SLIDER ───────────────────────────────────────────────── */
+  var heroSlides = [
+    {
+      bg: 'assets/hero.webp',
+      title: 'Клиника экспертной косметологии<br>и лазерной эпиляции в Анапе',
+      sub: 'Доказанный результат. Деликатный подход.<br/>Лучшие специалисты города.',
+      cta: 'Записаться на приём', ctaHref: '#booking', left: false
+    },
+    {
+      bg: 'slides/slide2.webp',
+      title: 'Скидка 30%<br>на монополярный<br>РФ-лифтинг от 400 импульсов',
+      sub: 'МОНОПОЛЯРНЫЙ РФ-ЛИФТИНГ НА АППАРАТЕ VOLNEWMER –<br>Инновационное омоложение без боли и реабилитации!',
+      cta: 'Записаться на приём', ctaHref: '#booking', left: true
+    },
+    {
+      bg: 'slides/slide3.webp',
+      title: 'Скидка 20%<br>на SMAS от 500 линий',
+      sub: 'Весь май получите приятную скидку 20% на процедуру SMAS-лифтинга.',
+      cta: 'Записаться на приём', ctaHref: '#booking', left: true
+    },
+    {
+      bg: 'slides/slide4.webp',
+      title: 'Скидка 30%<br>на лазерную эпиляцию<br>для новых клиентов',
+      sub: 'При первом посещении нашей клиники вы получаете скидку 30%<br>на лазерное удаление волос лучшим лазером Candela GentleMax Pro',
+      cta: 'Записаться на приём', ctaHref: '#booking', left: true
+    },
+    {
+      bg: 'slides/slide5.webp',
+      title: 'Подарочные сертификаты красоты',
+      sub: 'Подарите близким возможность насладиться профессиональными<br>косметологическими процедурами.',
+      cta: 'Купить сертификат', ctaHref: 'certificates.html', left: true
+    }
+  ];
+
+  var heroBg      = document.getElementById('hero-bg');
+  var heroBody    = document.getElementById('hero-body');
+  var heroTitle   = document.getElementById('hero-title');
+  var heroSub     = document.getElementById('hero-sub');
+  var heroCta     = document.getElementById('hero-cta');
+  var heroCounter = document.getElementById('hero-counter');
+
+  var heroCurrent = 0;
+  var heroTotal   = heroSlides.length;
+  var heroLocked  = false;
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function goToHeroSlide(idx) {
+    if (heroLocked) return;
+    heroLocked = true;
+    var slide = heroSlides[idx];
+
+    heroBody.style.opacity = '0';
+    heroBg.style.opacity   = '0';
+
+    setTimeout(function () {
+      heroBg.style.backgroundImage = "url('" + slide.bg + "')";
+      heroTitle.innerHTML  = slide.title;
+      heroSub.innerHTML    = slide.sub;
+      heroCta.textContent  = slide.cta;
+      heroCta.href         = slide.ctaHref;
+      heroCounter.textContent = pad(idx + 1) + ' / ' + pad(heroTotal);
+      heroBody.classList.toggle('hero__body--left', !!slide.left);
+      heroCurrent = idx;
+
+      heroBg.style.opacity   = '1';
+      heroBody.style.opacity = '1';
+      heroLocked = false;
+      preloadNext(idx);
+    }, 350);
+  }
+
+  document.getElementById('hero-prev').addEventListener('click', function () {
+    goToHeroSlide((heroCurrent - 1 + heroTotal) % heroTotal);
+  });
+  document.getElementById('hero-next').addEventListener('click', function () {
+    goToHeroSlide((heroCurrent + 1) % heroTotal);
+  });
+
+  /* preload only the next slide when switching */
+  function preloadNext(currentIdx) {
+    var nextIdx = (currentIdx + 1) % heroTotal;
+    new Image().src = heroSlides[nextIdx].bg;
+  }
+  preloadNext(0); // предзагружаем второй слайд сразу
+
+  /* auto-advance every 6 s, pause in hidden tab */
+  var heroTimer;
+  function startHeroTimer() {
+    heroTimer = setInterval(function () {
+      goToHeroSlide((heroCurrent + 1) % heroTotal);
+    }, 6000);
+  }
+  startHeroTimer();
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { clearInterval(heroTimer); } else { startHeroTimer(); }
+  });
+
+  /* ── GENERIC SLIDER FACTORY ────────────────────────────────────── */
+  function makeSlider(trackId, dotsId) {
+    var track = document.getElementById(trackId);
+    var dotsEl = document.getElementById(dotsId);
+    if (!track || !dotsEl) return;
+    var dots = Array.from(dotsEl.querySelectorAll('.dot'));
+    var current = 0;
+
+    function goTo(idx) {
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      dots.forEach(function (d, i) {
+        d.classList.toggle('dot--active', i === idx);
+      });
+      current = idx;
+    }
+
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { goTo(i); });
+    });
+  }
+
+  /* spec carousel — responsive: 4 cards desktop, 2 tablet, 1 mobile */
+  (function() {
+    var track = document.getElementById('spec-track');
+    var dotsEl = document.getElementById('spec-dots');
+    if (!track || !dotsEl) return;
+    var totalCards = track.children.length;
+    var current = 0;
+
+    function getVisible() {
+      if (window.innerWidth <= 767) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 4;
+    }
+
+    function rebuildDots(count) {
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < count; i++) {
+        var d = document.createElement('button');
+        d.className = 'dot' + (i === current ? ' dot--active' : '');
+        d.setAttribute('aria-label', 'Слайд ' + (i + 1));
+        (function(idx) { d.addEventListener('click', function() { goTo(idx); }); })(i);
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      var visible = getVisible();
+      var maxPos = totalCards - visible;
+      idx = Math.max(0, Math.min(idx, maxPos));
+      var card = track.children[0];
+      var gap = parseInt(getComputedStyle(track).gap) || 24;
+      track.style.transform = 'translateX(-' + idx * (card.offsetWidth + gap) + 'px)';
+      var dots = Array.from(dotsEl.querySelectorAll('.dot'));
+      dots.forEach(function(d, i) { d.classList.toggle('dot--active', i === idx); });
+      current = idx;
+    }
+
+    function init() {
+      var visible = getVisible();
+      var maxPos = totalCards - visible;
+      if (current > maxPos) current = 0;
+      rebuildDots(maxPos + 1);
+      goTo(current);
+    }
+
+    init();
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 150);
+    });
+
+    /* touch/swipe */
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
+    });
+  })();
+
+  /* ── INTERIOR SLIDER with arrows ── */
+  (function() {
+    var track = document.getElementById('interior-track');
+    var prevBtn = document.getElementById('interior-prev');
+    var nextBtn = document.getElementById('interior-next');
+    var counter = document.getElementById('interior-counter');
+    if (!track) return;
+    var slides = track.querySelectorAll('.interior-slide');
+    var total = slides.length;
+    var current = 0;
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function goTo(idx) {
+      idx = Math.max(0, Math.min(idx, total - 1));
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      current = idx;
+      if (counter) counter.textContent = pad(idx + 1) + ' / ' + pad(total);
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === total - 1;
+    }
+
+    goTo(0);
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    /* touch swipe */
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
+    });
+
+    /* keyboard */
+    document.addEventListener('keydown', function(e) {
+      var sec = document.querySelector('.sec-interior');
+      if (!sec) return;
+      var r = sec.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        if (e.key === 'ArrowLeft') goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      }
+    });
+  })();
+  makeSlider('result-track',   'results-dots');
+
+  /* ── DIRECTIONS MOSAIC SCROLL ANIMATION ────────────────────────── */
+  (function () {
+    var cards = document.querySelectorAll('.dir-mosaic__card');
+    if (!cards.length || !window.IntersectionObserver) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    cards.forEach(function (card) { obs.observe(card); });
+  })();
+
+  /* ── PHONE MASK ────────────────────────────────────────────────── */
+  var phoneInput = document.getElementById('b-phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('focus', function () {
+      if (!this.value) this.value = '+7 (';
+    });
+    phoneInput.addEventListener('blur', function () {
+      if (this.value === '+7 (' || this.value === '+7') this.value = '';
+    });
+    phoneInput.addEventListener('input', function () {
+      var raw = this.value.replace(/\D/g, '');
+      if (raw.startsWith('7') || raw.startsWith('8')) raw = raw.slice(1);
+      raw = raw.slice(0, 10);
+      var out = '+7 (';
+      if (raw.length > 0) out += raw.slice(0, 3);
+      if (raw.length >= 3) out += ') ' + raw.slice(3, 6);
+      if (raw.length >= 6) out += '-' + raw.slice(6, 8);
+      if (raw.length >= 8) out += '-' + raw.slice(8, 10);
+      this.value = out;
+    });
+    phoneInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Backspace' && this.value === '+7 (') {
+        e.preventDefault();
+        this.value = '';
+      }
+    });
+  }
+})();
+</script>
+<script src="docs-popup.js" defer></script><script src="animations.js?v=202606041800" defer></script>
+<script src="mobile-nav.js?v=202606041800" defer></script>
+
+<!-- ═══ GIFT CERT POPUP ════════════════════════════════════════════ -->
+<div class="gift-popup" id="gift-popup" role="dialog" aria-modal="true" aria-label="Подарочный сертификат">
+  <div class="gift-popup__overlay" id="gift-popup-overlay"></div>
+  <div class="gift-popup__card">
+    <button class="gift-popup__close" id="gift-popup-close" aria-label="Закрыть">✕</button>
+    <span class="gift-popup__tag">Подарок</span>
+    <h3 class="gift-popup__title">Подарочный сертификат</h3>
+    <p class="gift-popup__desc">Выберите номинал и свяжитесь с нами для оформления. Сертификат действует на все услуги клиники RA|RÉ в течение 1 года.</p>
+    <div class="gift-popup__amounts">
+      <button class="gift-popup__amt is-sel">
+        <span class="gift-popup__amt-n">3 000<span style="font-size:0.45em"> ₽</span></span>
+        <span class="gift-popup__amt-l">Стартовый</span>
+      </button>
+      <button class="gift-popup__amt">
+        <span class="gift-popup__amt-n">5 000<span style="font-size:0.45em"> ₽</span></span>
+        <span class="gift-popup__amt-l">Популярный</span>
+      </button>
+      <button class="gift-popup__amt">
+        <span class="gift-popup__amt-n">10 000<span style="font-size:0.45em"> ₽</span></span>
+        <span class="gift-popup__amt-l">Премиум</span>
+      </button>
+    </div>
+    <div class="gift-popup__actions">
+      <a href="tel:+79002761116" class="pill-btn gift-popup__buy">Позвонить и оформить</a>
+      <a href="https://wa.me/79002761116?text=Хочу%20оформить%20подарочный%20сертификат" target="_blank" rel="noopener" class="gift-popup__call">Написать в WhatsApp →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COOKIE BANNER ══════════════════════════════════════════════ -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Использование cookies" style="display:none">
+  <div class="cookie-banner__text">
+    <p class="cookie-banner__title">Мы используем cookie</p>
+    <p class="cookie-banner__desc">Для корректной работы сайта и анализа трафика. <a href="docs/processing.docx" target="_blank" rel="noopener">Подробнее</a></p>
+  </div>
+  <div class="cookie-banner__actions">
+    <button class="pill-btn cookie-accept" id="cookie-accept">Принять</button>
+    <button class="cookie-decline" id="cookie-decline">Отклонить</button>
+  </div>
+</div>
+
+<!-- ═══ SUCCESS POPUP ══════════════════════════════════════════════ -->
+<div class="booking-popup" id="booking-popup" role="dialog" aria-modal="true" aria-label="Заявка отправлена">
+  <div class="booking-popup__overlay" id="booking-popup-overlay"></div>
+  <div class="booking-popup__card">
+    <div class="booking-popup__check">
+      <svg viewBox="0 0 34 34"><polyline points="6,17 14,25 28,9"/></svg>
+    </div>
+    <h3 class="booking-popup__title">Заявка отправлена!</h3>
+    <p class="booking-popup__desc">Наш менеджер свяжется с вами<br>в ближайшее время</p>
+    <button class="pill-btn booking-popup__close" id="booking-popup-close">Хорошо</button>
+  </div>
+</div>
+
+<script>
+/* ── GIFT CERT POPUP ─────────────────────────────────────────────────── */
+(function () {
+  var popup   = document.getElementById('gift-popup');
+  var overlay = document.getElementById('gift-popup-overlay');
+  var btnClose = document.getElementById('gift-popup-close');
+  if (!popup) return;
+
+  function openGiftPopup() {
+    popup.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGiftPopup() {
+    popup.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  btnClose.addEventListener('click', closeGiftPopup);
+  overlay.addEventListener('click', closeGiftPopup);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && popup.classList.contains('is-open')) closeGiftPopup();
+  });
+
+  /* amount selector */
+  popup.querySelectorAll('.gift-popup__amt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      popup.querySelectorAll('.gift-popup__amt').forEach(function (b) { b.classList.remove('is-sel'); });
+      btn.classList.add('is-sel');
+    });
+  });
+
+  /* intercept hero CTA "Купить сертификат" */
+  window.openGiftPopup = openGiftPopup;
+
+  /* intercept any link to certificates.html with text "Купить" */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('a, button');
+    if (!el) return;
+    var href = el.getAttribute('href') || '';
+    var text = el.textContent || '';
+    if ((href.indexOf('certificates') !== -1 && text.indexOf('Купить') !== -1) ||
+        text.trim() === 'Купить сертификат') {
+      e.preventDefault();
+      openGiftPopup();
+    }
+  });
+})();
+
+/* ── COOKIE ──────────────────────────────────────────────────────────── */
+(function () {
+  var banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+  if (localStorage.getItem('rr-cookie-consent')) return;
+  banner.style.display = '';
+  function dismiss(val) {
+    localStorage.setItem('rr-cookie-consent', val);
+    banner.classList.add('is-hidden');
+    setTimeout(function () { banner.style.display = 'none'; }, 450);
+  }
+  document.getElementById('cookie-accept').addEventListener('click', function () { dismiss('accepted'); });
+  document.getElementById('cookie-decline').addEventListener('click', function () { dismiss('declined'); });
+})();
+
+/* ── FORM VALIDATION ─────────────────────────────────────────────────── */
+(function () {
+  var form = document.querySelector('.booking-form');
+  if (!form) return;
+
+  var nameInput  = document.getElementById('b-name');
+  var phoneInput = document.getElementById('b-phone');
+
+  function getWrap(el) { return el.closest('.booking-field') || el.closest('.booking-svc-field'); }
+
+  function showError(el, msg) {
+    var wrap = getWrap(el);
+    if (!wrap) return;
+    /* restart shake: remove → reflow → add */
+    wrap.classList.remove('has-error', 'has-ok');
+    void wrap.offsetWidth;
+    wrap.classList.add('has-error');
+    var errEl = wrap.querySelector('.booking-field__err');
+    if (errEl && msg) errEl.textContent = msg;
+  }
+
+  function showOk(el) {
+    var wrap = getWrap(el);
+    if (!wrap) return;
+    wrap.classList.remove('has-error');
+    wrap.classList.add('has-ok');
+  }
+
+  function clearState(el) {
+    var wrap = getWrap(el);
+    if (wrap) wrap.classList.remove('has-error', 'has-ok');
+  }
+
+  function phoneOk(val) {
+    return val.replace(/\D/g, '').length === 11;
+  }
+
+  /* live feedback on blur */
+  nameInput.addEventListener('blur', function () {
+    if (!this.value.trim()) showError(this, 'Пожалуйста, введите имя');
+    else showOk(this);
+  });
+  phoneInput.addEventListener('blur', function () {
+    if (!this.value.trim()) showError(this, 'Пожалуйста, введите телефон');
+    else if (!phoneOk(this.value)) showError(this, 'Введите корректный номер');
+    else showOk(this);
+  });
+
+  /* clear error as soon as user types */
+  nameInput.addEventListener('input', function () { if (this.value.trim()) clearState(this); });
+  phoneInput.addEventListener('input', function () { if (this.value.trim()) clearState(this); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    if (!nameInput.value.trim()) { showError(nameInput, 'Пожалуйста, введите имя'); ok = false; }
+    if (!phoneInput.value.trim()) {
+      showError(phoneInput, 'Пожалуйста, введите телефон'); ok = false;
+    } else if (!phoneOk(phoneInput.value)) {
+      showError(phoneInput, 'Введите корректный номер'); ok = false;
+    }
+    if (!ok) return;
+
+    /* reset form and show success */
+    form.reset();
+    form.querySelectorAll('.booking-field, .booking-svc-field').forEach(function (w) {
+      w.classList.remove('has-error', 'has-ok');
+    });
+    openBookingPopup();
+  });
+})();
+
+/* ── SUCCESS POPUP ───────────────────────────────────────────────────── */
+function openBookingPopup() {
+  var popup = document.getElementById('booking-popup');
+  if (!popup) return;
+  document.body.style.overflow = 'hidden';
+  popup.classList.add('is-open');
+}
+
+(function () {
+  var popup   = document.getElementById('booking-popup');
+  var overlay = document.getElementById('booking-popup-overlay');
+  var btnClose = document.getElementById('booking-popup-close');
+  if (!popup) return;
+
+  function close() {
+    popup.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  btnClose.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
+  });
+})();
+</script>
+<script src="./accessibility.js" defer></script></body>
+</html>

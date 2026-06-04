@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="../responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202606041800"/></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Отзывы — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
+em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}
+.pill-btn:hover{background:#0d2b23}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
+.site-hd__logo img{height:36px;width:auto}
+.site-hd__nav{display:flex;gap:48px}
+.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
+.site-hd__nav a:hover{opacity:0.7}
+.site-hd__actions{display:flex;align-items:center;gap:36px}
+.site-hd__cta{padding:16px 24px;font-size:18px}
+
+.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
+.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
+.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+
+.sec-platforms{background:var(--c-dark);padding:80px 0}
+.platforms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.platform-card{border:1px solid rgba(253,252,248,0.15);border-radius:var(--r-card);padding:32px 24px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:background 0.2s}
+.platform-card:hover{background:rgba(253,252,248,0.06)}
+.platform-card__name{font-size:22px;font-weight:500;color:var(--c-white);font-style:normal}
+.platform-card__score{font-size:48px;font-weight:700;color:var(--c-accent);letter-spacing:-0.02em;line-height:1;font-style:normal}
+.platform-card__stars{font-size:22px;color:var(--c-accent)}
+.platform-card__count{font-size:18px;font-weight:400;color:var(--c-w50);font-style:normal}
+
+.sec-reviews{padding:72px 0}
+.sec-reviews .sec-h{margin-bottom:72px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review-card{border:1px solid var(--c-text);border-radius:var(--r-card);padding:36px 28px;display:flex;flex-direction:column;gap:20px;transition:box-shadow 0.2s}
+.review-card:hover{box-shadow:0 4px 24px rgba(53,40,26,0.1)}
+.review-stars{font-size:20px;color:var(--c-accent)}
+.review-text{font-size:20px;font-weight:400;color:var(--c-text);line-height:1.5;letter-spacing:-0.02em;font-style:normal}
+.review-author{display:flex;flex-direction:column;gap:4px;margin-top:auto}
+.review-name{font-size:20px;font-weight:500;color:var(--c-text);letter-spacing:-0.02em;font-style:normal}
+.review-date{font-size:16px;font-weight:400;color:var(--c-muted);font-style:normal}
+.review-service{font-size:16px;font-weight:400;color:var(--c-accent);font-style:normal}
+
+.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center}
+.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}
+.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
+.footer-logo{margin-bottom:24px}
+.footer-logo img{height:40px;width:auto}
+.footer-tagline{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal;margin-bottom:24px}
+.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
+.footer-addr{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal}
+.footer-col h3{font-size:15px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
+.footer-links{display:flex;flex-direction:column;gap:16px}
+.footer-links a{font-size:13px;font-weight:500;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
+.footer-links a:hover{color:var(--c-white)}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:var(--c-w50);font-style:normal}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+</style>
+</head>
+<body>
+
+<header class="site-hd">
+  <a href="../index.html" class="site-hd__logo">
+    <img src="../assets/icons/logo.svg" alt="RA|RÉ"/>
+  </a>
+  <nav class="site-hd__nav">
+    <a href="../about.html">О клинике</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../services.html">Услуги</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="index.html" style="opacity:0.5">Отзывы</a>
+    <a href="../articles/index.html">Статьи</a>
+  </nav>
+  <div class="site-hd__actions">
+    <a href="tel:+79002761116" style="display:flex;align-items:center;">
+      <img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
+    </a>
+    <a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+  </div>
+</header>
+
+<section class="inner-hero">
+  <div class="inner-hero__bg" style="background-image:url('../assets/photos/hero-reviews-new.webp');"></div>
+  <div class="inner-hero__overlay"></div>
+  <div class="inner-hero__cnt wrap">
+    <h1 class="inner-hero__title">Отзывы</h1>
+  </div>
+</section>
+
+<section class="sec-platforms">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white);">Мы на платформах</h2>
+    <div class="platforms-grid">
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/?ll=37.331144%2C44.879223&z=17" target="_blank" rel="noopener" class="platform-card">
+        <p class="platform-card__name">Яндекс</p>
+        <p class="platform-card__score" id="yandex-score">4.9</p>
+        <p class="platform-card__stars" id="yandex-stars">★★★★★</p>
+        <p class="platform-card__count" id="yandex-count">127 отзывов</p>
+      </a>
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="platform-card">
+        <p class="platform-card__name">2ГИС</p>
+        <p class="platform-card__score" id="gis-score">4.8</p>
+        <p class="platform-card__stars" id="gis-stars">★★★★★</p>
+        <p class="platform-card__count" id="gis-count">84 отзыва</p>
+      </a>
+      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="platform-card">
+        <p class="platform-card__name">ПроДокторов</p>
+        <p class="platform-card__score" id="prodoc-score">5.0</p>
+        <p class="platform-card__stars" id="prodoc-stars">★★★★★</p>
+        <p class="platform-card__count" id="prodoc-count">41 отзыв</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-reviews">
+  <div class="wrap">
+    <h2 class="sec-h">Отзывы наших гостей</h2>
+    <div class="reviews-grid">
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Делала SMAS-лифтинг. Результат превзошёл все ожидания! Кожа подтянулась, лицо помолодело минимум на 5 лет. Специалисты очень внимательные и профессиональные.</p>
+        <div class="review-author">
+          <p class="review-name">Елена К.</p>
+          <p class="review-service">SMAS-лифтинг</p>
+          <p class="review-date">Апрель 2026 · Яндекс</p>
+        </div>
+      </a>
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Прошла курс лазерной эпиляции на Candela. Потрясающий результат уже после 3 сеансов. Безболезненно, быстро и эффективно. Буду рекомендовать всем подругам!</p>
+        <div class="review-author">
+          <p class="review-name">Мария П.</p>
+          <p class="review-service">Лазерная эпиляция</p>
+          <p class="review-date">Март 2026 · Яндекс</p>
+        </div>
+      </a>
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Прекрасная клиника! Записалась на биоревитализацию, осталась в полном восторге. Кожа буквально засияла. Атмосфера комфорта и профессионализма чувствуется во всём.</p>
+        <div class="review-author">
+          <p class="review-name">Анна С.</p>
+          <p class="review-service">Биоревитализация</p>
+          <p class="review-date">Февраль 2026 · 2ГИС</p>
+        </div>
+      </a>
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">RF-лифтинг Volnewmer — просто чудо! Без реабилитации, без боли, а результат заметен уже на следующий день. Спасибо всей команде RA|RÉ за профессионализм и заботу!</p>
+        <div class="review-author">
+          <p class="review-name">Ирина Д.</p>
+          <p class="review-service">RF-лифтинг</p>
+          <p class="review-date">Январь 2026 · Яндекс</p>
+        </div>
+      </a>
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">SPA-программа «Полное преображение» — лучший подарок себе! 2 часа блаженства, кожа как шёлк, ушла из клиники совершенно другим человеком. Обязательно вернусь!</p>
+        <div class="review-author">
+          <p class="review-name">Светлана В.</p>
+          <p class="review-service">SPA-программа</p>
+          <p class="review-date">Декабрь 2025 · 2ГИС</p>
+        </div>
+      </a>
+      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Обратилась с проблемой акне. Специалист подобрала индивидуальный протокол. Результат виден уже после первых процедур. Очень благодарна за профессиональный подход!</p>
+        <div class="review-author">
+          <p class="review-name">Наталья Ж.</p>
+          <p class="review-service">Лечение акне</p>
+          <p class="review-date">Ноябрь 2025 · ПроДокторов</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cta">
+  <div class="wrap">
+    <h2 class="cta-heading">Станьте нашим<br>следующим довольным гостем</h2>
+    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="../index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться на приём</a>
+      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="../services/smas.html">SMAS-лифтинг</a>
+    <a href="../services/injections.html">Инъекционная косметология</a>
+    <a href="../services/laser.html">Лазерная эпиляция</a>
+    <a href="../services/lifts.html">Аппаратные лифтинги</a>
+    <a href="../services/skin.html">Уход за кожей</a>
+    <a href="../services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="../about.html">О клинике</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="../docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="../index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+
+<script src="./docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../mobile-nav.js?v=202606041800" defer></script>
+<script src="../accessibility.js" defer></script>
+<script>
+(function(){
+  function pluralReviews(n){
+    var r=n%100,r2=n%10;
+    if(r>=11&&r<=19)return n+' отзывов';
+    if(r2===1)return n+' отзыв';
+    if(r2>=2&&r2<=4)return n+' отзыва';
+    return n+' отзывов';
+  }
+  function starsFromScore(s){
+    var full=Math.round(s);
+    return '★'.repeat(Math.min(full,5))+'☆'.repeat(Math.max(0,5-full));
+  }
+  function applyRatings(d){
+    if(d.yandex){
+      if(d.yandex.score){document.getElementById('yandex-score').textContent=d.yandex.score;}
+      if(d.yandex.count){document.getElementById('yandex-count').textContent=pluralReviews(d.yandex.count);}
+      if(d.yandex.score){document.getElementById('yandex-stars').textContent=starsFromScore(parseFloat(d.yandex.score));}
+    }
+    if(d.gis){
+      if(d.gis.score){document.getElementById('gis-score').textContent=d.gis.score;}
+      if(d.gis.count){document.getElementById('gis-count').textContent=pluralReviews(d.gis.count);}
+      if(d.gis.score){document.getElementById('gis-stars').textContent=starsFromScore(parseFloat(d.gis.score));}
+    }
+    if(d.prodoc){
+      if(d.prodoc.score){document.getElementById('prodoc-score').textContent=d.prodoc.score;}
+      if(d.prodoc.count){document.getElementById('prodoc-count').textContent=pluralReviews(d.prodoc.count);}
+      if(d.prodoc.score){document.getElementById('prodoc-stars').textContent=starsFromScore(parseFloat(d.prodoc.score));}
+    }
+  }
+  fetch('../ratings.json?_='+Date.now())
+    .then(function(r){return r.ok?r.json():Promise.reject();})
+    .then(applyRatings)
+    .catch(function(){});
+})();
+</script></body>
+</html>

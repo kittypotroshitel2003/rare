@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202606041800"/></noscript>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Цены — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
+em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}
+.pill-btn:hover{background:#0d2b23}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
+.site-hd__logo img{height:36px;width:auto}
+.site-hd__nav{display:flex;gap:48px}
+.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
+.site-hd__nav a:hover{opacity:0.7}
+.site-hd__actions{display:flex;align-items:center;gap:36px}
+.site-hd__cta{padding:16px 24px;font-size:18px}
+
+.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
+.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
+.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+
+/* ── PRICE TABS ── */
+.price-tabs-bar{
+  background:var(--c-bg);
+  border-bottom:1px solid rgba(53,40,26,0.1);
+  position:sticky;top:0;z-index:100;
+}
+.price-tabs{
+  display:flex;gap:0;overflow-x:auto;scrollbar-width:none;
+  padding:0 var(--gutter);
+}
+.price-tabs::-webkit-scrollbar{display:none}
+.price-tab{
+  flex-shrink:0;
+  padding:20px 28px;
+  font-family:var(--f);font-size:16px;font-weight:500;
+  color:var(--c-muted);background:none;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:color 0.2s,border-color 0.2s;
+  white-space:nowrap;letter-spacing:-0.01em;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.price-tab:hover{color:var(--c-text)}
+.price-tab.active{color:var(--c-text);border-bottom-color:var(--c-accent)}
+.price-tab__icon{font-size:18px;flex-shrink:0}
+
+/* ── PRICES SECTION ── */
+.sec-prices{padding:80px 0 120px}
+
+.price-category{margin-bottom:80px}
+.price-category:last-of-type{margin-bottom:0}
+
+.price-cat-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:24px;
+  padding-bottom:24px;
+  margin-bottom:0;
+  border-bottom:2px solid var(--c-text);
+}
+.price-cat-title{
+  font-size:clamp(24px,2.5vw,48px);
+  font-weight:500;color:var(--c-text);
+  letter-spacing:-0.02em;line-height:1;
+  font-style:normal;
+}
+.price-cat-num{
+  font-size:clamp(56px,5vw,96px);
+  font-weight:400;color:rgba(53,40,26,0.07);
+  letter-spacing:-0.04em;line-height:1;
+  font-style:normal;flex-shrink:0;
+  transition:color 0.4s;
+}
+.price-category:hover .price-cat-num{color:rgba(86,134,115,0.15)}
+
+/* ── PRICE ROWS ── */
+.price-list{display:flex;flex-direction:column}
+.price-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:24px;
+  padding:22px 0;
+  border-bottom:1px solid rgba(53,40,26,0.08);
+  transition:background 0.18s,padding 0.18s,border-radius 0.18s;
+  cursor:default;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.5s ease, transform 0.5s ease, background 0.18s, padding-left 0.2s;
+}
+.price-row.visible{opacity:1;transform:translateY(0)}
+.price-row:hover{background:rgba(86,134,115,0.05);padding-left:12px;padding-right:12px;border-radius:8px;margin:0 -12px;width:calc(100% + 24px)}
+.price-row:last-child{border-bottom:none}
+.price-row__name{
+  font-size:clamp(16px,1.15vw,22px);font-weight:400;
+  color:var(--c-text);letter-spacing:-0.01em;line-height:1.4;
+}
+.price-row__note{
+  display:block;font-size:14px;font-weight:400;
+  color:var(--c-muted);margin-top:4px;
+}
+.price-row__val{
+  font-size:clamp(16px,1.25vw,24px);font-weight:500;
+  color:var(--c-accent);letter-spacing:-0.02em;
+  white-space:nowrap;flex-shrink:0;
+  font-style:normal;
+}
+
+/* ── DISCLAIMER ── */
+.price-disclaimer{
+  margin-top:64px;
+  background:rgba(86,134,115,0.07);
+  border-left:3px solid var(--c-accent);
+  border-radius:0 12px 12px 0;
+  padding:24px 28px;
+}
+.price-disclaimer p{
+  font-size:16px;font-weight:400;
+  color:var(--c-muted);line-height:1.65;
+}
+.price-disclaimer a{color:var(--c-accent);text-decoration:none}
+.price-disclaimer a:hover{text-decoration:underline;text-underline-offset:2px}
+
+/* ── CTA ── */
+.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center}
+.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}
+.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
+.footer-logo{margin-bottom:24px}
+.footer-logo img{height:40px;width:auto}
+.footer-tagline{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal;margin-bottom:24px}
+.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
+.footer-addr{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal}
+.footer-col h3{font-size:15px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
+.footer-links{display:flex;flex-direction:column;gap:16px}
+.footer-links a{font-size:13px;font-weight:500;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
+.footer-links a:hover{color:var(--c-white)}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:var(--c-w50);font-style:normal}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+</style>
+</head>
+<body>
+
+<header class="site-hd">
+  <a href="index.html" class="site-hd__logo">
+    <img src="assets/icons/logo.svg" alt="RA|RÉ"/>
+  </a>
+  <nav class="site-hd__nav">
+    <a href="about.html">О клинике</a>
+    <a href="promos.html">Акции</a>
+    <a href="services.html">Услуги</a>
+    <a href="specialists/index.html">Специалисты</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
+  </nav>
+  <div class="site-hd__actions">
+    <a href="tel:+79002761116" style="display:flex;align-items:center;">
+      <img src="assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
+    </a>
+    <a href="index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+  </div>
+</header>
+
+<section class="inner-hero">
+  <div class="inner-hero__bg" style="background-image:url('assets/photos/hero-prices.webp');"></div>
+  <div class="inner-hero__overlay"></div>
+  <div class="inner-hero__cnt wrap">
+    <h1 class="inner-hero__title">Цены</h1>
+  </div>
+</section>
+
+<div class="price-tabs-bar">
+  <div class="price-tabs">
+    <a href="#lifts" class="price-tab active">Лифтинги</a>
+    <a href="#laser" class="price-tab">Эпиляция</a>
+    <a href="#inject" class="price-tab">Инъекции</a>
+    <a href="#skin" class="price-tab">Лечение</a>
+    <a href="#spa" class="price-tab">SPA</a>
+  </div>
+</div>
+
+<section class="sec-prices">
+  <div class="wrap">
+
+    <div class="price-category" id="lifts">
+      <div class="price-cat-header">
+        <h2 class="price-cat-title">Аппаратные лифтинги</h2>
+        <span class="price-cat-num">01</span>
+      </div>
+      <div class="price-list">
+        <div class="price-row"><span class="price-row__name">SMAS-лифтинг Ultraformer MPT<span class="price-row__note">от 500 линий, лицо и шея</span></span><span class="price-row__val">от 25 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">SMAS-лифтинг Ultraformer MPT<span class="price-row__note">тело (живот, бёдра)</span></span><span class="price-row__val">от 18 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Монополярный РФ-лифтинг<span class="price-row__note">от 400 импульсов, лицо</span></span><span class="price-row__val">от 12 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Монополярный РФ-лифтинг<span class="price-row__note">тело (живот, бёдра, ягодицы)</span></span><span class="price-row__val">от 10 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Фотоомоложение Nordlys IPL<span class="price-row__note">лицо целиком</span></span><span class="price-row__val">от 8 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Фотоомоложение Nordlys IPL<span class="price-row__note">зона декольте</span></span><span class="price-row__val">от 6 000 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="price-category" id="laser">
+      <div class="price-cat-header">
+        <h2 class="price-cat-title">Лазерная эпиляция</h2>
+        <span class="price-cat-num">02</span>
+      </div>
+      <div class="price-list">
+        <div class="price-row"><span class="price-row__name">Верхняя губа</span><span class="price-row__val">от 800 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Подмышки</span><span class="price-row__val">от 2 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Бикини классика</span><span class="price-row__val">от 2 500 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Бикини глубокое</span><span class="price-row__val">от 3 500 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Голени</span><span class="price-row__val">от 4 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Ноги полностью</span><span class="price-row__val">от 7 500 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="price-category" id="inject">
+      <div class="price-cat-header">
+        <h2 class="price-cat-title">Инъекционная косметология</h2>
+        <span class="price-cat-num">03</span>
+      </div>
+      <div class="price-list">
+        <div class="price-row"><span class="price-row__name">Ботулинотерапия — лоб<span class="price-row__note">расслабление мимических морщин</span></span><span class="price-row__val">от 6 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Ботулинотерапия — межбровье</span><span class="price-row__val">от 5 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Ботулинотерапия — лоб + межбровье + «гусиные лапки»</span><span class="price-row__val">от 14 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Контурная пластика губ<span class="price-row__note">1 мл гиалуроновой кислоты</span></span><span class="price-row__val">от 12 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Контурная пластика скул / носогубных складок</span><span class="price-row__val">от 14 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Биоревитализация — лицо<span class="price-row__note">1 процедура</span></span><span class="price-row__val">от 7 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Плазмолифтинг — лицо</span><span class="price-row__val">от 5 500 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="price-category" id="skin">
+      <div class="price-cat-header">
+        <h2 class="price-cat-title">Лечение кожи</h2>
+        <span class="price-cat-num">04</span>
+      </div>
+      <div class="price-list">
+        <div class="price-row"><span class="price-row__name">Лечение акне — комплекс<span class="price-row__note">консультация + процедура</span></span><span class="price-row__val">от 5 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Лечение розацеа Nordlys<span class="price-row__note">1 сеанс</span></span><span class="price-row__val">от 7 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Удаление пигментации<span class="price-row__note">1 зона</span></span><span class="price-row__val">от 4 500 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Лечение купероза / сосудистой сетки</span><span class="price-row__val">от 4 000 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="price-category" id="spa">
+      <div class="price-cat-header">
+        <h2 class="price-cat-title">SPA и уходовые программы</h2>
+        <span class="price-cat-num">05</span>
+      </div>
+      <div class="price-list">
+        <div class="price-row"><span class="price-row__name">Классический уходовый массаж лица</span><span class="price-row__val">от 2 500 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Профессиональная чистка лица</span><span class="price-row__val">от 3 500 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Релаксирующий SPA-массаж тела<span class="price-row__note">60 минут</span></span><span class="price-row__val">от 4 500 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">Антицеллюлитный массаж<span class="price-row__note">60 минут</span></span><span class="price-row__val">от 4 000 ₽</span></div>
+        <div class="price-row"><span class="price-row__name">SPA-программа «Полное преображение»<span class="price-row__note">уход лицо + тело, 2 часа</span></span><span class="price-row__val">от 9 000 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="price-disclaimer">
+      <p>Указаны ориентировочные цены. Окончательная стоимость определяется на консультации и зависит от количества процедур, используемых препаратов и индивидуальных особенностей. Уточняйте актуальные цены по телефону <a href="tel:+79002761116">+7 (900) 276-11-16</a>.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec-cta">
+  <div class="wrap">
+    <h2 class="cta-heading">Запишитесь на<br>консультацию</h2>
+    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться на приём</a>
+      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="services/smas.html">SMAS-лифтинг</a>
+    <a href="services/injections.html">Инъекционная косметология</a>
+    <a href="services/laser.html">Лазерная эпиляция</a>
+    <a href="services/lifts.html">Аппаратные лифтинги</a>
+    <a href="services/skin.html">Уход за кожей</a>
+    <a href="services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="about.html">О клинике</a>
+    <a href="specialists/index.html">Специалисты</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a>
+    <a href="articles/index.html">Статьи</a>
+    <a href="promos.html">Акции</a>
+    <a href="prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+
+<script src="docs-popup.js" defer></script>
+<script src="animations.js?v=202606041800" defer></script>
+<script src="mobile-nav.js?v=202606041800" defer></script>
+<script src="./accessibility.js" defer></script>
+<script>
+// Scroll-reveal animation for price rows
+(function(){
+  var rows = document.querySelectorAll('.price-row');
+  if(!rows.length) return;
+
+  // Fallback: reveal all rows after 1.5s if not already visible
+  var fallback = setTimeout(function(){
+    rows.forEach(function(r,i){
+      if(!r.classList.contains('visible')){
+        r.style.transitionDelay = (i % 7 * 50)+'ms';
+        r.classList.add('visible');
+      }
+    });
+  }, 1500);
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var siblings = Array.from(e.target.closest('.price-list').querySelectorAll('.price-row'));
+        var idx = siblings.indexOf(e.target);
+        e.target.style.transitionDelay = (idx * 55) + 'ms';
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.05, rootMargin: '0px 0px -20px 0px'});
+
+  rows.forEach(function(r){ obs.observe(r); });
+
+  // Active tab on scroll
+  var cats = document.querySelectorAll('.price-category');
+  var tabs = document.querySelectorAll('.price-tab');
+
+  var tabObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        tabs.forEach(function(t){
+          t.classList.toggle('active', t.getAttribute('href') === '#'+id);
+        });
+      }
+    });
+  }, {threshold: 0.3});
+
+  cats.forEach(function(c){ tabObs.observe(c); });
+})();
+</script>
+</body>
+</html>

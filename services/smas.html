@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<link rel="preload" href="../responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202606041800"/></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SMAS-лифтинг — RA|RÉ Клиника в Анапе</title>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}.pill-btn:hover{background:#0d2b23}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}.site-hd__logo img{height:36px;width:auto}.site-hd__nav{display:flex;gap:48px}.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}.site-hd__nav a:hover{opacity:0.7}.site-hd__actions{display:flex;align-items:center;gap:36px}.site-hd__cta{padding:16px 24px;font-size:18px}
+.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+.sec-bullets{padding:72px 0;background:var(--c-dark)}.bullets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:72px}.bullet-card{display:flex;flex-direction:column;gap:16px}.bullet-icon{width:56px;height:56px;border-radius:50%;background:rgba(86,134,115,0.2);display:flex;align-items:center;justify-content:center}.bullet-title{font-size:22px;font-weight:500;color:var(--c-white);letter-spacing:-0.02em;line-height:1.2}.bullet-text{font-size:17px;font-weight:400;color:var(--c-w50);line-height:1.5}
+.sec-desc{padding:72px 0}.desc-inner{display:flex;gap:120px;align-items:flex-start}.desc-photo{flex-shrink:0;width:580px;height:720px;border-radius:var(--r-card);overflow:hidden}.desc-photo img{width:100%;height:100%;object-fit:cover}.desc-text{flex:1;display:flex;flex-direction:column;gap:40px}.desc-body{font-size:22px;font-weight:400;line-height:1.5;color:var(--c-text);letter-spacing:-0.01em}.desc-body p{margin-bottom:1em}.desc-body p:last-child{margin:0}.svc-list{display:flex;flex-direction:column;gap:16px;list-style:none}.svc-list li{font-size:20px;font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.3;display:flex;gap:12px}.svc-list li::before{content:'—';color:var(--c-accent);flex-shrink:0}
+.sec-video-svc{padding:72px 0;background:var(--c-dark)}.video-wrap{position:relative;width:100%;max-width:960px;margin:48px auto 0;aspect-ratio:16/9;border-radius:var(--r-card);overflow:hidden;background:#000}.video-placeholder-dark{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);gap:20px;cursor:pointer}.video-play-big{width:80px;height:80px;border-radius:50%;background:var(--c-accent);display:flex;align-items:center;justify-content:center}.video-caption{font-size:16px;font-weight:400;color:var(--c-w50);margin-top:24px;text-align:center}
+.sec-before-after{padding:72px 0}.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:72px}.ba-card{display:flex;flex-direction:column;gap:16px}.ba-photos{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-radius:var(--r-card);overflow:hidden}.ba-photo{position:relative;aspect-ratio:3/4;overflow:hidden}.ba-photo img{width:100%;height:100%;object-fit:cover}.ba-label{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:#fff;font-size:13px;font-weight:500;padding:4px 10px;border-radius:100px}.ba-caption-title{font-size:17px;font-weight:500;color:var(--c-text);letter-spacing:-0.01em;margin-bottom:4px}.ba-caption-meta{font-size:13px;font-weight:400;color:var(--c-muted);line-height:1.4}
+.sec-promo-svc{background:var(--c-accent);padding:72px 0}.promo-inner{display:flex;justify-content:space-between;align-items:center;gap:60px}.promo-text h2{font-size:clamp(32px,3.5vw,64px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px}.promo-text p{font-size:20px;font-weight:400;color:rgba(253,252,248,0.8);line-height:1.4}.promo-cta{display:flex;flex-direction:column;align-items:flex-end;gap:16px;flex-shrink:0}.pill-btn--white{background:var(--c-white);color:var(--c-dark)}.pill-btn--white:hover{background:rgba(253,252,248,0.92)}.promo-phone{font-size:20px;font-weight:500;color:var(--c-white);text-decoration:none}
+.sec-svc-reviews{padding:72px 0}.svc-reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:72px}.svc-rev-card{border:1px solid rgba(53,40,26,0.12);border-radius:var(--r-card);padding:32px;display:flex;flex-direction:column;gap:14px}.svc-rev-stars{font-size:18px;color:#c8a84b;letter-spacing:2px}.svc-rev-text{font-size:17px;font-weight:400;color:var(--c-text);line-height:1.55;flex:1}.svc-rev-author{font-size:15px;font-weight:500;color:var(--c-muted)}.svc-rev-service{font-size:13px;font-weight:500;color:var(--c-accent)}
+.sec-svc-specs{background:var(--c-dark);padding:72px 0}.svc-spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:72px}.svc-spec-card{height:400px;border-radius:var(--r-card);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;gap:10px;text-decoration:none;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)}.svc-spec-card:not(:last-child):hover{transform:translateY(-6px)}.svc-spec-card:not(:last-child):hover .svc-spec-card__photo img{transform:scale(1.05)}.svc-spec-card__photo{position:absolute;inset:0}.svc-spec-card__photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.55s cubic-bezier(0.22,1,0.36,1)}.svc-spec-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(102,102,102,0) 0%,rgba(0,0,0,0.55) 94%);border-radius:var(--r-card)}.svc-spec-name,.svc-spec-role{position:relative;z-index:2;color:var(--c-white);font-style:normal;line-height:1}.svc-spec-name{font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:6px}.svc-spec-role{font-size:15px;font-weight:400;opacity:0.8}
+.sec-price{padding:72px 0}.price-table{width:100%;border-collapse:collapse;margin-top:72px}.price-table tr{border-bottom:1px solid rgba(53,40,26,0.1)}.price-table tr:last-child{border-bottom:none}.price-table td{padding:24px 0;font-size:20px;font-weight:400;color:var(--c-text);letter-spacing:-0.01em}.price-table td:last-child{text-align:right;font-weight:500;color:var(--c-accent);white-space:nowrap}.price-note{display:block;font-size:14px;color:var(--c-muted);margin-top:4px;font-weight:400}
+.sec-booking{padding:72px 0;background:var(--c-dark)}.booking-inner{display:flex;gap:80px;align-items:flex-start}.booking-text{flex:1;display:flex;flex-direction:column;gap:32px}.booking-text h2{font-size:clamp(36px,4vw,72px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1}.booking-text p{font-size:20px;font-weight:400;color:var(--c-w50);line-height:1.5}.booking-contact{display:flex;flex-direction:column;gap:8px}.booking-contact a{font-size:32px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em}.booking-form{flex:0 0 540px;background:rgba(253,252,248,0.06);border-radius:var(--r-card);padding:48px 40px;display:flex;flex-direction:column;gap:20px}.form-row{display:flex;flex-direction:column;gap:8px}.form-label{font-size:15px;font-weight:500;color:var(--c-w50)}.form-input,.form-select,.form-textarea{width:100%;padding:16px 20px;border:1.5px solid rgba(253,252,248,0.15);border-radius:12px;font-family:var(--f);font-size:17px;font-weight:400;color:var(--c-white);background:rgba(253,252,248,0.08);outline:none;transition:border-color 0.2s}.form-input::placeholder,.form-textarea::placeholder{color:var(--c-w50)}.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--c-accent)}.form-textarea{min-height:100px;resize:vertical}.form-select{color:var(--c-white)}.form-select option{color:var(--c-text);background:var(--c-bg)}.form-agree{font-size:13px;color:var(--c-w50);line-height:1.4}.form-agree a{color:var(--c-accent)}
+.sec-faq{padding:72px 0}.faq-list{display:flex;flex-direction:column;margin-top:72px}.faq-item{border-bottom:1px solid rgba(53,40,26,0.12)}.faq-question{width:100%;background:none;border:none;text-align:left;padding:28px 0;font-family:var(--f);font-size:20px;font-weight:500;color:var(--c-text);letter-spacing:-0.02em;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px}.faq-question::after{content:'+';font-size:28px;font-weight:300;color:var(--c-accent);flex-shrink:0;transition:transform 0.25s;line-height:1}.faq-item.open .faq-question::after{transform:rotate(45deg)}.faq-answer{overflow:hidden;max-height:0;transition:max-height 0.35s ease}.faq-answer-inner{font-size:18px;font-weight:400;color:var(--c-muted);line-height:1.6;padding-bottom:28px}.faq-item.open .faq-answer{max-height:400px}
+.sec-pairs{background:var(--c-dark);padding:72px 0}.pairs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:72px}.pair-card{border:1px solid rgba(253,252,248,0.12);border-radius:var(--r-card);padding:32px 28px;text-decoration:none;display:flex;flex-direction:column;gap:12px;transition:background 0.2s}.pair-card:hover{background:rgba(253,252,248,0.06)}.pair-card__title{font-size:22px;font-weight:500;color:var(--c-white);letter-spacing:-0.02em;line-height:1.2}.pair-card__desc{font-size:16px;font-weight:400;color:var(--c-w50);line-height:1.4}.pair-card__link{font-size:15px;font-weight:500;color:var(--c-accent);margin-top:auto}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+.svc-spec-card:last-child::after{background:none!important}
+.svc-spec-card:last-child:hover{transform:scale(1.03) translateY(-3px)!important}
+.svc-spec-card:last-child span{transition:background 0.3s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)}
+.svc-spec-card:last-child:hover span{background:var(--c-accent)!important;border-color:var(--c-accent)!important;transform:rotate(-45deg)!important}
+</style>
+</head>
+<body>
+
+<header class="site-hd"><a href="../index.html" class="site-hd__logo"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a><nav class="site-hd__nav"><a href="../about.html">О клинике</a><a href="../promos.html">Акции</a><a href="../services.html" style="opacity:0.5">Услуги</a><a href="../specialists/index.html">Специалисты</a><a href="../certificates.html">Сертификаты</a><a href="../reviews/index.html">Отзывы</a><a href="../articles/index.html">Статьи</a></nav><div class="site-hd__actions"><a href="tel:+79002761116" style="display:flex;align-items:center;"><img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/></a><a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a></div></header>
+
+<!-- 1. HERO -->
+<section class="inner-hero">
+  <div class="inner-hero__bg" style="background-image:url('../assets/photos/hero-smas.webp');"></div>
+  <div class="inner-hero__overlay"></div>
+  <div class="inner-hero__cnt wrap"><h1 class="inner-hero__title">SMAS-лифтинг</h1></div>
+</section>
+
+<!-- 2. BULLETS -->
+<section class="sec-bullets">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white)">Почему выбирают SMAS-лифтинг</h2>
+    <div class="bullets-grid">
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Без операций и наркоза</p>
+        <p class="bullet-text">Процедура нехирургическая — без разрезов, без анестезии, без госпитализации</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Результат на 1–2 года</p>
+        <p class="bullet-text">Воздействие на SMAS-слой запускает глубокую реструктуризацию тканей — эффект накапливается до 6 месяцев</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Сертифицированное оборудование</p>
+        <p class="bullet-text">Аппарат Ultraformer МРТ с зарегистрированным удостоверением — клинически доказанная эффективность</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Нет периода реабилитации</p>
+        <p class="bullet-text">После процедуры можно сразу вернуться к обычной жизни — без синяков и отёков</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Один сеанс = курс</p>
+        <p class="bullet-text">Одна процедура заменяет многократные визиты — комплексное воздействие сразу</p>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#568673" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#568673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="bullet-title">Индивидуальный протокол</p>
+        <p class="bullet-text">Врач составляет программу исходя из анатомии лица и ваших задач — шея, подбородок, брови, щёки</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ОПИСАНИЕ -->
+<section class="sec-desc">
+  <div class="wrap">
+    <div class="desc-inner">
+      <div class="desc-photo"><img src="../assets/photos/hero-smas.webp" alt="SMAS-лифтинг" loading="lazy"/></div>
+      <div class="desc-text">
+        <h2 class="sec-h">Безоперационный лифтинг с доказанным результатом</h2>
+        <div class="desc-body">
+          <p>SMAS-лифтинг — это ультразвуковой метод омоложения, воздействующий на мышечно-апоневротический слой лица. Именно на него действуют хирурги при классическом лифтинге. Мы делаем то же самое — без скальпеля.</p>
+          <p>В клинике RA|RÉ процедура выполняется на аппарате Ultraformer МРТ от Classys Inc. — лидера рынка HIFU-лифтинга с международной аккредитацией высшей категории.</p>
+        </div>
+        <ul class="svc-list">
+          <li>Подтяжка овала лица и шеи</li>
+          <li>Лифтинг бровей и верхнего века</li>
+          <li>Коррекция второго подбородка</li>
+          <li>Подтяжка кожи на теле (живот, руки, бёдра)</li>
+          <li>Глубокий SMAS-лифтинг и RF-воздействие в одном сеансе</li>
+        </ul>
+        <a href="../index.html#booking" class="pill-btn" style="padding:24px 48px;font-size:22px;letter-spacing:-0.02em;align-self:flex-start;">Записаться на процедуру</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ВИДЕО -->
+<section class="sec-video-svc">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white)">Как проходит процедура</h2>
+    <div class="video-wrap">
+      <div class="video-placeholder-dark">
+        <div class="video-play-big"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M10 6l18 10-18 10V6z" fill="#F3EEE8"/></svg></div>
+        <span style="font-size:18px;font-weight:500;color:var(--c-w50)">Видео о процедуре SMAS-лифтинг</span>
+      </div>
+    </div>
+    <p class="video-caption">Посмотрите, как врач клиники RA|RÉ проводит процедуру SMAS-лифтинга на аппарате Ultraformer МРТ</p>
+  </div>
+</section>
+
+<!-- 5. ДО/ПОСЛЕ -->
+<section class="sec-before-after">
+  <div class="wrap">
+    <h2 class="sec-h">Фото до и после</h2>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <div class="ba-photos">
+          <div class="ba-photo"><img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27400%27%3E%3Crect width=%27300%27 height=%27400%27 fill=%27%23f3f1eb%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2720%27 fill=%27%2371685d%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27%3EДо%3C/text%3E%3C/svg%3E" alt="До" loading="lazy"/><span class="ba-label">До</span></div>
+          <div class="ba-photo"><img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27400%27%3E%3Crect width=%27300%27 height=%27400%27 fill=%27%23e8e4dc%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2720%27 fill=%27%23568673%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27%3EПосле%3C/text%3E%3C/svg%3E" alt="После" loading="lazy"/><span class="ba-label">После</span></div>
+        </div>
+        <p class="ba-caption-title">SMAS-лифтинг лица</p>
+        <p class="ba-caption-meta">1 процедура · Аппарат Ultraformer МРТ · Результат через 3 месяца</p>
+      </div>
+      <div class="ba-card">
+        <div class="ba-photos">
+          <div class="ba-photo"><img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27400%27%3E%3Crect width=%27300%27 height=%27400%27 fill=%27%23f3f1eb%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2720%27 fill=%27%2371685d%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27%3EДо%3C/text%3E%3C/svg%3E" alt="До" loading="lazy"/><span class="ba-label">До</span></div>
+          <div class="ba-photo"><img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27400%27%3E%3Crect width=%27300%27 height=%27400%27 fill=%27%23e8e4dc%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2720%27 fill=%27%23568673%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27%3EПосле%3C/text%3E%3C/svg%3E" alt="После" loading="lazy"/><span class="ba-label">После</span></div>
+        </div>
+        <p class="ba-caption-title">SMAS-лифтинг шеи и подбородка</p>
+        <p class="ba-caption-meta">1 процедура · Устранение второго подбородка · Результат через 2 месяца</p>
+      </div>
+      <div class="ba-card">
+        <div class="ba-photos">
+          <div class="ba-photo"><img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27400%27%3E%3Crect width=%27300%27 height=%27400%27 fill=%27%23f3f1eb%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2720%27 fill=%27%2371685d%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27%3EДо%3C/text%3E%3C/svg%3E" alt="До" loading="lazy"/><span class="ba-label">До</span></div>
+          <div class="ba-photo"><img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27400%27%3E%3Crect width=%27300%27 height=%27400%27 fill=%27%23e8e4dc%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27sans-serif%27 font-size=%2720%27 fill=%27%23568673%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27%3EПосле%3C/text%3E%3C/svg%3E" alt="После" loading="lazy"/><span class="ba-label">После</span></div>
+        </div>
+        <p class="ba-caption-title">SMAS-лифтинг тела (живот)</p>
+        <p class="ba-caption-meta">1 процедура · Подтяжка кожи · Результат через 4 месяца</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. СПЕЦПРЕДЛОЖЕНИЕ -->
+<section class="sec-promo-svc">
+  <div class="wrap">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <h2>Монополярный RF-лифтинг<br>от 400 импульсов</h2>
+        <p>Специальное предложение для новых гостей клиники. Бесплатная консультация при записи онлайн.</p>
+      </div>
+      <div class="promo-cta">
+        <a href="../index.html#booking" class="pill-btn pill-btn--white" style="padding:24px 48px;font-size:22px;letter-spacing:-0.02em;">Записаться онлайн</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ОТЗЫВЫ -->
+<section class="sec-svc-reviews">
+  <div class="wrap">
+    <h2 class="sec-h">Отзывы о SMAS-лифтинге</h2>
+    <div class="svc-reviews-grid">
+      <div class="svc-rev-card">
+        <div class="svc-rev-stars">★★★★★</div>
+        <p class="svc-rev-text">«Делала SMAS в RA|RÉ — результат потрясающий. Через 3 месяца овал лица подтянулся, шея стала чётче. Выгляжу на 10 лет моложе. Очень рекомендую!»</p>
+        <p class="svc-rev-author">Татьяна К. · Яндекс · апрель 2026</p>
+        <p class="svc-rev-service">SMAS-лифтинг лица</p>
+      </div>
+      <div class="svc-rev-card">
+        <div class="svc-rev-stars">★★★★★</div>
+        <p class="svc-rev-text">«Пришла с птозом щёк и вторым подбородком. После одной процедуры — вау! Врач очень профессиональный, всё объяснил. Клиника на высшем уровне.»</p>
+        <p class="svc-rev-author">Марина С. · 2ГИС · март 2026</p>
+        <p class="svc-rev-service">SMAS-лифтинг + шея</p>
+      </div>
+      <div class="svc-rev-card">
+        <div class="svc-rev-stars">★★★★★</div>
+        <p class="svc-rev-text">«Боялась, что будет больно — оказалось терпимо. Эффект начал проявляться через месяц и продолжает улучшаться. Прошло уже 5 месяцев, результат держится.»</p>
+        <p class="svc-rev-author">Елена Д. · Google · февраль 2026</p>
+        <p class="svc-rev-service">SMAS-лифтинг лица</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. СПЕЦИАЛИСТЫ -->
+<section class="sec-svc-specs">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white)">Специалисты, выполняющие процедуру</h2>
+    <div class="svc-spec-grid">
+      <a href="../specialists/mariya-viktorovna.html" class="svc-spec-card">
+        <div class="svc-spec-card__photo"><img src="../assets/photos/spec-mariya.webp" alt="Мария Викторовна" loading="lazy"/></div>
+        <p class="svc-spec-name">Мария Викторовна</p>
+        <p class="svc-spec-role">Главный врач, врач-косметолог</p>
+      </a>
+      <a href="../specialists/alisa-alekseevna.html" class="svc-spec-card">
+        <div class="svc-spec-card__photo"><img src="../assets/photos/spec-alisa.webp" alt="Алиса Алексеевна" loading="lazy"/></div>
+        <p class="svc-spec-name">Алиса Алексеевна</p>
+        <p class="svc-spec-role">Врач-дерматовенеролог, косметолог</p>
+      </a>
+      <a href="../specialists/ksenia-aleksandrovna.html" class="svc-spec-card">
+        <div class="svc-spec-card__photo"><img src="../assets/photos/spec-ksenia.webp" alt="Ксения Александровна" loading="lazy"/></div>
+        <p class="svc-spec-name">Ксения Александровна</p>
+        <p class="svc-spec-role">Косметолог-эстетист</p>
+      </a>
+      <a href="../specialists/index.html" class="svc-spec-card" style="justify-content:center;align-items:center;background:transparent">
+        <div style="text-align:center;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px"><p style="font-size:20px;font-weight:500;color:var(--c-white);letter-spacing:-0.02em">Все специалисты</p><span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(253,252,248,0.4);color:var(--c-white);font-size:20px">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. ПРАЙС -->
+<section class="sec-price">
+  <div class="wrap">
+    <h2 class="sec-h">Процедуры и цены</h2>
+    <table class="price-table">
+      <tr class="price-row"><td>SMAS-лифтинг лицо (Ultraformer МРТ)<span class="price-note">Классический SMAS, лицо полностью</span></td><td>от 25 000 ₽</td></tr>
+      <tr class="price-row"><td>SMAS-лифтинг шея<span class="price-note">Подтяжка шеи и зоны декольте</span></td><td>от 18 000 ₽</td></tr>
+      <tr class="price-row"><td>Монополярный RF-лифтинг лицо<span class="price-note">400 импульсов, тонус и плотность кожи</span></td><td>от 12 000 ₽</td></tr>
+      <tr class="price-row"><td>Монополярный RF-лифтинг тело<span class="price-note">Живот, бёдра, внутренняя поверхность рук</span></td><td>от 10 000 ₽</td></tr>
+      <tr class="price-row"><td>Комплекс SMAS + RF<span class="price-note">Глубокий лифтинг + поверхностное укрепление</span></td><td>от 30 000 ₽</td></tr>
+      <tr class="price-row"><td>Курс 3 процедуры<span class="price-note">Комплексная программа омоложения, скидка 15%</span></td><td>от 60 000 ₽</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 10. ФОРМА ЗАПИСИ -->
+<section class="sec-booking" id="booking">
+  <div class="wrap">
+    <div class="booking-inner">
+      <div class="booking-text">
+        <h2>Запишитесь на<br>консультацию</h2>
+        <p>Оставьте заявку — врач свяжется с вами в течение 30 минут, ответит на вопросы и подберёт удобное время.</p>
+        <div class="booking-contact">
+          <a href="tel:+79002761116">+7 (900) 276-11-16</a>
+          <span style="font-size:16px;color:var(--c-w50)">Пн–Вс: 9:00 – 20:00</span>
+        </div>
+      </div>
+      <div class="booking-form">
+        <div class="form-row"><label class="form-label">Ваше имя</label><input class="form-input" type="text" placeholder="Анна"/></div>
+        <div class="form-row"><label class="form-label">Телефон</label><input class="form-input" type="tel" placeholder="+7 (___) ___-__-__"/></div>
+        <div class="form-row"><label class="form-label">Процедура</label>
+          <select class="form-select">
+            <option value="">Выбрать процедуру</option>
+            <option>SMAS-лифтинг лицо</option>
+            <option>SMAS-лифтинг шея</option>
+            <option>Монополярный RF-лифтинг</option>
+            <option>Комплекс SMAS + RF</option>
+            <option>Консультация</option>
+          </select>
+        </div>
+        <div class="form-row"><label class="form-label">Комментарий</label><textarea class="form-textarea" placeholder="Расскажите о вашем запросе…"></textarea></div>
+        <p class="form-agree">Нажимая кнопку, вы соглашаетесь с <a href="../docs/processing.docx">обработкой персональных данных</a></p>
+        <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" class="pill-btn" style="width:100%;justify-content:center;padding:20px;font-size:18px;">Записаться онлайн</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="sec-faq">
+  <div class="wrap">
+    <h2 class="sec-h">Часто задаваемые вопросы</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question">Больно ли делать SMAS-лифтинг?</button><div class="faq-answer"><p class="faq-answer-inner">Во время процедуры ощущается лёгкое тепло и покалывание. Большинство пациентов описывают ощущения как терпимые. По желанию возможна поверхностная анестезия кремом.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Через сколько виден результат?</button><div class="faq-answer"><p class="faq-answer-inner">Первичный результат заметен уже через 2–4 недели. Максимальный эффект формируется через 3–6 месяцев, когда завершается процесс синтеза нового коллагена. Результат держится от 1 до 2 лет.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Есть ли восстановительный период?</button><div class="faq-answer"><p class="faq-answer-inner">Реабилитационного периода нет. Сразу после процедуры возможны незначительное покраснение и лёгкая отёчность, которые проходят в течение 1–2 часов.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Сколько процедур нужно?</button><div class="faq-answer"><p class="faq-answer-inner">Как правило, достаточно одной процедуры в год. При сильном птозе врач может рекомендовать курс из 2–3 сеансов с интервалом 3 месяца.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Есть ли противопоказания?</button><div class="faq-answer"><p class="faq-answer-inner">Противопоказания: беременность, кардиостимулятор, металлические импланты в зоне воздействия, острые воспалительные заболевания кожи. Полный список уточняется на консультации.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Чем SMAS-лифтинг отличается от RF-лифтинга?</button><div class="faq-answer"><p class="faq-answer-inner">SMAS-лифтинг воздействует на глубокий мышечно-апоневротический слой (3,0–4,5 мм), обеспечивая настоящий лифтинг тканей. RF-лифтинг работает на поверхностном слое, улучшая текстуру и тонус кожи. Комбинирование обоих методов даёт наилучший результат.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. ХОРОШО СОЧЕТАЕТСЯ С -->
+<section class="sec-pairs">
+  <div class="wrap">
+    <h2 class="sec-h" style="color:var(--c-white)">Хорошо сочетается с...</h2>
+    <div class="pairs-grid">
+      <a href="injections.html" class="pair-card">
+        <p class="pair-card__title">Биоревитализация</p>
+        <p class="pair-card__desc">Сочетание SMAS и биоревитализации усиливает эффект омоложения: лифтинг + глубокое увлажнение</p>
+        <span class="pair-card__link">Узнать подробнее →</span>
+      </a>
+      <a href="injections.html" class="pair-card">
+        <p class="pair-card__title">Контурная пластика</p>
+        <p class="pair-card__desc">После SMAS-лифтинга филлеры помогут восстановить объём и чёткость контуров</p>
+        <span class="pair-card__link">Узнать подробнее →</span>
+      </a>
+      <a href="lifts.html" class="pair-card">
+        <p class="pair-card__title">Фотоомоложение IPL</p>
+        <p class="pair-card__desc">IPL улучшит тон и текстуру кожи, пока SMAS работает на уровне структуры тканей</p>
+        <span class="pair-card__link">Узнать подробнее →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="../services/smas.html">SMAS-лифтинг</a>
+    <a href="../services/injections.html">Инъекционная косметология</a>
+    <a href="../services/laser.html">Лазерная эпиляция</a>
+    <a href="../services/lifts.html">Аппаратные лифтинги</a>
+    <a href="../services/skin.html">Уход за кожей</a>
+    <a href="../services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="../about.html">О клинике</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="../docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="../index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = this.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+<script src="./docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../mobile-nav.js?v=202606041800" defer></script>
+<script src="../accessibility.js" defer></script>
+<script>
+(function(){
+  var section = document.querySelector('.sec-svc-specs');
+  if(!section) return;
+  var fired = false;
+  function animate(){
+    if(fired) return; fired = true;
+    section.querySelectorAll('.svc-spec-card').forEach(function(c,i){
+      if(!c.dataset.rr) c.dataset.rr = 'scale';
+      c.style.setProperty('--rr-dur','0.65s');
+      c.style.setProperty('--rr-del',(i*0.09)+'s');
+      setTimeout(function(){ c.classList.add('rr-in'); }, i*90);
+    });
+  }
+  var io = new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){ animate(); io.disconnect(); }
+  },{threshold:0, rootMargin:'0px 0px 200px 0px'});
+  io.observe(section);
+  window.addEventListener('scroll',function(){
+    var r=section.getBoundingClientRect();
+    if(r.top < window.innerHeight+200) animate();
+  },{passive:true,once:true});
+})();
+</script></body>
+</html>

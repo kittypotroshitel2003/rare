@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preload" href="../responsive.css?v=202606041800" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202606041800"/></noscript>
+<title>Статьи и новости — RA|RÉ Анапа</title>
+<meta name="description" content="Статьи и новости клиники RA|RÉ — экспертная косметология в Анапе. Советы специалистов, процедуры, уход за кожей."/>
+<style>
+:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;line-height:1}.pill-btn:hover{background:#4a7262;transform:translateY(-1px)}
+.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}.site-hd__logo img{height:36px;width:auto}.site-hd__nav{display:flex;gap:48px}.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}.site-hd__nav a:hover{opacity:0.7}.site-hd__actions{display:flex;align-items:center;gap:36px}.site-hd__cta{padding:16px 24px;font-size:18px}
+.inner-hero{position:relative;height:clamp(280px,24vw,420px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.25),rgba(16,47,39,0.72))}.inner-hero__cnt{position:relative;z-index:2;padding-bottom:64px;width:100%}.inner-hero__title{font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+.sec-articles{padding:72px 0}
+.articles-lead{font-size:clamp(18px,1.25vw,24px);font-weight:400;color:var(--c-muted);letter-spacing:-0.02em;margin-top:24px;margin-bottom:72px;line-height:1.5}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.article-card{border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;background:#fff;border:1px solid rgba(53,40,26,0.08)}
+.article-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(53,40,26,0.12)}
+.article-card__img{width:100%;height:260px;object-fit:cover;object-position:center;display:block}
+.article-card__body{padding:28px 24px 32px;display:flex;flex-direction:column;gap:12px;flex:1}
+.article-card__tag{font-size:13px;font-weight:500;color:var(--c-accent);letter-spacing:0.08em;text-transform:uppercase;font-style:normal}
+.article-card__title{font-size:22px;font-weight:500;color:var(--c-text);letter-spacing:-0.02em;line-height:1.25;font-style:normal}
+.article-card__excerpt{font-size:16px;font-weight:400;color:var(--c-muted);letter-spacing:-0.01em;line-height:1.5;margin-top:4px}
+.article-card__foot{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center}
+.article-card__date{font-size:15px;font-weight:400;color:var(--c-muted);font-style:normal}
+.article-card__arrow{font-size:20px;color:var(--c-accent);transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.article-card:hover .article-card__arrow{transform:translateX(5px)}
+.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center;margin-top:105px}
+.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+</style>
+</head>
+<body>
+<header class="site-hd">
+  <a href="../index.html" class="site-hd__logo"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a>
+  <nav class="site-hd__nav"><a href="../about.html">О клинике</a><a href="../promos.html">Акции</a><a href="../services.html">Услуги</a><a href="../specialists/index.html">Специалисты</a><a href="../certificates.html">Сертификаты</a><a href="../reviews/index.html">Отзывы</a></nav>
+  <div class="site-hd__actions"><a href="tel:+79002761116" style="display:flex;align-items:center;"><img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/></a><a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a></div>
+</header>
+
+<section class="inner-hero">
+  <div class="inner-hero__bg" style="background-image:url('../assets/photos/article1-hero.webp');"></div>
+  <div class="inner-hero__overlay"></div>
+  <div class="inner-hero__cnt wrap">
+    <h1 class="inner-hero__title">Статьи и новости</h1>
+  </div>
+</section>
+
+<section class="sec-articles">
+  <div class="wrap">
+    <p class="articles-lead">Советы специалистов, разборы процедур и актуальные новости из мира косметологии</p>
+    <div class="articles-grid">
+
+      <a href="article-move.html" class="article-card">
+        <img src="../assets/photos/article-move-cover.webp" alt="Переезд клиники RA|RÉ" class="article-card__img" loading="lazy"/>
+        <div class="article-card__body">
+          <span class="article-card__tag">Новости</span>
+          <p class="article-card__title">У нас переезд! Открываем двери новой клиники</p>
+          <p class="article-card__excerpt">Клиника RA | RÉ переехала в новое современное пространство на ул. Владимирская, 120.</p>
+          <div class="article-card__foot">
+            <span class="article-card__date">22 мая 2026</span>
+            <span class="article-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="article-hydra.html" class="article-card">
+        <img src="../assets/photos/article1-cover.webp" alt="Hydra Touch H2" class="article-card__img" loading="lazy"/>
+        <div class="article-card__body">
+          <span class="article-card__tag">Уход за лицом</span>
+          <p class="article-card__title">Hydra Touch H2: Ваш секрет «вау»-эффекта на корпоративе</p>
+          <p class="article-card__excerpt">Как за один визит подготовить кожу к важному мероприятию и получить сияющий результат.</p>
+          <div class="article-card__foot">
+            <span class="article-card__date">3 декабря 2025</span>
+            <span class="article-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="article-photodynamic.html" class="article-card">
+        <img src="../assets/photos/article2-cover.webp" alt="Фотодинамическая терапия" class="article-card__img" loading="lazy"/>
+        <div class="article-card__body">
+          <span class="article-card__tag">Косметология</span>
+          <p class="article-card__title">С какими процедурами сочетают фотодинамическую терапию?</p>
+          <p class="article-card__excerpt">Разбираем синергию методов и рассказываем, как усилить результат комплексным подходом.</p>
+          <div class="article-card__foot">
+            <span class="article-card__date">21 октября 2025</span>
+            <span class="article-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="article-men-epilation.html" class="article-card">
+        <img src="../assets/photos/article3-cover.webp" alt="Мужская эпиляция" class="article-card__img" loading="lazy"/>
+        <div class="article-card__body">
+          <span class="article-card__tag">Лазерная эпиляция</span>
+          <p class="article-card__title">Мужская эпиляция: почему ухоженное тело — новый тренд успешного мужчины</p>
+          <p class="article-card__excerpt">Лазерная эпиляция давно вышла за рамки женской процедуры. Почему мужчины выбирают постоянный результат.</p>
+          <div class="article-card__foot">
+            <span class="article-card__date">13 сентября 2025</span>
+            <span class="article-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec-cta"><div class="wrap"><h2 class="cta-heading">Есть вопросы?<br>Запишитесь на консультацию</h2><div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="../index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться онлайн</a><a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a></div></div></section>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid">
+  <div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
+    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
+    <p class="footer-addr">Анапа, Владимирская 120</p>
+  </div>
+  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
+    <a href="../services/smas.html">SMAS-лифтинг</a>
+    <a href="../services/injections.html">Инъекционная косметология</a>
+    <a href="../services/laser.html">Лазерная эпиляция</a>
+    <a href="../services/lifts.html">Аппаратные лифтинги</a>
+    <a href="../services/skin.html">Уход за кожей</a>
+    <a href="../services/spa.html">SPA-программы</a>
+  </div></div>
+  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+    <a href="../about.html">О клинике</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../certificates.html">Сертификаты</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../prices.html">Цены</a>
+  </div></div>
+  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
+    <a href="../docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="../index.html#contacts">Контакты</a>
+    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
+  </div></div>
+</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+<script src="../docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../mobile-nav.js?v=202606041800" defer></script>
+<script src="../accessibility.js" defer></script></body>
+</html>
