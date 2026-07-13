@@ -402,9 +402,6 @@
   .promo-card__desc { font-size: 16px; }
   .promos-cta { padding: 14px 28px; font-size: 20px; }
 
-  /* ── Interior slider ── */
-  .interior-img { height: clamp(220px, 55vw, 380px); }
-
   /* ── Results ── */
   .result-page { flex-direction: column; gap: 20px; }
   .result-photo { height: clamp(200px, 55vw, 380px); }
@@ -2291,4 +2288,52 @@
   .about-stat__n { text-align: center !important; }
   .about-stat__l { text-align: center !important; align-self: center !important; }
   .sec-adv { display: none !important; }
+}
+
+/* ── FIX 11: Promo cards mobile — auto height, no clipping, compact body ── */
+@media (max-width: 767px) {
+  .sec-promos .promo-card,
+  .sec-promos-page .promo-card,
+  .promo-cards-grid .promo-card {
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .sec-promos .promo-card__img-wrap,
+  .sec-promos-page .promo-card__img-wrap,
+  .promo-cards-grid .promo-card__img-wrap {
+    height: clamp(180px, 46vw, 220px) !important;
+    min-height: 0 !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .sec-promos .promo-card__img,
+  .sec-promos-page .promo-card__img,
+  .promo-cards-grid .promo-card__img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .sec-promos .promo-card__body,
+  .sec-promos-page .promo-card__body,
+  .promo-cards-grid .promo-card__body {
+    padding: 14px 16px 14px !important;
+    flex: 0 0 auto !important;
+    gap: 0 !important;
+  }
+  .sec-promos .promo-card__btm,
+  .sec-promos-page .promo-card__btm,
+  .promo-cards-grid .promo-card__btm {
+    gap: 4px !important;
+    padding-bottom: 0 !important;
+  }
+  .sec-promos .promo-card__top,
+  .sec-promos-page .promo-card__top,
+  .promo-cards-grid .promo-card__top {
+    margin-top: 10px !important;
+  }
 }

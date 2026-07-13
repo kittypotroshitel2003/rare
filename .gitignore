@@ -11,3 +11,5 @@ chk-*.mjs
 ss-*.mjs
 patch-*.mjs
 upload-fix.mjs
+.DS_Store
+.claude/

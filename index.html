@@ -569,14 +569,14 @@
     .sec-interior { padding: 72px 0; }
     .sec-interior__h { padding: 0 var(--gutter); margin-bottom: 48px; }
     .sec-interior__h.sec-h { color: var(--c-text); }
-    /* interior slider */
-    .interior-slider { overflow: hidden; }
-    .interior-track { display: flex; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .interior-slide { flex: 0 0 100%; padding: 0 var(--gutter); box-sizing: border-box; }
-    .interior-img { width: 100%; height: clamp(220px, 35.8vw, 688px); border-radius: var(--r-card); overflow: hidden; }
-    .interior-img img { width: 100%; height: 100%; object-fit: cover; }
-    .interior-nav { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); margin-top: 32px; }
-    .interior-counter { font-size: 17px; font-weight: 500; color: var(--c-muted); letter-spacing: -0.01em; font-style: normal; }
+    /* interior strip — horizontally scrolling filmstrip of varying-width cards */
+    .interior-strip { display: flex; align-items: flex-end; gap: 16px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
+    .interior-strip::-webkit-scrollbar { display: none; }
+    .interior-item { flex: 0 0 auto; height: clamp(220px, 34vw, 620px); aspect-ratio: var(--ar); border-radius: var(--r-card); overflow: hidden; }
+    .interior-item:first-child { margin-left: var(--gutter); }
+    .interior-item:last-child { margin-right: var(--gutter); }
+    .interior-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .interior-nav { display: flex; justify-content: flex-end; padding: 0 var(--gutter); margin-top: 32px; }
     .interior-arrows { display: flex; gap: 12px; }
     .interior-arr { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(53,40,26,0.2); background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: var(--c-text); transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
     .interior-arr:hover { background: var(--c-dark); border-color: var(--c-dark); color: var(--c-white); }
@@ -1158,7 +1158,7 @@
 
     <!-- Card 1: Уход за лицом — large left, spans 2 rows -->
     <a href="services/skin.html" class="dir-mosaic__card">
-      <img class="dir-mosaic__img" src="assets/photos/service-skin.webp" alt="" loading="lazy"/>
+      <img class="dir-mosaic__img" src="assets/photos/mosaic-face.webp" alt="" loading="lazy"/>
       <div class="dir-mosaic__overlay"></div>
       <div class="dir-mosaic__content">
         <span class="dir-mosaic__tag">Лицо</span>
@@ -1176,7 +1176,7 @@
 
     <!-- Card 2: Тело — top right -->
     <a href="services/lifts.html" class="dir-mosaic__card">
-      <img class="dir-mosaic__img" src="assets/photos/service-lifts.webp" alt="" loading="lazy"/>
+      <img class="dir-mosaic__img" src="assets/photos/mosaic-body.webp?v=3" alt="" loading="lazy"/>
       <div class="dir-mosaic__overlay"></div>
       <div class="dir-mosaic__content">
         <span class="dir-mosaic__tag">Тело</span>
@@ -1193,7 +1193,7 @@
 
     <!-- Card 3: Волосы — middle right -->
     <a href="services.html" class="dir-mosaic__card">
-      <img class="dir-mosaic__img" src="assets/photos/face-massage.webp" alt="" loading="lazy"/>
+      <img class="dir-mosaic__img" src="assets/photos/face-massage.webp?v=2" alt="" loading="lazy"/>
       <div class="dir-mosaic__overlay"></div>
       <div class="dir-mosaic__content">
         <span class="dir-mosaic__tag">Волосы</span>
@@ -1209,7 +1209,7 @@
 
     <!-- Card 4: SPA — wide bottom -->
     <a href="services/spa.html" class="dir-mosaic__card">
-      <img class="dir-mosaic__img" src="assets/photos/service-spa.webp" alt="" loading="lazy"/>
+      <img class="dir-mosaic__img" src="assets/photos/mosaic-spa.webp?v=3" alt="" loading="lazy"/>
       <div class="dir-mosaic__overlay"></div>
       <div class="dir-mosaic__content">
         <span class="dir-mosaic__tag">SPA</span>
@@ -1236,39 +1236,33 @@
     <div class="spec-slider">
       <div class="spec-track" id="spec-track">
         <a href="specialists/mariya-viktorovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-mariya.webp" alt="Мария Викторовна" loading="lazy"/></div>
+          <div class="spec-card__photo"><img src="assets/photos/spec-mariya.webp?v=2" alt="Мария Викторовна" loading="lazy"/></div>
           <p class="spec-card__name">Мария Викторовна</p>
           <p class="spec-card__role">Главный врач, врач-косметолог</p>
           <span class="spec-card__view">Профиль</span>
         </a>
         <a href="specialists/elena-tigranovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-elena.webp" alt="Елена Тиграновна" loading="lazy"/></div>
+          <div class="spec-card__photo"><img src="assets/photos/spec-elena.webp?v=2" alt="Елена Тиграновна" loading="lazy"/></div>
           <p class="spec-card__name">Елена Тиграновна</p>
           <p class="spec-card__role">Медицинский массажист</p>
           <span class="spec-card__view">Профиль</span>
         </a>
         <a href="specialists/yana-vladimirovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-yana.webp" alt="Яна Владимировна" loading="lazy"/></div>
+          <div class="spec-card__photo"><img src="assets/photos/spec-yana.webp?v=2" alt="Яна Владимировна" loading="lazy"/></div>
           <p class="spec-card__name">Яна Владимировна</p>
           <p class="spec-card__role">Медицинский массажист</p>
           <span class="spec-card__view">Профиль</span>
         </a>
         <a href="specialists/ksenia-aleksandrovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-ksenia.webp" alt="Ксения Александровна" loading="lazy"/></div>
+          <div class="spec-card__photo"><img src="assets/photos/spec-ksenia.webp?v=2" alt="Ксения Александровна" loading="lazy"/></div>
           <p class="spec-card__name">Ксения Александровна</p>
           <p class="spec-card__role">Косметолог-эстетист</p>
           <span class="spec-card__view">Профиль</span>
         </a>
         <a href="specialists/alisa-alekseevna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-alisa.webp" alt="Алиса Алексеевна" loading="lazy"/></div>
+          <div class="spec-card__photo"><img src="assets/photos/spec-alisa.webp?v=2" alt="Алиса Алексеевна" loading="lazy"/></div>
           <p class="spec-card__name">Алиса Алексеевна</p>
           <p class="spec-card__role">Врач-дерматовенеролог, косметолог, трихолог</p>
-          <span class="spec-card__view">Профиль</span>
-        </a>
-        <a href="specialists/inna-viktorovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-inna.webp" alt="Инна Викторовна" loading="lazy"/></div>
-          <p class="spec-card__name">Инна Викторовна</p>
-          <p class="spec-card__role">Медицинский массажист</p>
           <span class="spec-card__view">Профиль</span>
         </a>
       </div>
@@ -1314,7 +1308,7 @@
       <div class="promo-cards">
         <a href="promos/first-visit.html" class="promo-card">
           <div class="promo-card__img-wrap">
-            <img class="promo-card__img" src="assets/photos/hero-skin.webp" alt="Первый визит" loading="lazy"/>
+            <img class="promo-card__img" src="assets/photos/hero-skin.webp?v=2" alt="Первый визит" loading="lazy"/>
             <div class="promo-card__img-overlay"></div>
             <span class="promo-tag">Новым гостям</span>
           </div>
@@ -1328,7 +1322,7 @@
         </a>
         <a href="promos/smas-lifting.html" class="promo-card">
           <div class="promo-card__img-wrap">
-            <img class="promo-card__img" src="assets/photos/hero-smas.webp" alt="SMAS-лифтинг" loading="lazy"/>
+            <img class="promo-card__img" src="assets/photos/hero-smas.webp?v=2" alt="SMAS-лифтинг" loading="lazy"/>
             <div class="promo-card__img-overlay"></div>
             <span class="promo-tag">Скидка 20%</span>
           </div>
@@ -1342,7 +1336,7 @@
         </a>
         <a href="promos/laser-new-client.html" class="promo-card">
           <div class="promo-card__img-wrap">
-            <img class="promo-card__img" src="assets/photos/hero-laser.webp" alt="Лазерная эпиляция" loading="lazy"/>
+            <img class="promo-card__img" src="assets/photos/hero-laser.webp?v=2" alt="Лазерная эпиляция" loading="lazy"/>
             <div class="promo-card__img-overlay"></div>
             <span class="promo-tag">Скидка 30%</span>
           </div>
@@ -1362,25 +1356,17 @@
 
 <!-- ═══ ВНУТРИ КЛИНИКИ ═════════════════════════════════════════════ -->
 <section class="sec-interior">
-  
   <h2 class="sec-h sec-interior__h">Внутри клиники</h2>
-  <div class="interior-slider">
-    <div class="interior-track" id="interior-track">
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3427.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3480.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3516.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3549.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3605.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3763.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3867.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3983.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a3988.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a4149.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-      <div class="interior-slide"><div class="interior-img"><img src="assets/photos/interior-eu4a4223.webp" alt="Внутри клиники" loading="lazy"/></div></div>
-    </div>
+  <div class="interior-strip">
+    <div class="interior-item" style="--ar:1030/686"><img src="assets/photos/gallery-reception-wide.webp" alt="Внутри клиники" loading="lazy"/></div>
+    <div class="interior-item" style="--ar:1032/688"><img src="assets/photos/gallery-reception-logo.webp" alt="Внутри клиники" loading="lazy"/></div>
+    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-hallway-mirror.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 60%"/></div>
+    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-reception-counter.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 61%"/></div>
+    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-treatment-curtain.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 53%"/></div>
+    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-lounge-man.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 85%"/></div>
+    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-treatment-cabinet.webp" alt="Внутри клиники" loading="lazy"/></div>
   </div>
   <div class="interior-nav">
-    <span class="interior-counter" id="interior-counter">01 / 11</span>
     <div class="interior-arrows">
       <button class="interior-arr" id="interior-prev" aria-label="Назад">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L7 10l5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1800,53 +1786,32 @@
     });
   })();
 
-  /* ── INTERIOR SLIDER with arrows ── */
+  makeSlider('result-track',   'results-dots');
+
+  /* ── INTERIOR STRIP arrows ── */
   (function() {
-    var track = document.getElementById('interior-track');
+    var strip = document.getElementById('interior-strip') || document.querySelector('.interior-strip');
     var prevBtn = document.getElementById('interior-prev');
     var nextBtn = document.getElementById('interior-next');
-    var counter = document.getElementById('interior-counter');
-    if (!track) return;
-    var slides = track.querySelectorAll('.interior-slide');
-    var total = slides.length;
-    var current = 0;
+    if (!strip || !prevBtn || !nextBtn) return;
 
-    function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-    function goTo(idx) {
-      idx = Math.max(0, Math.min(idx, total - 1));
-      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-      current = idx;
-      if (counter) counter.textContent = pad(idx + 1) + ' / ' + pad(total);
-      if (prevBtn) prevBtn.disabled = idx === 0;
-      if (nextBtn) nextBtn.disabled = idx === total - 1;
+    function step() {
+      var first = strip.querySelector('.interior-item');
+      return first ? first.getBoundingClientRect().width + 16 : strip.clientWidth * 0.8;
     }
 
-    goTo(0);
+    function updateButtons() {
+      var max = strip.scrollWidth - strip.clientWidth;
+      prevBtn.disabled = strip.scrollLeft <= 4;
+      nextBtn.disabled = strip.scrollLeft >= max - 4;
+    }
 
-    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
-
-    /* touch swipe */
-    var startX = 0;
-    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchend', function(e) {
-      var dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
-    });
-
-    /* keyboard */
-    document.addEventListener('keydown', function(e) {
-      var sec = document.querySelector('.sec-interior');
-      if (!sec) return;
-      var r = sec.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        if (e.key === 'ArrowLeft') goTo(current - 1);
-        if (e.key === 'ArrowRight') goTo(current + 1);
-      }
-    });
+    prevBtn.addEventListener('click', function() { strip.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    nextBtn.addEventListener('click', function() { strip.scrollBy({ left: step(), behavior: 'smooth' }); });
+    strip.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
   })();
-  makeSlider('result-track',   'results-dots');
 
   /* ── DIRECTIONS MOSAIC SCROLL ANIMATION ────────────────────────── */
   (function () {
