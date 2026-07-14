@@ -1038,7 +1038,7 @@
   ════════════════════════════════════════════════ */
   .sec-promo          { padding: 56px 0 !important; }
   .promo-layout       { grid-template-columns: 1fr !important; gap: 40px !important; }
-  .promo-card         { position: static !important; padding: 28px 24px !important; }
+  .promo-layout .promo-card { position: static !important; padding: 28px 24px !important; }
   .promo-badge        { font-size: 20px !important; padding: 12px 22px !important; margin-bottom: 24px !important; }
   .promo-heading      { font-size: clamp(26px, 8vw, 44px) !important; margin-bottom: 20px !important; }
   .promo-desc         { font-size: 16px !important; margin-bottom: 32px !important; }
@@ -2299,6 +2299,10 @@
     min-height: 0 !important;
     display: flex !important;
     flex-direction: column !important;
+    border: none !important;
+    box-shadow: 0 2px 20px rgba(53,40,26,0.08), 0 1px 4px rgba(53,40,26,0.05) !important;
+    padding: 0 !important;
+    position: relative !important;
   }
   .sec-promos .promo-card__img-wrap,
   .sec-promos-page .promo-card__img-wrap,
@@ -2335,5 +2339,25 @@
   .sec-promos-page .promo-card__top,
   .promo-cards-grid .promo-card__top {
     margin-top: 10px !important;
+  }
+}
+
+/* ── FIX 12: Specialist page breadcrumb — wrap on mobile so it doesn't overflow ── */
+@media (max-width: 767px) {
+  .spec-hero__breadcrumb {
+    flex-wrap: wrap !important;
+    font-size: 13px !important;
+    gap: 6px 8px !important;
+    row-gap: 6px !important;
+  }
+}
+
+/* ── FIX 13: Pairs grid — force single column on phones ── */
+/* A "tablet ≤1024px" rule earlier in this file has no min-width floor,
+   so it also matches phones and re-overrides the 1-column phone rule. */
+@media (max-width: 767px) {
+  .pairs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
   }
 }
