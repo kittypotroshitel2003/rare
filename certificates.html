@@ -10,13 +10,13 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <style>
-:root{--c-dark:#F3EEE8;--c-accent:#6FA187;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(53,40,26,0.5);--f:'Inter','Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+:root{--c-dark:#FFFAF3;--c-accent:#777247;--c-bg:#FFFAF3;--c-text:#33241D;--c-muted:#6b5e4f;--c-white:#FFFAF3;--c-w50:rgba(51,36,29,0.5);--f:'Inter','Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
 em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 .wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
-.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--c-text);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:1.5px solid rgba(53,40,26,0.25);cursor:pointer;transition:background 0.2s,border-color 0.2s,color 0.2s;line-height:1}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--c-text);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:1.5px solid rgba(51,36,29,0.25);cursor:pointer;transition:background 0.2s,border-color 0.2s,color 0.2s;line-height:1}
 .pill-btn:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fdfcf8}
 .sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:400;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
 
@@ -46,8 +46,8 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 /* redesigned gift card */
 .gift-card{
   border-radius:20px; overflow:hidden;
-  background:rgba(53,40,26,0.05);
-  border:1px solid rgba(53,40,26,0.1);
+  background:rgba(51,36,29,0.05);
+  border:1px solid rgba(51,36,29,0.1);
   padding:0; display:flex; flex-direction:column;
   cursor:pointer; position:relative;
   transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
@@ -94,7 +94,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 
 .gift-label{font-size:15px;font-weight:500;color:var(--c-w50);letter-spacing:0.04em;text-transform:uppercase;font-style:normal;margin-bottom:auto}
 
-.gift-card__divider{height:1px;background:rgba(53,40,26,0.08);margin:16px 0}
+.gift-card__divider{height:1px;background:rgba(51,36,29,0.08);margin:16px 0}
 
 .gift-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -117,8 +117,8 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
   margin-bottom: clamp(28px,3vw,48px);
 }
 .faq-list { max-width: 820px; }
-.faq-item { border-bottom: 1px solid rgba(53,40,26,0.12); }
-.faq-item:first-child { border-top: 1px solid rgba(53,40,26,0.12); }
+.faq-item { border-bottom: 1px solid rgba(51,36,29,0.12); }
+.faq-item:first-child { border-top: 1px solid rgba(51,36,29,0.12); }
 .faq-q {
   width: 100%; display: flex; align-items: center; justify-content: space-between;
   gap: 24px; padding: clamp(18px,2vw,26px) 0;
@@ -131,7 +131,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 .faq-q:hover { color: var(--c-accent); }
 .faq-icon {
   flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-  border: 1.5px solid rgba(53,40,26,0.2);
+  border: 1.5px solid rgba(51,36,29,0.2);
   display: flex; align-items: center; justify-content: center;
   font-size: 18px; font-weight: 400; color: var(--c-muted);
   transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
@@ -403,14 +403,14 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 <!-- Gift popup -->
 <div id="cert-gift-popup" style="position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;pointer-events:none;visibility:hidden">
   <div id="cert-overlay" onclick="closeGiftCertPopup()" style="position:absolute;inset:0;background:rgba(16,47,39,0.65);backdrop-filter:blur(5px);opacity:0;transition:opacity 0.35s ease"></div>
-  <div id="cert-card" style="position:relative;z-index:1;background:#F3EEE8;border-radius:28px;padding:52px 48px;max-width:560px;width:calc(100% - 40px);box-shadow:0 32px 80px rgba(0,0,0,0.35);opacity:0;transform:scale(0.9) translateY(20px);transition:opacity 0.4s ease,transform 0.4s cubic-bezier(0.34,1.56,0.64,1)">
-    <button onclick="closeGiftCertPopup()" style="position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(253,252,248,0.1);color:#F3EEE8;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center">✕</button>
-    <span style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6FA187;margin-bottom:16px;display:block">Подарок</span>
-    <h3 style="font-size:clamp(28px,3vw,48px);font-weight:400;color:#F3EEE8;letter-spacing:-0.02em;line-height:1.05;margin-bottom:20px;font-style:normal;font-family:inherit">Подарочный сертификат</h3>
+  <div id="cert-card" style="position:relative;z-index:1;background:#FFFAF3;border-radius:28px;padding:52px 48px;max-width:560px;width:calc(100% - 40px);box-shadow:0 32px 80px rgba(0,0,0,0.35);opacity:0;transform:scale(0.9) translateY(20px);transition:opacity 0.4s ease,transform 0.4s cubic-bezier(0.34,1.56,0.64,1)">
+    <button onclick="closeGiftCertPopup()" style="position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(253,252,248,0.1);color:#FFFAF3;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center">✕</button>
+    <span style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#777247;margin-bottom:16px;display:block">Подарок</span>
+    <h3 style="font-size:clamp(28px,3vw,48px);font-weight:400;color:#FFFAF3;letter-spacing:-0.02em;line-height:1.05;margin-bottom:20px;font-style:normal;font-family:inherit">Подарочный сертификат</h3>
     <p style="font-size:17px;font-weight:400;color:rgba(253,252,248,0.65);letter-spacing:-0.01em;line-height:1.6;margin-bottom:12px;font-style:normal">Данный сертификат действителен в течение года с момента покупки.</p>
     <p style="font-size:17px;font-weight:400;color:rgba(253,252,248,0.65);letter-spacing:-0.01em;line-height:1.6;margin-bottom:28px;font-style:normal">Сертификат может быть использован только по месту приобретения, обмену или возврату не подлежит.</p>
 
-    <a href="tel:+79002761116" style="display:flex;align-items:center;justify-content:center;background:#6FA187;color:#F3EEE8;border-radius:100px;font-family:inherit;font-weight:500;text-decoration:none;padding:20px;font-size:18px;width:100%;margin-bottom:12px;box-sizing:border-box">Позвонить и оформить</a>
+    <a href="tel:+79002761116" style="display:flex;align-items:center;justify-content:center;background:#777247;color:#FFFAF3;border-radius:100px;font-family:inherit;font-weight:500;text-decoration:none;padding:20px;font-size:18px;width:100%;margin-bottom:12px;box-sizing:border-box">Позвонить и оформить</a>
     <a href="https://maks.ru/chat/+78612051292" target="_blank" rel="noopener noreferrer" style="text-align:center;font-size:16px;font-weight:500;color:rgba(253,252,248,0.5);text-decoration:none;display:block">Написать в МАКС →</a>
   </div>
 </div>
