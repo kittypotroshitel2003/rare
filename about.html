@@ -2,19 +2,23 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preload" href="responsive.css?v=202607140915" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202607140915"/></noscript>
+<link rel="preload" href="responsive.css?v=202607162200" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202607162200"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>О клинике — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <style>
 :root {
-  --c-dark:   #102f27;
-  --c-accent: #568673;
+  --c-dark:   #F3EEE8;
+  --c-accent: #6FA187;
   --c-bg:     #F3EEE8;
   --c-text:   #35281a;
   --c-muted:  #71685d;
   --c-white:  #F3EEE8;
-  --c-w50:    rgba(253,252,248,0.5);
-  --f:        'Involve', sans-serif;
+  --c-w50:    rgba(53,40,26,0.5);
+  --f:'Inter','Involve',sans-serif;
   --r-card:10px;
   --r-pill:6px;
   --gutter:clamp(20px,4.5vw,72px);
@@ -26,19 +30,19 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .wrap { max-width: 1920px; margin: 0 auto; padding: 0 var(--gutter); }
 .pill-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  background: var(--c-accent); color: var(--c-white); border-radius: var(--r-pill);
+  background: transparent; color: var(--c-text); border-radius: var(--r-pill);
   font-family: var(--f); font-weight: 500; font-style: normal;
-  text-decoration: none; border: none; cursor: pointer;
-  transition: background 0.2s, transform 0.15s; line-height: 1;
+  text-decoration: none; border: 1.5px solid rgba(53,40,26,0.25); cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s; line-height: 1;
 }
-.pill-btn:hover { background: #4a7262; transform: translateY(-1px); }
+.pill-btn:hover { background: var(--c-accent); border-color: var(--c-accent); color: #fdfcf8; transform: translateY(-1px); }
 .pill-btn:active { transform: translateY(0); }
 
 /* ───── HERO ───── */
 .page-hero {
   position: relative;
   background: var(--c-dark);
-  height: clamp(420px, 36.5vw, 701px);
+  height: clamp(300px, 24vw, 440px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -52,28 +56,29 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
   pointer-events: none;
 }
 .site-hd {
-  position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  background: var(--c-dark);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 33px var(--gutter);
+  padding: 24px var(--gutter);
 }
 .site-hd__logo img { height: 36px; width: auto; }
-.site-hd__nav { display: flex; gap: 48px; }
+.site-hd__nav { display: flex; gap: 18px; }
 .site-hd__nav a {
-  font-size: 18px; font-weight: 500; color: var(--c-white);
+  font-size: 14px; font-weight: 500; color: var(--c-text);
   text-decoration: none; font-style: normal; white-space: nowrap;
   transition: opacity 0.2s;
 }
 .site-hd__nav a:hover { opacity: 0.7; }
 .site-hd__nav a.active { opacity: 0.5; }
-.site-hd__actions { display: flex; align-items: center; gap: 36px; }
+.site-hd__actions { display: flex; align-items: center; gap: 18px; }.site-hd__connect{position:relative}.site-hd__contact{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;white-space:nowrap;transition:opacity 0.2s;background:none;border:none;cursor:pointer;font-family:var(--f)}.site-hd__contact:hover{opacity:0.7}.site-hd__contact svg{width:8px;height:5px;flex-shrink:0;transition:transform 0.25s ease}.site-hd__connect:hover .site-hd__contact svg,.site-hd__connect:focus-within .site-hd__contact svg{transform:rotate(180deg)}.site-hd__connect-panel{position:absolute;top:calc(100% + 18px);right:0;background:var(--c-bg);border:1px solid rgba(51,36,29,0.1);border-radius:14px;box-shadow:0 24px 64px rgba(16,47,39,0.18);padding:12px;min-width:240px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity 0.22s ease,transform 0.22s ease,visibility 0.22s;z-index:400}.site-hd__connect:hover .site-hd__connect-panel,.site-hd__connect:focus-within .site-hd__connect-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.site-hd__connect-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14.5px;font-weight:500;color:var(--c-text);text-decoration:none;transition:background 0.15s ease}.site-hd__connect-item:hover{background:rgba(119,114,71,0.08);color:var(--c-accent)}.site-hd__connect-item svg,.site-hd__connect-item img{width:20px;height:20px;flex-shrink:0}
 .site-hd__cta { padding: 16px 24px; font-size: 18px; }
 .page-hero__cnt {
   position: relative; z-index: 2;
   padding: 0 var(--gutter) clamp(28px, 2.4vw, 46px);
 }
 .page-hero__title {
-  font-size: clamp(48px, 6.25vw, 120px);
-  font-weight: 400; color: var(--c-white);
+  font-size: clamp(40px, 4.2vw, 64px);
+  font-weight: 400; color: #FDFCF8;
   letter-spacing: -0.02em; line-height: 1; font-style: normal;
   text-align: left;
 }
@@ -102,7 +107,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 }
 .about-text { display: flex; flex-direction: column; gap: 24px; }
 .about-text__heading {
-  font-size: clamp(28px, 2.8vw, 52px);
+  font-size: clamp(26px, 2.2vw, 40px);
   font-weight: 400; letter-spacing: -0.03em; line-height: 1.02;
   color: var(--c-text); font-style: normal;
 }
@@ -131,7 +136,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .about-stat__n {
   font-size: clamp(52px, 5.5vw, 96px);
   font-weight: 300; letter-spacing: -0.05em; line-height: 0.9;
-  color: var(--c-accent); font-style: normal;
+  color: var(--c-text); font-style: normal;
   grid-column: 1; grid-row: 1;
 }
 .about-stat__l {
@@ -155,7 +160,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 /* ───── GALLERY ───── */
 .sec-gallery { padding: clamp(60px, 6.25vw, 120px) 0; overflow: hidden; }
 .gallery-heading {
-  font-size: clamp(36px, 4.17vw, 80px);
+  font-size: clamp(30px, 3vw, 48px);
   font-weight: 400; letter-spacing: -0.02em; line-height: 1;
   color: var(--c-text); font-style: normal;
   padding: 0 var(--gutter);
@@ -197,7 +202,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
   cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
   color: var(--c-text); transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
-.gallery-arr:hover { background: var(--c-dark); border-color: var(--c-dark); color: #F3EEE8; }
+.gallery-arr:hover { background: var(--c-accent); border-color: var(--c-accent); color: #fdfcf8; }
 .gallery-arr:active { transform: scale(0.94); }
 .gallery-arr:disabled { opacity: 0.28; cursor: default; }
 .gallery-arr:disabled:hover { background: none; border-color: rgba(53,40,26,0.2); color: var(--c-text); }
@@ -205,7 +210,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 /* ───── ARTICLES ───── */
 .sec-articles { padding: clamp(60px, 6.25vw, 120px) 0; }
 .articles-heading {
-  font-size: clamp(36px, 4.17vw, 80px);
+  font-size: clamp(30px, 3vw, 48px);
   font-weight: 400; letter-spacing: -0.02em; line-height: 1;
   color: var(--c-text); font-style: normal;
   margin-bottom: clamp(28px, 2.2vw, 42px);
@@ -218,7 +223,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .article-card {
   height: clamp(220px, 17.9vw, 344px);
   border-radius: var(--r-card); overflow: hidden;
-  border: 1px solid var(--c-text);
+  border: 1px solid rgba(53,40,26,0.12);
   padding: 28px 24px;
   display: flex; flex-direction: column; justify-content: space-between;
   position: relative;
@@ -234,7 +239,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 }
 .article-card--light { background: #fff; }
 .article-card--cream { background: var(--c-bg); }
-.article-card--photo { background: #1a1a1a; border-color: transparent; }
+.article-card--photo { background: #2a2015; border-color: transparent; }
 .article-card--photo:hover { border-color: transparent; }
 
 .article-card__bg {
@@ -264,7 +269,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .article-card:hover .article-card__arrow { transform: translate(5px, -5px); }
 .article-card--light .article-card__arrow,
 .article-card--cream .article-card__arrow { color: var(--c-text); }
-.article-card--photo .article-card__arrow { color: var(--c-white); }
+.article-card--photo .article-card__arrow { color: #fdfcf8; }
 .article-card__foot {
   display: flex; flex-direction: column; gap: 16px;
   position: relative; z-index: 2;
@@ -278,7 +283,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 }
 .article-card--light .article-card__title,
 .article-card--cream .article-card__title { color: var(--c-text); }
-.article-card--photo .article-card__title { color: var(--c-white); }
+.article-card--photo .article-card__title { color: #fdfcf8; }
 .article-card__date {
   font-size: clamp(13px, 0.94vw, 18px); font-weight: 500;
   letter-spacing: -0.02em; opacity: 0.7;
@@ -286,7 +291,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 }
 .article-card--light .article-card__date,
 .article-card--cream .article-card__date { color: var(--c-text); }
-.article-card--photo .article-card__date { color: var(--c-white); }
+.article-card--photo .article-card__date { color: #fdfcf8; }
 .articles-cta { display: flex; justify-content: center; }
 
 /* ───── ABOUT STATS ───── */
@@ -301,7 +306,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .about-stat__n {
   font-size: clamp(28px, 3vw, 52px);
   font-weight: 400; letter-spacing: -0.04em; line-height: 1;
-  color: var(--c-accent); font-style: normal;
+  color: var(--c-text); font-style: normal;
 }
 .about-stat__l {
   font-size: clamp(12px, 0.9vw, 14px); font-weight: 500;
@@ -320,7 +325,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 }
 .booking-left {}
 .booking-heading {
-  font-size: clamp(36px, 4.17vw, 80px);
+  font-size: clamp(30px, 3vw, 48px);
   font-weight: 400; letter-spacing: -0.02em; line-height: 1;
   color: var(--c-text); font-style: normal; margin-bottom: 28px;
   text-align: left;
@@ -397,25 +402,25 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
   gap: 48px;
 }
 .contact-heading {
-  font-size: clamp(36px, 4.17vw, 80px);
+  font-size: clamp(30px, 3vw, 48px);
   font-weight: 400; letter-spacing: -0.02em; line-height: 1;
-  color: var(--c-white); font-style: normal;
+  color: var(--c-text); font-style: normal;
   text-align: left;
 }
 .contact-details { display: flex; flex-direction: column; gap: 40px; }
 .contact-addr-block { display: flex; flex-direction: column; gap: 12px; }
 .contact-addr-line {
   font-size: clamp(15px, 1.15vw, 22px); font-weight: 500;
-  color: var(--c-white); line-height: 1.4; font-style: normal;
+  color: var(--c-text); line-height: 1.4; font-style: normal;
 }
 .contact-divider {
   border: none; height: 1px;
-  background: rgba(253,252,248,0.2);
+  background: rgba(53,40,26,0.2);
 }
 .contact-links { display: flex; flex-direction: column; gap: 12px; }
 .contact-link {
   font-size: clamp(15px, 1.15vw, 22px); font-weight: 500;
-  color: var(--c-white); text-decoration: none;
+  color: var(--c-text); text-decoration: none;
   line-height: 1.25; font-style: normal;
   transition: opacity 0.2s; display: inline-block;
 }
@@ -427,7 +432,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .site-footer {
   background: var(--c-dark);
   padding: 90px 0 60px;
-  border-top: 1px solid rgba(253,252,248,0.08);
+  border-top: 1px solid rgba(53,40,26,0.08);
 }
 .footer-grid {
   display: grid;
@@ -437,41 +442,39 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 .footer-logo { margin-bottom: 24px; }
 .footer-logo img { height: 131px; width: auto; }
 .footer-tagline { font-size: 18px; font-weight: 500; color: var(--c-w50); line-height: 1.25; font-style: normal; margin-bottom: 24px; }
-.footer-phone { font-size: 32px; font-weight: 500; color: var(--c-white); line-height: 1.25; text-decoration: none; display: block; font-style: normal; margin-bottom: 8px; transition: opacity 0.2s; }
+.footer-phone { font-size: 32px; font-weight: 500; color: var(--c-text); line-height: 1.25; text-decoration: none; display: block; font-style: normal; margin-bottom: 8px; transition: opacity 0.2s; }
 .footer-phone:hover { opacity: 0.75; }
 .footer-addr { font-size: 18px; font-weight: 500; color: var(--c-w50); line-height: 1.25; font-style: normal; }
-.footer-col h3 { font-size: 32px; font-weight: 500; color: var(--c-white); line-height: 1.25; margin-bottom: 24px; font-style: normal; }
+.footer-col h3 { font-size: 32px; font-weight: 500; color: var(--c-text); line-height: 1.25; margin-bottom: 24px; font-style: normal; }
 .footer-links { display: flex; flex-direction: column; gap: 16px; }
 .footer-links a { font-size: 18px; font-weight: 500; color: var(--c-w50); text-decoration: none; line-height: 1.25; font-style: normal; transition: color 0.2s; }
-.footer-links a:hover { color: var(--c-white); }
+.footer-links a:hover { color: var(--c-text); }
 .footer-copy { margin-top: 60px; font-size: 24px; font-weight: 500; color: var(--c-w50); font-style: normal; }
-.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:#fdfcf8}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:rgba(253,252,248,0.65);font-style:normal}.footer-links a.active{color:#fdfcf8!important;font-weight:600!important}
 
 /* ── ADVANTAGES BLOCK ── */
 .sec-adv { padding: 72px 0; background: var(--c-bg); }
+.adv-heading { font-size: clamp(22px, 1.8vw, 30px); font-weight: 400; letter-spacing: -0.02em; color: var(--c-text); text-align: center; margin-bottom: clamp(32px, 3.5vw, 56px); font-style: normal; }
 .adv-row { display: flex !important; flex-direction: row !important; align-items: stretch; }
 .adv-item {
-  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 28px;
-  padding: 0 clamp(20px, 4vw, 56px); position: relative; border-radius: 0;
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 20px;
+  padding: 8px clamp(16px, 3vw, 40px); position: relative; border-radius: 0;
   transition: background 0.3s ease; cursor: default;
 }
 .adv-item + .adv-item { border-left: 1px solid rgba(53,40,26,0.12); }
-.adv-item:hover { background: rgba(86,134,115,0.05); }
-.adv-icon {
-  height: 140px; display: flex; align-items: center; justify-content: center;
-  overflow: visible; padding-top: 28px;
-}
-.adv-icon img { max-height: 120px; max-width: 160px; object-fit: contain; }
+.adv-item:hover { background: rgba(111,161,135,0.05); }
+.adv-item:hover .adv-icon svg { color: var(--c-accent); }
+.adv-icon { display: flex; align-items: center; justify-content: center; }
+.adv-icon svg { width: 44px; height: 44px; color: var(--c-text); transition: color 0.3s ease; }
 .adv-label {
-  font-size: clamp(14px, 1.2vw, 20px); font-weight: 500;
-  color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2;
+  font-size: clamp(14px, 1.1vw, 17px); font-weight: 500;
+  color: var(--c-text); letter-spacing: -0.02em; line-height: 1.3;
   text-align: center; font-style: normal;
 }
 @media (max-width: 767px) {
   .adv-row { flex-direction: column !important; gap: 32px; }
   .adv-item + .adv-item { border-left: none; border-top: 1px solid rgba(53,40,26,0.12); padding-top: 32px; }
   .adv-item { padding: 0 16px; }
-  .adv-icon { height: 110px; padding-top: 0; }
 }
 </style>
 </head>
@@ -488,20 +491,85 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
       <img src="assets/icons/logo.svg" alt="RA|RÉ" width="92" height="36" style="width:92px;height:36px;object-fit:contain;"/>
     </a>
     <nav class="site-hd__nav">
-      <a href="about.html" class="active">О клинике</a>
-      <a href="promos.html">Акции</a>
-      <a href="services.html">Услуги</a>
-      <a href="specialists/index.html">Специалисты</a>
-      <a href="certificates.html">Сертификаты</a>
-      <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
-    </nav>
-    <div class="site-hd__actions">
-      <a href="tel:+79002761116" style="display:flex;align-items:center;">
-        <img src="assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
-      </a>
-      <a href="index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+    <a href="about.html">О клинике</a>
+    <a href="promos.html">Акции</a>
+    <div class="nav-services">
+      <a href="services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="svc-mega">
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Консультации</p>
+            <a href="services.html#consultations">Приём косметолога</a>
+            <a href="services.html#consultations">Приём трихолога</a>
+            <a href="services.html#consultations">Приём нутрициолога</a>
+            <p class="svc-mega__h">SMAS и диагностика</p>
+            <a href="services/smas.html">SMAS-лифтинг</a>
+            <a href="services/smas.html">УЗИ диагностика кожи</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Фотосистема IPL Nordlys</p>
+            <a href="services/skin.html">Фотоомоложение</a>
+            <a href="services/skin.html">Лечение акне</a>
+            <a href="services/skin.html">Лечение купероза и розацеа</a>
+            <a href="services/skin.html">Устранение пигментации</a>
+            <p class="svc-mega__h">Лифтинги</p>
+            <a href="services/lifts.html">RF-лифтинг Volnewmer</a>
+            <a href="services/lifts.html">RF-лифтинг Sylfirm X</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Инъекционная косметология</p>
+            <a href="services/injections.html">PRP-терапия</a>
+            <a href="services/injections.html">Контурная пластика</a>
+            <a href="services/injections.html">Ботулинотерапия</a>
+            <a href="services/injections.html">Коллагенотерапия</a>
+            <a href="services/injections.html">Карбокситерапия</a>
+            <a href="services/injections.html">Биоревитализация и мезотерапия</a>
+            <a href="services/injections.html">Экзосомы</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Эстетическая косметология</p>
+            <a href="services/skin.html">Пилинг</a>
+            <a href="services/skin.html">Чистки</a>
+            <a href="services/skin.html">ФДТ Revixan</a>
+            <a href="services/skin.html">Гидропилинг Hydra Touch H2</a>
+            <p class="svc-mega__h">Тело, эпиляция и SPA</p>
+            <a href="services/laser.html">Лазерная эпиляция</a>
+            <a href="services/lifts.html">RSL Beautylizer</a>
+            <a href="services/lifts.html">LPG массаж</a>
+            <a href="services/spa.html">Массажи и SPA-уходы</a>
+          </div>
+          <div class="svc-mega__all"><a href="services.html" class="pill-btn">Все услуги →</a></div>
+        </div>
     </div>
-  </header>
+    <a href="specialists/index.html">Специалисты</a>
+    <a href="prices.html">Цены</a>
+    <a href="certificates.html">Сертификаты</a>
+    <a href="reviews/index.html">Отзывы</a>
+  </nav>
+    <div class="site-hd__actions">
+    <div class="site-hd__connect">
+      <button type="button" class="site-hd__contact" aria-haspopup="true">Связаться <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="site-hd__connect-panel">
+        <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="assets/icons/vk.svg" alt="" width="20" height="20"/>
+          VK
+        </a>
+        <a href="https://t.me/rare_anapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="assets/icons/telegram.svg" alt="" width="20" height="20"/>
+          Telegram
+        </a>
+        <a href="https://wa.me/79002761116" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="assets/icons/whatsapp.svg" alt="" width="20" height="20"/>
+          WhatsApp
+        </a>
+        <a href="tel:+79002761116" class="site-hd__connect-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (900) 276-11-16
+        </a>
+      </div>
+    </div>
+    <a href="index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+  </div>
+</header>
 
   <div class="page-hero__cnt">
     <h1 class="page-hero__title">О клинике</h1>
@@ -546,26 +614,33 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 <!-- ══════════════════════════════════════
      ПРЕИМУЩЕСТВА
 ══════════════════════════════════════ -->
-<section class="sec-adv">
+<section class="sec-adv" id="reasons">
   <div class="wrap">
+    <h2 class="adv-heading">Косметологическая клиника в Анапе</h2>
     <div class="adv-row">
       <div class="adv-item">
         <div class="adv-icon">
-          <img src="assets/icons/adv-preparations.svg" alt="Опытные специалисты" loading="lazy"/>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="16" r="7"/><path d="M10 39c0-8.8 6.3-14 14-14s14 5.2 14 14"/></svg>
         </div>
         <p class="adv-label">Опытные специалисты</p>
       </div>
       <div class="adv-item">
         <div class="adv-icon">
-          <img src="assets/icons/adv-specialists.svg" alt="Оборудование" loading="lazy"/>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="12" width="34" height="22" rx="4"/><path d="M13 23h5l3 6 4-12 3 6h7"/></svg>
         </div>
         <p class="adv-label">Лучшее оборудование с РУ</p>
       </div>
       <div class="adv-item">
         <div class="adv-icon">
-          <img src="assets/icons/adv-equipment.svg" alt="Препараты" loading="lazy"/>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l14 5v11c0 10-6 16.5-14 20-8-3.5-14-10-14-20V11l14-5z"/><path d="M18 24l4.5 4.5L31 19"/></svg>
         </div>
         <p class="adv-label">Сертифицированные препараты</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22.5 22.5 6H38a4 4 0 0 1 4 4v15.5L25.5 42a3 3 0 0 1-4.2 0L6 26.7a3 3 0 0 1 0-4.2z"/><circle cx="32" cy="16" r="3"/></svg>
+        </div>
+        <p class="adv-label">Доступные цены</p>
       </div>
     </div>
   </div>
@@ -823,7 +898,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
 ══════════════════════════════════════ -->
 <footer class="site-footer"><div class="wrap"><div class="footer-grid">
   <div>
-    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo-white.svg" alt="RA|RÉ"/></a></div>
     <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
     <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
     <p class="footer-addr">Анапа, Владимирская 120</p>
@@ -899,7 +974,7 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
   document.addEventListener('mousemove', e => { if (!isDragging) return; track.scrollLeft = scrollStart - (e.pageX - startX); });
 })();
 </script>
-<script src="docs-popup.js" defer></script><script src="animations.js?v=202606041800" defer></script>
+<script src="docs-popup.js" defer></script><script src="animations.js?v=202607162000" defer></script>
 <script src="mobile-nav.js?v=202606041800" defer></script>
 <script src="./accessibility.js" defer></script>
 <script>
@@ -932,5 +1007,6 @@ em { font-style: normal; } img { display: block; max-width: 100%; } a { color: i
   }, {threshold: 0.3});
   document.querySelectorAll('.about-stats').forEach(function(s){ io.observe(s); });
 })();
-</script></body>
+</script><script src="booking-widget.js" defer></script>
+</body>
 </html>

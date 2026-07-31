@@ -2,33 +2,37 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preload" href="../responsive.css?v=202607140915" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202607140915"/></noscript>
+<link rel="preload" href="../responsive.css?v=202607162200" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202607162200"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Специалисты — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <style>
-:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+:root{--c-dark:#F3EEE8;--c-accent:#6FA187;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(53,40,26,0.5);--f:'Inter','Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
 em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 .wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
-.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}
-.pill-btn:hover{background:#0d2b23}
-.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--c-text);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:1.5px solid rgba(53,40,26,0.25);cursor:pointer;transition:background 0.2s,border-color 0.2s,color 0.2s;line-height:1}
+.pill-btn:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fdfcf8}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:400;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
 
-.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
+.site-hd{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
 .site-hd__logo img{height:36px;width:auto}
-.site-hd__nav{display:flex;gap:48px}
-.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
+.site-hd__nav{display:flex;gap:18px}
+.site-hd__nav a{font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
 .site-hd__nav a:hover{opacity:0.7}
-.site-hd__actions{display:flex;align-items:center;gap:36px}
+.site-hd__actions{display:flex;align-items:center;gap:18px}.site-hd__connect{position:relative}.site-hd__contact{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;white-space:nowrap;transition:opacity 0.2s;background:none;border:none;cursor:pointer;font-family:var(--f)}.site-hd__contact:hover{opacity:0.7}.site-hd__contact svg{width:8px;height:5px;flex-shrink:0;transition:transform 0.25s ease}.site-hd__connect:hover .site-hd__contact svg,.site-hd__connect:focus-within .site-hd__contact svg{transform:rotate(180deg)}.site-hd__connect-panel{position:absolute;top:calc(100% + 18px);right:0;background:var(--c-bg);border:1px solid rgba(51,36,29,0.1);border-radius:14px;box-shadow:0 24px 64px rgba(16,47,39,0.18);padding:12px;min-width:240px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity 0.22s ease,transform 0.22s ease,visibility 0.22s;z-index:400}.site-hd__connect:hover .site-hd__connect-panel,.site-hd__connect:focus-within .site-hd__connect-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.site-hd__connect-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14.5px;font-weight:500;color:var(--c-text);text-decoration:none;transition:background 0.15s ease}.site-hd__connect-item:hover{background:rgba(119,114,71,0.08);color:var(--c-accent)}.site-hd__connect-item svg,.site-hd__connect-item img{width:20px;height:20px;flex-shrink:0}
 .site-hd__cta{padding:16px 24px;font-size:18px}
 
 .inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
 .inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
 .inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
-.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+.inner-hero__title{text-align:left;font-size:clamp(36px,4vw,64px);font-weight:400;color:#FDFCF8;letter-spacing:-0.02em;line-height:1;font-style:normal}
 
 .sec-spec-page{background:var(--c-bg);padding:72px 0}
 .sec-spec-page .sec-h{color:var(--c-text);margin-bottom:72px}
@@ -43,8 +47,8 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 }
 .spec-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(53,40,26,0.12)}
 .spec-card__photo{width:100%;height:480px;overflow:hidden;background:#f5f2ed;flex-shrink:0}
-.spec-card__photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1)}
-.spec-card:hover .spec-card__photo img{transform:scale(1.04)}
+.spec-card__photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1);transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),filter 0.5s ease}
+.spec-card:hover .spec-card__photo img{transform:scale(1.04);filter:grayscale(0)}
 .spec-card__info{padding:24px 24px 28px;display:flex;flex-direction:column;gap:8px}
 .spec-card__name{font-size:22px;font-weight:500;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;font-style:normal}
 .spec-card__role{font-size:16px;font-weight:400;color:var(--c-muted);letter-spacing:-0.01em;line-height:1.3;font-style:normal}
@@ -53,19 +57,19 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 .cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
 .cta-sub{font-size:24px;font-weight:400;color:var(--c-muted);letter-spacing:-0.02em;margin-bottom:48px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.4}
 
-.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}
+.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('../assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}
 .footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
 .footer-logo{margin-bottom:24px}
 .footer-logo img{height:40px;width:auto}
-.footer-tagline{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal;margin-bottom:24px}
-.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
-.footer-addr{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal}
-.footer-col h3{font-size:15px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
+.footer-tagline{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal;margin-bottom:24px}
+.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
+.footer-addr{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}
+.footer-col h3{font-size:15px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
 .footer-links{display:flex;flex-direction:column;gap:16px}
-.footer-links a{font-size:13px;font-weight:500;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
-.footer-links a:hover{color:var(--c-white)}
-.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:var(--c-w50);font-style:normal}
-.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+.footer-links a{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
+.footer-links a:hover{color:#fdfcf8}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:rgba(253,252,248,0.65);font-style:normal}
+.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('../assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:#fdfcf8}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:rgba(253,252,248,0.65);font-style:normal}.footer-links a.active{color:#fdfcf8!important;font-weight:600!important}
 </style>
 </head>
 <body>
@@ -77,15 +81,80 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
   <nav class="site-hd__nav">
     <a href="../about.html">О клинике</a>
     <a href="../promos.html">Акции</a>
-    <a href="../services.html">Услуги</a>
-    <a href="index.html" style="opacity:0.5">Специалисты</a>
+    <div class="nav-services">
+      <a href="../services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="svc-mega">
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Консультации</p>
+            <a href="../services.html#consultations">Приём косметолога</a>
+            <a href="../services.html#consultations">Приём трихолога</a>
+            <a href="../services.html#consultations">Приём нутрициолога</a>
+            <p class="svc-mega__h">SMAS и диагностика</p>
+            <a href="../services/smas.html">SMAS-лифтинг</a>
+            <a href="../services/smas.html">УЗИ диагностика кожи</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Фотосистема IPL Nordlys</p>
+            <a href="../services/skin.html">Фотоомоложение</a>
+            <a href="../services/skin.html">Лечение акне</a>
+            <a href="../services/skin.html">Лечение купероза и розацеа</a>
+            <a href="../services/skin.html">Устранение пигментации</a>
+            <p class="svc-mega__h">Лифтинги</p>
+            <a href="../services/lifts.html">RF-лифтинг Volnewmer</a>
+            <a href="../services/lifts.html">RF-лифтинг Sylfirm X</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Инъекционная косметология</p>
+            <a href="../services/injections.html">PRP-терапия</a>
+            <a href="../services/injections.html">Контурная пластика</a>
+            <a href="../services/injections.html">Ботулинотерапия</a>
+            <a href="../services/injections.html">Коллагенотерапия</a>
+            <a href="../services/injections.html">Карбокситерапия</a>
+            <a href="../services/injections.html">Биоревитализация и мезотерапия</a>
+            <a href="../services/injections.html">Экзосомы</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Эстетическая косметология</p>
+            <a href="../services/skin.html">Пилинг</a>
+            <a href="../services/skin.html">Чистки</a>
+            <a href="../services/skin.html">ФДТ Revixan</a>
+            <a href="../services/skin.html">Гидропилинг Hydra Touch H2</a>
+            <p class="svc-mega__h">Тело, эпиляция и SPA</p>
+            <a href="../services/laser.html">Лазерная эпиляция</a>
+            <a href="../services/lifts.html">RSL Beautylizer</a>
+            <a href="../services/lifts.html">LPG массаж</a>
+            <a href="../services/spa.html">Массажи и SPA-уходы</a>
+          </div>
+          <div class="svc-mega__all"><a href="../services.html" class="pill-btn">Все услуги →</a></div>
+        </div>
+    </div>
+    <a href="../specialists/index.html" style="opacity:0.5">Специалисты</a>
+    <a href="../prices.html">Цены</a>
     <a href="../certificates.html">Сертификаты</a>
-    <a href="../reviews/index.html">Отзывы</a><a href="../articles/index.html">Статьи</a>
+    <a href="../reviews/index.html">Отзывы</a>
   </nav>
   <div class="site-hd__actions">
-    <a href="tel:+79002761116" style="display:flex;align-items:center;">
-      <img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
-    </a>
+    <div class="site-hd__connect">
+      <button type="button" class="site-hd__contact" aria-haspopup="true">Связаться <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="site-hd__connect-panel">
+        <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="../assets/icons/vk.svg" alt="" width="20" height="20"/>
+          VK
+        </a>
+        <a href="https://t.me/rare_anapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="../assets/icons/telegram.svg" alt="" width="20" height="20"/>
+          Telegram
+        </a>
+        <a href="https://wa.me/79002761116" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="../assets/icons/whatsapp.svg" alt="" width="20" height="20"/>
+          WhatsApp
+        </a>
+        <a href="tel:+79002761116" class="site-hd__connect-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (900) 276-11-16
+        </a>
+      </div>
+    </div>
     <a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
   </div>
 </header>
@@ -100,38 +169,38 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 
 <section class="sec-spec-page">
   <div class="wrap">
-    <h2 class="sec-h" style="color:var(--c-white);margin-bottom:72px;">Наша команда</h2>
+    <h2 class="sec-h" style="color:var(--c-text);margin-bottom:72px;">Наша команда</h2>
     <div class="spec-grid">
       <a href="mariya-viktorovna.html" class="spec-card" data-rr="up" style="--rr-del:0.00s">
-        <div class="spec-card__photo"><img src="../assets/photos/spec-mariya.webp?v=2" alt="Мария Викторовна" loading="lazy"/></div>
+        <div class="spec-card__photo"><img src="../assets/photos/spec-mariya.webp?v=3" alt="Мария Викторовна" loading="lazy"/></div>
         <div class="spec-card__info">
           <p class="spec-card__name">Мария Викторовна</p>
           <p class="spec-card__role">Главный врач, врач-косметолог</p>
         </div>
       </a>
       <a href="elena-tigranovna.html" class="spec-card" data-rr="up" style="--rr-del:0.08s">
-        <div class="spec-card__photo"><img src="../assets/photos/spec-elena.webp?v=2" alt="Елена Тиграновна" loading="lazy"/></div>
+        <div class="spec-card__photo"><img src="../assets/photos/spec-elena.webp?v=4" alt="Елена Тиграновна" loading="lazy"/></div>
         <div class="spec-card__info">
           <p class="spec-card__name">Елена Тиграновна</p>
           <p class="spec-card__role">Медицинский массажист</p>
         </div>
       </a>
       <a href="yana-vladimirovna.html" class="spec-card" data-rr="up" style="--rr-del:0.16s">
-        <div class="spec-card__photo"><img src="../assets/photos/spec-yana.webp?v=2" alt="Яна Владимировна" loading="lazy"/></div>
+        <div class="spec-card__photo"><img src="../assets/photos/spec-yana.webp?v=4" alt="Яна Владимировна" loading="lazy"/></div>
         <div class="spec-card__info">
           <p class="spec-card__name">Яна Владимировна</p>
           <p class="spec-card__role">Медицинский массажист</p>
         </div>
       </a>
       <a href="ksenia-aleksandrovna.html" class="spec-card" data-rr="up" style="--rr-del:0.24s">
-        <div class="spec-card__photo"><img src="../assets/photos/spec-ksenia.webp?v=2" alt="Ксения Александровна" loading="lazy"/></div>
+        <div class="spec-card__photo"><img src="../assets/photos/spec-ksenia.webp?v=3" alt="Ксения Александровна" loading="lazy"/></div>
         <div class="spec-card__info">
           <p class="spec-card__name">Ксения Александровна</p>
           <p class="spec-card__role">Косметолог-эстетист</p>
         </div>
       </a>
       <a href="alisa-alekseevna.html" class="spec-card" data-rr="up" style="--rr-del:0.32s">
-        <div class="spec-card__photo"><img src="../assets/photos/spec-alisa.webp?v=2" alt="Алиса Алексеевна" loading="lazy"/></div>
+        <div class="spec-card__photo"><img src="../assets/photos/spec-alisa.webp?v=4" alt="Алиса Алексеевна" loading="lazy"/></div>
         <div class="spec-card__info">
           <p class="spec-card__name">Алиса Алексеевна</p>
           <p class="spec-card__role">Врач-дерматовенеролог, косметолог, трихолог</p>
@@ -154,7 +223,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 
 <footer class="site-footer"><div class="wrap"><div class="footer-grid">
   <div>
-    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo-white.svg" alt="RA|RÉ"/></a></div>
     <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
     <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
     <p class="footer-addr">Анапа, Владимирская 120</p>
@@ -184,7 +253,8 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
   </div></div>
 </div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
 
-<script src="./docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../docs-popup.js" defer></script><script src="../animations.js?v=202607162000" defer></script>
 <script src="../mobile-nav.js?v=202606041800" defer></script>
-<script src="../accessibility.js" defer></script></body>
+<script src="../accessibility.js" defer></script><script src="../booking-widget.js" defer></script>
+</body>
 </html>

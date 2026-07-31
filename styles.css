@@ -14,16 +14,16 @@
    ============================================================ */
 :root {
   /* Brand greens */
-  --green-dark:    #102f27;
-  --green-muted:   #102f27;
+  --green-dark:    #F3EEE8;
+  --green-muted:   #F3EEE8;
   --green-brand:   #3a5436;
   --green-medium:  #4e6e49;
-  --green-button:  #568673;
+  --green-button:  #6FA187;
 
   /* Backgrounds */
   --bg-primary:    #F3EEE8;
   --bg-secondary:  #F3EEE8;
-  --bg-dark:       #102f27;
+  --bg-dark:       #F3EEE8;
 
   /* Text */
   --text-primary:  #231f18;
@@ -166,7 +166,7 @@ em.accent {
 .btn--secondary {
   background: transparent;
   color: var(--green-dark);
-  border: 1px solid rgba(24,46,39,0.35);
+  border: 1px solid rgba(16,47,39,0.35);
   letter-spacing: 0.04em;
 }
 .btn--secondary:hover {
@@ -3500,7 +3500,7 @@ em.accent {
   transition: background 0.35s ease; cursor: default;
 }
 .adv-item + .adv-item { border-left: 1px solid rgba(53,40,26,0.12); }
-.adv-item:hover { background: rgba(86,134,115,0.06); }
+.adv-item:hover { background: rgba(111,161,135,0.06); }
 .adv-icon { height: 155px; display: flex; align-items: center; justify-content: center; overflow: visible; padding-top: 32px; }
 .adv-icon img { max-height: 140px; max-width: 180px; object-fit: contain; }
 .adv-label {

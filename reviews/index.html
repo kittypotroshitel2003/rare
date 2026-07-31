@@ -2,47 +2,97 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preload" href="../responsive.css?v=202607140915" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202607140915"/></noscript>
+<link rel="preload" href="../responsive.css?v=202607162200" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202607162200"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Отзывы — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <style>
-:root{--c-dark:#102f27;--c-accent:#568673;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(253,252,248,0.5);--f:'Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
+:root{--c-dark:#F3EEE8;--c-accent:#6FA187;--c-bg:#F3EEE8;--c-text:#35281a;--c-muted:#71685d;--c-white:#F3EEE8;--c-w50:rgba(53,40,26,0.5);--f:'Inter','Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
 em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 .wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
-.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--c-dark);color:var(--c-white);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;line-height:1}
-.pill-btn:hover{background:#0d2b23}
-.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--c-text);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:1.5px solid rgba(53,40,26,0.25);cursor:pointer;transition:background 0.2s,border-color 0.2s,color 0.2s;line-height:1}
+.pill-btn:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fdfcf8}
+.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:400;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
 
-.site-hd{background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
+.site-hd{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
 .site-hd__logo img{height:36px;width:auto}
-.site-hd__nav{display:flex;gap:48px}
-.site-hd__nav a{font-size:18px;font-weight:500;color:var(--c-white);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
+.site-hd__nav{display:flex;gap:18px}
+.site-hd__nav a{font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
 .site-hd__nav a:hover{opacity:0.7}
-.site-hd__actions{display:flex;align-items:center;gap:36px}
+.site-hd__actions{display:flex;align-items:center;gap:18px}.site-hd__connect{position:relative}.site-hd__contact{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;white-space:nowrap;transition:opacity 0.2s;background:none;border:none;cursor:pointer;font-family:var(--f)}.site-hd__contact:hover{opacity:0.7}.site-hd__contact svg{width:8px;height:5px;flex-shrink:0;transition:transform 0.25s ease}.site-hd__connect:hover .site-hd__contact svg,.site-hd__connect:focus-within .site-hd__contact svg{transform:rotate(180deg)}.site-hd__connect-panel{position:absolute;top:calc(100% + 18px);right:0;background:var(--c-bg);border:1px solid rgba(51,36,29,0.1);border-radius:14px;box-shadow:0 24px 64px rgba(16,47,39,0.18);padding:12px;min-width:240px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity 0.22s ease,transform 0.22s ease,visibility 0.22s;z-index:400}.site-hd__connect:hover .site-hd__connect-panel,.site-hd__connect:focus-within .site-hd__connect-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.site-hd__connect-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14.5px;font-weight:500;color:var(--c-text);text-decoration:none;transition:background 0.15s ease}.site-hd__connect-item:hover{background:rgba(119,114,71,0.08);color:var(--c-accent)}.site-hd__connect-item svg,.site-hd__connect-item img{width:20px;height:20px;flex-shrink:0}
 .site-hd__cta{padding:16px 24px;font-size:18px}
 
 .inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
 .inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
 .inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
-.inner-hero__title{text-align:left;font-size:clamp(40px,5.5vw,96px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1;font-style:normal}
+.inner-hero__title{text-align:left;font-size:clamp(36px,4vw,64px);font-weight:400;color:#FDFCF8;letter-spacing:-0.02em;line-height:1;font-style:normal}
 
-.sec-platforms{background:var(--c-dark);padding:80px 0}
-.platforms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
-.platform-card{border:1px solid rgba(253,252,248,0.15);border-radius:var(--r-card);padding:32px 24px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:background 0.2s}
-.platform-card:hover{background:rgba(253,252,248,0.06)}
-.platform-card__name{font-size:22px;font-weight:500;color:var(--c-white);font-style:normal}
-.platform-card__score{font-size:48px;font-weight:700;color:var(--c-accent);letter-spacing:-0.02em;line-height:1;font-style:normal}
-.platform-card__stars{font-size:22px;color:var(--c-accent)}
-.platform-card__count{font-size:18px;font-weight:400;color:var(--c-w50);font-style:normal}
+.sec-platforms{padding:64px 0 88px}
+.platforms-breadcrumb{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:500;color:var(--c-muted);margin-bottom:16px}
+.platforms-breadcrumb a{color:var(--c-muted);text-decoration:none;transition:color 0.2s}
+.platforms-breadcrumb a:hover{color:var(--c-text)}
+.sec-platforms .sec-h{margin-bottom:48px}
+.pi-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start}
+
+/* left: platform rating cards */
+.pi-left{display:flex;flex-direction:column;gap:20px}
+.platform-card{position:relative;overflow:hidden;border:1px solid rgba(53,40,26,0.1);background:#fff;border-radius:16px;text-decoration:none;transition:transform 0.25s ease,box-shadow 0.25s ease}
+.platform-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(53,40,26,0.1)}
+.platform-card--main{padding:32px}
+.platform-card__top{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.platform-badge{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.platform-badge--yandex{background:#fc3f1d}
+.platform-badge--gis{background:#2f9c4a}
+.platform-badge--prodoc{background:#0aa3a3}
+.platform-card__title{position:relative;z-index:1;font-size:24px;font-weight:500;letter-spacing:-0.02em;color:var(--c-text);margin-bottom:6px}
+.platform-card__title .stars{color:#f5c842;font-size:18px;letter-spacing:1px;margin-left:2px}
+.platform-card__subtitle{position:relative;z-index:1;font-size:15px;color:var(--c-muted)}
+.platform-card__deco{position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:220px;height:220px;opacity:0.35;pointer-events:none}
+.pi-left-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.platform-card--small{padding:24px}
+.platform-card--small .platform-badge{width:34px;height:34px;font-size:13px;margin-bottom:18px}
+.platform-card__score-sm{font-size:20px;font-weight:500;color:var(--c-text);margin-bottom:4px}
+.platform-card__score-sm .stars{color:#f5c842;font-size:14px;margin-right:6px;letter-spacing:1px}
+.platform-card__label{font-size:14px;color:var(--c-muted)}
+
+/* right: invitation copy */
+.inspire-heading{font-size:clamp(22px,2vw,32px);font-weight:400;letter-spacing:-0.02em;line-height:1.15;margin-bottom:20px}
+.inspire-lead{font-size:16px;line-height:1.65;color:var(--c-muted);margin-bottom:22px}
+.inspire-lead strong{color:var(--c-text);font-weight:600}
+.inspire-steps-simple{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:26px;counter-reset:step}
+.inspire-steps-simple li{position:relative;padding-left:44px;min-height:32px;display:flex;align-items:center;font-size:16px;line-height:1.4;color:var(--c-text);counter-increment:step}
+.inspire-steps-simple li::before{
+  content:counter(step);position:absolute;left:0;top:0;
+  width:32px;height:32px;border-radius:50%;
+  border:1px dashed var(--c-accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:600;color:var(--c-accent);font-style:italic;
+}
+.inspire-steps-simple li:not(:last-child)::after{
+  content:'';position:absolute;left:16px;top:36px;width:1px;height:calc(100% - 20px);
+  border-left:1px dashed rgba(53,40,26,0.25);
+}
+.inspire-actions{display:flex;gap:14px;margin-top:8px;flex-wrap:wrap}
+.inspire-actions .pill-btn{padding:16px 30px;font-size:14px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;border-radius:8px}
+.inspire-actions .pill-btn--fill{background:var(--c-text);color:#fdfcf8;border-color:var(--c-text)}
+.inspire-actions .pill-btn--fill:hover{background:var(--c-accent);border-color:var(--c-accent)}
+.inspire-actions .pill-btn--ghost{background:transparent;color:var(--c-text);border:1.5px solid rgba(53,40,26,0.2)}
+.inspire-actions .pill-btn--ghost:hover{background:rgba(53,40,26,0.05)}
+@media (max-width:900px){.pi-grid{grid-template-columns:1fr}.pi-left-row{grid-template-columns:1fr}
+
+.sec-eyebrow{display:block;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-accent);margin-bottom:12px}
 
 .sec-reviews{padding:72px 0}
 .sec-reviews .sec-h{margin-bottom:72px}
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.review-card{border:1px solid var(--c-text);border-radius:var(--r-card);padding:36px 28px;display:flex;flex-direction:column;gap:20px;transition:box-shadow 0.2s}
+.review-card{border:1px solid rgba(53,40,26,0.12);border-radius:var(--r-card);padding:36px 28px;display:flex;flex-direction:column;gap:20px;transition:box-shadow 0.2s}
 .review-card:hover{box-shadow:0 4px 24px rgba(53,40,26,0.1)}
 .review-stars{font-size:20px;color:var(--c-accent)}
 .review-text{font-size:20px;font-weight:400;color:var(--c-text);line-height:1.5;letter-spacing:-0.02em;font-style:normal}
@@ -51,22 +101,39 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 .review-date{font-size:16px;font-weight:400;color:var(--c-muted);font-style:normal}
 .review-service{font-size:16px;font-weight:400;color:var(--c-accent);font-style:normal}
 
-.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center}
-.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+.sec-founder-fb{background:var(--c-dark);padding:88px 0}
+.founder-fb-inner{display:grid;grid-template-columns:0.9fr 1.1fr;gap:72px;align-items:start}
+.founder-fb-heading{font-size:clamp(24px,2.4vw,40px);font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;margin-bottom:20px}
+.founder-fb-text{font-size:17px;line-height:1.6;color:var(--c-w50);margin-bottom:28px}
+.founder-fb-who{display:flex;align-items:center;gap:16px}
+.founder-fb-who img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.founder-fb-who__role{font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-w50)}
+.founder-fb-who__name{font-size:18px;font-weight:500;color:var(--c-text)}
+.fb-form{display:flex;flex-direction:column;gap:20px}
+.fb-form input,.fb-form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(53,40,26,0.25);color:var(--c-text);font-family:var(--f);font-size:16px;padding:12px 0;outline:none;transition:border-color 0.2s}
+.fb-form input::placeholder,.fb-form textarea::placeholder{color:rgba(53,40,26,0.4)}
+.fb-form input:focus,.fb-form textarea:focus{border-color:var(--c-accent)}
+.fb-form textarea{resize:vertical;min-height:80px}
+.fb-form button{align-self:flex-start;margin-top:8px;padding:16px 32px;font-size:16px}
+.fb-form__note{font-size:13px;color:rgba(53,40,26,0.4);margin-top:-8px}
+@media (max-width:900px){.founder-fb-inner{grid-template-columns:1fr;gap:40px}
 
-.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}
+.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center}
+.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
+
+.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('../assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}
 .footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
 .footer-logo{margin-bottom:24px}
 .footer-logo img{height:40px;width:auto}
-.footer-tagline{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal;margin-bottom:24px}
-.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
-.footer-addr{font-size:13px;font-weight:500;color:var(--c-w50);line-height:1.25;font-style:normal}
-.footer-col h3{font-size:15px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
+.footer-tagline{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal;margin-bottom:24px}
+.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
+.footer-addr{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}
+.footer-col h3{font-size:15px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
 .footer-links{display:flex;flex-direction:column;gap:16px}
-.footer-links a{font-size:13px;font-weight:500;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
-.footer-links a:hover{color:var(--c-white)}
-.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:var(--c-w50);font-style:normal}
-.site-footer{background:var(--c-dark);padding:60px 0 40px;border-top:1px solid rgba(253,252,248,0.1)}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:var(--c-white);line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:var(--c-w50);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:var(--c-white);line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:var(--c-w50);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:var(--c-white)}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:var(--c-w50);font-style:normal}.footer-links a.active{color:var(--c-white)!important;font-weight:600!important}
+.footer-links a{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
+.footer-links a:hover{color:#fdfcf8}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:rgba(253,252,248,0.65);font-style:normal}
+.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('../assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:#fdfcf8}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:rgba(253,252,248,0.65);font-style:normal}.footer-links a.active{color:#fdfcf8!important;font-weight:600!important}
 </style>
 </head>
 <body>
@@ -78,16 +145,80 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
   <nav class="site-hd__nav">
     <a href="../about.html">О клинике</a>
     <a href="../promos.html">Акции</a>
-    <a href="../services.html">Услуги</a>
+    <div class="nav-services">
+      <a href="../services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="svc-mega">
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Консультации</p>
+            <a href="../services.html#consultations">Приём косметолога</a>
+            <a href="../services.html#consultations">Приём трихолога</a>
+            <a href="../services.html#consultations">Приём нутрициолога</a>
+            <p class="svc-mega__h">SMAS и диагностика</p>
+            <a href="../services/smas.html">SMAS-лифтинг</a>
+            <a href="../services/smas.html">УЗИ диагностика кожи</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Фотосистема IPL Nordlys</p>
+            <a href="../services/skin.html">Фотоомоложение</a>
+            <a href="../services/skin.html">Лечение акне</a>
+            <a href="../services/skin.html">Лечение купероза и розацеа</a>
+            <a href="../services/skin.html">Устранение пигментации</a>
+            <p class="svc-mega__h">Лифтинги</p>
+            <a href="../services/lifts.html">RF-лифтинг Volnewmer</a>
+            <a href="../services/lifts.html">RF-лифтинг Sylfirm X</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Инъекционная косметология</p>
+            <a href="../services/injections.html">PRP-терапия</a>
+            <a href="../services/injections.html">Контурная пластика</a>
+            <a href="../services/injections.html">Ботулинотерапия</a>
+            <a href="../services/injections.html">Коллагенотерапия</a>
+            <a href="../services/injections.html">Карбокситерапия</a>
+            <a href="../services/injections.html">Биоревитализация и мезотерапия</a>
+            <a href="../services/injections.html">Экзосомы</a>
+          </div>
+          <div class="svc-mega__col">
+            <p class="svc-mega__h">Эстетическая косметология</p>
+            <a href="../services/skin.html">Пилинг</a>
+            <a href="../services/skin.html">Чистки</a>
+            <a href="../services/skin.html">ФДТ Revixan</a>
+            <a href="../services/skin.html">Гидропилинг Hydra Touch H2</a>
+            <p class="svc-mega__h">Тело, эпиляция и SPA</p>
+            <a href="../services/laser.html">Лазерная эпиляция</a>
+            <a href="../services/lifts.html">RSL Beautylizer</a>
+            <a href="../services/lifts.html">LPG массаж</a>
+            <a href="../services/spa.html">Массажи и SPA-уходы</a>
+          </div>
+          <div class="svc-mega__all"><a href="../services.html" class="pill-btn">Все услуги →</a></div>
+        </div>
+    </div>
     <a href="../specialists/index.html">Специалисты</a>
+    <a href="../prices.html">Цены</a>
     <a href="../certificates.html">Сертификаты</a>
-    <a href="index.html" style="opacity:0.5">Отзывы</a>
-    <a href="../articles/index.html">Статьи</a>
+    <a href="../reviews/index.html" style="opacity:0.5">Отзывы</a>
   </nav>
   <div class="site-hd__actions">
-    <a href="tel:+79002761116" style="display:flex;align-items:center;">
-      <img src="../assets/icons/call.svg" alt="Позвонить" style="width:32px;height:32px;"/>
-    </a>
+    <div class="site-hd__connect">
+      <button type="button" class="site-hd__contact" aria-haspopup="true">Связаться <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="site-hd__connect-panel">
+        <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="../assets/icons/vk.svg" alt="" width="20" height="20"/>
+          VK
+        </a>
+        <a href="https://t.me/rare_anapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="../assets/icons/telegram.svg" alt="" width="20" height="20"/>
+          Telegram
+        </a>
+        <a href="https://wa.me/79002761116" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="../assets/icons/whatsapp.svg" alt="" width="20" height="20"/>
+          WhatsApp
+        </a>
+        <a href="tel:+79002761116" class="site-hd__connect-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (900) 276-11-16
+        </a>
+      </div>
+    </div>
     <a href="../index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
   </div>
 </header>
@@ -102,33 +233,57 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
 
 <section class="sec-platforms">
   <div class="wrap">
-    <h2 class="sec-h" style="color:var(--c-white);">Мы на платформах</h2>
-    <div class="platforms-grid">
-      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/?ll=37.331144%2C44.879223&z=17" target="_blank" rel="noopener" class="platform-card">
-        <p class="platform-card__name">Яндекс</p>
-        <p class="platform-card__score" id="yandex-score">4.9</p>
-        <p class="platform-card__stars" id="yandex-stars">★★★★★</p>
-        <p class="platform-card__count" id="yandex-count">127 отзывов</p>
-      </a>
-      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="platform-card">
-        <p class="platform-card__name">2ГИС</p>
-        <p class="platform-card__score" id="gis-score">4.8</p>
-        <p class="platform-card__stars" id="gis-stars">★★★★★</p>
-        <p class="platform-card__count" id="gis-count">84 отзыва</p>
-      </a>
-      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="platform-card">
-        <p class="platform-card__name">ПроДокторов</p>
-        <p class="platform-card__score" id="prodoc-score">5.0</p>
-        <p class="platform-card__stars" id="prodoc-stars">★★★★★</p>
-        <p class="platform-card__count" id="prodoc-count">41 отзыв</p>
-      </a>
+    <div class="platforms-breadcrumb"><a href="../index.html">Главная</a><span>/</span><span>Отзывы</span></div>
+    <h2 class="sec-h">Отзывы наших гостей</h2>
+    <div class="pi-grid">
+      <div class="pi-left">
+        <a href="https://yandex.ru/maps/org/ra_r_/183673265058/?ll=37.331144%2C44.879223&z=17" target="_blank" rel="noopener" class="platform-card platform-card--main">
+          <div class="platform-card__top">
+            <span class="platform-badge platform-badge--yandex">Я</span>
+          </div>
+          <p class="platform-card__title">Хорошее место <span class="stars" id="yandex-stars">★★★★★</span> <span id="yandex-score">4.9</span></p>
+          <p class="platform-card__subtitle">Выбор пользователей Яндекса · <span id="yandex-count">127 отзывов</span></p>
+          <svg class="platform-card__deco" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="100" r="40" stroke="#35281a" stroke-width="1"/>
+            <circle cx="140" cy="100" r="65" stroke="#35281a" stroke-width="1"/>
+            <circle cx="140" cy="100" r="90" stroke="#35281a" stroke-width="1"/>
+          </svg>
+        </a>
+        <div class="pi-left-row">
+          <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="platform-card platform-card--small">
+            <span class="platform-badge platform-badge--gis">2</span>
+            <p class="platform-card__score-sm"><span class="stars" id="gis-stars">★★★★★</span> <span id="gis-score">4.8</span></p>
+            <p class="platform-card__label">Отзывы на 2ГИС</p>
+          </a>
+          <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="platform-card platform-card--small">
+            <span class="platform-badge platform-badge--prodoc">Пр</span>
+            <p class="platform-card__score-sm"><span class="stars" id="prodoc-stars">★★★★★</span> <span id="prodoc-score">5.0</span></p>
+            <p class="platform-card__label">Отзывы на ПроДокторов</p>
+          </a>
+        </div>
+      </div>
+      <div class="pi-right">
+        <h2 class="inspire-heading">Ваши отзывы нас вдохновляют!</h2>
+        <p class="inspire-lead"><strong>Если хотите нас поблагодарить</strong> — просто оставьте отзыв. Ведь именно от вас зависит впечатление других людей о нашей клинике.</p>
+        <ol class="inspire-steps-simple">
+          <li>Выберите и перейдите на площадку</li>
+          <li>Нажмите на кнопку «Оставить отзыв»</li>
+          <li>Делитесь своими результатами и впечатлениями</li>
+        </ol>
+        <p class="inspire-lead"><strong>Если у вас есть мысли, как мы можем стать лучше</strong> или вы остались не до конца довольны посещением, обязательно напишите обращение основателю клиники — Ануш Арташевне.</p>
+        <div class="inspire-actions">
+          <a href="#guest-reviews" class="pill-btn pill-btn--fill">Смотреть отзывы</a>
+          <a href="#feedback" class="pill-btn pill-btn--ghost">Написать обращение</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec-reviews">
+<section class="sec-reviews" id="guest-reviews">
   <div class="wrap">
-    <h2 class="sec-h">Отзывы наших гостей</h2>
+    <span class="sec-eyebrow">Отзывы</span>
+    <h2 class="sec-h">Рады вашим результатам</h2>
     <div class="reviews-grid">
       <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
         <p class="review-stars">★★★★★</p>
@@ -188,19 +343,43 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
   </div>
 </section>
 
+<section class="sec-founder-fb" id="feedback">
+  <div class="wrap founder-fb-inner">
+    <div>
+      <h2 class="founder-fb-heading">Как мы можем стать ещё лучше</h2>
+      <p class="founder-fb-text">Для нас важно, чтобы каждый визит приносил вам удовольствие и оставалось приятное «послевкусие». Если у вас есть мысли, как мы можем стать ещё лучше для вас, или вы остались не до конца довольны посещением — обязательно опишите подробно ситуацию. Я лично рассмотрю ваше обращение и приму меры.</p>
+      <div class="founder-fb-who">
+        <img src="../assets/photos/founder-anush.webp" alt="Ануш Арташевна"/>
+        <div>
+          <p class="founder-fb-who__role">Основатель клиники</p>
+          <p class="founder-fb-who__name">Ануш Арташевна</p>
+        </div>
+      </div>
+    </div>
+    <form class="fb-form" id="fb-form">
+      <input type="text" placeholder="Имя" required/>
+      <input type="tel" placeholder="Телефон" required/>
+      <input type="email" placeholder="Email"/>
+      <textarea placeholder="Кратко, но ёмко опишите ситуацию"></textarea>
+      <p class="fb-form__note">Ануш ответит вам в течение дня.</p>
+      <button type="submit" class="pill-btn">Отправить обращение</button>
+    </form>
+  </div>
+</section>
+
 <section class="sec-cta">
   <div class="wrap">
     <h2 class="cta-heading">Станьте нашим<br>следующим довольным гостем</h2>
     <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
       <a href="../index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться на приём</a>
-      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-white);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
+      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-text);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer"><div class="wrap"><div class="footer-grid">
   <div>
-    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo.svg" alt="RA|RÉ"/></a></div>
+    <div class="footer-logo"><a href="../index.html"><img src="../assets/icons/logo-white.svg" alt="RA|RÉ"/></a></div>
     <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
     <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
     <p class="footer-addr">Анапа, Владимирская 120</p>
@@ -230,7 +409,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
   </div></div>
 </div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
 
-<script src="./docs-popup.js" defer></script><script src="../animations.js?v=202606041800" defer></script>
+<script src="../docs-popup.js" defer></script><script src="../animations.js?v=202607162000" defer></script>
 <script src="../mobile-nav.js?v=202606041800" defer></script>
 <script src="../accessibility.js" defer></script>
 <script>
@@ -246,21 +425,25 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
     var full=Math.round(s);
     return '★'.repeat(Math.min(full,5))+'☆'.repeat(Math.max(0,5-full));
   }
+  function setText(id, text){
+    var el = document.getElementById(id);
+    if(el) el.textContent = text;
+  }
   function applyRatings(d){
     if(d.yandex){
-      if(d.yandex.score){document.getElementById('yandex-score').textContent=d.yandex.score;}
-      if(d.yandex.count){document.getElementById('yandex-count').textContent=pluralReviews(d.yandex.count);}
-      if(d.yandex.score){document.getElementById('yandex-stars').textContent=starsFromScore(parseFloat(d.yandex.score));}
+      if(d.yandex.score) setText('yandex-score', d.yandex.score);
+      if(d.yandex.count) setText('yandex-count', pluralReviews(d.yandex.count));
+      if(d.yandex.score) setText('yandex-stars', starsFromScore(parseFloat(d.yandex.score)));
     }
     if(d.gis){
-      if(d.gis.score){document.getElementById('gis-score').textContent=d.gis.score;}
-      if(d.gis.count){document.getElementById('gis-count').textContent=pluralReviews(d.gis.count);}
-      if(d.gis.score){document.getElementById('gis-stars').textContent=starsFromScore(parseFloat(d.gis.score));}
+      if(d.gis.score) setText('gis-score', d.gis.score);
+      if(d.gis.count) setText('gis-count', pluralReviews(d.gis.count));
+      if(d.gis.score) setText('gis-stars', starsFromScore(parseFloat(d.gis.score)));
     }
     if(d.prodoc){
-      if(d.prodoc.score){document.getElementById('prodoc-score').textContent=d.prodoc.score;}
-      if(d.prodoc.count){document.getElementById('prodoc-count').textContent=pluralReviews(d.prodoc.count);}
-      if(d.prodoc.score){document.getElementById('prodoc-stars').textContent=starsFromScore(parseFloat(d.prodoc.score));}
+      if(d.prodoc.score) setText('prodoc-score', d.prodoc.score);
+      if(d.prodoc.count) setText('prodoc-count', pluralReviews(d.prodoc.count));
+      if(d.prodoc.score) setText('prodoc-stars', starsFromScore(parseFloat(d.prodoc.score)));
     }
   }
   fetch('../ratings.json?_='+Date.now())
@@ -268,5 +451,18 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
     .then(applyRatings)
     .catch(function(){});
 })();
-</script></body>
+(function(){
+  var form = document.getElementById('fb-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var original = btn.textContent;
+    btn.textContent = 'Спасибо, отправлено!';
+    form.reset();
+    setTimeout(function(){ btn.textContent = original; }, 2600);
+  });
+})();
+</script><script src="../booking-widget.js" defer></script>
+</body>
 </html>

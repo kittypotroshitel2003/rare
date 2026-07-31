@@ -3,7 +3,7 @@
   if (!header) return;
 
   var navEl = header.querySelector('.site-header__nav, .site-hd__nav');
-  var links = navEl ? Array.from(navEl.querySelectorAll('a')) : [];
+  var links = navEl ? Array.from(navEl.querySelectorAll(':scope > a, :scope > .nav-services > a.nav-services__trigger')) : [];
   var logoEl = header.querySelector('.site-header__logo, .site-hd__logo');
   var logoImg = header.querySelector('.site-header__logo img, .site-hd__logo img');
   var ctaEl = header.querySelector('.site-header__cta, .site-hd__cta, .pill-btn');
@@ -41,7 +41,7 @@
   var closeBtn = document.createElement('button');
   closeBtn.className = 'mobile-nav-close';
   closeBtn.setAttribute('aria-label', 'Закрыть');
-  closeBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F3EEE8" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>';
+  closeBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#35281a" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>';
   top.appendChild(closeBtn);
   overlay.appendChild(top);
 

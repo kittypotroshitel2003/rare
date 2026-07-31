@@ -8,42 +8,39 @@
   var css = `
 /* ── Accessibility toggle button ──────────────────────────────── */
 #a11y-toggle {
-  position: fixed;
-  bottom: 100px;
-  right: 24px;
-  z-index: 9000;
-  width: 52px;
-  height: 52px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 2px solid rgba(86,134,115,0.35);
-  background: #102f27;
-  color: #fdfcf8;
+  border: none;
+  background: transparent;
+  color: inherit;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s;
-  font-family: sans-serif;
-  flex-direction: column;
-  gap: 2px;
-  text-align: center;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  padding: 0;
+  opacity: 0.85;
 }
-#a11y-toggle:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.28);
-  background: #1c4a3a;
+#a11y-toggle:hover { opacity: 1; }
+#a11y-toggle svg { width: 20px; height: 20px; display: block; }
+#a11y-toggle .a11y-label { display: none; }
+#a11y-toggle.is-active { color: var(--c-accent, #777247); opacity: 1; }
+
+/* fixed-position fallback for pages without a header actions row */
+#a11y-toggle.a11y-fixed {
+  position: fixed; top: 16px; right: 12px; z-index: 600;
+  width: 26px; height: 26px;
+  border: 1px solid rgba(253,252,248,0.4);
+  color: rgba(253,252,248,0.85);
+  opacity: 1;
 }
-#a11y-toggle svg { display: block; flex-shrink: 0; }
-#a11y-toggle .a11y-label {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  color: rgba(253,252,248,0.75);
-  text-transform: uppercase;
+#a11y-toggle.a11y-fixed:hover { background: rgba(253,252,248,0.12); }
+#a11y-toggle.a11y-fixed.is-active { background: var(--c-accent, #777247); border-color: var(--c-accent, #777247); color: #fff; }
+@media (max-width: 767px) {
+  #a11y-toggle.a11y-fixed { top: 12px; right: 60px; width: 24px; height: 24px; }
 }
-#a11y-toggle.is-active { background: #568673; border-color: #568673; }
 
 /* ── Accessibility mode styles ─────────────────────────────────── */
 html.a11y-mode {
@@ -99,6 +96,34 @@ html.a11y-mode h3 {
 html.a11y-mode img {
   filter: contrast(1.15) !important;
 }
+html.a11y-mode .script {
+  font-family: var(--f) !important;
+  font-style: normal !important;
+  font-size: 1em !important;
+}
+html.a11y-mode .spec-card__view {
+  opacity: 1 !important;
+  transform: none !important;
+  font-family: var(--f) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #ffffff !important;
+}
+html.a11y-mode .dot {
+  background: #555555 !important;
+}
+html.a11y-mode .dot--active {
+  background: #1a5c42 !important;
+}
+html.a11y-mode .booking-submit,
+html.a11y-mode .interior-arr,
+html.a11y-mode .promo-card,
+html.a11y-mode .result-item .result-photo {
+  outline: 3px solid #111 !important;
+  outline-offset: 2px;
+}
 html.a11y-mode .site-header,
 html.a11y-mode .site-hd,
 html.a11y-mode .sec-dir,
@@ -138,10 +163,6 @@ html.a11y-mode .svc-card { border: 2px solid #111 !important; }
 html.a11y-mode .booking-field input,
 html.a11y-mode .booking-svc-sel { font-size: 1.1rem !important; }
 html.a11y-mode .cookie-banner { display: none !important; }
-
-@media (max-width: 767px) {
-  #a11y-toggle { bottom: 80px; right: 16px; width: 44px; height: 44px; }
-}
 `;
 
   /* ── Inject styles ──────────────────────────────────────────────── */
@@ -153,10 +174,22 @@ html.a11y-mode .cookie-banner { display: none !important; }
   function createBtn() {
     var btn = document.createElement('button');
     btn.id = BTN_ID;
+    btn.type = 'button';
     btn.setAttribute('aria-label', 'Версия для слабовидящих');
     btn.setAttribute('title', 'Версия для слабовидящих');
-    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span class="a11y-label">Aa</span>';
-    document.body.appendChild(btn);
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+      '<path d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z" stroke="currentColor" stroke-width="1.5"/>' +
+      '<path d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z" stroke="currentColor" stroke-width="1.5"/>' +
+      '</svg><span class="a11y-label">Aa</span>';
+
+    var headerActions = document.querySelector('.site-header__actions, .site-hd__actions');
+    if (headerActions) {
+      headerActions.insertBefore(btn, headerActions.firstChild);
+    } else {
+      btn.classList.add('a11y-fixed');
+      document.body.appendChild(btn);
+    }
     return btn;
   }
 

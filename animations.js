@@ -82,8 +82,32 @@
 }
 .site-hd.rr-nav-solid,
 .site-header.rr-nav-solid {
-  background: #102f27 !important;
+  background: #FFFAF3 !important;
   box-shadow: 0 2px 24px rgba(0,0,0,0.18) !important;
+}
+/* once the header goes solid beige (scrolled past the photo hero), flip
+   its nav text + ghost CTA from photo-legible cream to readable ink */
+.site-header.rr-nav-solid .site-header__nav a,
+.site-header.rr-nav-solid .site-header__social a,
+.site-header.rr-nav-solid .site-header__phone {
+  color: #33241D !important;
+}
+/* phone icon + logo are flat <img>s, so they can't inherit color — the
+   files themselves are dark ink (correct once solid); invert them back
+   to light while the header is still transparent over the hero photo */
+.site-header:not(.rr-nav-solid) .site-header__phone img,
+.site-header:not(.rr-nav-solid) .site-header__logo img {
+  filter: brightness(0) invert(1);
+}
+.site-header.rr-nav-solid .site-header__cta {
+  background: transparent !important;
+  border-color: rgba(53,40,26,0.25) !important;
+  color: #33241D !important;
+}
+.site-header.rr-nav-solid .site-header__cta:hover {
+  background: #777247 !important;
+  border-color: #777247 !important;
+  color: #fdfcf8 !important;
 }
 .site-hd.rr-nav-hidden,
 .site-header.rr-nav-hidden {
@@ -95,7 +119,8 @@
 }
 
 /* Parallax hero image */
-.hero__bg { will-change: transform; }
+.hero__bg-stage { will-change: transform; }
+.hero__bg { will-change: opacity, transform; }
 
 /* pill-btn shimmer on hover */
 .pill-btn { position: relative; overflow: hidden; }
@@ -122,7 +147,7 @@
 
 /* stat glow */
 .about-stat__n { display: inline-block; transition: color 0.3s ease; }
-.about-stat:hover .about-stat__n { color: #102f27; }
+.about-stat:hover .about-stat__n { color: #777247; }
 
 /* proc-row hover */
 .proc-row {
@@ -308,18 +333,23 @@
   }
 
   /* ── HOMEPAGE HERO parallax ─────────────────────────── */
+  /* Applied to the .hero__bg-stage wrapper (not the individual .hero__bg
+     slide layers), which handle their own per-slide Ken Burns zoom. */
   function initParallax() {
-    const heroBg = document.querySelector('.hero__bg');
-    if (!heroBg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let heroH = heroBg.parentElement.offsetHeight;
-    window.addEventListener('resize', () => { heroH = heroBg.parentElement.offsetHeight; }, { passive: true });
-    heroBg.style.transform = 'translateY(0) scale(1.15)';
+    const heroStage = document.querySelector('.hero__bg-stage');
+    if (!heroStage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    /* scroll-linked transforms tend to lag a frame behind on mobile browsers,
+       reading as sluggish — skip it there and keep just the per-slide zoom */
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+    let heroH = heroStage.parentElement.offsetHeight;
+    window.addEventListener('resize', () => { heroH = heroStage.parentElement.offsetHeight; }, { passive: true });
+    heroStage.style.transform = 'translateY(0) scale(1.15)';
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           if (window.scrollY < heroH * 1.2)
-            heroBg.style.transform = `translateY(${window.scrollY * 0.28}px) scale(1.15)`;
+            heroStage.style.transform = `translateY(${window.scrollY * 0.28}px) scale(1.15)`;
           ticking = false;
         });
         ticking = true;
@@ -331,6 +361,7 @@
   function initInnerHeroParallax() {
     const bg = document.querySelector('.inner-hero__bg');
     if (!bg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(max-width: 767px)').matches) return;
     const section = bg.parentElement;
     let ticking = false;
     bg.style.transform = 'translateY(0) scale(1.08)';
@@ -365,63 +396,21 @@
     });
   }
 
-  /* ── SMART NAVBAR ─────────────────────────────────── */
+  /* ── NAVBAR ────────────────────────────────────────
+     Header stays pinned and visible at all times while scrolling
+     (no hide-on-scroll-down) — only the solid/transparent background
+     state below reacts to scroll position. */
   function initSmartNav() {
     var header = document.querySelector('.site-hd, .site-header');
     if (!header) return;
 
-    var lastY = window.scrollY;
+    header.classList.remove('rr-nav-hidden');
     var ticking = false;
-    var scrolledDown = 0;
 
-    function update() {
-      var y = window.scrollY;
+    function update() {}
 
-      // Background handled by IntersectionObserver below
-
-
-      var delta = y - lastY;
-
-      if (window.innerWidth <= 1024) {
-        // Mobile: always visible, just sticky
-        header.classList.remove('rr-nav-hidden');
-      } else {
-        // Desktop: hide on scroll down, reveal on scroll up
-        if (y < 100) {
-          header.classList.remove('rr-nav-hidden');
-          scrolledDown = 0;
-        } else if (delta > 0) {
-          if (y > 120) {
-            scrolledDown += delta;
-            if (scrolledDown > 120) {
-              header.classList.add('rr-nav-hidden');
-            }
-          }
-        } else if (delta < 0) {
-          scrolledDown = 0;
-          header.classList.remove('rr-nav-hidden');
-        }
-      }
-
-      lastY = y;
-    }
-
-    // Transparent in hero, solid everywhere else
-    var hero = document.querySelector('.hero');
-    if (hero) {
-      var heroObs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            header.classList.remove('rr-nav-solid');
-          } else {
-            header.classList.add('rr-nav-solid');
-          }
-        });
-      }, { threshold: 0.05 });
-      heroObs.observe(hero);
-    } else {
-      header.classList.add('rr-nav-solid');
-    }
+    // Header is always solid (matches the RA|RÉ Figma design)
+    header.classList.add('rr-nav-solid');
 
     update(); // run once on load
 
