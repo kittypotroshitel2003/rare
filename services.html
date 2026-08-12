@@ -10,10 +10,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <style>
-@font-face{font-family:'Sloop Script Pro';src:url('styles/fonts/SloopScriptPro-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Sloop Script Pro';src:url('styles/fonts/SloopScriptPro-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
-:root{--c-dark:#FFFAF3;--c-accent:#777247;--c-bg:#FFFAF3;--c-text:#33241D;--c-muted:#6b5e4f;--c-white:#FFFAF3;--c-w50:rgba(51,36,29,0.5);--f:'Inter','Involve',sans-serif;--f-script:'Sloop Script Pro','Involve',cursive;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
-.script{font-family:var(--f-script);font-weight:500;font-size:1.5625em;line-height:1;display:inline-block}
+:root{--c-dark:#FFFAF3;--c-accent:#777247;--c-bg:#FFFAF3;--c-text:#33241D;--c-muted:#6b5e4f;--c-white:#FFFAF3;--c-w50:rgba(51,36,29,0.5);--f:'Inter','Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
@@ -63,7 +60,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decor
 .dir-card__front{display:flex;flex-direction:column;align-items:center}
 .dir-card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0}
 .dir-card__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(16,20,15,0.55) 0%,rgba(16,20,15,0.05) 42%,rgba(16,20,15,0.05) 100%)}
-.dir-card__num{position:relative;z-index:2;margin-top:22px;font-family:var(--f-script);font-weight:500;font-size:clamp(36px,3.4vw,56px);color:#fff;text-align:center}
+.dir-card__num{position:relative;z-index:2;margin-top:22px;font-family:var(--f);font-weight:500;font-size:clamp(36px,3.4vw,56px);color:#fff;text-align:center}
 .dir-card__title{position:relative;z-index:2;margin-top:8px;padding:0 16px;font-size:clamp(16px,1.5vw,24px);font-weight:400;letter-spacing:-0.01em;color:#fff;text-align:center;line-height:1.25;font-style:normal}
 .dir-card__back{transform:rotateY(180deg);background:var(--c-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px 22px;text-align:center}
 .dir-card__back-list{display:flex;flex-direction:column;gap:10px}
@@ -97,8 +94,8 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decor
 .footer-links{display:flex;flex-direction:column;gap:16px}
 .footer-links a{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
 .footer-links a:hover{color:#fdfcf8}
-.footer-copy{margin-top:40px;font-size:12px;font-weight:500;color:rgba(253,252,248,0.65);font-style:normal}
-.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:#fdfcf8}.footer-copy{margin-top:40px;font-size:12px;font-weight:400;color:rgba(253,252,248,0.65);font-style:normal}.footer-links a.active{color:#fdfcf8!important;font-weight:600!important}
+.footer-copy{margin-top:40px;font-size:12px;font-weight:300;color:rgba(253,252,248,0.65);font-style:normal}
+.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:#fdfcf8}.footer-copy{margin-top:40px;font-size:12px;font-weight:300;color:rgba(253,252,248,0.65);font-style:normal}.footer-links a.active{color:#fdfcf8!important;font-weight:600!important}
 </style>
 </head>
 <body>
@@ -218,7 +215,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit;text-decor
 
 <section class="sec-services">
   <div class="wrap">
-    <h2 class="sec-h"><span class="script">Все</span> направления</h2>
+    <h2 class="sec-h">Все направления</h2>
     <div class="dir-cards">
 
       <a href="services/laser.html" class="dir-card" data-dir-card>

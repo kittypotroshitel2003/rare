@@ -5,58 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RA|RÉ — Клиника экспертной косметологии в Анапе</title>
   <meta name="description" content="RA|RÉ — клиника экспертной косметологии и лазерной эпиляции в Анапе. Профессиональный уход за собой с доказанным результатом."/>
-  <link rel="preload" href="styles/fonts/Involve-VF.woff2" as="font" type="font/woff2" crossorigin/>
-  <link rel="preload" href="styles/fonts/SloopScriptPro-Medium.otf" as="font" type="font/otf" crossorigin/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/>
   <link rel="preload" href="assets/hero.webp" as="image"/>
   <link rel="dns-prefetch" href="https://yandex.ru"/>
-  <!-- styles.css загружается без блокировки рендера -->
-  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-  <noscript><link rel="stylesheet" href="styles.css"/></noscript>
+  <link rel="stylesheet" href="styles.css"/>
   <style>
-    @font-face {
-      font-family: 'Involve';
-      src: url('styles/fonts/Involve-VF.woff2') format('woff2');
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Sloop Script Pro';
-      src: url('styles/fonts/SloopScriptPro-Medium.otf') format('opentype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Sloop Script Pro';
-      src: url('styles/fonts/SloopScriptPro-Bold.otf') format('opentype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
     :root {
-      --c-dark:     #FFFAF3;
-      --c-accent:   #777247;
-      --c-bg:       #FFFAF3;
+      --c-dark:     #FFFFFF;
+      --c-accent:   #767E5D;
+      --c-bg:       #FFFFFF;
       --c-text:     #33241D;
       --c-muted:    #6b5e4f;
-      --c-white:    #FFFAF3;
+      --c-white:    #FFFFFF;
       --c-w50:      rgba(51,36,29,0.5);
-      --f:          'Inter', 'Involve', sans-serif;
-      --f-script:   'Sloop Script Pro', 'Involve', cursive;
+      --header-h:   calc(48px + clamp(24px, 1.875vw, 36px));
+      --f:          'Inter', sans-serif;
       --r-card:     10px;
       --r-pill:     6px;
-      --gutter:     clamp(20px, 4.5vw, 72px);
+      --gutter:     clamp(20px, 9.375vw, 180px);
     }
-    .script { font-family: var(--f-script); font-weight: 500; font-size: 1.5625em; line-height: 1; display: inline-block; }
+    .script { font-family: var(--f); font-weight: 500; font-size: 1.5625em; line-height: 1; display: inline-block; }
+    .serif-italic { font-family: var(--f); font-style: normal !important; font-weight: 400; color: var(--c-text); }
     .nowrap { white-space: nowrap; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--f); background: var(--c-bg); color: var(--c-text); overflow-x: hidden; }
+    body { font-family: var(--f); font-weight: 400; background: var(--c-bg); color: var(--c-text); overflow-x: hidden; }
     em { font-style: normal; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
@@ -66,6 +41,11 @@
       margin: 0 auto;
       padding: 0 var(--gutter);
     }
+
+    /* ── SECTION RHYTHM ───────────────────────── */
+    section + section, section + footer, section + .contacts-footer-wrap { margin-top: clamp(64px, 10vw, 160px); }
+    /* contacts section and footer share the same texture and flow together with no seam */
+    .sec-contacts + .site-footer { margin-top: 0; }
 
     .pill-btn {
       display: inline-flex;
@@ -88,8 +68,7 @@
       background: var(--c-accent);
       border-color: var(--c-accent);
       color: #fdfcf8;
-      box-shadow: 0 6px 24px rgba(16,47,39,0.14);
-      transform: translateY(-1px);
+      box-shadow: none;
     }
     .pill-btn:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(16,47,39,0.1); }
     /* Filled dark variant — for CTAs on cream/light backgrounds */
@@ -116,34 +95,28 @@
       background: rgba(53,40,26,0.1);
       border-color: rgba(53,40,26,0.75);
       box-shadow: none;
-      transform: translateY(-1px);
     }
 
     /* ── HERO ─────────────────────────────────── */
     .hero {
       position: relative;
-      min-height: 680px;
-      height: clamp(680px, 58.4vw, 1100px);
-      display: flex;
-      flex-direction: column;
+      height: auto; min-height: 0;
       overflow: hidden;
     }
-    .hero__bg-stage { position: absolute; inset: 0; overflow: hidden; }
-    .hero__bg {
-      position: absolute; inset: 0;
-      background: center/cover no-repeat;
-      opacity: 0;
-      transform: scale(1);
+    .hero__row { position: relative; width: 100%; min-height: clamp(560px, 51.4vw, 1020px); margin-top: var(--header-h); }
+    .hero__photo {
+      position: absolute;
+      top: clamp(24px, 3.7vw, 71px);
+      bottom: clamp(24px, 3.7vw, 71px);
+      left: clamp(300px, 53.125vw, 1020px);
+      right: var(--gutter);
+      border-radius: 20px;
+      overflow: hidden;
     }
-    .hero__bg-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(102,102,102,0.2), rgba(0,0,0,0.2));
-      pointer-events: none;
-    }
+    .hero__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     @media (prefers-reduced-motion: reduce) {
       .hero__bg { transition: opacity 0.9s ease !important; transform: none !important; }
     }
-    .hero .wrap { display: flex; flex-direction: column; height: 100%; position: relative; z-index: 5; width: 100%; margin: 0; }
 
     /* header */
     .site-header {
@@ -153,29 +126,33 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 22px clamp(20px, 4.5vw, 72px);
+      padding: 24px var(--gutter);
       flex-shrink: 0;
     }
-    .site-header__logo img { height: 28px; width: auto; }
-    .site-header__nav { display: flex; gap: clamp(18px, 2.4vw, 48px); }
+    .site-header__logo img { height: clamp(24px, 1.875vw, 36px); width: auto; }
+    .site-header__nav { display: flex; gap: clamp(18px, 2.5vw, 48px); }
     .site-header__nav a {
-      font-size: 14px; font-weight: 500; color: var(--c-text);
+      font-size: clamp(14px, 0.94vw, 18px); font-weight: 400; color: var(--c-text);
+      letter-spacing: -0.04em;
       text-decoration: none; font-style: normal; white-space: nowrap;
       transition: opacity 0.2s;
     }
     .site-header__nav a:hover { opacity: 0.7; }
     .site-header__actions { display: flex; align-items: center; gap: 36px; }
+    #a11y-toggle { display: none !important; }
     .site-header__connect { position: relative; }
     .site-header__contact {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 14px; font-weight: 500; color: var(--c-text);
+      display: flex; align-items: center; gap: 10px;
+      font-size: clamp(14px, 0.94vw, 18px); font-weight: 400; color: var(--c-text);
+      letter-spacing: -0.04em;
       text-decoration: none; white-space: nowrap; transition: opacity 0.2s;
       background: none; border: none; cursor: pointer; font-family: var(--f);
     }
     .site-header__contact:hover { opacity: 0.7; }
     .site-header__contact svg { width: 8px; height: 5px; flex-shrink: 0; transition: transform 0.25s ease; }
     .site-header__connect:hover .site-header__contact svg,
-    .site-header__connect:focus-within .site-header__contact svg { transform: rotate(180deg); }
+    .site-header__connect:focus-within .site-header__contact svg,
+    .site-header__connect.is-open .site-header__contact svg { transform: rotate(180deg); }
     .site-header__connect-panel {
       position: absolute; top: calc(100% + 18px); right: 0;
       background: var(--c-bg); border: 1px solid rgba(51,36,29,0.1);
@@ -188,7 +165,8 @@
       z-index: 400;
     }
     .site-header__connect:hover .site-header__connect-panel,
-    .site-header__connect:focus-within .site-header__connect-panel {
+    .site-header__connect:focus-within .site-header__connect-panel,
+    .site-header__connect.is-open .site-header__connect-panel {
       opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
     }
     .site-header__connect-item {
@@ -199,56 +177,113 @@
     }
     .site-header__connect-item:hover { background: rgba(119,114,71,0.08); color: var(--c-accent); }
     .site-header__connect-item svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .site-header__cta { padding: 16px 24px; font-size: 18px; background: rgba(253,252,248,0.12); color: var(--c-white); border-color: rgba(253,252,248,0.35); box-shadow: none; }
-    .site-header__cta:hover { background: rgba(253,252,248,0.22); border-color: rgba(253,252,248,0.6); box-shadow: none; }
+    .site-header__cta { padding: 12px clamp(24px, 2.19vw, 42px); font-size: clamp(14px, 0.94vw, 18px); font-weight: 400; letter-spacing: -0.04em; background: var(--c-accent); color: #fff; border-color: var(--c-accent); box-shadow: none; }
+    .site-header .site-header__cta.site-header__cta { border-radius: 6px !important; }
+    .site-header__cta:hover { background: #666139; border-color: #666139; color: #fff; box-shadow: none; }
 
     /* hero body */
     .hero__body {
-      flex: 1;
+      position: absolute;
+      top: clamp(60px, 10.16vw, 195px);
+      left: clamp(20px, 9.375vw, 180px);
+      width: clamp(280px, 42.34vw, 813px);
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      gap: 72px;
-      padding: 0 var(--gutter) 80px;
-      transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1);
-    }
-    .hero__body--left {
       align-items: flex-start;
       text-align: left;
+      gap: clamp(40px, 5.2vw, 100px);
     }
-    .hero__headline { display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: 1420px; width: 100%; }
-    .hero__body--left .hero__headline { align-items: flex-start; max-width: 900px; }
+    .hero__headline { display: flex; flex-direction: column; gap: 40px; align-items: flex-start; width: 100%; }
     .hero__title {
-      font-size: clamp(34px, 3.2vw, 56px);
-      font-weight: 400; line-height: 1.05;
-      letter-spacing: -0.02em; color: #FDFCF8; font-style: normal;
-      text-align: center; max-width: none; margin-bottom: 0;
+      font-size: clamp(28px, 2.5vw, 48px);
+      font-weight: 400; line-height: 1;
+      letter-spacing: -0.04em; color: var(--c-text); font-style: normal;
+      text-align: left; max-width: none; margin-bottom: 0;
       align-self: stretch;
     }
-    .hero__title .script { font-family: var(--f-script); font-size: 1.4em; font-weight: 500; line-height: 1; }
-    .hero__body--left .hero__title { text-align: left; }
+    .hero__title .script { font-family: var(--f); font-size: 1.4em; font-weight: 500; line-height: 1; }
+    .hero__title em.serif-italic { color: var(--c-text); font-size: 1em; }
+    .hero__title em.hero__dim { font-style: normal; font-family: inherit; font-weight: inherit; font-size: 1em; color: rgba(51,36,29,0.4); }
     .hero__sub {
-      font-size: clamp(15px, 1.46vw, 28px);
-      font-weight: 400; color: #fff;
+      font-size: clamp(16px, 1.46vw, 28px);
+      font-weight: 300; color: var(--c-text);
       letter-spacing: -0.04em; line-height: 1;
-      max-width: 900px; font-style: normal;
+      max-width: none; font-style: normal; text-align: left;
     }
-    .hero__body--left .hero__sub { text-align: left; }
     .hero__cta {
-      padding: clamp(16px, 1.46vw, 28px) clamp(32px, 3.3vw, 64px);
-      font-size: clamp(16px, 1.67vw, 32px); letter-spacing: -0.02em;
+      padding: clamp(12px, 1.04vw, 20px) clamp(24px, 2.19vw, 42px);
+      font-size: clamp(15px, 1.15vw, 22px); letter-spacing: -0.02em; font-weight: 400;
       background: var(--c-accent); color: #fff; border-color: var(--c-accent);
-      box-shadow: 0 8px 28px rgba(51,36,29,0.28);
+      box-shadow: none;
+      gap: clamp(10px, 1vw, 18px);
     }
+    .hero__cta.hero__cta { border-radius: 12px !important; }
     .hero__cta:hover { background: #666139; border-color: #666139; color: #fff; }
+    .hero__cta svg { flex-shrink: 0; width: clamp(18px, 1.45vw, 28px); height: clamp(18px, 1.45vw, 28px); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .hero__cta:hover svg { transform: translate(3px, -3px); }
 
-    /* hero rating badges */
-    .hero__ratings { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-    .hero__rating { display: flex; align-items: center; gap: 10px; }
-    .hero__rating-score { font-size: 20px; font-weight: 500; color: #FDFCF8; letter-spacing: -0.02em; font-style: normal; }
-    .hero__rating-stars { color: #f5c842; font-size: 14px; letter-spacing: 1px; }
-    .hero__rating-name { font-size: 14px; font-weight: 400; color: rgba(253,252,248,0.65); font-style: normal; }
-    .hero__rating-divider { width: 1px; height: 20px; background: rgba(253,252,248,0.25); }
+    /* hero rating badges — vertical stack, left-aligned, bottom-aligned with the video */
+    .hero__ratings {
+      position: absolute; left: clamp(20px, 9.375vw, 180px); bottom: clamp(24px, 3.7vw, 71px);
+      display: flex; flex-direction: column; align-items: flex-start; gap: clamp(14px, 1.25vw, 24px);
+    }
+    .hero__rating { display: flex; align-items: center; gap: 10px; font-size: clamp(15px, 1.04vw, 20px); }
+    .hero__rating-icon { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: block; }
+    .hero__rating-score { font-size: 1em; font-weight: 600; color: #33241D; letter-spacing: -0.02em; font-style: normal; }
+    .hero__rating-stars { color: #ffcd77; font-size: 1em; letter-spacing: 1px; }
+    .hero__rating-name { font-size: 1em; font-weight: 400; color: #33241D; font-style: normal; }
+
+    /* hero video + promo overlay card */
+    .hero__video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero__promo {
+      position: absolute; right: clamp(16px, 1.93vw, 37px); bottom: clamp(16px, 1.98vw, 38px);
+      width: clamp(220px, 14.7vw, 282px); background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px; padding: clamp(20px, 1.46vw, 28px) clamp(18px, 1.25vw, 24px);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 20px;
+      min-height: clamp(220px, 15.9vw, 305px); text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .hero__promo:hover { transform: translateY(-4px); }
+    .hero__promo-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .hero__promo-label { font-size: clamp(15px, 0.94vw, 18px); font-weight: 500; color: #fff; letter-spacing: -0.02em; line-height: 1.1; font-style: normal; }
+    .hero__promo-arr {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--c-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .hero__promo:hover .hero__promo-arr { transform: translate(3px, -3px); }
+    .hero__promo-bottom { display: flex; flex-direction: column; gap: 10px; color: #fff; }
+    .hero__promo-pct { font-size: clamp(48px, 4.69vw, 90px); font-weight: 500; letter-spacing: -0.04em; line-height: 1; font-style: normal; }
+    .hero__promo-desc { font-size: 14px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
+
+    /* hero entrance sequence: header (top) → video (right) → title (left) → subtitle (typed) → cta (left) → ratings (fade)
+       Motion itself is driven entirely by the Web Animations API (see the script
+       near the end of the body) rather than CSS transitions + class toggling —
+       a plain opacity:0 here is just the pre-JS baseline, so there is nothing
+       for the browser to "jump" from when the animation starts. */
+    .hero__photo, .hero__title, .hero__sub, .hero__cta, .hero__ratings { opacity: 0; }
+    .site-header, .site-hd { opacity: 0; }
+    .hero__sub .type-cursor {
+      display: inline-block; width: 2px; height: 0.9em; margin-left: 2px; margin-bottom: -0.1em;
+      background: currentColor; opacity: 0.5; vertical-align: middle;
+      animation: heroCursorBlink 0.9s steps(1) infinite;
+    }
+    @keyframes heroCursorBlink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero__photo, .hero__title, .hero__sub, .hero__cta, .hero__ratings { opacity: 1 !important; }
+      .site-header, .site-hd { opacity: 1 !important; }
+    }
+
+    @media (max-width: 900px) {
+      .hero__row { display: flex; flex-direction: column; min-height: 0; }
+      .hero__photo { position: relative; top: auto; left: auto; right: auto; bottom: auto; width: 100%; height: 50vh; min-height: 340px; border-radius: 0; order: 1; }
+      .hero__body { position: static; width: 100%; padding: 32px var(--gutter) 0; gap: 32px; order: 2; }
+      .hero__ratings { position: static; padding: 24px var(--gutter) 32px; order: 3; }
+      .hero__promo { width: clamp(180px, 60vw, 240px); min-height: 200px; padding: 18px 16px; right: 16px; bottom: 16px; }
+      .hero__promo-pct { font-size: clamp(36px, 12vw, 56px); }
+    }
 
     /* ── НАЧНИТЕ С ЭТОГО ──────────────────────── */
     .sec-start { padding: clamp(64px, 10vw, 160px) 0; }
@@ -306,7 +341,7 @@
     .start-label--left { justify-content: flex-start; }
     .start-label svg { width: 10px; height: 10px; flex-shrink: 0; opacity: 0.7; }
     .start-script-title {
-      font-family: var(--f-script); font-weight: 500; font-size: clamp(28px, 2.6vw, 44px);
+      font-family: var(--f); font-weight: 500; font-size: clamp(28px, 2.6vw, 44px);
       color: #fff; text-align: center; line-height: 1;
     }
     .start-script-title--left { text-align: left; }
@@ -324,7 +359,7 @@
     }
     .start-services__row:first-child { border-top: 1px solid rgba(253,252,248,0.14); }
     .start-services__row:hover { padding-left: 12px; background: rgba(253,252,248,0.05); }
-    .start-services__num { font-family: var(--f-script); font-weight: 500; font-size: clamp(20px, 1.8vw, 32px); color: #fff; }
+    .start-services__num { font-family: var(--f); font-weight: 500; font-size: clamp(20px, 1.8vw, 32px); color: #fff; }
     .start-services__txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
     .start-services__name { font-size: clamp(15px, 1.15vw, 18px); font-weight: 500; letter-spacing: -0.01em; }
     .start-services__desc { font-size: 12.5px; color: rgba(253,252,248,0.55); letter-spacing: -0.01em; }
@@ -332,7 +367,7 @@
     .start-services__row:hover .start-services__arr { transform: translate(4px,-4px); }
     .start-services__all {
       align-self: flex-end; margin-top: 10px;
-      font-family: var(--f-script); font-weight: 500; font-size: clamp(20px, 1.8vw, 28px);
+      font-family: var(--f); font-weight: 500; font-size: clamp(20px, 1.8vw, 28px);
       color: #fff; text-decoration: none; transition: color 0.25s;
     }
     .start-services__all:hover { color: rgba(255,255,255,0.7); }
@@ -352,7 +387,7 @@
     /* card 2 bottom — big stat */
     .start-card--stat { grid-column: 2; grid-row: 2; }
     .start-card--stat .start-card__body { align-items: center; justify-content: center; gap: 6px; text-align: center; }
-    .start-stat__n { font-family: var(--f-script); font-size: clamp(48px, 4.6vw, 80px); font-weight: 500; letter-spacing: 0; color: #fff; line-height: 1; text-shadow: 0 4px 24px rgba(0,0,0,0.35); }
+    .start-stat__n { font-family: var(--f); font-size: clamp(48px, 4.6vw, 80px); font-weight: 500; letter-spacing: 0; color: #fff; line-height: 1; text-shadow: 0 4px 24px rgba(0,0,0,0.35); }
     .start-stat__l { font-size: 13px; color: rgba(253,252,248,0.72); letter-spacing: -0.01em; }
 
     /* card 3 top — equipment marquee */
@@ -379,39 +414,135 @@
       background-size: 240px 240px;
     }
 
-    /* ── О КЛИНИКЕ ────────────────────────────── */
-    .sec-about { padding: clamp(64px, 10vw, 160px) 0; }
-    .about-inner { display: flex; flex-direction: column; align-items: center; gap: 56px; text-align: center; }
-    .about-text { display: flex; flex-direction: column; gap: 28px; align-items: center; max-width: 1207px; }
-    .about-text .sec-h { margin-bottom: 0; }
-    .about-body {
-      font-size: clamp(16px, 1.45vw, 24px); font-weight: 400; line-height: 1.1;
-      color: var(--c-text); letter-spacing: -0.04em; font-style: normal;
+    /* ── ЭКСПЕРТНАЯ КРАСОТА ───────────────────── */
+    .sec-about { padding: clamp(32px, 4vw, 64px) var(--gutter) 0; }
+    .about-frame {
+      position: relative; width: 100%; max-width: 1324px; margin: 0 auto;
+      height: clamp(575px, 58.3vw, 772px);
     }
-    .about-body p { margin-bottom: 1em; }
-    .about-body p:last-child { margin: 0; }
-    .about-photo {
-      width: min(586px, 44vw); aspect-ratio: 586 / 863;
-      border-radius: var(--r-card); overflow: hidden; background: #f2f2f2;
+    .about-text {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: clamp(260px, 68vw, 900px);
+      display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 1.8vw, 24px);
+      text-align: center;
     }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .about-text .sec-h { margin-bottom: 0; line-height: 1.15; font-size: clamp(26px, 4.8vw, 48px); }
+    .about-body__lead {
+      font-size: clamp(13px, 1.05vw, 18px); font-weight: 300; line-height: 1.3;
+      color: rgba(51,36,29,0.6); letter-spacing: -0.02em; font-style: normal; margin: 0;
+    }
+    .about-showcase__btn {
+      position: absolute; top: clamp(120px, 15.5vw, 205px); left: 50%; transform: translateX(-50%);
+      padding: clamp(9px, 0.9vw, 13px) clamp(18px, 2.4vw, 32px); font-size: clamp(13px, 1vw, 17px);
+      background: var(--c-accent); color: #fff; border-color: var(--c-accent);
+    }
+    .about-showcase__btn:hover { background: #666139; border-color: #666139; color: #fff; }
+    .about-circle {
+      position: absolute; top: clamp(180px, 22.43vw, 297px); left: 50%; transform: translateX(-50%);
+      width: clamp(230px, 34.7vw, 460px); aspect-ratio: 1;
+    }
+    .about-circle__ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(51,36,29,0.5); }
+    .about-circle__photo {
+      position: absolute; top: 4.5%; left: 50%; transform: translateX(-50%);
+      width: 78.19%; height: 91.48%;
+      overflow: hidden;
+    }
+    .about-circle__photo img {
+      position: absolute; top: 0; left: -41.53%; max-width: none;
+      width: 175.26%; height: 100%; object-fit: cover;
+    }
+    /* dot → line → label: all positioned as % of the circle itself, so they
+       stay geometrically locked to the ring at any circle size */
+    .about-point { display: contents; }
+    .about-point__dot {
+      position: absolute; width: clamp(6px, 1vw, 10px); height: clamp(6px, 1vw, 10px);
+      border-radius: 50%; background: #767e5d; transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    .about-point__line {
+      position: absolute; height: 1.2px; background: rgba(51,36,29,0.5);
+      transform-origin: left center;
+    }
+    .about-point__label {
+      position: absolute;
+      display: flex; flex-direction: column; gap: clamp(4px, 0.8vw, 8px);
+      text-align: left; white-space: nowrap;
+    }
+    .about-point__title { font-size: clamp(13px, 1.2vw, 16px); font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; font-style: normal; margin: 0; }
+    .about-point__text { font-size: clamp(11px, 0.95vw, 13px); font-weight: 300; color: var(--c-text); letter-spacing: -0.01em; line-height: 1.3; font-style: normal; margin: 0; white-space: normal; width: max-content; max-width: 190px; }
+
+    /* "Экспертная красота" entrance: heading+lead+button materialize first,
+       then the circle blooms in, then each point fades in one after another.
+       Driven by the Web Animations API in the script near the end of the body
+       (same reasoning as the hero sequence — see the comment there). */
+    .about-text, .about-showcase__btn, .about-circle,
+    .about-point__dot, .about-point__line, .about-point__label,
+    #about-stats-home .about-stat, #about-stats-home .about-stats__div { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .about-text, .about-showcase__btn, .about-circle,
+      .about-point__dot, .about-point__line, .about-point__label,
+      #about-stats-home .about-stat, #about-stats-home .about-stats__div { opacity: 1 !important; }
+    }
+
+    /* Точность — left of the ring; dot at angle 194° on the circle (exact:
+       x=50+50cos194°, y=50+50sin194°). Line is pure horizontal (180°) so the
+       title sits on exactly the same axis as the dot. */
+    .about-point--precision .about-point__dot { left: 1.5%; top: 37.9%; }
+    .about-point--precision .about-point__line { left: 1.5%; top: 37.9%; width: 12%; transform: rotate(180deg); }
+    .about-point--precision .about-point__label { left: -12%; top: 36%; align-items: flex-end; text-align: right; transform: translateX(-100%); }
+
+    /* Технологии — upper-right of the ring; dot at angle -51°. Short line at
+       a shallow -20° tilt, title vertically centered on the line's end. */
+    .about-point--tech .about-point__dot { left: 81.47%; top: 11.14%; }
+    .about-point--tech .about-point__line { left: 81.47%; top: 11.14%; width: 12%; transform: rotate(-20deg); }
+    .about-point--tech .about-point__label { left: 94.2%; top: 4.6%; }
+
+    /* Персональный подход — lower-right of the ring; dot at angle 46°. Same
+       short length + same -20° tilt as "Технологии" for a matching pair. */
+    .about-point--personal .about-point__dot { left: 84.73%; top: 85.97%; }
+    .about-point--personal .about-point__line { left: 84.73%; top: 85.97%; width: 12%; transform: rotate(-20deg); }
+    .about-point--personal .about-point__label { left: 97.4%; top: 79.5%; }
+
+    @media (max-width: 900px) {
+      .about-frame { height: auto; padding-top: 40px; padding-bottom: 40px; }
+      .about-text { position: static; transform: none; width: 100%; margin: 0 auto 32px; }
+      .about-showcase__btn { position: static; transform: none; margin: 0 auto 40px; }
+      .about-circle { position: static; transform: none; width: min(70vw, 320px); margin: 0 auto; }
+      .about-point__line, .about-point__dot { display: none; }
+      .about-point__label {
+        position: static; transform: none; width: 100%; max-width: 320px; margin: 20px auto 0;
+        text-align: center; align-items: center;
+      }
+      .about-point__text { white-space: normal; max-width: none; width: 100%; }
+    }
+
     .about-stats {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: clamp(28px, 5vw, 60px);
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1296px; margin: clamp(40px, 5.2vw, 80px) auto 0;
+      padding: 0 var(--gutter);
     }
-    .about-stat { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .about-stat {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; text-align: center; flex: 1 1 0; min-width: 0;
+    }
     .about-stat__n {
-      font-family: var(--f-script); font-weight: 700;
-      font-size: clamp(64px, 9vw, 148px); color: var(--c-accent);
-      line-height: 1; font-style: normal; display: block; margin-bottom: -0.12em;
+      font-size: clamp(28px, 3.33vw, 48px); font-weight: 400; color: var(--c-text);
+      line-height: 1.2; letter-spacing: -0.02em; margin: 0; font-style: normal;
+      font-variant-numeric: tabular-nums;
     }
     .about-stat__l {
-      font-size: clamp(15px, 1.25vw, 24px); font-weight: 400; color: var(--c-text);
-      letter-spacing: -0.02em; font-style: normal; display: block;
+      font-size: clamp(13px, 1.39vw, 20px); font-weight: 300; color: var(--c-text);
+      letter-spacing: -0.02em; line-height: 1.2; margin: 0; font-style: normal;
+    }
+    .about-stats__div { width: 1px; height: clamp(64px, 8.8vw, 127px); background: rgba(51,36,29,0.5); flex-shrink: 0; }
+    @media (max-width: 700px) {
+      .about-stats { flex-wrap: wrap; row-gap: 32px; }
+      .about-stat { flex: 1 1 40%; }
+      .about-stats__div { display: none; }
     }
 
     /* ── ADVANTAGES ───────────────────────────── */
-    .sec-adv { padding: clamp(64px, 10vw, 160px) 0; }
+    .sec-adv { padding: 0; }
     .adv-row { display: flex; align-items: stretch; }
     .adv-item {
       flex: 1;
@@ -431,150 +562,175 @@
       visibility: visible; opacity: 1;
     }
 
-    /* ── ПОЧЕМУ СТОИТ ОБРАТИТЬСЯ ───────────────── */
-    .sec-adv {
-      padding: clamp(64px, 10vw, 160px) 0; position: relative; overflow: hidden;
-      background: url('assets/photos/adv-bg-figma.webp') center/cover no-repeat;
-    }
+    /* ── ПОЧЕМУ СТОИТ ОБРАТИТЬСЯ (editorial bento) ───────────────── */
+    .sec-adv { padding: 0; background: var(--c-accent); overflow: hidden; }
+    .adv-inner { padding: clamp(48px, 6.25vw, 120px) clamp(24px, 15.625vw, 300px); }
     .adv-heading {
-      position: relative; z-index: 1;
-      font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; letter-spacing: -0.04em;
-      color: var(--c-white); text-align: center; margin-bottom: clamp(48px, 6vw, 96px); font-style: normal;
+      font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; letter-spacing: -0.02em;
+      line-height: 1.1; color: #fdfcf8; text-align: left; font-style: normal;
+      margin: 0 0 clamp(32px, 3.1vw, 60px);
     }
-    .adv-row {
-      position: relative; z-index: 1;
-      display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr));
-      flex-direction: unset !important;
-      gap: clamp(40px, 5vw, 72px) clamp(24px, 4vw, 64px);
-      max-width: 900px; margin: 0 auto;
+    .adv-heading em.serif-italic { color: inherit; }
+    .adv-bento { border-top: 1px solid rgba(255,255,255,0.15); border-left: 1px solid rgba(255,255,255,0.15); }
+    .adv-row { display: flex; align-items: stretch; }
+    .adv-cell {
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-right: 1px solid rgba(255,255,255,0.15);
+      box-sizing: border-box; min-height: clamp(220px, 16.67vw, 320px);
     }
-    .adv-item { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 8px 16px; transition: transform 0.3s ease; cursor: default; }
-    .adv-item + .adv-item::before { display: none; }
-    .adv-item:hover { background: none; transform: translateY(-4px); }
-    .adv-item:hover .adv-icon svg { color: var(--c-white); }
-    .adv-icon { display: flex; align-items: center; justify-content: center; }
-    .adv-icon svg { width: 64px; height: 64px; color: rgba(253,252,248,0.85); transition: color 0.3s ease; }
-    .adv-label { font-size: clamp(16px, 1.5vw, 24px); font-weight: 400; color: var(--c-white) !important; letter-spacing: -0.02em; line-height: 1.3; text-align: center; font-style: normal; }
-    @media (max-width: 767px) {
-      .adv-row { grid-template-columns: 1fr; gap: 40px; }
-      .adv-item { padding: 0 16px; }
+    .adv-cell--text { flex: 1 1 0; min-width: 0; padding: clamp(20px, 1.67vw, 32px); display: flex; flex-direction: column; gap: 16px; }
+    .adv-row--1 .adv-cell--01 { flex: 0 0 68%; }
+    .adv-row--1 .adv-cell--photo { flex: 1 1 0; overflow: hidden; }
+    .adv-row--1 .adv-cell--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .adv-row--2 .adv-cell--empty { flex: 1 1 0; overflow: hidden; }
+    .adv-cell__video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .adv-row--3 .adv-cell--03,
+    .adv-row--3 .adv-cell--04 { flex: 0 0 31.6%; }
+    .adv-cell--cta { flex: 1 1 0; display: flex; align-items: center; justify-content: center; }
+    .adv-cell__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .adv-cell__title { font-size: clamp(17px, 1.04vw, 20px); font-weight: 500; color: #fff; line-height: 1.3; font-style: normal; }
+    .adv-cell__num { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.5); font-style: normal; flex-shrink: 0; }
+    .adv-cell__text { font-size: clamp(14px, 0.89vw, 17px); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.6; letter-spacing: 0; font-style: normal; }
+    .adv-cell__btn { background: transparent; color: #fff; border: 1px solid #fff; padding: clamp(12px, 1.15vw, 18px) clamp(28px, 3vw, 50px); font-size: clamp(15px, 1.15vw, 22px); display: inline-flex; align-items: center; gap: clamp(10px, 1.2vw, 23px); }
+    .adv-cell__btn:hover { background: #fdfcf8; color: var(--c-accent); border-color: #fdfcf8; }
+    @media (max-width: 900px) {
+      .adv-row { flex-direction: column; }
+      .adv-row--1 .adv-cell--01, .adv-row--1 .adv-cell--photo,
+      .adv-row--2 .adv-cell--02, .adv-row--3 .adv-cell--03, .adv-row--3 .adv-cell--04 { flex: 1 1 auto; width: 100%; }
+      .adv-row--2 .adv-cell--empty { display: none; }
+      .adv-row--2 .adv-cell--02 { align-items: flex-start; text-align: left; width: 100%; }
+      .adv-cell--photo { min-height: 220px; }
+      .adv-cell--cta { flex: 0 0 auto; width: 100%; min-height: 0; padding: 32px; }
     }
 
     /* ── ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ───────────────── */
-    .sec-dir { background: var(--c-bg); padding: clamp(64px, 10vw, 160px) 0; }
-    .dir-head { display: flex; flex-direction: column; align-items: center; margin-bottom: clamp(40px, 5vw, 72px); }
+    .sec-dir { background: var(--c-bg); padding: 0; }
+    .dir-head { padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: flex-start; margin-bottom: clamp(40px, 5vw, 72px); }
     .dir-heading {
-      font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; text-align: center;
+      font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; text-align: left;
       color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal;
     }
 
-    .dir-cards { display: flex; width: 100%; }
-    .dir-card {
-      position: relative;
-      flex: 1 1 0; min-width: 0;
-      aspect-ratio: 372 / 516;
-      border-left: 1px solid rgba(51,36,29,0.7);
+    .dir-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; padding: 0 var(--gutter);
+    }
+    .dir-tile {
+      position: relative; overflow: hidden;
+      background: #fff; border: 1px solid #d9d9d9; border-radius: 20px;
       text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-      perspective: 1800px;
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+      aspect-ratio: 380 / 520;
     }
-    .dir-card.is-visible { opacity: 1; transform: none; }
-    .dir-card:nth-child(2) { transition-delay: 0.08s; }
-    .dir-card:nth-child(3) { transition-delay: 0.16s; }
-    .dir-card:nth-child(4) { transition-delay: 0.24s; }
-    .dir-card:last-child { border-right: 1px solid rgba(51,36,29,0.7); }
-    .dir-card__flip {
-      position: relative; width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.7s cubic-bezier(0.4,0.15,0.2,1);
+    /* dark scrim, appears as the photo fills the card */
+    .dir-tile__scrim {
+      position: absolute; inset: 0; z-index: 2;
+      background: rgba(0,0,0,0.25); opacity: 0;
+      transition: opacity 0.3s ease;
     }
-    .dir-card:hover .dir-card__flip,
-    .dir-card.is-flipped .dir-card__flip { transform: rotateY(180deg); }
-    .dir-card__face {
-      position: absolute; inset: 0;
-      backface-visibility: hidden; -webkit-backface-visibility: hidden;
-      overflow: hidden;
-    }
-    .dir-card__front { display: flex; flex-direction: column; align-items: center; }
-    .dir-card__img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center top; z-index: 0;
-    }
-    .dir-card__scrim {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to bottom, rgba(16,20,15,0.55) 0%, rgba(16,20,15,0.05) 42%, rgba(16,20,15,0.05) 100%);
-    }
-    .dir-card__num {
-      position: relative; z-index: 2; margin-top: 22px;
-      font-family: var(--f-script); font-weight: 500; font-size: clamp(36px, 3.4vw, 56px);
-      color: #fff; text-align: center;
-    }
-    .dir-card__title {
-      position: relative; z-index: 2; margin-top: 8px; padding: 0 16px;
-      font-size: clamp(16px, 1.5vw, 24px); font-weight: 400; letter-spacing: -0.01em;
-      color: #fff; text-align: center; line-height: 1.25; font-style: normal;
-    }
-    .dir-card__back {
-      transform: rotateY(180deg);
-      background: var(--c-bg);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 14px; padding: 32px 22px; text-align: center;
-    }
-    .dir-card__back-list { display: flex; flex-direction: column; gap: 10px; }
-    .dir-card__back-list p {
-      font-size: clamp(14px, 1.1vw, 18px); font-weight: 400; line-height: 1.3;
-      color: var(--c-text); letter-spacing: -0.01em; font-style: normal;
-    }
-    .dir-card__back-cta {
-      margin-top: 6px; display: inline-flex; align-items: center; gap: 6px;
-      font-size: 14px; font-weight: 500; color: var(--c-accent); letter-spacing: -0.01em;
-    }
-    .dir-card__back-cta span { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-    .dir-card:hover .dir-card__back-cta span { transform: translateX(4px); }
-    @media (prefers-reduced-motion: reduce) {
-      .dir-card__flip { transition: none; }
-    }
+    .dir-tile:hover .dir-tile__scrim { opacity: 1; transition: opacity 0.35s ease 0.1s; }
 
-    .dir-all-wrap { display: flex; justify-content: flex-end; margin-top: clamp(28px, 3.5vw, 48px); }
-    .dir-all {
-      font-family: var(--f-script); font-weight: 500;
-      font-size: clamp(24px, 2.6vw, 44px);
-      color: var(--c-text); letter-spacing: 0; line-height: 1;
-      text-decoration: none; white-space: nowrap;
-      display: inline-flex; align-items: center; gap: 12px;
-      transition: color 0.25s;
+    /* photo: small circular avatar by default, jumps to fill the whole card on hover */
+    .dir-tile__photo {
+      position: absolute; z-index: 1; overflow: hidden;
+      top: 116px; left: calc(50% - clamp(60px, 5.2vw, 80px));
+      width: clamp(120px, 10.4vw, 160px); height: clamp(120px, 10.4vw, 160px);
+      border-radius: 50%;
+      transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  top 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), left 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .dir-all:hover { color: var(--c-accent); }
-    .dir-all__arr {
-      font-family: var(--f); font-size: 0.62em; font-weight: 400;
-      display: inline-block;
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .dir-all:hover .dir-all__arr { transform: translateX(5px); }
+    .dir-tile__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .dir-tile:hover .dir-tile__photo { top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px; }
 
-    @media (max-width: 900px) {
-      .dir-cards { flex-wrap: wrap; }
-      .dir-card { flex: 1 1 50%; aspect-ratio: 372 / 460; }
-      .dir-card:nth-child(odd) { border-right: 1px solid rgba(51,36,29,0.7); }
+    /* default content — fades out as soon as hover starts */
+    .dir-tile__body {
+      position: relative; z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+      padding: 48px 28px 32px; text-align: center;
+      transition: opacity 0.2s ease;
+    }
+    .dir-tile:hover .dir-tile__body { opacity: 0; }
+    .dir-tile__num {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: 24px;
+      background: #ededed; color: #40404d;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 500; letter-spacing: -0.01em; font-style: normal;
+    }
+    /* reserves the layout space the absolutely-positioned .dir-tile__photo occupies */
+    .dir-tile__photo-spacer { width: clamp(120px, 10.4vw, 160px); height: clamp(120px, 10.4vw, 160px); flex-shrink: 0; }
+    .dir-tile__title { font-size: 20px; font-weight: 600; color: #1a1a1f; letter-spacing: -0.02em; line-height: 1.25; font-style: normal; margin: 0; }
+    .dir-tile__desc { display: flex; flex-direction: column; gap: 2px; }
+    .dir-tile__desc p { font-size: 14px; font-weight: 300; color: #595961; line-height: 1.4; letter-spacing: -0.01em; font-style: normal; }
+
+    /* hover-only overlay: number badge, centered white title, arrow button — pop in only once the photo has finished filling the card */
+    .dir-tile__num-hover,
+    .dir-tile__arrow {
+      position: absolute; z-index: 4; opacity: 0; transform: scale(0.6);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      pointer-events: none;
+    }
+    .dir-tile__title-hover {
+      position: absolute; z-index: 4; opacity: 0;
+      transform: translate(-50%, -42%) scale(0.85);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      pointer-events: none;
+    }
+    .dir-tile:hover .dir-tile__num-hover,
+    .dir-tile:hover .dir-tile__arrow {
+      opacity: 1; transform: scale(1);
+      transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s;
+    }
+    .dir-tile:hover .dir-tile__title-hover {
+      opacity: 1; transform: translate(-50%, -50%) scale(1);
+      transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.44s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.44s;
+    }
+    .dir-tile__num-hover {
+      left: 24px; top: 24px; width: 48px; height: 48px; border-radius: 24px;
+      background: var(--c-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 500; letter-spacing: -0.02em; font-style: normal;
+    }
+    .dir-tile__title-hover {
+      left: 50%; top: 46.15%;
+      width: 87%; margin: 0; text-align: center; color: #fff;
+      font-size: clamp(17px, 1.9vw, 26px); font-weight: 600; letter-spacing: -0.04em;
+      line-height: 1.2; font-style: normal;
+    }
+    .dir-tile__arrow {
+      right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 22px;
+      background: var(--c-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dir-tile__arrow svg { width: 18px; height: 18px; }
+    .dir-cta-wrap { display: flex; justify-content: center; margin-top: clamp(40px, 4.2vw, 64px); }
+    @media (max-width: 1100px) {
+      .dir-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 560px) {
-      .dir-cards { flex-direction: column; }
-      .dir-card { flex: 0 0 auto; width: 100%; aspect-ratio: 372 / 460; border-left: none !important; border-right: none !important; border-bottom: 1px solid rgba(51,36,29,0.7); }
-      .dir-card:first-child { border-top: 1px solid rgba(51,36,29,0.7); }
+      .dir-grid { grid-template-columns: 1fr; }
     }
 
+
+
     /* ── СПЕЦИАЛИСТЫ ──────────────────────────── */
-    .sec-spec { background: var(--c-dark); padding: clamp(64px, 10vw, 160px) 0; }
-    .spec-heading { margin-bottom: 90px; }
+    .sec-spec { background: var(--c-dark); padding: 0; }
+    .spec-head { padding: 0 var(--gutter); margin-bottom: clamp(40px, 5vw, 72px); }
     .spec-heading.sec-h { color: var(--c-text); }
+    .spec-track {
+      display: flex; align-items: flex-end; gap: 24px;
+      overflow-x: auto; overflow-y: hidden; padding-bottom: 4px;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .spec-track::-webkit-scrollbar { display: none; }
     .spec-card {
-      flex: 0 0 calc(25% - 18px); height: 532px; border-radius: 0;
+      flex: 0 0 auto; width: clamp(220px, 19.4vw, 372px); aspect-ratio: 372 / 532;
+      border-radius: 16px;
       overflow: hidden; position: relative; text-decoration: none;
       display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 28px; gap: 8px;
+      justify-content: flex-end; padding: 24px; padding-bottom: 36px; gap: 12px;
     }
+    .spec-card:first-child { margin-left: var(--gutter); }
+    .spec-card:last-child { margin-right: var(--gutter); }
     .spec-card__photo { position: absolute; inset: 0; overflow: hidden; }
     .spec-card__photo img {
       width: 100%; height: 100%; object-fit: cover; object-position: center top;
@@ -583,12 +739,12 @@
     .spec-card:hover .spec-card__photo img { transform: scale(1.06); }
     .spec-card::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(16,47,39,0) 30%, rgba(16,47,39,0.72) 100%);
-      border-radius: var(--r-card);
+      background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.5) 93.985%);
+      border-radius: 16px;
       transition: background 0.45s;
     }
     .spec-card:hover::after {
-      background: linear-gradient(to bottom, rgba(16,47,39,0) 15%, rgba(16,47,39,0.85) 100%);
+      background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.65) 93.985%);
     }
     .spec-card__name, .spec-card__role {
       position: relative; z-index: 2;
@@ -597,44 +753,36 @@
     }
     .spec-card:hover .spec-card__name { transform: translateY(-4px); }
     .spec-card:hover .spec-card__role { transform: translateY(-4px); }
-    .spec-card__name { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
-    .spec-card__role { font-size: 15px; font-weight: 400; letter-spacing: -0.01em; opacity: 0.72; }
+    .spec-card__name { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; }
+    .spec-card__role { font-size: 18px; font-weight: 400; letter-spacing: -0.02em; opacity: 0.72; line-height: 1.3; max-width: calc(100% - 34px); }
     .spec-card__view {
-      position: relative; z-index: 2; align-self: flex-end;
-      font-family: var(--f-script); font-weight: 500; font-size: 20px; color: #fdfcf8;
-      text-transform: none; letter-spacing: 0;
-      display: flex; align-items: center; gap: 7px;
-      opacity: 0; transform: translateY(8px);
+      position: absolute; z-index: 2; right: 28px; bottom: 28px;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translate(-4px, 4px);
       transition: opacity 0.35s, transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .spec-card:hover .spec-card__view { opacity: 1; transform: translateY(-4px); }
-    .spec-card__view::after {
-      content: '→';
-      font-family: var(--f); text-transform: none;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .spec-card:hover .spec-card__view::after { transform: translateX(4px); }
-    /* spec slider */
-    .spec-slider { overflow: hidden; }
-    .spec-track { display: flex; gap: 24px; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .spec-dots { display: flex; justify-content: center; gap: 12px; margin-top: 64px; }
+    .spec-card:hover .spec-card__view { opacity: 1; transform: translate(0, 0); }
+    .spec-card__view svg { width: 22px; height: 22px; color: #fdfcf8; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .spec-card:hover .spec-card__view svg { transform: translate(2px, -2px); }
+    /* spec nav */
+    .spec-nav { display: flex; align-items: center; justify-content: center; padding: 0 var(--gutter); margin-top: 32px; }
+    .spec-dots { display: flex; gap: 10px; }
 
     /* interactive dots */
     .dot {
-      width: 8px; height: 8px; border-radius: 50%; border: none;
+      width: 7px; height: 7px; border-radius: 50%; border: none;
       cursor: pointer; padding: 0;
-      background: rgba(53,40,26,0.2);
+      background: #cfcfcf;
       transition: background 0.25s;
       flex-shrink: 0;
     }
-    .dot--active { background: var(--c-accent); }
-    .sec-spec .dot { background: rgba(53,40,26,0.3); }
-    .sec-spec .dot--active { background: var(--c-text); }
+    .dot--active { background: #33241d; }
 
     /* ── ОСНОВАТЕЛЬНИЦА ───────────────────────── */
-    .sec-founder { background: var(--c-dark); padding: clamp(64px, 10vw, 160px) 0; }
+    .sec-founder { background: var(--c-dark); padding: 0; }
     .founder-inner { display: flex; gap: 156px; align-items: center; }
-    .founder-photo { flex-shrink: 0; width: 636px; height: 854px; border-radius: 0; overflow: hidden; background: var(--c-dark); }
+    .founder-photo { flex-shrink: 0; width: 636px; height: 854px; border-radius: 20px; overflow: hidden; background: var(--c-dark); }
     .founder-quote::before { display: none !important; }
     .founder-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .founder-cnt { flex: 1; display: flex; flex-direction: column; gap: 48px; }
@@ -647,166 +795,178 @@
       color: var(--c-text); letter-spacing: -0.04em; line-height: 1; font-style: normal;
     }
     .founder-name .script { letter-spacing: 0.1em; font-size: 1.5625em; font-weight: 500; }
-    .founder-quote { font-size: 24px; font-weight: 400; color: var(--c-text); line-height: 1.2; font-style: normal; }
+    .founder-quote { font-size: clamp(18px, 1.25vw, 24px); font-weight: 300; color: var(--c-text); line-height: 1.2; font-style: normal; }
     .founder-quote p { margin-bottom: 1em; }
     .founder-quote p:last-child { margin: 0; }
+    .founder-div { height: 1px; background: rgba(53,40,26,0.15); width: 100%; }
+    .founder-author { display: flex; flex-direction: column; gap: 4px; }
+    .founder-author__name { font-size: 18px; font-weight: 500; color: var(--c-text); line-height: 1.3; font-style: normal; }
+    .founder-author__role { font-size: 14px; font-weight: 400; color: rgba(51,36,29,0.6); line-height: 1.3; font-style: normal; }
 
-    /* ── АКЦИИ ────────────────────────────────── */
-    .sec-promos { padding: clamp(64px, 10vw, 160px) 0; }
-    .promos-inner { display: flex; flex-direction: column; gap: 42px; align-items: center; }
-    .promos-heading { align-self: flex-start; width: 100%; text-align: center; }
-    .promo-cards { display: flex; gap: 20px; width: 100%; }
-    .promo-card {
-      flex: 1; height: clamp(260px, 18vw, 344px); overflow: hidden;
-      position: relative; display: flex; flex-direction: column;
-      justify-content: space-between; padding: 28px 24px; box-sizing: border-box;
-      text-decoration: none; cursor: pointer;
-      transition: box-shadow 0.35s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    /* ── БАННЕР СКИДКИ (после hero) ────────────── */
+    .sec-promo-banner { padding: 0; }
+    .promo-banner-wrap { max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; gap: 32px; }
+    .promo-banner-strip {
+      display: flex; gap: 24px; width: 100%; overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -ms-overflow-style: none;
     }
-    .promo-card:hover { box-shadow: 0 16px 52px rgba(53,40,26,0.2); transform: translateY(-5px); }
-    .promo-card__photo { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; background-repeat: no-repeat; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .promo-card:hover .promo-card__photo { transform: scale(1.08); }
-    .promo-card__scrim { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,20,15,0.05) 0%, rgba(16,20,15,0.05) 40%, rgba(16,20,15,0.6) 100%); pointer-events: none; }
-    .promo-card__top { position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; }
-    .promo-tag { background: var(--c-accent); color: #fffaf3; border-radius: 100px; padding: 14px 24px; font-size: 15px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; font-style: normal; }
-    .promo-arr { position: relative; font-size: 20px; font-weight: 500; color: var(--c-text); font-style: normal; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-    .promo-card:hover .promo-arr { transform: translate(4px,-4px); }
-    .promo-card__btm { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 10px; color: #fff; }
-    .promo-card__title { font-size: clamp(16px, 1.25vw, 24px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; font-style: normal; }
-    .promo-card__desc { font-size: clamp(13px, 0.94vw, 18px); font-weight: 400; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
-    .promos-cta { font-family: var(--f-script); font-weight: 500; font-size: clamp(28px, 3vw, 48px); color: var(--c-text); text-decoration: none; display: inline-flex; align-items: center; gap: 14px; align-self: flex-end; transition: color 0.25s; }
-    .promos-cta:hover { color: var(--c-accent); }
-    .promos-cta__arr { font-family: var(--f); font-size: 0.55em; font-weight: 400; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); }
-    .promos-cta:hover .promos-cta__arr { transform: translateX(5px); }
+    .promo-banner-strip::-webkit-scrollbar { display: none; }
+    .promo-banner {
+      position: relative; flex: 0 0 100%; scroll-snap-align: start;
+      aspect-ratio: 1320 / 561;
+      border-radius: 16px; overflow: hidden;
+    }
+    .promo-banner__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 56% 42%; }
+    .promo-banner__card {
+      position: absolute; left: clamp(16px, 3.6vw, 48px); top: 50%; transform: translateY(-50%);
+      width: clamp(180px, 17vw, 230px); background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-radius: 16px; padding: clamp(16px, 1.25vw, 20px) clamp(14px, 1.1vw, 18px);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+      min-height: clamp(180px, 19vw, 230px); text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .promo-banner__card:hover { transform: translateY(-54%); }
+    .promo-banner__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .promo-banner__label { font-size: clamp(12px, 0.83vw, 14px); font-weight: 500; color: rgba(51,36,29,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
+    .promo-banner__arr {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: var(--c-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .promo-banner__arr svg { width: 16px; height: 16px; }
+    .promo-banner__card:hover .promo-banner__arr { transform: translate(3px, -3px); }
+    .promo-banner__bottom { display: flex; flex-direction: column; gap: 8px; color: rgba(51,36,29,0.6); }
+    .promo-banner__pct { font-size: clamp(32px, 3.4vw, 56px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-style: normal; }
+    .promo-banner__desc { font-size: 12px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
+    .promo-banner__dots { display: flex; align-items: center; gap: 10px; }
 
     /* ── ВНУТРИ КЛИНИКИ ───────────────────────── */
-    .sec-interior { padding: clamp(64px, 10vw, 160px) 0; }
-    .sec-interior__h { padding: 0 var(--gutter); margin-bottom: 48px; text-align: center; }
+    .sec-interior { padding: 0; }
+    .sec-interior__h { padding: 0 var(--gutter); margin-bottom: clamp(40px, 6.56vw, 126px); text-align: left; }
     .sec-interior__h.sec-h { color: var(--c-text); }
-    /* interior strip — horizontally scrolling filmstrip of varying-width cards */
-    .interior-strip { display: flex; align-items: flex-end; gap: 16px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
-    .interior-strip::-webkit-scrollbar { display: none; }
-    .interior-item { flex: 0 0 auto; height: clamp(220px, 34vw, 620px); aspect-ratio: var(--ar); overflow: hidden; }
+    /* interior strip — horizontally scrolling filmstrip, matching .result-strip */
+    .interior-row { display: flex; align-items: stretch; gap: 24px; overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; scrollbar-width: none; -ms-overflow-style: none; }
+    .interior-row::-webkit-scrollbar { display: none; }
+    .interior-item { flex: 0 0 auto; height: clamp(220px, 35.83vw, 688px); aspect-ratio: 3 / 2; border-radius: 16px; overflow: hidden; }
     .interior-item:first-child { margin-left: var(--gutter); }
     .interior-item:last-child { margin-right: var(--gutter); }
     .interior-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-    .interior-nav { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); margin-top: 32px; }
+    .interior-nav { display: flex; align-items: center; justify-content: center; padding: 0 var(--gutter); margin-top: 32px; }
     .interior-dots { display: flex; gap: 10px; }
-    .interior-arrows { display: flex; gap: 12px; }
-    .interior-arr { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(53,40,26,0.2); background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: var(--c-text); transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
-    .interior-arr:hover { background: var(--c-dark); border-color: var(--c-dark); color: var(--c-text); }
-    .interior-arr:active { transform: scale(0.94); }
-    .interior-arr:disabled { opacity: 0.3; cursor: default; }
-    .interior-arr:disabled:hover { background: none; border-color: rgba(53,40,26,0.2); color: var(--c-text); }
 
     /* ── РЕЗУЛЬТАТЫ ───────────────────────────── */
-    .sec-results { padding: clamp(64px, 10vw, 160px) 0; }
-    .results-heading { padding: 0 var(--gutter); margin-bottom: 48px; text-align: center; }
+    .sec-results { padding: 0; }
+    .results-heading { padding: 0 var(--gutter); margin-bottom: clamp(40px, 6.56vw, 126px); text-align: left; }
     /* results strip — horizontally scrolling filmstrip, matching .interior-strip */
-    .result-strip { display: flex; align-items: flex-start; gap: 16px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
+    .result-strip { display: flex; align-items: flex-start; gap: 24px; overflow-x: auto; overflow-y: hidden; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
     .result-strip::-webkit-scrollbar { display: none; }
-    .result-item { flex: 0 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .result-item { flex: 0 0 auto; display: flex; flex-direction: column; gap: 32px; }
     .result-item:first-child { margin-left: var(--gutter); }
     .result-item:last-child { margin-right: var(--gutter); }
-    .result-photo { height: clamp(220px, 24vw, 420px); aspect-ratio: var(--ar); overflow: hidden; }
+    .result-photo { height: clamp(220px, 23.33vw, 448px); aspect-ratio: var(--ar); border-radius: 16px; overflow: hidden; }
     .result-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .result-lbl { font-size: 24px; font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; font-style: normal; }
-    .results-nav { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); margin-top: 32px; }
+    .results-nav { display: flex; align-items: center; justify-content: center; padding: 0 var(--gutter); margin-top: clamp(32px, 3.8vw, 72px); }
     .results-dots { display: flex; gap: 10px; }
 
     /* ── ОНЛАЙН-ЗАПИСЬ ────────────────────────── */
-    .sec-booking { padding: clamp(64px, 10vw, 160px) 0; background: var(--c-bg); }
-    .booking-inner { display: flex; gap: 96px; align-items: flex-start; }
-    .booking-text { flex: 0 0 400px; }
-    .booking-heading { font-size: clamp(24px, 2.5vw, 44px); font-weight: 500; color: var(--c-text); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; font-style: normal; }
-    .booking-desc { font-size: 16px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.55; font-style: normal; }
+    .sec-booking { padding: 0; background: var(--c-bg); }
+    .booking-inner { display: flex; gap: clamp(48px, 8vw, 156px); align-items: flex-end; }
+    .booking-col--form { flex: 1 1 0; min-width: 0; max-width: 768px; display: flex; flex-direction: column; gap: clamp(40px, 4vw, 64px); }
+    .booking-col--map { flex: 0 0 clamp(320px, 33vw, 636px); display: flex; flex-direction: column; gap: 24px; }
+    .booking-text { display: flex; flex-direction: column; gap: 48px; }
+    .booking-heading { font-size: clamp(28px, 3.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; margin: 0; font-style: normal; }
+    .booking-desc { font-size: clamp(15px, 1.04vw, 20px); font-weight: 300; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.2; font-style: normal; max-width: 758px; }
     .booking-form { flex: 1; display: flex; flex-direction: column; gap: 0; }
-    .booking-row { display: flex; }
-    .booking-field { flex: 1; display: flex; flex-direction: column; }
+    .booking-row { display: flex; gap: clamp(16px, 1.25vw, 24px); }
+    .contacts-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid var(--c-text); }
+    .contacts-bar p, .contacts-bar a { font-size: clamp(14px, 0.94vw, 18px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; font-style: normal; text-decoration: none; }
+    .contacts-bar a:hover { opacity: 0.75; }
+    .booking-map { display: block; position: relative; border-radius: 16px; overflow: hidden; height: clamp(240px, 24vw, 340px); }
+    .booking-map img { width: 100%; height: 100%; object-fit: cover; border: none; display: block; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .booking-map:hover img { transform: scale(1.04); }
+    @media (max-width: 900px) {
+      .booking-inner { flex-direction: column; align-items: stretch; }
+      .booking-col--map { flex: 1 1 auto; }
+    }
+    .booking-field { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: clamp(10px, 0.83vw, 16px); }
     .booking-field label {
-      font-size: 14px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em;
-      text-transform: none; line-height: 1; display: block; font-style: normal; padding: 20px 0 0;
+      font-size: clamp(13px, 0.83vw, 16px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em;
+      text-transform: none; line-height: 1; display: block; font-style: normal; padding: 0;
     }
     .booking-field input {
       background: var(--c-bg); border: none; border-bottom: 1px solid rgba(53,40,26,0.25);
-      padding: 14px 0; font-size: 16px; font-weight: 400; color: var(--c-text);
-      letter-spacing: -0.01em; font-family: var(--f); width: 100%;
+      padding: clamp(14px, 1.25vw, 24px) clamp(8px, 0.52vw, 10px) clamp(14px, 1.25vw, 24px) clamp(14px, 1.25vw, 24px);
+      font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; color: var(--c-text);
+      letter-spacing: -0.04em; font-family: var(--f); width: 100%;
       font-style: normal; outline: none;
     }
-    .booking-field input::placeholder { color: rgba(53,40,26,0.4); }
+    .booking-field input::placeholder { color: rgba(53,40,26,0.5); }
     /* service select */
-    .booking-svc-field { display: flex; flex-direction: column; }
+    .booking-svc-field { display: flex; flex-direction: column; gap: clamp(10px, 0.83vw, 16px); margin-top: clamp(20px, 1.9vw, 36px); }
     .booking-svc-label {
-      font-size: 14px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em;
-      text-transform: none; display: block; font-style: normal; padding: 20px 0 0;
+      font-size: clamp(13px, 0.83vw, 16px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em;
+      text-transform: none; display: block; font-style: normal; padding: 0;
     }
     .booking-svc-wrap { position: relative; border-bottom: 1px solid rgba(53,40,26,0.25); }
     .booking-svc-sel {
       appearance: none; -webkit-appearance: none;
       background: var(--c-bg); border: none; width: 100%;
-      padding: 20px 40px 20px 0;
-      font-size: 24px; font-weight: 400; color: rgba(53,40,26,0.5);
-      letter-spacing: -0.02em; font-family: var(--f);
+      padding: clamp(14px, 1.25vw, 24px) 40px clamp(14px, 1.25vw, 24px) clamp(14px, 1.25vw, 24px);
+      font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; color: rgba(53,40,26,0.5);
+      letter-spacing: -0.04em; font-family: var(--f);
       cursor: pointer; outline: none; font-style: normal;
     }
     .booking-svc-sel option { color: var(--c-text); font-weight: 400; }
     .booking-svc-wrap svg { position: absolute; right: 0; top: 50%; transform: translateY(-50%); pointer-events: none; }
     .booking-submit {
       background: var(--c-accent); color: #fdfcf8; border: none;
-      border-radius: var(--r-pill); padding: 16px; font-size: 15px; font-weight: 500;
-      letter-spacing: -0.01em; font-family: var(--f); cursor: pointer; width: 100%;
-      font-style: normal; margin-top: 32px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border-radius: 8px; padding: clamp(14px, 1.25vw, 24px) clamp(10px, 0.52vw, 10px) clamp(14px, 1.25vw, 24px) clamp(12px, 0.94vw, 18px);
+      font-size: clamp(16px, 1.25vw, 24px); font-weight: 400;
+      letter-spacing: -0.04em; font-family: var(--f); cursor: pointer; width: 100%;
+      font-style: normal; margin-top: 24px;
       transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
     }
-    .booking-submit:hover { background: #5e5a38; transform: translateY(-1px); }
-    .booking-submit:active { transform: translateY(0); }
-
-    /* ── ЖДЁМ ВАС ─────────────────────────────── */
-    .sec-contacts {
-      background: linear-gradient(rgba(40,38,18,0.1), rgba(40,38,18,0.1)), url('assets/photos/footer-texture.webp');
-      background-size: cover; background-position: center;
-    }
-    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 694px; }
-    .contacts-left {
-      padding: 64px var(--gutter);
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .contacts-heading {
-      font-size: clamp(24px, 2.5vw, 44px); font-weight: 500;
-      color: #fdfcf8; letter-spacing: -0.03em; line-height: 1.05;
-      max-width: 400px; font-style: normal;
-    }
-    .contacts-bottom { display: flex; flex-direction: column; gap: 32px; }
-    .contacts-info { display: flex; flex-direction: column; gap: 8px; }
-    .contacts-info p { font-size: 15px; font-weight: 400; color: rgba(253,252,248,0.8); line-height: 1.5; font-style: normal; }
-    .contacts-div { height: 1px; background: rgba(253,252,248,0.25); }
-    .contacts-links { display: flex; justify-content: space-between; }
-    .contacts-links a { font-size: 15px; font-weight: 500; color: #fdfcf8; text-decoration: none; line-height: 1.25; font-style: normal; }
-    .contacts-links a:hover { opacity: 0.75; }
-    .contacts-grid { min-height: 520px; }
-    .contacts-map { overflow: hidden; position: relative !important; height: 520px !important; }
-    .contacts-map iframe { width: 100%; height: 100%; border: 0; display: block; }
-    /* override old styles.css conflicts */
-    .contacts-info { background: transparent !important; padding: 0 !important; }
-    .contacts-map  { background: transparent !important; }
+    .booking-submit svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .booking-submit:hover { background: #5e6249; }
 
     /* ── FOOTER ───────────────────────────────── */
-    .site-footer {
-      background: linear-gradient(rgba(40,38,18,0.1), rgba(40,38,18,0.1)), url('assets/photos/footer-texture.webp');
-      background-size: cover; background-position: center;
-      padding: 60px 0 40px; border-top: none;
+    .site-footer { background: var(--c-bg); padding: clamp(36px, 4.5vw, 88px) 0 clamp(24px, 3.3vw, 64px); }
+    .footer-wrap { max-width: 1920px; margin: 0 auto; padding: 0 clamp(20px, 6.25vw, 120px); }
+    .footer-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 16px; color: var(--c-text); }
+    .footer-nav__group { display: flex; gap: clamp(20px, 2.1vw, 40px); flex-wrap: wrap; }
+    .footer-nav a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+    .footer-nav a:hover { opacity: 0.6; }
+    .footer-div { height: 1px; background: rgba(51,36,29,0.15); margin: clamp(24px, 2.5vw, 44px) 0; }
+    .footer-socials { display: flex; gap: 12px; margin-bottom: clamp(20px, 2.2vw, 40px); }
+    .footer-social { width: 44px; height: 44px; border-radius: 50%; background: var(--c-text); display: flex; align-items: center; justify-content: center; transition: opacity 0.2s; }
+    .footer-social:hover { opacity: 0.75; }
+    .footer-social img { width: 24px; height: 20px; }
+    .footer-social--plain { background: transparent; }
+    .footer-social--plain img { width: 44px; height: 44px; }
+    .footer-social[aria-label="MAX"] img { width: 22px; height: 22px; }
+    .footer-brand-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .footer-wordmark { font-family: var(--f); font-weight: 300; font-size: clamp(56px, 10.5vw, 200px); line-height: 0.8; color: var(--c-text); }
+    .footer-cta { display: flex; flex-direction: column; gap: 24px; max-width: 460px; padding-bottom: 12px; }
+    .footer-cta__text { font-size: 16px; font-weight: 300; color: var(--c-text); line-height: 1.5; font-style: normal; }
+    .footer-cta__btn { display: inline-flex; align-items: center; justify-content: center; background: #767e5d; color: #faf9f6; border-radius: 8px; padding: 12px 32px; font-size: 15px; font-weight: 500; text-decoration: none; transition: background 0.2s; align-self: flex-start; }
+    .footer-cta__btn:hover { background: #5e6249; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: calc(16px + clamp(24px, 2.5vw, 44px)); padding-top: 20px; border-top: 1px solid rgba(51,36,29,0.12); font-size: 14px; color: rgba(51,36,29,0.6); }
+    .footer-legal { display: flex; gap: 32px; flex-wrap: wrap; }
+    .footer-legal a { color: inherit; text-decoration: none; }
+    .footer-legal a:hover { color: var(--c-text); }
+    .footer-made { display: flex; align-items: center; gap: 8px; opacity: 0.6; transition: opacity 0.2s; text-decoration: none; }
+    .footer-made:hover { opacity: 1; }
+    .footer-made img { height: 18px; width: auto; }
+    @media (max-width: 640px) {
+      .footer-nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-brand-row { flex-direction: column; align-items: flex-start; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
-    .footer-grid { display: grid; grid-template-columns: minmax(220px, 335px) repeat(3, 1fr); gap: 60px; align-items: start; }
-    .footer-logo { margin-bottom: 24px; }
-    .footer-logo img { height: 40px; width: auto; }
-    .footer-tagline { font-size: 18px; font-weight: 500; color: rgba(253,252,248,0.65); line-height: 1.25; font-style: normal; margin-bottom: 24px; }
-    .footer-phone { font-size: 22px; font-weight: 500; color: #fdfcf8; line-height: 1.25; text-decoration: none; display: block; font-style: normal; margin-bottom: 8px; }
-    .footer-addr { font-size: 14px; font-weight: 400; color: rgba(253,252,248,0.65); line-height: 1.25; font-style: normal; }
-    .footer-col h3 { font-size: 16px; font-weight: 600; color: #fdfcf8; line-height: 1.25; margin-bottom: 20px; letter-spacing: 0.04em; font-style: normal; }
-    .footer-links { display: flex; flex-direction: column; gap: 12px; }
-    .footer-links a { font-size: 14px; font-weight: 400; color: rgba(253,252,248,0.65); text-decoration: none; line-height: 1.25; font-style: normal; transition: color 0.2s; }
-    .footer-links a:hover { color: #fdfcf8; }
-    .footer-copy { margin-top: 48px; font-size: 13px; font-weight: 400; color: rgba(253,252,248,0.5); font-style: normal; }
 
     /* ── ADV ANIMATION ──────────────────────── */
     @keyframes advIconIn {
@@ -883,7 +1043,7 @@
       letter-spacing: -0.02em; margin-bottom: 6px; font-style: normal;
     }
     .cookie-banner__desc {
-      font-size: 14px; font-weight: 400; color: rgba(53,40,26,0.6);
+      font-size: 14px; font-weight: 300; color: rgba(53,40,26,0.6);
       letter-spacing: -0.01em; line-height: 1.5; font-style: normal;
     }
     .cookie-banner__desc a {
@@ -977,7 +1137,7 @@
       margin-bottom: 20px; font-style: normal;
     }
     .gift-popup__desc {
-      font-size: 18px; font-weight: 400; color: var(--c-w50);
+      font-size: 18px; font-weight: 300; color: var(--c-w50);
       letter-spacing: -0.01em; line-height: 1.55; margin-bottom: 36px;
       font-style: normal;
     }
@@ -1077,11 +1237,11 @@
     .booking-popup.is-open .booking-popup__check svg { stroke-dashoffset: 0; }
 
     .booking-popup__title {
-      font-size: clamp(24px, 3vw, 40px); font-weight: 500; color: var(--c-text);
+      font-size: clamp(24px, 3vw, 40px); font-weight: 400; color: var(--c-text);
       letter-spacing: -0.02em; line-height: 1; margin-bottom: 14px; font-style: normal;
     }
     .booking-popup__desc {
-      font-size: 18px; font-weight: 400; color: var(--c-muted);
+      font-size: 18px; font-weight: 300; color: var(--c-muted);
       letter-spacing: -0.02em; line-height: 1.45; font-style: normal; margin-bottom: 36px;
     }
     .booking-popup__close { padding: 16px 52px; font-size: 18px; background: var(--c-dark); color: var(--c-text); border-color: var(--c-dark); box-shadow: 0 4px 20px rgba(16,47,39,0.25); }
@@ -1121,7 +1281,7 @@
       .booking-popup__close { padding: 14px 40px; font-size: 16px; }
     }
   </style>
-  <link rel="preload" href="responsive.css?v=202607162200" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202607162200"/></noscript>
+  <link rel="stylesheet" href="responsive.css?v=202607162200"/>
 </head>
 <body>
 
@@ -1212,190 +1372,374 @@
 
 <!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero__bg-stage">
-    <div class="hero__bg" id="hero-bg-a" style="background-image:url('assets/photos/hero-reception-figma.webp');opacity:1;z-index:2;"></div>
-  </div>
-  <div class="hero__bg-overlay"></div>
-  <div class="wrap">
+  <div class="hero__row">
     <div class="hero__body" id="hero-body">
       <div class="hero__headline">
-        <h1 class="hero__title" id="hero-title">Клиника экспертной <span class="script">Косметологии</span> и <span class="script">Лазерной Эпиляции</span> в Анапе</h1>
-        <p class="hero__sub" id="hero-sub">Выбор тех, кто привык к безупречному сервису и медицинской точности.</p>
-        <div class="hero__ratings">
-          <div class="hero__rating">
-            <span class="hero__rating-stars">★★★★★</span>
-            <span class="hero__rating-score" id="hero-rating-yandex">4.9</span>
-            <span class="hero__rating-name">Яндекс</span>
-          </div>
-          <div class="hero__rating-divider"></div>
-          <div class="hero__rating">
-            <span class="hero__rating-stars">★★★★★</span>
-            <span class="hero__rating-score" id="hero-rating-gis">5.0</span>
-            <span class="hero__rating-name">2ГИС</span>
-          </div>
-          <div class="hero__rating-divider"></div>
-          <div class="hero__rating">
-            <span class="hero__rating-stars">★★★★★</span>
-            <span class="hero__rating-score" id="hero-rating-prodoc">5.0</span>
-            <span class="hero__rating-name">ПроДокторов</span>
-          </div>
-        </div>
+        <h1 class="hero__title" id="hero-title">Клиника экспертной <em class="hero__dim">косметологии</em> <br>и <em class="hero__dim">лазерной эпиляции</em> в Анапе</h1>
+        <p class="hero__sub" id="hero-sub" data-typed="Выбор тех, кто привык к безупречному сервису||и медицинской точности.">Выбор тех, кто привык к безупречному сервису <br>и медицинской точности.</p>
       </div>
-      <a href="#booking" class="pill-btn hero__cta" id="hero-cta">Записаться на приём</a>
+      <a href="#booking" class="pill-btn hero__cta" id="hero-cta">Записаться на приём <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="hero__ratings">
+      <div class="hero__rating">
+        <img class="hero__rating-icon" src="assets/icons/rating-yandex.webp" alt="" width="34" height="34"/>
+        <span class="hero__rating-stars">★★★★★</span>
+        <span class="hero__rating-score" id="hero-rating-yandex">4.9</span>
+        <span class="hero__rating-name">Яндекс</span>
+      </div>
+      <div class="hero__rating">
+        <img class="hero__rating-icon" src="assets/icons/rating-2gis.webp?v=2" alt="" width="34" height="34"/>
+        <span class="hero__rating-stars">★★★★★</span>
+        <span class="hero__rating-score" id="hero-rating-gis">5.0</span>
+        <span class="hero__rating-name">2ГИС</span>
+      </div>
+      <div class="hero__rating">
+        <img class="hero__rating-icon" src="assets/icons/rating-prodoktorov.webp" alt="" width="34" height="34"/>
+        <span class="hero__rating-stars">★★★★★</span>
+        <span class="hero__rating-score" id="hero-rating-prodoc">5.0</span>
+        <span class="hero__rating-name">ПроДокторов</span>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/photos/hero-image174.webp">
+        <source src="assets/video/hero-clip.mp4" type="video/mp4"/>
+      </video>
+      <a href="promos/first-visit.html" class="hero__promo">
+        <div class="hero__promo-top">
+          <p class="hero__promo-label">Скидка новым гостям!</p>
+          <span class="hero__promo-arr" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="hero__promo-bottom">
+          <p class="hero__promo-pct">20%</p>
+          <p class="hero__promo-desc">В честь знакомства с Вами, дарим скидку на любые услуги в первое посещение</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ═══ НАЧНИТЕ С ЭТОГО ════════════════════════════════════════════ -->
-<section class="sec-start" id="start">
-  <div class="wrap">
-
-    <div class="start-inner">
-      <div class="start-head__col">
-        <h2 class="sec-h">Начните свой <span class="script">путь</span></h2>
-        <p class="start-head__sub">Опытные врачи, сертифицированное оборудование и результат, подтверждённый сотнями довольных пациентов, — начните путь к преображению уже сегодня.</p>
-      </div>
-
-      <div class="start-grid">
-
-      <!-- УСЛУГИ -->
-      <div class="start-card start-card--services">
-        <div class="start-card__bg" style="background-image:url('assets/photos/bento-services-figma.webp');"></div>
-        <div class="start-card__scrim"></div>
-        <div class="start-card__body">
-          <span class="start-script-title start-script-title--lg">Услуги</span>
-          <div class="start-services__list">
-            <a href="services/laser.html" class="start-services__row">
-              <span class="start-services__num">01</span>
-              <span class="start-services__txt">
-                <span class="start-services__name">Лазерная эпиляция</span>
-                <span class="start-services__desc">Гладкая кожа на долго без раздражений и бритья</span>
-              </span>
-              <span class="start-services__arr">→</span>
-            </a>
-            <a href="services/smas.html" class="start-services__row">
-              <span class="start-services__num">02</span>
-              <span class="start-services__txt">
-                <span class="start-services__name">SMAS-лифтинг</span>
-                <span class="start-services__desc">Лифтинг без операций с долгосрочным эффектом</span>
-              </span>
-              <span class="start-services__arr">→</span>
-            </a>
-            <a href="services/injections.html" class="start-services__row">
-              <span class="start-services__num">03</span>
-              <span class="start-services__txt">
-                <span class="start-services__name">Инъекционная косметология</span>
-                <span class="start-services__desc">Бииоревитализация, мезотерапия, контурная пластика</span>
-              </span>
-              <span class="start-services__arr">→</span>
-            </a>
-          </div>
-          <a href="services.html" class="start-services__all">Смотреть все</a>
+<!-- ═══ БАННЕР СКИДКИ ══════════════════════════════════════════════ -->
+<section class="sec-promo-banner" id="promos">
+  <div class="promo-banner-wrap">
+  <div class="promo-banner-strip" id="promo-banner-strip">
+    <div class="promo-banner">
+      <img class="promo-banner__photo" src="assets/photos/promo-banner-laser-figma.webp" alt="Лазерная эпиляция в клинике RA|RÉ" loading="lazy"/>
+      <a href="promos/laser-new-client.html" class="promo-banner__card">
+        <div class="promo-banner__top">
+          <p class="promo-banner__label">Скидка на лазерную эпиляцию для новых клиентов</p>
+          <span class="promo-banner__arr" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
         </div>
-      </div>
-
-      <!-- ОТЗЫВ КЛИЕНТА -->
-      <div class="start-card start-card--quote">
-        <span class="start-quote__stars">★★★★★</span>
-        <p class="start-quote__text">«Результат потрясающий! После 6 сеансов 95% волос ушло навсегда, и почти без боли!»</p>
-        <div class="start-quote__foot">
-          <span class="start-quote__name">Алина П.</span>
-          <span class="start-quote__src">Яндекс, май 2026</span>
-        </div>
-      </div>
-
-      <!-- СТАТИСТИКА -->
-      <div class="start-card start-card--stat">
-        <div class="start-card__bg" style="background-image:url('assets/photos/bento-stat-figma.webp');"></div>
-        <div class="start-card__scrim"></div>
-        <div class="start-card__body">
-          <span class="start-stat__n">3000+</span>
-          <span class="start-stat__l">Довольных пациентов</span>
-        </div>
-      </div>
-
-      <!-- ОБОРУДОВАНИЕ -->
-      <div class="start-card start-card--equip">
-        <div class="start-card__bg" style="background-image:url('assets/photos/bento-equip-figma.webp');"></div>
-        <div class="start-card__scrim"></div>
-        <div class="start-card__body">
-          <span class="start-script-title">Оборудование</span>
-        </div>
-      </div>
-
-      <!-- ЗАПИСЬ -->
-      <a href="#booking" class="start-card start-card--contact">
-        <div class="start-contact__top">
-          <span class="start-script-title">Запись</span>
-        </div>
-        <div class="start-contact__body">
-          <span class="start-contact__phone">+7 (900) 276-11-16</span>
-          <span class="start-contact__addr">Анапа, Владимирская 120</span>
+        <div class="promo-banner__bottom">
+          <p class="promo-banner__pct">30%</p>
+          <p class="promo-banner__desc">При первом посещении нашей клиники вы получаете скидку 30% на лазерное удаление волос.</p>
         </div>
       </a>
-
-      </div>
     </div>
+    <div class="promo-banner">
+      <img class="promo-banner__photo" src="assets/photos/promo-smas-figma.webp" alt="СМАС-лифтинг в клинике RA|RÉ" loading="lazy"/>
+      <a href="promos/smas-lifting.html" class="promo-banner__card">
+        <div class="promo-banner__top">
+          <p class="promo-banner__label">Скидка на СМАС от 500 линий</p>
+          <span class="promo-banner__arr" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="promo-banner__bottom">
+          <p class="promo-banner__pct">20%</p>
+          <p class="promo-banner__desc">Весь август получите приятную скидку 20% на процедуру СМАС-лифтинга.</p>
+        </div>
+      </a>
+    </div>
+    <div class="promo-banner">
+      <img class="promo-banner__photo" src="assets/photos/promo-rf-figma.webp" alt="Монополярный РФ-лифтинг в клинике RA|RÉ" loading="lazy"/>
+      <a href="promos/rf-lifting.html" class="promo-banner__card">
+        <div class="promo-banner__top">
+          <p class="promo-banner__label">Монополярный РФ-лифтинг со скидкой</p>
+          <span class="promo-banner__arr" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="promo-banner__bottom">
+          <p class="promo-banner__pct">30%</p>
+          <p class="promo-banner__desc">Только до конца августа скидка 30% от 400 импульсов.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="promo-banner__dots" id="promo-banner-dots"></div>
   </div>
 </section>
 
 <!-- ═══ О КЛИНИКЕ ══════════════════════════════════════════════════ -->
 <section class="sec-about" id="about">
-  <div class="wrap">
-    <div class="about-inner">
-      <div class="about-text">
-        <h2 class="sec-h"><span class="script">О</span> Клинике</h2>
-        <div class="about-body">
-          <p>RA|RÉ — клиника экспертной косметологии в Анапе. Мы объединяем передовые технологии, глубокую медицинскую экспертизу и внимательный индивидуальный подход к каждому гостю.</p>
-          <p>Каждая процедура разработана под ваш тип кожи и задачи. Никаких шаблонных решений — только персональный протокол с доказанным результатом.</p>
-          <p>Наша миссия — улучшить качество здоровья и жизни каждого гостя. Мы применяем самые эффективные и прогрессивные методы, постоянно повышая уровень квалификации наших специалистов.</p>
+  <div class="about-frame">
+    <div class="about-text">
+      <h2 class="sec-h">Экспертная <em class="serif-italic">красота</em> начинается<br>с <em class="serif-italic">индивидуального</em> подхода</h2>
+      <p class="about-body__lead">RA|RÉ — клиника экспертной косметологии в Анапе. Мы объединяем передовые технологии, глубокую медицинскую экспертизу и внимательный индивидуальный подход к каждому гостю.</p>
+    </div>
+    <a href="services.html" class="pill-btn about-showcase__btn">Подробнее</a>
+    <div class="about-circle">
+      <div class="about-circle__ring" aria-hidden="true"></div>
+      <div class="about-circle__photo"><img src="assets/photos/intro-device-figma.webp" alt="Аппаратная процедура в клинике RA|RÉ" loading="lazy"/></div>
+
+      <div class="about-point about-point--precision">
+        <span class="about-point__line" aria-hidden="true"></span>
+        <span class="about-point__dot" aria-hidden="true"></span>
+        <div class="about-point__label">
+          <p class="about-point__title">Точность</p>
+          <p class="about-point__text">Точная диагностика и продуманные протоколы для видимых результатов.</p>
         </div>
       </div>
-      <div class="about-photo">
-        <img src="assets/photos/about-mirror-figma.webp" alt="Клиника RA|RÉ" loading="lazy"/>
+
+      <div class="about-point about-point--tech">
+        <span class="about-point__line" aria-hidden="true"></span>
+        <span class="about-point__dot" aria-hidden="true"></span>
+        <div class="about-point__label">
+          <p class="about-point__title">Технологии</p>
+          <p class="about-point__text">Современные аппараты и эффективные методики нового поколения.</p>
+        </div>
+      </div>
+
+      <div class="about-point about-point--personal">
+        <span class="about-point__line" aria-hidden="true"></span>
+        <span class="about-point__dot" aria-hidden="true"></span>
+        <div class="about-point__label">
+          <p class="about-point__title">Персональный подход</p>
+          <p class="about-point__text">Индивидуальные решения под тип кожи и задачи каждого гостя.</p>
+        </div>
       </div>
     </div>
-    <div class="about-stats">
-      <div class="about-stat">
-        <span class="about-stat__n">7+</span>
-        <span class="about-stat__l">Лет работы</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-stat__n">3000+</span>
-        <span class="about-stat__l">Довольных клиентов</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-stat__n">12</span>
-        <span class="about-stat__l">Специалистов</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-stat__n">40+</span>
-        <span class="about-stat__l">Процедур</span>
-      </div>
+  </div>
+  <div class="about-stats" id="about-stats-home">
+    <div class="about-stat">
+      <p class="about-stat__n">7+</p>
+      <p class="about-stat__l">Лет работы</p>
     </div>
+    <span class="about-stats__div" aria-hidden="true"></span>
+    <div class="about-stat">
+      <p class="about-stat__n">3000+</p>
+      <p class="about-stat__l">Довольных клиентов</p>
+    </div>
+    <span class="about-stats__div" aria-hidden="true"></span>
+    <div class="about-stat">
+      <p class="about-stat__n">12</p>
+      <p class="about-stat__l">Специалистов</p>
+    </div>
+    <span class="about-stats__div" aria-hidden="true"></span>
+    <div class="about-stat">
+      <p class="about-stat__n">40+</p>
+      <p class="about-stat__l">Процедур</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ═════════════════════════════════════ -->
+<section class="sec-dir" id="services">
+  <div class="dir-head">
+    <h2 class="dir-heading">Направления <em class="serif-italic">услуг</em></h2>
+  </div>
+
+  <div class="dir-grid">
+
+    <a href="services/laser.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-01-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">01</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Лазерные технологии</p>
+        <div class="dir-tile__desc">
+          <p>Лазерная эпиляция на александритовом лазере</p>
+          <p>Лазерная шлифовка</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">01</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Лазерные технологии</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services/skin.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-02-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">02</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Световые технологии</p>
+        <div class="dir-tile__desc">
+          <p>Фотосистема IPL Nordlys</p>
+          <p>ФДТ Revixan</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">02</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Световые технологии</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services/lifts.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-03-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">03</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Аппаратный лифтинг</p>
+        <div class="dir-tile__desc">
+          <p>SMAS-лифтинг Ultraformer</p>
+          <p>Микроигольчатый RF-лифтинг</p>
+          <p>Монополярный RF-лифтинг Volnewmer</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">03</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Аппаратный лифтинг</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services/skin.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-04-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">04</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Уход за кожей</p>
+        <div class="dir-tile__desc">
+          <p>Эстетическая косметология</p>
+          <p>Вакуумный гидропилинг</p>
+          <p>Hydra Touch H2</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">04</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Уход за кожей</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services/injections.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-05-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">05</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Инъекционная косметология</p>
+        <div class="dir-tile__desc">
+          <p>Биоревитализация</p>
+          <p>Мезотерапия</p>
+          <p>Контурная пластика и другие процедуры</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">05</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Инъекционная косметология</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services/spa.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-06-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">06</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Коррекция тела и SPA</p>
+        <div class="dir-tile__desc">
+          <p>LPG-массаж на аппарате Cellu M6 Integral</p>
+          <p>Массажи и SPA-уходы</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">06</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Коррекция тела и SPA</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services/smas.html" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-07-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">07</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Диагностика</p>
+        <div class="dir-tile__desc">
+          <p>УЗИ дермы</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">07</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Диагностика</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+    <a href="services.html#consultations" class="dir-tile">
+      <div class="dir-tile__scrim" aria-hidden="true"></div>
+      <div class="dir-tile__photo"><img src="assets/photos/dir-08-figma.webp" alt="" loading="lazy"/></div>
+      <div class="dir-tile__body">
+        <span class="dir-tile__num">08</span>
+        <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+        <p class="dir-tile__title">Консультации специалистов</p>
+        <div class="dir-tile__desc">
+          <p>Консультация косметолога</p>
+          <p>Консультация трихолога</p>
+          <p>Консультация нутрициолога</p>
+        </div>
+      </div>
+      <span class="dir-tile__num-hover" aria-hidden="true">08</span>
+      <p class="dir-tile__title-hover" aria-hidden="true">Консультации специалистов</p>
+      <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+
+  </div>
+  <div class="dir-cta-wrap">
+    <a href="#booking" class="pill-btn hero__cta">Записаться на приём <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 
 <!-- ═══ ПРИЧИНЫ ОБРАЩЕНИЯ ══════════════════════════════════════════ -->
 <section class="sec-adv" id="reasons">
-  <div class="wrap">
-    <h2 class="adv-heading"><span class="script">Почему</span> стоит обратиться в RA|RÉ</h2>
-    <div class="adv-row">
-      <div class="adv-item">
-        <div class="adv-icon"><img src="assets/icons/adv/specialists.svg" alt="" loading="lazy"/></div>
-        <p class="adv-label">Опытные специалисты</p>
+  <div class="adv-inner">
+    <h2 class="adv-heading"><em class="serif-italic">Почему</em> стоит обратиться в RA|RÉ</h2>
+    <div class="adv-bento">
+      <div class="adv-row adv-row--1">
+        <div class="adv-cell adv-cell--text adv-cell--01">
+          <div class="adv-cell__head">
+            <p class="adv-cell__title">Опытные специалисты</p>
+            <span class="adv-cell__num">01</span>
+          </div>
+          <p class="adv-cell__text">Наши врачи — сертифицированные дерматологи и косметологи с многолетним опытом работы. Каждый специалист регулярно проходит повышение квалификации и владеет передовыми методиками, чтобы предложить Вам наиболее эффективные решения.</p>
+        </div>
+        <div class="adv-cell adv-cell--photo"><img src="assets/photos/bento-services-figma.webp" alt="Процедурный кабинет клиники RA|RÉ" loading="lazy"/></div>
       </div>
-      <div class="adv-item">
-        <div class="adv-icon"><img src="assets/icons/adv/prices.svg" alt="" loading="lazy"/></div>
-        <p class="adv-label">Доступные цены</p>
+      <div class="adv-row adv-row--2">
+        <div class="adv-cell adv-cell--empty adv-cell--video">
+          <video class="adv-cell__video" autoplay muted loop playsinline preload="auto" poster="assets/video/bento-cell-poster.webp" aria-hidden="true">
+            <source src="assets/video/bento-cell-clip.mp4" type="video/mp4"/>
+          </video>
+        </div>
+        <div class="adv-cell adv-cell--text adv-cell--02">
+          <div class="adv-cell__head">
+            <p class="adv-cell__title">Доступные цены</p>
+            <span class="adv-cell__num">02</span>
+          </div>
+          <p class="adv-cell__text">Мы убеждены, что качественная косметология должна быть доступной. Гибкая ценовая политика, специальные предложения для новых гостей и программы лояльности позволяют получить премиальный уход без переплат.</p>
+        </div>
+        <div class="adv-cell adv-cell--empty" aria-hidden="true"></div>
       </div>
-      <div class="adv-item">
-        <div class="adv-icon"><img src="assets/icons/adv/equipment.svg" alt="" loading="lazy"/></div>
-        <p class="adv-label">Лучшее оборудование с РУ</p>
-      </div>
-      <div class="adv-item">
-        <div class="adv-icon"><img src="assets/icons/adv/preparations.svg" alt="" loading="lazy"/></div>
-        <p class="adv-label">Сертифицированные препараты</p>
+      <div class="adv-row adv-row--3">
+        <div class="adv-cell adv-cell--text adv-cell--03">
+          <div class="adv-cell__head">
+            <p class="adv-cell__title">Лучшее оборудование с РУ</p>
+            <span class="adv-cell__num">03</span>
+          </div>
+          <p class="adv-cell__text">Клиника оснащена только сертифицированными аппаратами с регистрационными удостоверениями. Мы работаем на оборудовании ведущих мировых производителей с клинически доказанной эффективностью и безопасностью.</p>
+        </div>
+        <div class="adv-cell adv-cell--cta">
+          <a href="#booking" class="pill-btn adv-cell__btn">Записаться на приём
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="adv-cell adv-cell--text adv-cell--04">
+          <div class="adv-cell__head">
+            <p class="adv-cell__title">Сертифицированные препараты</p>
+            <span class="adv-cell__num">04</span>
+          </div>
+          <p class="adv-cell__text">Все используемые препараты имеют официальную регистрацию и сертификаты качества. Мы сотрудничаем напрямую с производителями, что гарантирует подлинность и правильные условия хранения каждого средства.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1411,7 +1755,7 @@
       <div class="founder-cnt">
         <div class="founder-top">
           <div class="founder-meta">
-            <h2 class="founder-name"><span class="nowrap"><span class="script">А</span>нуш</span> <span class="nowrap"><span class="script">А</span>рташевна</span></h2>
+            <h2 class="founder-name">Слово основательницы</h2>
           </div>
         </div>
         <div class="founder-quote">
@@ -1419,266 +1763,100 @@
           <p>Именно поэтому мы создали место, где Вы, в уютной атмосфере, с помощью команды настоящих профессионалов, можете стать лучшей версией себя.</p>
           <p>Мы тщательно подходим к выбору оборудования и оснащения клиники, останавливаясь только на самых современных аппаратах с доказанной эффективностью. Будьте всегда здоровы и красивы — а мы Вам в этом поможем.</p>
         </div>
+        <div class="founder-div"></div>
+        <div class="founder-author">
+          <p class="founder-author__name">Ануш Арташевна</p>
+          <p class="founder-author__role">Основательница клиники RA|RÉ</p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ═════════════════════════════════════ -->
-<section class="sec-dir" id="services">
-  <div class="wrap">
-    <div class="dir-head">
-      <h2 class="dir-heading"><span class="script">Популярные</span> направления</h2>
-    </div>
-
-    <div class="dir-cards">
-
-      <!-- 01: Лазерные технологии -->
-      <a href="services/laser.html" class="dir-card" data-dir-card>
-        <div class="dir-card__flip">
-          <div class="dir-card__face dir-card__front">
-            <img class="dir-card__img" src="assets/photos/dir-01-figma.webp" alt="" loading="lazy"/>
-            <div class="dir-card__scrim"></div>
-            <span class="dir-card__num">01</span>
-            <span class="dir-card__title">Лазерные технологии</span>
-          </div>
-          <div class="dir-card__face dir-card__back">
-            <div class="dir-card__back-list">
-              <p>Лазерная эпиляция на александритовом лазере</p>
-              <p>Лазерная шлифовка</p>
-            </div>
-            <span class="dir-card__back-cta">Подробнее <span>→</span></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 02: Световые технологии -->
-      <a href="services/skin.html" class="dir-card" data-dir-card>
-        <div class="dir-card__flip">
-          <div class="dir-card__face dir-card__front">
-            <img class="dir-card__img" src="assets/photos/dir-02-figma.webp" alt="" loading="lazy"/>
-            <div class="dir-card__scrim"></div>
-            <span class="dir-card__num">02</span>
-            <span class="dir-card__title">Световые технологии</span>
-          </div>
-          <div class="dir-card__face dir-card__back">
-            <div class="dir-card__back-list">
-              <p>Фотосистема IPL Nordlys</p>
-              <p>ФДТ Revixan</p>
-            </div>
-            <span class="dir-card__back-cta">Подробнее <span>→</span></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 03: Аппаратный лифтинг -->
-      <a href="services/lifts.html" class="dir-card" data-dir-card>
-        <div class="dir-card__flip">
-          <div class="dir-card__face dir-card__front">
-            <img class="dir-card__img" src="assets/photos/dir-03-figma.webp" alt="" loading="lazy"/>
-            <div class="dir-card__scrim"></div>
-            <span class="dir-card__num">03</span>
-            <span class="dir-card__title">Аппаратный лифтинг</span>
-          </div>
-          <div class="dir-card__face dir-card__back">
-            <div class="dir-card__back-list">
-              <p>SMAS-лифтинг Ultraformer</p>
-              <p>Микроигольчатый RF-лифтинг</p>
-              <p>Монополярный RF-лифтинг Volnewmer</p>
-            </div>
-            <span class="dir-card__back-cta">Подробнее <span>→</span></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 04: Уход за кожей -->
-      <a href="services/skin.html" class="dir-card" data-dir-card>
-        <div class="dir-card__flip">
-          <div class="dir-card__face dir-card__front">
-            <img class="dir-card__img" src="assets/photos/dir-04-figma.webp" alt="" loading="lazy"/>
-            <div class="dir-card__scrim"></div>
-            <span class="dir-card__num">04</span>
-            <span class="dir-card__title">Уход за кожей</span>
-          </div>
-          <div class="dir-card__face dir-card__back">
-            <div class="dir-card__back-list">
-              <p>Эстетическая косметология</p>
-              <p>Вакуумный гидропилинг</p>
-              <p>Hydra Touch H2</p>
-            </div>
-            <span class="dir-card__back-cta">Подробнее <span>→</span></span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="dir-all-wrap">
-      <a href="services.html" class="dir-all">Все услуги <span class="dir-all__arr">→</span></a>
     </div>
   </div>
 </section>
 
 <!-- ═══ СПЕЦИАЛИСТЫ ════════════════════════════════════════════════ -->
 <section class="sec-spec" id="specialists">
-  <div class="wrap">
-
-    <h2 class="sec-h spec-heading" style="color:var(--c-text)"><span class="script">Специалисты</span> нашей клиники</h2>
-    <div class="spec-slider">
-      <div class="spec-track" id="spec-track">
-        <a href="specialists/mariya-viktorovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-mariya.webp?v=3" alt="Мария Викторовна" loading="lazy"/></div>
-          <p class="spec-card__name">Мария Викторовна</p>
-          <p class="spec-card__role">Главный врач, врач-косметолог</p>
-          <span class="spec-card__view">Профиль</span>
-        </a>
-        <a href="specialists/elena-tigranovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-elena.webp?v=4" alt="Елена Тиграновна" loading="lazy"/></div>
-          <p class="spec-card__name">Елена Тиграновна</p>
-          <p class="spec-card__role">Медицинский массажист</p>
-          <span class="spec-card__view">Профиль</span>
-        </a>
-        <a href="specialists/yana-vladimirovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-yana.webp?v=4" alt="Яна Владимировна" loading="lazy"/></div>
-          <p class="spec-card__name">Яна Владимировна</p>
-          <p class="spec-card__role">Медицинский массажист</p>
-          <span class="spec-card__view">Профиль</span>
-        </a>
-        <a href="specialists/ksenia-aleksandrovna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-ksenia.webp?v=3" alt="Ксения Александровна" loading="lazy"/></div>
-          <p class="spec-card__name">Ксения Александровна</p>
-          <p class="spec-card__role">Косметолог-эстетист</p>
-          <span class="spec-card__view">Профиль</span>
-        </a>
-        <a href="specialists/alisa-alekseevna.html" class="spec-card">
-          <div class="spec-card__photo"><img src="assets/photos/spec-alisa.webp?v=4" alt="Алиса Алексеевна" loading="lazy"/></div>
-          <p class="spec-card__name">Алиса Алексеевна</p>
-          <p class="spec-card__role">Врач-дерматовенеролог, косметолог, трихолог</p>
-          <span class="spec-card__view">Профиль</span>
-        </a>
-      </div>
-    </div>
-    <div class="spec-dots" id="spec-dots">
-      <button class="dot dot--active" aria-label="Позиция 1"></button>
-      <button class="dot" aria-label="Позиция 2"></button>
-      <button class="dot" aria-label="Позиция 3"></button>
-    </div>
+  <div class="spec-head">
+    <h2 class="sec-h spec-heading"><em class="serif-italic">Специалисты и эксперты</em><br>нашей клиники</h2>
+  </div>
+  <div class="spec-track" id="spec-track">
+    <a href="specialists/mariya-viktorovna.html" class="spec-card">
+      <div class="spec-card__photo"><img src="assets/photos/spec-mariya.webp?v=7" alt="Мария Викторовна" loading="lazy"/></div>
+      <p class="spec-card__name">Мария Викторовна</p>
+      <p class="spec-card__role">Главный врач,<br>врач-косметолог</p>
+      <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a href="specialists/elena-tigranovna.html" class="spec-card">
+      <div class="spec-card__photo"><img src="assets/photos/spec-elena.webp?v=7" alt="Елена Тиграновна" loading="lazy"/></div>
+      <p class="spec-card__name">Елена Тиграновна</p>
+      <p class="spec-card__role">Медицинский массажист</p>
+      <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a href="specialists/yana-vladimirovna.html" class="spec-card">
+      <div class="spec-card__photo"><img src="assets/photos/spec-yana.webp?v=7" alt="Яна Владимировна" loading="lazy"/></div>
+      <p class="spec-card__name">Яна Владимировна</p>
+      <p class="spec-card__role">Медицинский массажист</p>
+      <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a href="specialists/ksenia-aleksandrovna.html" class="spec-card">
+      <div class="spec-card__photo"><img src="assets/photos/spec-ksenia.webp?v=7" alt="Ксения Александровна" loading="lazy"/></div>
+      <p class="spec-card__name">Ксения Александровна</p>
+      <p class="spec-card__role">Косметолог-эстетист</p>
+      <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a href="specialists/alisa-alekseevna.html" class="spec-card">
+      <div class="spec-card__photo"><img src="assets/photos/spec-alisa.webp?v=7" alt="Алиса Алексеевна" loading="lazy"/></div>
+      <p class="spec-card__name">Алиса Алексеевна</p>
+      <p class="spec-card__role">Врач-дерматовенеролог,<br>косметолог, трихолог</p>
+      <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </div>
+  <div class="spec-nav">
+    <div class="spec-dots" id="spec-dots"></div>
   </div>
 </section>
 
-<!-- ═══ АКЦИИ ══════════════════════════════════════════════════════ -->
-<section class="sec-promos" id="promos">
-  <div class="wrap">
-    <div class="promos-inner">
-      
-      <h2 class="sec-h promos-heading"><span class="script">Акции</span> для гостей клиники</h2>
-      <div class="promo-cards">
-        <a href="promos/first-visit.html" class="promo-card">
-          <div class="promo-card__photo" style="background-image:url('assets/photos/promo-01-figma.webp')"></div>
-          <div class="promo-card__scrim"></div>
-          <div class="promo-card__top">
-            <span class="promo-tag">Новым гостям</span>
-            <span class="promo-arr">→</span>
-          </div>
-          <div class="promo-card__btm">
-            <p class="promo-card__title">Скидка до 20% на первый визит</p>
-            <p class="promo-card__desc">В честь знакомства с Вами, дарим скидку на любые услуги в первое посещение</p>
-          </div>
-        </a>
-        <a href="promos/smas-lifting.html" class="promo-card">
-          <div class="promo-card__photo" style="background-image:url('assets/photos/promo-02-figma.webp')"></div>
-          <div class="promo-card__scrim"></div>
-          <div class="promo-card__top">
-            <span class="promo-tag">Скидка 20%</span>
-            <span class="promo-arr">→</span>
-          </div>
-          <div class="promo-card__btm">
-            <p class="promo-card__title">Скидка 20% на СМАС от 500 линий</p>
-            <p class="promo-card__desc">Весь май получите приятную скидку 20% на процедуру СМАС-лифтинга.</p>
-          </div>
-        </a>
-        <a href="promos/laser-new-client.html" class="promo-card">
-          <div class="promo-card__photo" style="background-image:url('assets/photos/promo-03-figma.webp')"></div>
-          <div class="promo-card__scrim"></div>
-          <div class="promo-card__top">
-            <span class="promo-tag">Скидка 30%</span>
-            <span class="promo-arr">→</span>
-          </div>
-          <div class="promo-card__btm">
-            <p class="promo-card__title">Скидка 30% на лазерную эпиляцию для новых клиентов</p>
-            <p class="promo-card__desc">При первом посещении нашей клиники вы получаете скидку 30% на лазерное удаление волос.</p>
-          </div>
-        </a>
-      </div>
-      <a href="promos.html" class="promos-cta">Все акции <span class="promos-cta__arr">→</span></a>
-    </div>
-  </div>
-</section>
+
 
 <!-- ═══ ВНУТРИ КЛИНИКИ ═════════════════════════════════════════════ -->
 <section class="sec-interior">
-  <h2 class="sec-h sec-interior__h"><span class="script">Внутри</span> клиники</h2>
-  <div class="interior-strip">
-    <div class="interior-item" style="--ar:1030/686"><img src="assets/photos/gallery-reception-wide.webp" alt="Внутри клиники" loading="lazy"/></div>
-    <div class="interior-item" style="--ar:1032/688"><img src="assets/photos/gallery-reception-logo.webp" alt="Внутри клиники" loading="lazy"/></div>
-    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-hallway-mirror.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 60%"/></div>
-    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-reception-counter.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 61%"/></div>
-    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-treatment-curtain.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 53%"/></div>
-    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-lounge-man.webp" alt="Внутри клиники" loading="lazy" style="object-position:50% 85%"/></div>
-    <div class="interior-item" style="--ar:1159/686"><img src="assets/photos/gallery-treatment-cabinet.webp" alt="Внутри клиники" loading="lazy"/></div>
+  <h2 class="sec-h sec-interior__h"><em class="serif-italic">Внутри</em> клиники</h2>
+  <div class="interior-row" id="interior-row">
+    <div class="interior-item"><img src="assets/photos/interior-1-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
+    <div class="interior-item"><img src="assets/photos/interior-2-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
+    <div class="interior-item"><img src="assets/photos/interior-3-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
+    <div class="interior-item"><img src="assets/photos/interior-4-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
+    <div class="interior-item"><img src="assets/photos/interior-5-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
+    <div class="interior-item"><img src="assets/photos/interior-6-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
+    <div class="interior-item"><img src="assets/photos/interior-7-figma.webp" alt="Внутри клиники RA|RÉ" loading="lazy"/></div>
   </div>
   <div class="interior-nav">
     <div class="interior-dots" id="interior-dots"></div>
-    <div class="interior-arrows">
-      <button class="interior-arr" id="interior-prev" aria-label="Назад">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L7 10l5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="interior-arr" id="interior-next" aria-label="Вперёд">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4l5 6-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
   </div>
 </section>
 
 <!-- ═══ РЕЗУЛЬТАТЫ ═════════════════════════════════════════════════ -->
 <section class="sec-results">
-  <h2 class="sec-h results-heading"><span class="script">Результаты</span> наших пациентов</h2>
+  <h2 class="sec-h results-heading"><em class="serif-italic">Результаты</em> наших пациентов</h2>
   <div class="result-strip" id="result-strip">
-    <div class="result-item" style="--ar:1448/1086">
-      <div class="result-photo"><img src="assets/photos/result-1.webp" alt="Лечение пигментации" loading="lazy"/></div>
+    <div class="result-item" style="--ar:504/448">
+      <div class="result-photo"><img src="assets/photos/result-pigmentation-figma.webp" alt="Лечение пигментации" loading="lazy"/></div>
       <span class="result-lbl">Лечение пигментации</span>
     </div>
-    <div class="result-item" style="--ar:1448/1086">
-      <div class="result-photo"><img src="assets/photos/result-2.webp" alt="Коррекция контура шеи" loading="lazy"/></div>
-      <span class="result-lbl">Коррекция контура шеи</span>
+    <div class="result-item" style="--ar:504/448">
+      <div class="result-photo"><img src="assets/photos/result-smas-figma.webp" alt="SMAS-лифтинг" loading="lazy"/></div>
+      <span class="result-lbl">SMAS-лифтинг</span>
     </div>
-    <div class="result-item" style="--ar:1254/1254">
-      <div class="result-photo"><img src="assets/photos/result-3.webp" alt="Контурная пластика губ" loading="lazy"/></div>
+    <div class="result-item" style="--ar:504/448">
+      <div class="result-photo"><img src="assets/photos/result-lips-figma.webp" alt="Контурная пластика губ" loading="lazy"/></div>
       <span class="result-lbl">Контурная пластика губ</span>
     </div>
-    <div class="result-item" style="--ar:1254/1254">
-      <div class="result-photo"><img src="assets/photos/result-4.webp" alt="Удаление сосудистых звёздочек" loading="lazy"/></div>
-      <span class="result-lbl">Удаление сосудистых звёздочек</span>
-    </div>
-    <div class="result-item" style="--ar:1254/1254">
-      <div class="result-photo"><img src="assets/photos/result-5.webp" alt="Биоревитализация и контурная пластика" loading="lazy"/></div>
-      <span class="result-lbl">Биоревитализация и контурная пластика</span>
-    </div>
-    <div class="result-item" style="--ar:1254/1254">
-      <div class="result-photo"><img src="assets/photos/result-6.webp" alt="Лечение акне" loading="lazy"/></div>
-      <span class="result-lbl">Лечение акне</span>
+    <div class="result-item" style="--ar:504/448">
+      <div class="result-photo"><img src="assets/photos/result-ipl-figma.webp" alt="Удаление сосудистой сеточки, фототерапия IPL" loading="lazy"/></div>
+      <span class="result-lbl">Удаление сосудистой сеточки,<br>фототерапия IPL</span>
     </div>
   </div>
   <div class="results-nav">
     <div class="results-dots" id="result-dots"></div>
-    <div class="interior-arrows">
-      <button class="interior-arr" id="result-prev" aria-label="Назад">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L7 10l5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="interior-arr" id="result-next" aria-label="Вперёд">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4l5 6-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
   </div>
 </section>
 
@@ -1686,145 +1864,120 @@
 <section class="sec-booking" id="booking">
   <div class="wrap">
     <div class="booking-inner">
-      <div class="booking-text">
-        
-        <h2 class="booking-heading"><span class="script">Онлайн</span>-запись</h2>
-        <p class="booking-desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
+      <div class="booking-col booking-col--form">
+        <div class="booking-text">
+          <h2 class="booking-heading"><em class="serif-italic">Онлайн</em>-запись</h2>
+          <p class="booking-desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
+        </div>
+        <form class="booking-form" action="#" method="POST">
+          <div class="booking-row">
+            <div class="booking-field">
+              <label for="b-name">Ваше имя*</label>
+              <input id="b-name" type="text" name="name" placeholder="Анна" autocomplete="name" required/>
+              <span class="booking-field__err">Пожалуйста, введите имя</span>
+            </div>
+            <div class="booking-field">
+              <label for="b-phone">Телефон*</label>
+              <input id="b-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required/>
+              <span class="booking-field__err">Введите корректный номер</span>
+            </div>
+          </div>
+          <div class="booking-svc-field">
+            <label class="booking-svc-label">Услуга</label>
+            <div class="booking-svc-wrap">
+              <select class="booking-svc-sel" name="service">
+                <option value="" disabled selected>Выбрать услугу</option>
+                <optgroup label="Лицо">
+                  <option value="smas">SMAS-лифтинг</option>
+                  <option value="rf-lifting">РФ-лифтинг (монополярный)</option>
+                  <option value="injections">Инъекционная косметология</option>
+                  <option value="biorev">Биоревитализация</option>
+                  <option value="peeling">Химический пилинг</option>
+                  <option value="care">Уходовые программы</option>
+                </optgroup>
+                <optgroup label="Тело">
+                  <option value="laser">Лазерная эпиляция</option>
+                  <option value="cryo">Криолиполиз</option>
+                  <option value="rf-body">RF-лифтинг тела</option>
+                  <option value="lpg">LPG-массаж</option>
+                  <option value="press">Прессотерапия</option>
+                </optgroup>
+                <optgroup label="Волосы">
+                  <option value="meso-hair">Мезотерапия волос</option>
+                  <option value="prp">Плазмотерапия (PRP)</option>
+                  <option value="tricho">Трихоскопия</option>
+                </optgroup>
+                <optgroup label="SPA">
+                  <option value="massage">Классический массаж</option>
+                  <option value="stone">Стоун-терапия</option>
+                  <option value="spa">SPA-программы</option>
+                </optgroup>
+                <option value="other">Другое</option>
+              </select>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#35281a" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <button type="submit" class="booking-submit">Отправить заявку
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p style="font-size:12px;color:rgba(53,40,26,0.5);letter-spacing:-0.01em;line-height:1.3;margin-top:10px;font-style:normal;">
+            Отправляя данную форму вы соглашаетесь с <a href="docs/processing.docx" style="color:inherit;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener noreferrer">обработкой персональных данных</a>
+          </p>
+        </form>
       </div>
-      <form class="booking-form" action="#" method="POST">
-        <div class="booking-row">
-          <div class="booking-field">
-            <label for="b-name">Ваше имя*</label>
-            <input id="b-name" type="text" name="name" placeholder="Анна" autocomplete="name" required/>
-            <span class="booking-field__err">Пожалуйста, введите имя</span>
-          </div>
-          <div class="booking-field">
-            <label for="b-phone">Телефон*</label>
-            <input id="b-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required/>
-            <span class="booking-field__err">Введите корректный номер</span>
-          </div>
-        </div>
-        <div class="booking-svc-field">
-          <label class="booking-svc-label">Услуга</label>
-          <div class="booking-svc-wrap">
-            <select class="booking-svc-sel" name="service">
-              <option value="" disabled selected>Выбрать услугу</option>
-              <optgroup label="Лицо">
-                <option value="smas">SMAS-лифтинг</option>
-                <option value="rf-lifting">РФ-лифтинг (монополярный)</option>
-                <option value="injections">Инъекционная косметология</option>
-                <option value="biorev">Биоревитализация</option>
-                <option value="peeling">Химический пилинг</option>
-                <option value="care">Уходовые программы</option>
-              </optgroup>
-              <optgroup label="Тело">
-                <option value="laser">Лазерная эпиляция</option>
-                <option value="cryo">Криолиполиз</option>
-                <option value="rf-body">RF-лифтинг тела</option>
-                <option value="lpg">LPG-массаж</option>
-                <option value="press">Прессотерапия</option>
-              </optgroup>
-              <optgroup label="Волосы">
-                <option value="meso-hair">Мезотерапия волос</option>
-                <option value="prp">Плазмотерапия (PRP)</option>
-                <option value="tricho">Трихоскопия</option>
-              </optgroup>
-              <optgroup label="SPA">
-                <option value="massage">Классический массаж</option>
-                <option value="stone">Стоун-терапия</option>
-                <option value="spa">SPA-программы</option>
-              </optgroup>
-              <option value="other">Другое</option>
-            </select>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#35281a" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
-          </div>
-        </div>
-        <button type="submit" class="booking-submit">Отправить заявку</button>
-        <p style="font-size:14px;color:rgba(53,40,26,0.5);letter-spacing:-0.01em;line-height:1.4;margin-top:16px;font-style:normal;">
-          Отправляя данную форму вы соглашаетесь с <a href="docs/processing.docx" style="color:inherit;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener noreferrer">обработкой персональных данных</a>
-        </p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ЖДЁМ ВАС ═══════════════════════════════════════════════════ -->
-<section class="sec-contacts" id="contacts">
-  <div class="contacts-grid">
-    <div class="contacts-left">
-      <h2 class="contacts-heading">Ждём <span class="script">вас</span> на приёме</h2>
-      <div class="contacts-bottom">
-        <div class="contacts-info">
-          <p>Анапа, Владимирская 120</p>
-          <p>пн-вс: 9:00 — 20:00</p>
-        </div>
-        <div class="contacts-div"></div>
-        <div class="contacts-links">
-          <a href="mailto:rare.clinic@mail.ru">rare.clinic@mail.ru</a>
+      <div class="booking-col booking-col--map">
+        <div class="contacts-bar">
+          <p>Анапа, ул. Владимирская, 120</p>
           <a href="tel:+79002761116">+7 (900) 276-11-16</a>
+          <p>Пн-Вс: 9:00 — 20:00</p>
         </div>
+        <a class="booking-map" href="https://yandex.ru/maps/?ll=37.331145,44.879223&z=17&pt=37.331145,44.879223,pm2rdl" target="_blank" rel="noopener noreferrer" aria-label="Открыть карту — Анапа, Владимирская 120">
+          <img src="https://static-maps.yandex.ru/1.x/?ll=37.331145,44.879223&z=16&l=map&pt=37.331145,44.879223,pm2rdl&size=650,450" alt="Клиника RA|RÉ на карте — Анапа, Владимирская 120" loading="lazy"/>
+        </a>
       </div>
-    </div>
-    <div class="contacts-map" id="contacts-map-leaflet">
-      <iframe
-        src="https://yandex.ru/map-widget/v1/?ll=37.331145%2C44.879223&z=17&pt=37.331145%2C44.879223%2Cpm2rdm&text=%D0%90%D0%BD%D0%B0%D0%BF%D0%B0%2C+%D1%83%D0%BB.+%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D1%81%D0%BA%D0%B0%D1%8F%2C+120"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Клиника RA|RÉ — Анапа, Владимирская 120"
-      ></iframe>
     </div>
   </div>
 </section>
 
 <!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">
-          <img src="assets/icons/logo-white.svg" alt="RA|RÉ"/>
-        </div>
-        <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
-        <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
-        <p class="footer-addr">Анапа, Владимирская 120</p>
+  <div class="footer-wrap">
+    <nav class="footer-nav">
+      <div class="footer-nav__group">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О клинике</a>
+        <a href="services.html">Услуги</a>
+        <a href="specialists.html">Специалисты</a>
+        <a href="prices.html">Цены</a>
       </div>
-      <div class="footer-col">
-        <h3>Услуги</h3>
-        <div class="footer-links">
-          <a href="services/smas.html">SMAS-лифтинг</a>
-          <a href="services/injections.html">Инъекционная косметология</a>
-          <a href="services/laser.html">Лазерная эпиляция</a>
-          <a href="services/lifts.html">Аппаратные лифтинги</a>
-          <a href="services/skin.html">Уход за кожей</a>
-          <a href="services/spa.html">SPA-программы</a>
-        </div>
+      <div class="footer-nav__group">
+        <a href="promos.html">Акции</a>
+        <a href="reviews/index.html">Отзывы</a>
+        <a href="#booking">Контакты</a>
       </div>
-      <div class="footer-col">
-        <h3>Клиника</h3>
-        <div class="footer-links">
-          <a href="about.html">О клинике</a>
-          <a href="specialists.html">Специалисты</a>
-          <a href="certificates.html">Сертификаты</a>
-          <a href="reviews/index.html">Отзывы</a><a href="articles/index.html">Статьи</a>
-          <a href="promos.html">Акции</a>
-          <a href="prices.html">Цены</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h3>Информация</h3>
-        <div class="footer-links">
-          <a href="docs/license.pdf">Выписка из реестра лицензий</a>
-          <a href="docs/processing.docx">Обработка персональных данных</a>
-          <a href="#contacts">Контакты</a>
-        </div>
+    </nav>
+    <div class="footer-div"></div>
+    <div class="footer-socials">
+      <a href="https://t.me/rare_anapa" target="_blank" rel="noopener" class="footer-social footer-social--plain" aria-label="Telegram"><img src="assets/icons/footer-telegram.svg" alt=""/></a>
+      <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="footer-social" aria-label="VK"><img src="assets/icons/footer-vk.svg" alt=""/></a>
+      <a href="#" class="footer-social" aria-label="MAX"><img src="assets/icons/footer-max.svg" alt=""/></a>
+    </div>
+    <div class="footer-brand-row">
+      <p class="footer-wordmark">RA|RÉ</p>
+      <div class="footer-cta">
+        <p class="footer-cta__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+        <a href="#booking" class="footer-cta__btn">Записаться на приём</a>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:48px;">
-      <p class="footer-copy" style="margin-top:0;">© 2026 RA|RÉ. Все права защищены.</p>
-      <a href="https://podpisait.ru/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='0.5'">
-        <span style="font-size:12px;color:rgba(253,252,248,0.7);font-style:normal;">Разработано</span>
-        <img src="assets/icons/podpisait.svg" alt="Подписайт" style="height:18px;width:auto;"/>
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright © RA|RÉ, 2026</p>
+      <div class="footer-legal">
+        <a href="docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+        <a href="docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+      </div>
+      <a href="https://podpisait.ru/" target="_blank" rel="noopener noreferrer" class="footer-made">
+        <span>Разработано</span>
+        <img src="assets/icons/podpisait.svg" alt="Подписайт"/>
       </a>
     </div>
   </div>
@@ -1832,36 +1985,6 @@
 
 <script>
 (function () {
-  /* ── COUNTER ANIMATION ─────────────────────────────────────────── */
-  function animateCounter(el, target, suffix, duration) {
-    var start = performance.now();
-    function update(now) {
-      var elapsed = now - start;
-      var progress = Math.min(elapsed / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target) + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
-  }
-  var stats = [
-    { sel: '.about-stat:nth-child(1) .about-stat__n', val: 7,    sfx: '+' },
-    { sel: '.about-stat:nth-child(2) .about-stat__n', val: 3000, sfx: '+' },
-    { sel: '.about-stat:nth-child(3) .about-stat__n', val: 12,   sfx: ''  },
-    { sel: '.about-stat:nth-child(4) .about-stat__n', val: 40,   sfx: '+' },
-  ];
-  var statsTrigger = document.querySelector('.about-stats');
-  if (statsTrigger) {
-    new IntersectionObserver(function (entries, obs) {
-      if (!entries[0].isIntersecting) return;
-      obs.disconnect();
-      stats.forEach(function (s) {
-        var el = document.querySelector(s.sel);
-        if (el) animateCounter(el, s.val, s.sfx, 1600);
-      });
-    }, { threshold: 0.4 }).observe(statsTrigger);
-  }
-
   /* ── HERO (static, slow ambient Ken Burns zoom) ──────────────────── */
   (function () {
     var heroReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1872,6 +1995,216 @@
       layer.style.transition = 'transform 18s linear';
       layer.style.transform  = 'scale(1.08)';
     });
+  })();
+
+  /* ── HERO entrance sequence: video → title → typed subtitle → cta → ratings ──
+     Driven by the Web Animations API instead of CSS transitions + class
+     toggling: el.animate() plays an explicit from→to keyframe pair regardless
+     of whether the browser ever painted the "before" state first, so it can't
+     silently collapse into an instant jump the way a CSS transition can when
+     the class flip happens before the first paint. Each step awaits the real
+     animation.finished promise, so the sequence can't drift out of sync. */
+  (function () {
+    var header = document.querySelector('.site-header, .site-hd');
+    var photo = document.querySelector('.hero__photo');
+    var title = document.getElementById('hero-title');
+    var sub = document.getElementById('hero-sub');
+    var cta = document.getElementById('hero-cta');
+    var ratings = document.querySelector('.hero__ratings');
+    if (!photo || !title || !sub || !cta || !ratings) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+    function settle(el) { el.style.opacity = '1'; el.style.translate = '0 0'; }
+
+    function slideIn(el, from, ms) {
+      if (reduceMotion) { settle(el); return Promise.resolve(); }
+      var anim = el.animate(
+        [{ opacity: 0, translate: from }, { opacity: 1, translate: '0 0' }],
+        { duration: ms, easing: EASE, fill: 'forwards' }
+      );
+      return anim.finished.catch(function () {}).then(function () { settle(el); });
+    }
+
+    function typeText(el, raw, speed) {
+      return new Promise(function (resolve) {
+        el.style.opacity = '1';
+        var tokens = [];
+        raw.split('||').forEach(function (part, idx) {
+          if (idx > 0) tokens.push('<br>');
+          for (var i = 0; i < part.length; i++) tokens.push(part[i]);
+        });
+        var cursor = document.createElement('span');
+        cursor.className = 'type-cursor';
+        var i = 0;
+        (function step() {
+          el.innerHTML = tokens.slice(0, i).join('');
+          el.appendChild(cursor);
+          if (i >= tokens.length) { cursor.remove(); resolve(); return; }
+          i++;
+          setTimeout(step, speed);
+        })();
+      });
+    }
+
+    function wait(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
+
+    var PAUSE = 150;
+
+    (async function run() {
+      if (header) await slideIn(header, '0 -110%', 600);
+      await wait(150);
+      await slideIn(photo, '150px 0', 600);
+      await wait(PAUSE);
+      await slideIn(title, '-70px 0', 500);
+      await wait(PAUSE);
+      await typeText(sub, sub.getAttribute('data-typed') || '', 16);
+      await wait(PAUSE);
+      await slideIn(cta, '-50px 0', 450);
+      await wait(PAUSE);
+      await slideIn(ratings, '0 16px', 450);
+    })();
+  })();
+
+  /* ── "ЭКСПЕРТНАЯ КРАСОТА" entrance: heading+lead+button → circle bloom → points ── */
+  (function () {
+    var section = document.querySelector('.sec-about');
+    if (!section) return;
+    var textBlock = section.querySelector('.about-text');
+    var btn = section.querySelector('.about-showcase__btn');
+    var circle = section.querySelector('.about-circle');
+    var points = Array.prototype.slice.call(section.querySelectorAll('.about-point'));
+    var statEls = Array.prototype.slice.call(section.querySelectorAll('#about-stats-home .about-stat'));
+    if (!textBlock || !btn || !circle || !points.length) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+    /* generic: play explicit keyframes, then bake the last keyframe's values
+       into a real inline style so the result doesn't depend on the Animation
+       object staying alive — same approach as the hero sequence. Keyframes
+       are given explicitly (rather than a bare "opacity:0 -> 1") because
+       .about-text / .about-showcase__btn / .about-circle already rely on a
+       translateX(-50%) for horizontal centering, which this must preserve
+       instead of clobbering. */
+    function reveal(el, keyframes, ms, delayMs) {
+      function apply(kf) {
+        if (kf.opacity !== undefined) el.style.opacity = String(kf.opacity);
+        if (kf.transform !== undefined) el.style.transform = kf.transform;
+        if (kf.filter !== undefined) el.style.filter = kf.filter;
+      }
+      if (reduceMotion) { apply(keyframes[keyframes.length - 1]); return Promise.resolve(); }
+      return new Promise(function (resolve) {
+        setTimeout(function () {
+          var anim = el.animate(keyframes, { duration: ms, easing: EASE, fill: 'forwards' });
+          anim.finished.catch(function () {}).then(function () {
+            apply(keyframes[keyframes.length - 1]);
+            resolve();
+          });
+        }, delayMs || 0);
+      });
+    }
+
+    function wait(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
+
+    function animateCount(el, target, suffix, duration) {
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(ease * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function fadePoint(pointEl, ms) {
+      var kids = [
+        pointEl.querySelector('.about-point__dot'),
+        pointEl.querySelector('.about-point__line'),
+        pointEl.querySelector('.about-point__label')
+      ].filter(Boolean);
+      return Promise.all(kids.map(function (kid) {
+        return reveal(kid, [
+          { opacity: 0, filter: 'blur(5px)' },
+          { opacity: 1, filter: 'blur(0)' }
+        ], ms, 0);
+      }));
+    }
+
+    var triggered = false;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || triggered) return;
+        triggered = true;
+        obs.unobserve(section);
+
+        (async function run() {
+          await Promise.all([
+            reveal(textBlock, [
+              { opacity: 0, transform: 'translateX(-50%) translateY(24px)', filter: 'blur(8px)' },
+              { opacity: 1, transform: 'translateX(-50%) translateY(0)', filter: 'blur(0)' }
+            ], 750, 0),
+            reveal(btn, [
+              { opacity: 0, transform: 'translateX(-50%) translateY(18px)', filter: 'blur(6px)' },
+              { opacity: 1, transform: 'translateX(-50%) translateY(0)', filter: 'blur(0)' }
+            ], 600, 150)
+          ]);
+          await wait(200);
+          await reveal(circle, [
+            { opacity: 0, transform: 'translateX(-50%) scale(0.35)', filter: 'blur(10px)' },
+            { opacity: 1, transform: 'translateX(-50%) scale(1)', filter: 'blur(0)' }
+          ], 800, 0);
+          await wait(200);
+
+          async function runPoints() {
+            for (var i = 0; i < points.length; i++) {
+              await fadePoint(points[i], 420);
+              await wait(90);
+            }
+          }
+
+          async function runStats() {
+            if (!statEls.length) return;
+            await Promise.all(statEls.map(function (el, i) {
+              return reveal(el, [
+                { opacity: 0, transform: 'translateY(20px)', filter: 'blur(6px)' },
+                { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' }
+              ], 550, i * 90);
+            }));
+            statEls.forEach(function (el) {
+              var numEl = el.querySelector('.about-stat__n');
+              if (!numEl) return;
+              var text = numEl.textContent.trim();
+              var suffix = text.replace(/[0-9]/g, '');
+              var num = parseInt(text.replace(/[^0-9]/g, ''), 10);
+              if (isNaN(num)) return;
+              if (reduceMotion) { numEl.textContent = num + suffix; return; }
+              animateCount(numEl, num, suffix, 1400);
+            });
+          }
+
+          // points and stats appear together, once the apparatus (circle) is
+          // fully in — stats never trigger on their own independent scroll
+          await Promise.all([runPoints(), runStats()]);
+
+          // dividers come last, once the numbers themselves are in
+          var divs = Array.prototype.slice.call(section.querySelectorAll('#about-stats-home .about-stats__div'));
+          if (divs.length) {
+            await wait(250);
+            await Promise.all(divs.map(function (el, i) {
+              return reveal(el, [
+                { opacity: 0, filter: 'blur(4px)' },
+                { opacity: 1, filter: 'blur(0)' }
+              ], 400, i * 80);
+            }));
+          }
+        })();
+      });
+    }, { threshold: 0.25 });
+    obs.observe(section);
   })();
 
   /* ── HERO rating badges (Яндекс / 2ГИС, live from ratings.json) ──── */
@@ -1888,166 +2221,84 @@
       .catch(function () {});
   })();
 
-  /* spec carousel — responsive: 4 cards desktop, 2 tablet, 1 mobile */
-  (function() {
-    var track = document.getElementById('spec-track');
-    var dotsEl = document.getElementById('spec-dots');
-    if (!track || !dotsEl) return;
-    var totalCards = track.children.length;
-    var current = 0;
-
-    function getVisible() {
-      if (window.innerWidth <= 767) return 1;
-      if (window.innerWidth <= 1024) return 2;
-      return 4;
-    }
-
-    function rebuildDots(count) {
-      dotsEl.innerHTML = '';
-      for (var i = 0; i < count; i++) {
-        var d = document.createElement('button');
-        d.className = 'dot' + (i === current ? ' dot--active' : '');
-        d.setAttribute('aria-label', 'Слайд ' + (i + 1));
-        (function(idx) { d.addEventListener('click', function() { goTo(idx); }); })(i);
-        dotsEl.appendChild(d);
-      }
-    }
-
-    function goTo(idx) {
-      var visible = getVisible();
-      var maxPos = totalCards - visible;
-      idx = Math.max(0, Math.min(idx, maxPos));
-      var card = track.children[0];
-      var gap = parseInt(getComputedStyle(track).gap) || 24;
-      track.style.transform = 'translateX(-' + idx * (card.offsetWidth + gap) + 'px)';
-      var dots = Array.from(dotsEl.querySelectorAll('.dot'));
-      dots.forEach(function(d, i) { d.classList.toggle('dot--active', i === idx); });
-      current = idx;
-    }
-
-    function init() {
-      var visible = getVisible();
-      var maxPos = totalCards - visible;
-      if (current > maxPos) current = 0;
-      rebuildDots(maxPos + 1);
-      goTo(current);
-    }
-
-    init();
-
-    var resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(init, 150);
-    });
-
-    /* touch/swipe */
-    var startX = 0;
-    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchend', function(e) {
-      var dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
-    });
-  })();
-
-  /* ── generic filmstrip: arrows + pagination dots ── */
-  function makeFilmstrip(stripId, prevId, nextId, dotsId, itemSelector) {
+  /* ── generic filmstrip: native scroll + pagination dots ──
+     Dots represent real scroll stops (deduped), not one-per-photo, so the
+     dot count matches how many distinct positions the strip actually has,
+     and the active dot always reflects true scroll position. */
+  function makeFilmstrip(stripId, dotsId, itemSelector) {
     var strip = document.getElementById(stripId);
-    var prevBtn = document.getElementById(prevId);
-    var nextBtn = document.getElementById(nextId);
     var dotsEl = document.getElementById(dotsId);
-    if (!strip || !prevBtn || !nextBtn) return;
+    if (!strip || !dotsEl) return;
 
     var items = Array.from(strip.querySelectorAll(itemSelector));
+    var stops = [];
     var dots = [];
-
-    function step() {
-      var first = strip.querySelector(itemSelector);
-      return first ? first.getBoundingClientRect().width + 16 : strip.clientWidth * 0.8;
-    }
 
     function itemOffset(item) {
       return item.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft;
     }
 
-    function updateButtons() {
-      var max = strip.scrollWidth - strip.clientWidth;
-      prevBtn.disabled = strip.scrollLeft <= 4;
-      nextBtn.disabled = strip.scrollLeft >= max - 4;
+    function computeStops() {
+      var maxScroll = Math.max(0, strip.scrollWidth - strip.clientWidth);
+      var result = [];
+      items.forEach(function(item) {
+        var v = Math.min(itemOffset(item), maxScroll);
+        if (!result.length || v - result[result.length - 1] > 2) result.push(v);
+      });
+      if (!result.length) result.push(0);
+      return result;
+    }
+
+    function activeIndex() {
+      var pos = strip.scrollLeft;
+      var closest = 0, closestDist = Infinity;
+      stops.forEach(function(s, i) {
+        var dist = Math.abs(s - pos);
+        if (dist < closestDist) { closestDist = dist; closest = i; }
+      });
+      return closest;
     }
 
     function updateDots() {
       if (!dots.length) return;
-      var center = strip.scrollLeft + strip.clientWidth / 2;
-      var closest = 0, closestDist = Infinity;
-      items.forEach(function(item, i) {
-        var itemCenter = itemOffset(item) + item.offsetWidth / 2;
-        var dist = Math.abs(itemCenter - center);
-        if (dist < closestDist) { closestDist = dist; closest = i; }
-      });
-      dots.forEach(function(d, i) { d.classList.toggle('dot--active', i === closest); });
+      var idx = activeIndex();
+      dots.forEach(function(d, i) { d.classList.toggle('dot--active', i === idx); });
     }
 
-    function buildDots() {
-      if (!dotsEl) return;
+    function build() {
+      stops = computeStops();
       dotsEl.innerHTML = '';
-      dots = items.map(function(item, i) {
+      dots = stops.map(function(stopLeft, i) {
         var d = document.createElement('button');
         d.className = 'dot' + (i === 0 ? ' dot--active' : '');
-        d.setAttribute('aria-label', 'Фото ' + (i + 1));
+        d.setAttribute('aria-label', 'Слайд ' + (i + 1));
         d.addEventListener('click', function() {
-          strip.scrollTo({ left: itemOffset(item), behavior: 'smooth' });
+          strip.scrollTo({ left: stopLeft, behavior: 'smooth' });
         });
         dotsEl.appendChild(d);
         return d;
       });
     }
 
-    prevBtn.addEventListener('click', function() { strip.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    nextBtn.addEventListener('click', function() { strip.scrollBy({ left: step(), behavior: 'smooth' }); });
-    strip.addEventListener('scroll', function() { updateButtons(); updateDots(); }, { passive: true });
-    window.addEventListener('resize', updateButtons);
+    var scrollTimer;
+    strip.addEventListener('scroll', function() {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(updateDots, 50);
+    }, { passive: true });
 
-    buildDots();
-    updateButtons();
-    updateDots();
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() { build(); updateDots(); }, 150);
+    });
+
+    build();
   }
 
-  makeFilmstrip('interior-strip', 'interior-prev', 'interior-next', 'interior-dots', '.interior-item');
-  makeFilmstrip('result-strip',   'result-prev',   'result-next',   'result-dots',   '.result-item');
-
-  /* ── DIRECTIONS CARDS SCROLL ANIMATION + TAP-TO-FLIP ────────────── */
-  (function () {
-    var cards = document.querySelectorAll('.dir-card');
-    if (!cards.length) return;
-    if (window.IntersectionObserver) {
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0, rootMargin: '0px 0px 180px 0px' });
-      cards.forEach(function (card) { obs.observe(card); });
-    } else {
-      cards.forEach(function (card) { card.classList.add('is-visible'); });
-    }
-    /* touch devices: hover doesn't apply, so tap flips the card;
-       a second tap on an already-flipped card follows the link */
-    var isCoarse = window.matchMedia && window.matchMedia('(hover: none)').matches;
-    if (isCoarse) {
-      cards.forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          if (!card.classList.contains('is-flipped')) {
-            e.preventDefault();
-            cards.forEach(function (c) { if (c !== card) c.classList.remove('is-flipped'); });
-            card.classList.add('is-flipped');
-          }
-        });
-      });
-    }
-  })();
+  makeFilmstrip('interior-row',       'interior-dots',     '.interior-item');
+  makeFilmstrip('result-strip',       'result-dots',       '.result-item');
+  makeFilmstrip('spec-track',         'spec-dots',         '.spec-card');
+  makeFilmstrip('promo-banner-strip', 'promo-banner-dots', '.promo-banner');
 
   /* ── PHONE MASK ────────────────────────────────────────────────── */
   var phoneInput = document.getElementById('b-phone');
@@ -2076,6 +2327,35 @@
       }
     });
   }
+})();
+</script>
+<script>
+(function () {
+  function hoverIntent(trigger, panel, closeDelay) {
+    var closeTimer = null;
+    function open() {
+      clearTimeout(closeTimer);
+      trigger.classList.add('is-open');
+    }
+    function scheduleClose() {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () {
+        trigger.classList.remove('is-open');
+      }, closeDelay);
+    }
+    trigger.addEventListener('mouseenter', open);
+    trigger.addEventListener('mouseleave', scheduleClose);
+    panel.addEventListener('mouseenter', open);
+    panel.addEventListener('mouseleave', scheduleClose);
+  }
+
+  var servicesTrigger = document.querySelector('.nav-services');
+  var servicesPanel = document.querySelector('.svc-mega');
+  if (servicesTrigger && servicesPanel) hoverIntent(servicesTrigger, servicesPanel, 300);
+
+  var connectTrigger = document.querySelector('.site-header__connect');
+  var connectPanel = document.querySelector('.site-header__connect-panel');
+  if (connectTrigger && connectPanel) hoverIntent(connectTrigger, connectPanel, 300);
 })();
 </script>
 <script src="docs-popup.js" defer></script><script src="animations.js?v=202607162000" defer></script>

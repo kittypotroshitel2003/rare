@@ -1,15 +1,4 @@
 /* ============================================================
-   INVOLVE — Variable Font
-   ============================================================ */
-@font-face {
-  font-family: 'Involve';
-  src: url('styles/fonts/Involve-VF.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ============================================================
    DESIGN SYSTEM — RA|RÉ Sage Editorial
    ============================================================ */
 :root {
@@ -57,8 +46,8 @@
   --border:        rgba(26,39,24,0.10);
 
   /* Fonts */
-  --font-serif:    'Involve', Georgia, serif;
-  --font-sans:     'Involve', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif:    'Inter', Georgia, serif;
+  --font-sans:     'Inter', 'Helvetica Neue', Arial, sans-serif;
 
   /* Motion */
   --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1563,8 +1552,6 @@ em.accent {
 .contacts-map iframe {
   width: 100%; height: 100%;
   border: none;
-  position: absolute;
-  inset: 0;
   display: block;
 }
 .contacts-map__placeholder {
@@ -3491,26 +3478,27 @@ em.accent {
   .service-cats { grid-template-columns: 1fr; }
 }
 
-/* ── ADV (advantages) — global, used on about page ── */
-.sec-adv { padding: 72px 0; }
-.adv-row { display: flex !important; flex-direction: row !important; align-items: stretch; }
-.adv-item {
+/* ── ADV (advantages) — used on about page's icon-row layout only ── */
+.page-about .sec-adv { padding: 72px 0; }
+.page-about .adv-row { display: flex !important; flex-direction: row !important; align-items: stretch; }
+.page-about .adv-item {
   flex: 1; display: flex; flex-direction: column; align-items: center; gap: 32px;
   padding: 0 40px; position: relative; border-radius: 0;
   transition: background 0.35s ease; cursor: default;
 }
-.adv-item + .adv-item { border-left: 1px solid rgba(53,40,26,0.12); }
-.adv-item:hover { background: rgba(111,161,135,0.06); }
-.adv-icon { height: 155px; display: flex; align-items: center; justify-content: center; overflow: visible; padding-top: 32px; }
-.adv-icon img { max-height: 140px; max-width: 180px; object-fit: contain; }
-.adv-label {
+.page-about .adv-item + .adv-item { border-left: 1px solid rgba(53,40,26,0.12); }
+.page-about .adv-item:hover { background: rgba(111,161,135,0.06); }
+.page-about .adv-icon { height: 155px; display: flex; align-items: center; justify-content: center; overflow: visible; padding-top: 32px; }
+.page-about .adv-icon img { max-height: 140px; max-width: 180px; object-fit: contain; }
+.page-about .adv-label {
   font-size: clamp(16px, 1.25vw, 22px); font-weight: 500;
   color: var(--c-text, #35281a); letter-spacing: -0.02em; line-height: 1.2;
   text-align: center; font-style: normal;
 }
 @media (max-width: 767px) {
-  .adv-row { flex-direction: column; gap: 40px; }
-  .adv-item + .adv-item { border-left: none; border-top: 1px solid rgba(53,40,26,0.12); padding-top: 40px; }
-  .adv-item { padding: 0 24px; }
-  .adv-icon { height: 130px; padding-top: 0; }
+  .page-about .adv-row { flex-direction: column; gap: 40px; }
+  .page-about .adv-item + .adv-item { border-left: none; border-top: 1px solid rgba(53,40,26,0.12); padding-top: 40px; }
+  .page-about .adv-item { padding: 0 24px; }
+  .page-about .adv-icon { height: 130px; padding-top: 0; }
 }
+
