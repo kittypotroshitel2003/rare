@@ -46,6 +46,8 @@
     section + section, section + footer, section + .contacts-footer-wrap { margin-top: clamp(64px, 10vw, 160px); }
     /* contacts section and footer share the same texture and flow together with no seam */
     .sec-contacts + .site-footer { margin-top: 0; }
+    /* promo banner (акции) sits a bit tighter to its neighbors than the site's usual 160 rhythm */
+    .hero + .sec-promo-banner, .sec-promo-banner + .sec-about { margin-top: clamp(48px, 7.5vw, 120px); }
 
     .pill-btn {
       display: inline-flex;
@@ -441,23 +443,58 @@
       position: absolute; top: clamp(180px, 22.43vw, 297px); left: 50%; transform: translateX(-50%);
       width: clamp(230px, 34.7vw, 460px); aspect-ratio: 1;
     }
-    .about-circle__ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(51,36,29,0.5); }
+    /* .about-circle__photo is a portrait-ratio RECTANGLE inset inside the
+       circle, so its corners geometrically fall outside the ring's radius.
+       .about-circle__mask clips the ring+photo+scan group to the circle
+       itself (matching the Figma frame, which wraps them the same way), so
+       the photo can never poke past the ring no matter its own aspect
+       ratio. The point dots/lines/labels stay OUTSIDE this wrapper, as
+       later siblings in .about-circle, so they paint above the whole
+       masked group by plain DOM order — no z-index tricks needed for
+       either the ring or the points. */
+    .about-circle__mask { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
     .about-circle__photo {
-      position: absolute; top: 4.5%; left: 50%; transform: translateX(-50%);
-      width: 78.19%; height: 91.48%;
+      position: absolute; top: 13.42%; left: 50%; transform: translateX(-50%);
+      width: 74.32%; height: 86.84%;
       overflow: hidden;
     }
     .about-circle__photo img {
-      position: absolute; top: 0; left: -41.53%; max-width: none;
-      width: 175.26%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
     }
+    /* face-scan mesh: the Figma "scan" layer (assets/photos/about-scan-mesh.webp
+       — the design's own dot-grid texture, isolated to just its bright
+       highlights so it composites cleanly over any photo), positioned at
+       the exact inset Figma specifies relative to the circle. Starts once
+       the circle has bloomed in (see the script near the end of the body),
+       then loops continuously: sweep down (scanner pass) → hold → fade out
+       → hidden → repeat, rather than a single one-shot reveal. */
+    .about-circle__scan {
+      position: absolute; pointer-events: none;
+      left: 31.9%; right: 27.2%; top: 32.52%; bottom: 16.65%;
+      width: auto; height: auto;
+      opacity: 0;
+      clip-path: inset(0 0 100% 0);
+    }
+    .about-circle__scan.is-scanning {
+      animation: aboutScanLoop 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+    @keyframes aboutScanLoop {
+      0%   { clip-path: inset(0 0 100% 0); opacity: 0; }
+      6%   { opacity: 0.6; }
+      42%  { clip-path: inset(0 0 0% 0); opacity: 0.6; }
+      74%  { clip-path: inset(0 0 0% 0); opacity: 0.6; }
+      92%  { opacity: 0; clip-path: inset(0 0 0% 0); }
+      100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+    }
+    .about-circle__scan img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .about-circle__ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(51,36,29,0.5); }
     /* dot → line → label: all positioned as % of the circle itself, so they
        stay geometrically locked to the ring at any circle size */
     .about-point { display: contents; }
     .about-point__dot {
       position: absolute; width: clamp(6px, 1vw, 10px); height: clamp(6px, 1vw, 10px);
       border-radius: 50%; background: #767e5d; transform: translate(-50%, -50%);
-      z-index: 2;
     }
     .about-point__line {
       position: absolute; height: 1.2px; background: rgba(51,36,29,0.5);
@@ -482,6 +519,7 @@
       .about-text, .about-showcase__btn, .about-circle,
       .about-point__dot, .about-point__line, .about-point__label,
       #about-stats-home .about-stat, #about-stats-home .about-stats__div { opacity: 1 !important; }
+      .about-circle__scan { clip-path: inset(0 0 0% 0) !important; opacity: 0.6 !important; animation: none !important; }
     }
 
     /* Точность — left of the ring; dot at angle 194° on the circle (exact:
@@ -819,28 +857,28 @@
     .promo-banner__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 56% 42%; }
     .promo-banner__card {
       position: absolute; left: clamp(16px, 3.6vw, 48px); top: 50%; transform: translateY(-50%);
-      width: clamp(180px, 17vw, 230px); background: rgba(255,255,255,0.22);
+      width: clamp(207px, 19.55vw, 264px); background: rgba(255,255,255,0.22);
       border: 1px solid rgba(255,255,255,0.45);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-radius: 16px; padding: clamp(16px, 1.25vw, 20px) clamp(14px, 1.1vw, 18px);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
-      min-height: clamp(180px, 19vw, 230px); text-decoration: none;
+      border-radius: 18px; padding: clamp(18px, 1.44vw, 23px) clamp(16px, 1.27vw, 21px);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+      min-height: clamp(207px, 21.85vw, 264px); text-decoration: none;
       transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
     }
     .promo-banner__card:hover { transform: translateY(-54%); }
-    .promo-banner__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-    .promo-banner__label { font-size: clamp(12px, 0.83vw, 14px); font-weight: 500; color: rgba(51,36,29,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
+    .promo-banner__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+    .promo-banner__label { font-size: clamp(14px, 0.95vw, 16px); font-weight: 500; color: rgba(51,36,29,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
     .promo-banner__arr {
-      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      flex-shrink: 0; width: 37px; height: 37px; border-radius: 50%;
       background: var(--c-accent); color: #fff;
       display: flex; align-items: center; justify-content: center;
       transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
     }
-    .promo-banner__arr svg { width: 16px; height: 16px; }
+    .promo-banner__arr svg { width: 18px; height: 18px; }
     .promo-banner__card:hover .promo-banner__arr { transform: translate(3px, -3px); }
-    .promo-banner__bottom { display: flex; flex-direction: column; gap: 8px; color: rgba(51,36,29,0.6); }
-    .promo-banner__pct { font-size: clamp(32px, 3.4vw, 56px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-style: normal; }
-    .promo-banner__desc { font-size: 12px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
+    .promo-banner__bottom { display: flex; flex-direction: column; gap: 9px; color: rgba(51,36,29,0.6); }
+    .promo-banner__pct { font-size: clamp(37px, 3.91vw, 64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-style: normal; }
+    .promo-banner__desc { font-size: 14px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
     .promo-banner__dots { display: flex; align-items: center; gap: 10px; }
 
     /* ── ВНУТРИ КЛИНИКИ ───────────────────────── */
@@ -1483,8 +1521,15 @@
     </div>
     <a href="services.html" class="pill-btn about-showcase__btn">Подробнее</a>
     <div class="about-circle">
-      <div class="about-circle__ring" aria-hidden="true"></div>
-      <div class="about-circle__photo"><img src="assets/photos/intro-device-figma.webp" alt="Аппаратная процедура в клинике RA|RÉ" loading="lazy"/></div>
+      <div class="about-circle__mask">
+        <div class="about-circle__photo">
+          <img src="assets/photos/about-expert-woman-figma.webp" alt="Экспертный уход в клинике RA|RÉ" loading="lazy"/>
+        </div>
+        <div class="about-circle__scan">
+          <img src="assets/photos/about-scan-mesh.webp" alt="" loading="lazy"/>
+        </div>
+        <div class="about-circle__ring" aria-hidden="true"></div>
+      </div>
 
       <div class="about-point about-point--precision">
         <span class="about-point__line" aria-hidden="true"></span>
@@ -2074,6 +2119,7 @@
     var textBlock = section.querySelector('.about-text');
     var btn = section.querySelector('.about-showcase__btn');
     var circle = section.querySelector('.about-circle');
+    var scan = section.querySelector('.about-circle__scan');
     var points = Array.prototype.slice.call(section.querySelectorAll('.about-point'));
     var statEls = Array.prototype.slice.call(section.querySelectorAll('#about-stats-home .about-stat'));
     if (!textBlock || !btn || !circle || !points.length) return;
@@ -2107,6 +2153,14 @@
     }
 
     function wait(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
+
+    /* scanner-style reveal: a looping CSS animation (see .about-circle__scan.is-scanning)
+       repeatedly sweeps the mesh in top-to-bottom, holds, fades out, and
+       repeats — started once the circle has bloomed in, then left running */
+    function startScanLoop(el) {
+      if (reduceMotion) return;
+      el.classList.add('is-scanning');
+    }
 
     function animateCount(el, target, suffix, duration) {
       var startTime = null;
@@ -2157,6 +2211,7 @@
             { opacity: 0, transform: 'translateX(-50%) scale(0.35)', filter: 'blur(10px)' },
             { opacity: 1, transform: 'translateX(-50%) scale(1)', filter: 'blur(0)' }
           ], 800, 0);
+          if (scan) startScanLoop(scan);
           await wait(200);
 
           async function runPoints() {
