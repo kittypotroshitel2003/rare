@@ -1,0 +1,106 @@
+/* ============================================================
+   REVIEWS — reviews/index.html. Compact token/footer variant.
+
+   BUG FOUND AND FIXED: same as services-listing.css — the original
+   inline <style> had two @media (max-width:900px) blocks (for
+   .pi-grid/.pi-left-row and for .founder-fb-inner) that were never
+   closed with a matching '}'. Everything after the first one —
+   .sec-eyebrow, .sec-reviews, .review-*, .sec-founder-fb, .fb-form,
+   .sec-cta, .cta-heading, .site-footer, .footer-* — silently became
+   nested inside unmet conditions and never applied on desktop.
+   Verified live: .site-footer/.sec-reviews had no padding, .sec-cta/
+   .sec-founder-fb no background, before this fix. Restored as
+   properly-closed, always-applicable rules.
+   ============================================================ */
+.site-hd { padding: 24px var(--gutter); }
+
+.inner-hero { position: relative; height: clamp(320px, 30vw, 520px); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+.inner-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.inner-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,47,39,0.3), rgba(16,47,39,0.72)); }
+.inner-hero__cnt { position: relative; z-index: 2; padding-bottom: 72px; width: 100%; }
+.inner-hero__title { text-align: left; font-size: clamp(36px, 4vw, 64px); font-weight: 400; color: #FDFCF8; letter-spacing: -0.02em; line-height: 1; font-style: normal; }
+
+.sec-platforms { padding: 64px 0 88px; }
+.platforms-breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 14px; font-weight: 500; color: var(--c-muted); margin-bottom: 16px; }
+.platforms-breadcrumb a { color: var(--c-muted); text-decoration: none; transition: color 0.2s; }
+.platforms-breadcrumb a:hover { color: var(--c-text); }
+.sec-platforms .sec-h { margin-bottom: 48px; }
+.pi-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: start; }
+
+.pi-left { display: flex; flex-direction: column; gap: 20px; }
+.platform-card { position: relative; overflow: hidden; border: 1px solid rgba(51,36,29,0.1); background: #fff; border-radius: 16px; text-decoration: none; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.platform-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(51,36,29,0.1); }
+.platform-card--main { padding: 32px; }
+.platform-card__top { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.platform-badge { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.platform-badge--yandex { background: #fc3f1d; }
+.platform-badge--gis { background: #2f9c4a; }
+.platform-badge--prodoc { background: #0aa3a3; }
+.platform-card__title { position: relative; z-index: 1; font-size: 24px; font-weight: 500; letter-spacing: -0.02em; color: var(--c-text); margin-bottom: 6px; }
+.platform-card__title .stars { color: #f5c842; font-size: 18px; letter-spacing: 1px; margin-left: 2px; }
+.platform-card__subtitle { position: relative; z-index: 1; font-size: 15px; color: var(--c-muted); }
+.platform-card__deco { position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 220px; height: 220px; opacity: 0.35; pointer-events: none; }
+.pi-left-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.platform-card--small { padding: 24px; }
+.platform-card--small .platform-badge { width: 34px; height: 34px; font-size: 13px; margin-bottom: 18px; }
+.platform-card__score-sm { font-size: 20px; font-weight: 500; color: var(--c-text); margin-bottom: 4px; }
+.platform-card__score-sm .stars { color: #f5c842; font-size: 14px; margin-right: 6px; letter-spacing: 1px; }
+.platform-card__label { font-size: 14px; color: var(--c-muted); }
+
+.inspire-heading { font-size: clamp(22px,2vw,32px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+.inspire-lead { font-size: 16px; line-height: 1.65; color: var(--c-muted); margin-bottom: 22px; }
+.inspire-lead strong { color: var(--c-text); font-weight: 600; }
+.inspire-steps-simple { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 26px; counter-reset: step; }
+.inspire-steps-simple li { position: relative; padding-left: 44px; min-height: 32px; display: flex; align-items: center; font-size: 16px; line-height: 1.4; color: var(--c-text); counter-increment: step; }
+.inspire-steps-simple li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px dashed var(--c-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; color: var(--c-accent); font-style: italic;
+}
+.inspire-steps-simple li:not(:last-child)::after {
+  content: ''; position: absolute; left: 16px; top: 36px; width: 1px; height: calc(100% - 20px);
+  border-left: 1px dashed rgba(51,36,29,0.25);
+}
+.inspire-actions { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
+.inspire-actions .pill-btn { padding: 16px 30px; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 8px; }
+.inspire-actions .pill-btn--fill { background: var(--c-text); color: #fdfcf8; border-color: var(--c-text); }
+.inspire-actions .pill-btn--fill:hover { background: var(--c-accent); border-color: var(--c-accent); }
+.inspire-actions .pill-btn--ghost { background: transparent; color: var(--c-text); border: 1.5px solid rgba(51,36,29,0.2); }
+.inspire-actions .pill-btn--ghost:hover { background: rgba(51,36,29,0.05); }
+@media (max-width: 900px) { .pi-grid { grid-template-columns: 1fr; } .pi-left-row { grid-template-columns: 1fr; } }
+
+.sec-eyebrow { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 12px; }
+
+.sec-reviews { padding: 72px 0; }
+.sec-reviews .sec-h { margin-bottom: 72px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.review-card { border: 1px solid rgba(51,36,29,0.12); border-radius: var(--r-card); padding: 36px 28px; display: flex; flex-direction: column; gap: 20px; transition: box-shadow 0.2s; }
+.review-card:hover { box-shadow: 0 4px 24px rgba(51,36,29,0.1); }
+.review-stars { font-size: 20px; color: var(--c-accent); }
+.review-text { font-size: 20px; font-weight: 300; color: var(--c-text); line-height: 1.5; letter-spacing: -0.02em; font-style: normal; }
+.review-author { display: flex; flex-direction: column; gap: 4px; margin-top: auto; }
+.review-name { font-size: 20px; font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; font-style: normal; }
+.review-date { font-size: 16px; font-weight: 400; color: var(--c-muted); font-style: normal; }
+.review-service { font-size: 16px; font-weight: 400; color: var(--c-accent); font-style: normal; }
+
+.sec-founder-fb { background: var(--c-dark); padding: 88px 0; }
+.founder-fb-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: start; }
+.founder-fb-heading { font-size: clamp(24px,2.4vw,40px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+.founder-fb-text { font-size: 17px; line-height: 1.6; color: var(--c-w50); margin-bottom: 28px; }
+.founder-fb-who { display: flex; align-items: center; gap: 16px; }
+.founder-fb-who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.founder-fb-who__role { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-w50); }
+.founder-fb-who__name { font-size: 18px; font-weight: 500; color: var(--c-text); }
+.fb-form { display: flex; flex-direction: column; gap: 20px; }
+.fb-form input, .fb-form textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(51,36,29,0.25); color: var(--c-text); font-family: var(--f); font-size: 16px; padding: 12px 0; outline: none; transition: border-color 0.2s; }
+.fb-form input::placeholder, .fb-form textarea::placeholder { color: rgba(51,36,29,0.4); }
+.fb-form input:focus, .fb-form textarea:focus { border-color: var(--c-accent); }
+.fb-form textarea { resize: vertical; min-height: 80px; }
+.fb-form button { align-self: flex-start; margin-top: 8px; padding: 16px 32px; font-size: 16px; }
+.fb-form__note { font-size: 13px; color: rgba(51,36,29,0.4); margin-top: -8px; }
+@media (max-width: 900px) { .founder-fb-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+.sec-cta { background: var(--c-dark); padding: 72px 0; text-align: center; }
+.cta-heading { font-size: clamp(22px,2.2vw,38px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 32px; font-style: normal; }

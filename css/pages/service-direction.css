@@ -1,0 +1,59 @@
+/* ============================================================
+   SERVICE DIRECTION — services/{laser,light,lifts,skin,injections,
+   spa,diagnostics,consultations}.html. Matches Figma nodes
+   2257:2179 (desktop) / 2273:3249 (mobile) "услуги / services-
+   directory-mobile". Reuses header.css/footer.css/buttons.css/
+   forms.css(.sec-booking)/mobile-booking.css(.mh-booking,.mh-footer)/
+   dots.css/booking-popup.css verbatim, and reuses services.css's
+   .services-desktop/.mobile-services wrappers + .sec-promo-banner/
+   .promo-banner* + .hero__cta + .mh-services/.mh-service-card/
+   .mh-promos-* as-is (loaded alongside this file) — only the hero
+   title + procedure-card row (desktop) is new here, since the
+   Figma card spec is identical to .mh-service-card but needs a
+   horizontal, non-link layout above 767px.
+   ============================================================ */
+body.page--service-direction { background: #fff; color: var(--c-text); }
+
+/* ── DESKTOP (≥768px) ── */
+.svcdir-hero { display: flex; flex-direction: column; align-items: center; gap: clamp(40px, 4.4vw, 64px); width: 100%; padding-top: 56px; }
+.svcdir-head { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; width: 100%; }
+.svcdir-heading { align-self: flex-start; font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
+
+.svcdir-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; font-weight: 400; letter-spacing: -0.02em; font-style: normal; }
+.svcdir-breadcrumb a { color: #595961; text-decoration: none; transition: color 0.2s; }
+.svcdir-breadcrumb a:hover { color: var(--c-text); }
+.svcdir-breadcrumb__sep { color: rgba(51, 36, 29, 0.3); }
+.svcdir-breadcrumb__current { color: var(--c-text); font-weight: 500; }
+
+.svcdir-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px, 2.5vw, 48px); width: 100%; }
+.svcdir-card {
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  width: 380px; max-width: 100%; padding: 64px 32px 32px;
+  background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; text-align: center;
+}
+.svcdir-card__num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 24px; background: #ededed; color: #595961; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.02em; font-style: normal; }
+.svcdir-card__photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+.svcdir-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.svcdir-card__title { font-size: 22px; font-weight: 600; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.25; font-style: normal; margin: 0; }
+.svcdir-card__desc { font-size: 15px; font-weight: 400; color: #595961; letter-spacing: -0.04em; line-height: 1.4; font-style: normal; margin: 0; }
+
+.svcdir-cta-wrap { display: flex; justify-content: center; margin-top: clamp(8px, 1vw, 16px); }
+
+@media (max-width: 767px) { .services-desktop { display: none; } }
+
+/* ── MOBILE (≤767px) — hero title + cards reuse .mh-section-title /
+   .mh-services / .mh-service-card (as plain non-link cards, same
+   visual spec) from services.css verbatim; only the copy differs
+   from services.html's "Направления услуг" block. ── */
+.mobile-services { display: none; }
+@media (max-width: 767px) {
+  footer.site-footer { display: none !important; }
+  .mobile-services { display: flex; flex-direction: column; gap: 56px; padding-top: 84px; }
+  .mobile-services .mh-footer { margin-top: 0; }
+
+  .mh-services__head { display: flex; flex-direction: column; gap: 10px; }
+  .mh-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 400; letter-spacing: -0.02em; font-style: normal; }
+  .mh-breadcrumb a { color: #595961; text-decoration: none; }
+  .mh-breadcrumb__sep { color: rgba(51, 36, 29, 0.3); }
+  .mh-breadcrumb__current { color: var(--c-text); font-weight: 500; }
+}

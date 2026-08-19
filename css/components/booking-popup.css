@@ -1,0 +1,32 @@
+/* ============================================================
+   SUCCESS POPUP — .booking-popup, shared by index.html and
+   about.html. JS: shared openBookingPopup()/close handlers stay
+   inline per page (small, page-specific wiring to that page's form).
+   ============================================================ */
+@keyframes popCheckBounce { from { transform: scale(0); opacity: 0; } 60% { transform: scale(1.18); opacity: 1; } to { transform: scale(1); opacity: 1; } }
+.booking-popup { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; pointer-events: none; visibility: hidden; }
+.booking-popup.is-open { pointer-events: auto; visibility: visible; }
+.booking-popup__overlay { position: absolute; inset: 0; background: rgba(16,47,39,0.6); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); opacity: 0; transition: opacity 0.35s ease; }
+.booking-popup.is-open .booking-popup__overlay { opacity: 1; }
+.booking-popup__card {
+  position: relative; z-index: 1; background: var(--c-bg); border-radius: 28px;
+  padding: 56px 52px; max-width: 500px; width: calc(100% - 40px); text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22);
+  opacity: 0; transform: scale(0.88) translateY(24px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.booking-popup.is-open .booking-popup__card { opacity: 1; transform: scale(1) translateY(0); }
+.booking-popup__check {
+  width: 76px; height: 76px; border-radius: 50%; background: var(--c-accent);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 28px;
+  transform: scale(0); opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1) 0.2s, opacity 0.3s ease 0.2s;
+}
+.booking-popup.is-open .booking-popup__check { transform: scale(1); opacity: 1; }
+.booking-popup__check svg { width: 34px; height: 34px; stroke: var(--c-text); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 52; stroke-dashoffset: 52; transition: stroke-dashoffset 0.45s ease 0.6s; }
+.booking-popup.is-open .booking-popup__check svg { stroke-dashoffset: 0; }
+.booking-popup__title { font-size: clamp(24px, 3vw, 40px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1; margin-bottom: 14px; font-style: normal; }
+.booking-popup__desc { font-size: 18px; font-weight: 300; color: var(--c-muted); letter-spacing: -0.02em; line-height: 1.45; font-style: normal; margin-bottom: 36px; }
+.booking-popup__close { padding: 16px 52px; font-size: 18px; background: var(--c-dark); color: var(--c-text); border-color: var(--c-dark); box-shadow: 0 4px 20px rgba(16,47,39,0.25); }
+.booking-popup__close:hover { background: #E8E0D0; border-color: #E8E0D0; }
+@media (max-width: 767px) { .booking-popup__card { padding: 40px 24px; border-radius: 20px; } .booking-popup__title { font-size: 26px; } .booking-popup__desc { font-size: 16px; } .booking-popup__close { padding: 14px 40px; font-size: 16px; } }

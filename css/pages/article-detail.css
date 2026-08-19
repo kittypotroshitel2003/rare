@@ -1,0 +1,41 @@
+/* ============================================================
+   ARTICLE DETAIL PAGES — the 4 articles/article-*.html pages.
+   Verified near-identical (one page sets .article-hero__bg
+   background-position:top center vs center at the class level,
+   but every page's own <div> also sets it again inline, which
+   always wins — so the class-level value here is moot either way).
+   Large token/footer variant.
+   ============================================================ */
+.site-hd { padding: 33px var(--gutter); }
+
+.article-hero { position: relative; height: clamp(300px, 28vw, 480px); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+.article-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.article-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,47,39,0.1), rgba(16,47,39,0.65)); }
+.article-hero__cnt { position: relative; z-index: 2; padding-bottom: 60px; width: 100%; }
+.article-breadcrumb { font-size: 16px; font-weight: 500; color: rgba(253,252,248,0.65); margin-bottom: 16px; display: flex; gap: 8px; align-items: center; }
+.article-breadcrumb a { color: rgba(253,252,248,0.65); text-decoration: none; transition: color 0.2s; }
+.article-breadcrumb a:hover { color: #FDFCF8; }
+.article-title { font-size: clamp(32px, 3.5vw, 64px); font-weight: 400; color: #FDFCF8; letter-spacing: -0.02em; line-height: 1.05; font-style: normal; max-width: 900px; }
+
+.sec-article { padding: 80px 0 105px; }
+.article-layout { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
+.article-meta { display: flex; gap: 24px; align-items: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid rgba(51,36,29,0.1); }
+.article-tag { background: var(--c-accent); color: var(--c-text); border-radius: var(--r-pill); padding: 10px 18px; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; font-style: normal; }
+.article-date { font-size: 18px; font-weight: 400; color: var(--c-muted); font-style: normal; }
+.article-body { font-size: clamp(17px,1.04vw,20px); font-weight: 400; line-height: 1.7; color: var(--c-text); letter-spacing: -0.01em; }
+.article-body h2 { font-size: clamp(24px,1.875vw,36px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; color: var(--c-text); margin: 48px 0 20px; font-style: normal; }
+.article-body p { margin-bottom: 1.4em; }
+.article-body p:last-child { margin: 0; }
+.article-body ul { margin: 0 0 1.4em 1.5em; }
+.article-body li { margin-bottom: 0.6em; }
+.article-sidebar { position: sticky; top: 40px; display: flex; flex-direction: column; gap: 24px; }
+.sidebar-cta { background: var(--c-dark); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+.sidebar-cta__title { font-size: 22px; font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; font-style: normal; }
+.sidebar-cta .pill-btn { padding: 16px 24px; font-size: 18px; justify-content: center; }
+.sidebar-cta__tel { text-align: center; font-size: 16px; color: var(--c-w50); text-decoration: none; display: block; transition: color 0.2s; }
+.sidebar-cta__tel:hover { color: var(--c-text); }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 500; color: var(--c-accent); text-decoration: none; transition: gap 0.2s; }
+.back-link:hover { gap: 12px; }
+
+.sec-cta { background: var(--c-dark); padding: 105px 0; text-align: center; }
+.cta-heading { font-size: clamp(36px,4.17vw,80px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 48px; font-style: normal; }

@@ -1,0 +1,36 @@
+/* ============================================================
+   DESKTOP FOOTER — .site-footer/.footer-*, shared base rules only.
+   Each page's differing @media(max-width:640px) treatment for
+   .footer-nav stays in its own css/pages/*.css (about.html uses a
+   2-col grid, index.html stacks — intentional divergence, not a bug).
+   ============================================================ */
+.site-footer { background: var(--c-bg); padding: clamp(36px, 4.5vw, 88px) 0 clamp(24px, 3.3vw, 64px); }
+.footer-wrap { max-width: 1920px; margin: 0 auto; padding: 0 clamp(20px, 6.25vw, 120px); }
+.footer-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 16px; color: var(--c-text); }
+.footer-nav__group { display: flex; gap: clamp(20px, 2.1vw, 40px); flex-wrap: wrap; }
+.footer-nav a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+.footer-nav a:hover { opacity: 0.6; }
+.footer-div { height: 1px; background: rgba(51,36,29,0.15); margin: clamp(24px, 2.5vw, 44px) 0; }
+.footer-socials { display: flex; gap: 12px; margin-bottom: clamp(20px, 2.2vw, 40px); }
+.footer-social { width: 44px; height: 44px; border-radius: 50%; background: var(--c-text); display: flex; align-items: center; justify-content: center; transition: opacity 0.2s; }
+.footer-social:hover { opacity: 0.75; }
+.footer-social img { width: 24px; height: 20px; }
+.footer-social--plain { background: transparent; }
+.footer-social--plain img { width: 44px; height: 44px; }
+.footer-social[aria-label="MAX"] img { width: 22px; height: 22px; }
+.footer-social[aria-label="Позвонить"] img { width: 20px; height: 20px; }
+.footer-brand-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.footer-wordmark { font-family: var(--f); font-weight: 300; font-size: clamp(56px, 10.5vw, 200px); line-height: 0.8; color: var(--c-text); }
+.footer-cta { display: flex; flex-direction: column; gap: 24px; max-width: 460px; padding-bottom: 12px; }
+.footer-cta__text { font-size: 16px; font-weight: 300; color: var(--c-text); line-height: 1.5; font-style: normal; }
+.footer-cta__btn { display: inline-flex; align-items: center; justify-content: center; background: #767e5d; color: #faf9f6; border-radius: 8px; padding: 12px 32px; font-size: 15px; font-weight: 500; text-decoration: none; transition: background 0.2s; align-self: flex-start; }
+.footer-cta__btn:hover { background: #5e6249; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: calc(16px + clamp(24px, 2.5vw, 44px)); padding-top: 20px; border-top: 1px solid rgba(51,36,29,0.12); font-size: 14px; color: rgba(51,36,29,0.6); }
+.footer-legal { display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-legal a { color: inherit; text-decoration: none; }
+.footer-legal a:hover { color: var(--c-text); }
+.footer-made { display: flex; align-items: center; gap: 8px; opacity: 0.6; transition: opacity 0.2s; text-decoration: none; }
+.footer-made:hover { opacity: 1; }
+.footer-made img { height: 18px; width: auto; }
+
+/* mobile-only footer (.mh-footer*) lives in components/mobile-booking.css */

@@ -1,0 +1,37 @@
+/* ============================================================
+   BASE — reset + typography defaults, shared by index.html and about.html.
+   Reconciled from styles.css's reset (properties the pages never
+   redefine themselves: button/list/form resets, text-decoration,
+   -webkit-text-size-adjust, line-height) plus the pages' own
+   body/html/em/img/a values, which win where both defined the
+   same property (font-family, font-weight, background, color).
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--f);
+  font-weight: 400;
+  background: var(--c-bg);
+  color: var(--c-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+em { font-style: normal; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul, ol { list-style: none; }
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.serif-italic { font-family: var(--f); font-style: normal !important; font-weight: 400; color: var(--c-text); }
+.sec-h { font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; line-height: 1.1; letter-spacing: -0.04em; color: var(--c-text); font-style: normal; }
+
+.wrap { max-width: 1920px; margin: 0 auto; padding: 0 var(--gutter); }
+section + section, section + footer, section + .contacts-footer-wrap { margin-top: clamp(64px, 10vw, 160px); }
+@media (max-width: 1024px) { html { overflow-x: hidden; } }

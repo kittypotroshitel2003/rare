@@ -1,0 +1,35 @@
+/* ============================================================
+   SPECIALISTS LISTING — specialists/index.html grid of team cards.
+   Compact token/footer variant.
+   ============================================================ */
+.site-hd { padding: 24px var(--gutter); }
+.sec-h { font-size: clamp(22px, 2.2vw, 38px); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; color: var(--c-text); font-style: normal; }
+
+.inner-hero { position: relative; height: clamp(320px, 30vw, 520px); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+.inner-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.inner-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,47,39,0.3), rgba(16,47,39,0.72)); }
+.inner-hero__cnt { position: relative; z-index: 2; padding-bottom: 72px; width: 100%; }
+.inner-hero__title { text-align: left; font-size: clamp(36px, 4vw, 64px); font-weight: 400; color: #FDFCF8; letter-spacing: -0.02em; line-height: 1; font-style: normal; }
+
+.sec-spec-page { background: var(--c-bg); padding: 72px 0; }
+.sec-spec-page .sec-h { color: var(--c-text); margin-bottom: 72px; }
+.spec-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+.spec-card {
+  border-radius: 20px; overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(51,36,29,0.08);
+  display: flex; flex-direction: column;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
+}
+.spec-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(51,36,29,0.12); }
+.spec-card__photo { width: 100%; height: 480px; overflow: hidden; background: #f5f2ed; flex-shrink: 0; }
+.spec-card__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(1); transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), filter 0.5s ease; }
+.spec-card:hover .spec-card__photo img { transform: scale(1.04); filter: grayscale(0); }
+.spec-card__info { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 8px; }
+.spec-card__name { font-size: 22px; font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; font-style: normal; }
+.spec-card__role { font-size: 16px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.3; font-style: normal; }
+
+.sec-cta { background: var(--c-bg); padding: 72px 0; text-align: center; }
+.cta-heading { font-size: clamp(22px, 2.2vw, 38px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 32px; font-style: normal; }
+.cta-sub { font-size: 24px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.02em; margin-bottom: 48px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.4; }

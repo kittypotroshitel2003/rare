@@ -9,151 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
-<style>
-:root{--c-dark:#FFFAF3;--c-accent:#777247;--c-bg:#FFFAF3;--c-text:#33241D;--c-muted:#6b5e4f;--c-white:#FFFAF3;--c-w50:rgba(51,36,29,0.5);--f:'Inter','Involve',sans-serif;--r-card:10px;--r-pill:6px;--gutter:clamp(20px,4.5vw,72px)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--f);background:var(--c-bg);color:var(--c-text)}
-em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
-.wrap{max-width:1920px;margin:0 auto;padding:0 var(--gutter)}
-.pill-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--c-text);border-radius:var(--r-pill);font-family:var(--f);font-weight:500;font-style:normal;text-decoration:none;border:1.5px solid rgba(51,36,29,0.25);cursor:pointer;transition:background 0.2s,border-color 0.2s,color 0.2s;line-height:1}
-.pill-btn:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fdfcf8}
-.sec-h{font-size:clamp(22px,2.2vw,38px);font-weight:400;line-height:1.05;letter-spacing:-0.03em;color:var(--c-text);font-style:normal}
-
-.site-hd{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--c-dark);display:flex;align-items:center;justify-content:space-between;padding:24px var(--gutter)}
-.site-hd__logo img{height:36px;width:auto}
-.site-hd__nav{display:flex;gap:18px}
-.site-hd__nav a{font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;font-style:normal;white-space:nowrap;transition:opacity 0.2s}
-.site-hd__nav a:hover{opacity:0.7}
-.site-hd__actions{display:flex;align-items:center;gap:18px}.site-hd__connect{position:relative}.site-hd__contact{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--c-text);text-decoration:none;white-space:nowrap;transition:opacity 0.2s;background:none;border:none;cursor:pointer;font-family:var(--f)}.site-hd__contact:hover{opacity:0.7}.site-hd__contact svg{width:8px;height:5px;flex-shrink:0;transition:transform 0.25s ease}.site-hd__connect:hover .site-hd__contact svg,.site-hd__connect:focus-within .site-hd__contact svg{transform:rotate(180deg)}.site-hd__connect-panel{position:absolute;top:calc(100% + 18px);right:0;background:var(--c-bg);border:1px solid rgba(51,36,29,0.1);border-radius:14px;box-shadow:0 24px 64px rgba(16,47,39,0.18);padding:12px;min-width:240px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity 0.22s ease,transform 0.22s ease,visibility 0.22s;z-index:400}.site-hd__connect:hover .site-hd__connect-panel,.site-hd__connect:focus-within .site-hd__connect-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.site-hd__connect-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14.5px;font-weight:500;color:var(--c-text);text-decoration:none;transition:background 0.15s ease}.site-hd__connect-item:hover{background:rgba(119,114,71,0.08);color:var(--c-accent)}.site-hd__connect-item svg,.site-hd__connect-item img{width:20px;height:20px;flex-shrink:0}
-.site-hd__cta{padding:16px 24px;font-size:18px}
-
-.inner-hero{position:relative;height:clamp(320px,30vw,520px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-.inner-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
-.inner-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,47,39,0.3),rgba(16,47,39,0.72))}
-.inner-hero__cnt{position:relative;z-index:2;padding-bottom:72px;width:100%}
-.inner-hero__title{text-align:left;font-size:clamp(36px,4vw,64px);font-weight:400;color:#FDFCF8;letter-spacing:-0.02em;line-height:1;font-style:normal}
-
-/* ── PRICE TABS ── */
-.price-tabs-bar{
-  background:var(--c-bg);
-  border-bottom:1px solid rgba(51,36,29,0.1);
-  position:sticky;top:0;z-index:100;
-}
-.price-tabs{
-  display:flex;gap:0;overflow-x:auto;scrollbar-width:none;
-  padding:0 var(--gutter);
-}
-.price-tabs::-webkit-scrollbar{display:none}
-.price-tab{
-  flex-shrink:0;
-  padding:20px 28px;
-  font-family:var(--f);font-size:16px;font-weight:500;
-  color:var(--c-muted);background:none;border:none;cursor:pointer;
-  border-bottom:2px solid transparent;
-  transition:color 0.2s,border-color 0.2s;
-  white-space:nowrap;letter-spacing:-0.01em;
-  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-}
-.price-tab:hover{color:var(--c-text)}
-.price-tab.active{color:var(--c-text);border-bottom-color:var(--c-accent)}
-.price-tab__icon{font-size:18px;flex-shrink:0}
-
-/* ── PRICES SECTION ── */
-.sec-prices{padding:80px 0 120px}
-
-.price-category{margin-bottom:80px}
-.price-category:last-of-type{margin-bottom:0}
-
-.price-cat-header{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  gap:24px;
-  padding-bottom:24px;
-  margin-bottom:0;
-  border-bottom:2px solid var(--c-text);
-}
-.price-cat-title{
-  font-size:clamp(24px,2.5vw,48px);
-  font-weight:400;color:var(--c-text);
-  letter-spacing:-0.02em;line-height:1;
-  font-style:normal;
-}
-.price-cat-num{
-  font-size:clamp(56px,5vw,96px);
-  font-weight:400;color:rgba(51,36,29,0.07);
-  letter-spacing:-0.04em;line-height:1;
-  font-style:normal;flex-shrink:0;
-  transition:color 0.4s;
-}
-.price-category:hover .price-cat-num{color:rgba(111,161,135,0.15)}
-
-/* ── PRICE ROWS ── */
-.price-list{display:flex;flex-direction:column}
-.price-row{
-  display:flex;align-items:baseline;justify-content:space-between;
-  gap:24px;
-  padding:22px 0;
-  border-bottom:1px solid rgba(51,36,29,0.08);
-  transition:background 0.18s,padding 0.18s,border-radius 0.18s;
-  cursor:default;
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity 0.5s ease, transform 0.5s ease, background 0.18s, padding-left 0.2s;
-}
-.price-row.visible{opacity:1;transform:translateY(0)}
-.price-row:hover{background:rgba(111,161,135,0.05);padding-left:12px;padding-right:12px;border-radius:8px;margin:0 -12px;width:calc(100% + 24px)}
-.price-row:last-child{border-bottom:none}
-.price-row__name{
-  font-size:clamp(16px,1.15vw,22px);font-weight:400;
-  color:var(--c-text);letter-spacing:-0.01em;line-height:1.4;
-}
-.price-row__note{
-  display:block;font-size:14px;font-weight:400;
-  color:var(--c-muted);margin-top:4px;
-}
-.price-row__val{
-  font-size:clamp(16px,1.25vw,24px);font-weight:500;
-  color:var(--c-accent);letter-spacing:-0.02em;
-  white-space:nowrap;flex-shrink:0;
-  font-style:normal;
-}
-
-/* ── DISCLAIMER ── */
-.price-disclaimer{
-  margin-top:64px;
-  background:rgba(111,161,135,0.07);
-  border-left:3px solid var(--c-accent);
-  border-radius:0 12px 12px 0;
-  padding:24px 28px;
-}
-.price-disclaimer p{
-  font-size:16px;font-weight:400;
-  color:var(--c-muted);line-height:1.65;
-}
-.price-disclaimer a{color:var(--c-accent);text-decoration:none}
-.price-disclaimer a:hover{text-decoration:underline;text-underline-offset:2px}
-
-/* ── CTA ── */
-.sec-cta{background:var(--c-dark);padding:72px 0;text-align:center}
-.cta-heading{font-size:clamp(22px,2.2vw,38px);font-weight:400;color:var(--c-text);letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px;font-style:normal}
-
-/* ── FOOTER ── */
-.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}
-.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}
-.footer-logo{margin-bottom:24px}
-.footer-logo img{height:40px;width:auto}
-.footer-tagline{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal;margin-bottom:24px}
-.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}
-.footer-addr{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}
-.footer-col h3{font-size:15px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.04em;font-style:normal}
-.footer-links{display:flex;flex-direction:column;gap:16px}
-.footer-links a{font-size:13px;font-weight:500;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}
-.footer-links a:hover{color:#fdfcf8}
-.footer-copy{margin-top:40px;font-size:12px;font-weight:300;color:rgba(253,252,248,0.65);font-style:normal}
-.site-footer{background:linear-gradient(rgba(40,38,18,0.1),rgba(40,38,18,0.1)),url('assets/photos/footer-texture.webp');background-size:cover;background-position:center;padding:60px 0 40px;border-top:none}.footer-grid{display:grid;grid-template-columns:minmax(220px,335px) repeat(3,1fr);gap:60px;align-items:start}.footer-logo{margin-bottom:24px}.footer-logo img{height:40px;width:auto}.footer-tagline{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.5;font-style:normal;margin-bottom:24px}.footer-phone{font-size:20px;font-weight:500;color:#fdfcf8;line-height:1.25;text-decoration:none;display:block;font-style:normal;margin-bottom:8px}.footer-addr{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);line-height:1.25;font-style:normal}.footer-col h3{font-size:13px;font-weight:600;color:#fdfcf8;line-height:1.25;margin-bottom:16px;letter-spacing:0.1em;text-transform:uppercase;font-style:normal}.footer-links{display:flex;flex-direction:column;gap:12px}.footer-links a{font-size:13px;font-weight:400;color:rgba(253,252,248,0.65);text-decoration:none;line-height:1.25;font-style:normal;transition:color 0.2s}.footer-links a:hover{color:#fdfcf8}.footer-copy{margin-top:40px;font-size:12px;font-weight:300;color:rgba(253,252,248,0.65);font-style:normal}.footer-links a.active{color:#fdfcf8!important;font-weight:600!important}
-</style>
+<link rel="stylesheet" href="css/components/inner-header.css?v=202608180930"/>
+<link rel="stylesheet" href="css/components/inner-footer.css?v=202608180930"/>
+<link rel="stylesheet" href="css/pages/prices.css?v=202608180930"/>
 </head>
-<body>
+<body class="page page--inner page--prices">
 
 <header class="site-hd">
   <a href="index.html" class="site-hd__logo">
@@ -167,19 +27,19 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
       <div class="svc-mega">
           <div class="svc-mega__col">
             <p class="svc-mega__h">Консультации</p>
-            <a href="services.html#consultations">Приём косметолога</a>
-            <a href="services.html#consultations">Приём трихолога</a>
-            <a href="services.html#consultations">Приём нутрициолога</a>
+            <a href="services/consultations.html">Приём косметолога</a>
+            <a href="services/consultations.html">Приём трихолога</a>
+            <a href="services/consultations.html">Приём нутрициолога</a>
             <p class="svc-mega__h">SMAS и диагностика</p>
-            <a href="services/smas.html">SMAS-лифтинг</a>
-            <a href="services/smas.html">УЗИ диагностика кожи</a>
+            <a href="services/lifts.html">SMAS-лифтинг</a>
+            <a href="services/diagnostics.html">УЗИ диагностика кожи</a>
           </div>
           <div class="svc-mega__col">
             <p class="svc-mega__h">Фотосистема IPL Nordlys</p>
-            <a href="services/skin.html">Фотоомоложение</a>
-            <a href="services/skin.html">Лечение акне</a>
-            <a href="services/skin.html">Лечение купероза и розацеа</a>
-            <a href="services/skin.html">Устранение пигментации</a>
+            <a href="services/light.html">Фотоомоложение</a>
+            <a href="services/light.html">Лечение акне</a>
+            <a href="services/light.html">Лечение купероза и розацеа</a>
+            <a href="services/light.html">Устранение пигментации</a>
             <p class="svc-mega__h">Лифтинги</p>
             <a href="services/lifts.html">RF-лифтинг Volnewmer</a>
             <a href="services/lifts.html">RF-лифтинг Sylfirm X</a>
@@ -198,12 +58,12 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
             <p class="svc-mega__h">Эстетическая косметология</p>
             <a href="services/skin.html">Пилинг</a>
             <a href="services/skin.html">Чистки</a>
-            <a href="services/skin.html">ФДТ Revixan</a>
+            <a href="services/light.html">ФДТ Revixan</a>
             <a href="services/skin.html">Гидропилинг Hydra Touch H2</a>
             <p class="svc-mega__h">Тело, эпиляция и SPA</p>
             <a href="services/laser.html">Лазерная эпиляция</a>
             <a href="services/lifts.html">RSL Beautylizer</a>
-            <a href="services/lifts.html">LPG массаж</a>
+            <a href="services/spa.html">LPG массаж</a>
             <a href="services/spa.html">Массажи и SPA-уходы</a>
           </div>
           <div class="svc-mega__all"><a href="services.html" class="pill-btn">Все услуги →</a></div>
@@ -222,13 +82,9 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
           <img src="assets/icons/vk.svg" alt="" width="20" height="20"/>
           VK
         </a>
-        <a href="https://t.me/rare_anapa" target="_blank" rel="noopener" class="site-hd__connect-item">
-          <img src="assets/icons/telegram.svg" alt="" width="20" height="20"/>
-          Telegram
-        </a>
-        <a href="https://wa.me/79002761116" target="_blank" rel="noopener" class="site-hd__connect-item">
-          <img src="assets/icons/whatsapp.svg" alt="" width="20" height="20"/>
-          WhatsApp
+        <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" class="site-hd__connect-item">
+          <img src="assets/icons/max.svg" alt="" width="20" height="20"/>
+          MAX
         </a>
         <a href="tel:+79002761116" class="site-hd__connect-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -359,7 +215,7 @@ em{font-style:normal}img{display:block;max-width:100%}a{color:inherit}
     <p class="footer-addr">Анапа, Владимирская 120</p>
   </div>
   <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
-    <a href="services/smas.html">SMAS-лифтинг</a>
+    <a href="services/lifts.html">SMAS-лифтинг</a>
     <a href="services/injections.html">Инъекционная косметология</a>
     <a href="services/laser.html">Лазерная эпиляция</a>
     <a href="services/lifts.html">Аппаратные лифтинги</a>

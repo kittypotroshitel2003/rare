@@ -1,0 +1,166 @@
+/* ============================================================
+   SERVICES — services.html. Full redesign to match Figma nodes
+   2257:1839 (desktop) / 2269:886 (mobile). Uses the shared
+   header.css/footer.css/mobile-booking.css/forms.css components,
+   same as promos.html/index.html, replacing the page's previous
+   inner-header/inner-footer look.
+   ============================================================ */
+body.page--services { background: #fff; color: var(--c-text); }
+
+/* ── DESKTOP (≥768px) ── */
+.services-desktop { display: flex; flex-direction: column; align-items: center; gap: 160px; margin-top: var(--header-h); padding-bottom: 160px; }
+.services-hero-group { display: flex; flex-direction: column; align-items: center; gap: 56px; width: 100%; padding-top: 56px; }
+
+/* ── "Направления услуг" grid — copied verbatim from home.css's
+   .sec-dir/.dir-* (index.html #services), per explicit request to
+   reuse the homepage block instead of the custom grid this page had
+   before (which was too large, gapless, and had no real photos). ── */
+.sec-dir { background: var(--c-bg); padding: 0; width: 100%; }
+.dir-head { padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: flex-start; margin-bottom: clamp(40px, 5vw, 72px); }
+.dir-heading { font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; text-align: left; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; }
+.dir-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 0 var(--gutter); }
+.dir-tile { position: relative; overflow: hidden; background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; text-decoration: none; aspect-ratio: 380 / 520; }
+.dir-tile__scrim { position: absolute; inset: 0; z-index: 2; background: rgba(0,0,0,0.25); opacity: 0; transition: opacity 0.3s ease; }
+.dir-tile:hover .dir-tile__scrim { opacity: 1; transition: opacity 0.35s ease 0.1s; }
+.dir-tile__photo {
+  position: absolute; z-index: 1; overflow: hidden;
+  top: 116px; left: calc(50% - clamp(60px, 5.2vw, 80px));
+  width: clamp(120px, 10.4vw, 160px); height: clamp(120px, 10.4vw, 160px);
+  border-radius: 50%;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              top 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), left 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.dir-tile__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.dir-tile:hover .dir-tile__photo { top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px; }
+.dir-tile__body { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 48px 28px 32px; text-align: center; transition: opacity 0.2s ease; }
+.dir-tile:hover .dir-tile__body { opacity: 0; }
+.dir-tile__num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 24px; background: #ededed; color: #40404d; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; font-style: normal; }
+.dir-tile__photo-spacer { width: clamp(120px, 10.4vw, 160px); height: clamp(120px, 10.4vw, 160px); flex-shrink: 0; }
+.dir-tile__title { font-size: 20px; font-weight: 600; color: #1a1a1f; letter-spacing: -0.02em; line-height: 1.25; font-style: normal; margin: 0; }
+.dir-tile__desc { display: flex; flex-direction: column; gap: 2px; }
+.dir-tile__desc p { font-size: 14px; font-weight: 300; color: #595961; line-height: 1.4; letter-spacing: -0.01em; font-style: normal; }
+.dir-tile__num-hover, .dir-tile__arrow { position: absolute; z-index: 4; opacity: 0; transform: scale(0.6); transition: opacity 0.22s ease, transform 0.22s ease; pointer-events: none; }
+.dir-tile__title-hover { position: absolute; z-index: 4; opacity: 0; transform: translate(-50%, -42%) scale(0.85); transition: opacity 0.22s ease, transform 0.22s ease; pointer-events: none; }
+.dir-tile:hover .dir-tile__num-hover, .dir-tile:hover .dir-tile__arrow { opacity: 1; transform: scale(1); transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s; }
+.dir-tile:hover .dir-tile__title-hover { opacity: 1; transform: translate(-50%, -50%) scale(1); transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.44s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.44s; }
+.dir-tile__num-hover { left: 24px; top: 24px; width: 48px; height: 48px; border-radius: 24px; background: var(--c-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.02em; font-style: normal; }
+.dir-tile__title-hover { left: 50%; top: 46.15%; width: 87%; margin: 0; text-align: center; color: #fff; font-size: clamp(17px, 1.9vw, 26px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.2; font-style: normal; }
+.dir-tile__arrow { right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 22px; background: var(--c-accent); color: #fff; display: flex; align-items: center; justify-content: center; }
+.dir-tile__arrow svg { width: 18px; height: 18px; }
+.dir-cta-wrap { display: flex; justify-content: center; margin-top: clamp(40px, 4.2vw, 64px); }
+@media (max-width: 1100px) { .dir-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* smaller solid CTA — copied from home.css's .hero__cta (applied on top
+   of the shared .pill-btn), per explicit request to shrink this button */
+.hero__cta {
+  padding: clamp(12px, 1.04vw, 20px) clamp(24px, 2.19vw, 42px);
+  font-size: clamp(15px, 1.15vw, 22px); letter-spacing: -0.02em; font-weight: 400;
+  background: var(--c-accent); color: #fff; border-color: var(--c-accent);
+  box-shadow: none; gap: clamp(10px, 1vw, 18px);
+}
+.hero__cta.hero__cta { border-radius: 12px !important; }
+.hero__cta:hover { background: #666139; border-color: #666139; color: #fff; }
+.hero__cta svg { flex-shrink: 0; width: clamp(18px, 1.45vw, 28px); height: clamp(18px, 1.45vw, 28px); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.hero__cta:hover svg { transform: translate(3px, -3px); }
+
+/* promo-banner carousel — copied from home.css (shared visual language,
+   already fluid/clamp-based so the same markup works at any breakpoint);
+   duplicated per-breakpoint below to match the site's established
+   desktop/mobile DOM-split convention. */
+.sec-promo-banner { padding: 0; width: 100%; }
+.promo-banner-wrap {
+  width: 100%; /* without this, nesting the wrap inside a flex container with
+  align-items:center (as the mobile .mh-promo-banner-hero does) collapses it to
+  a tiny shrink-to-fit size, since .promo-banner's own content is entirely
+  position:absolute and contributes no in-flow intrinsic width */
+  max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; gap: 32px;
+}
+.promo-banner-strip { display: flex; gap: 24px; width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
+.promo-banner-strip::-webkit-scrollbar { display: none; }
+.promo-banner { position: relative; flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 1320 / 561; border-radius: 16px; overflow: hidden; }
+.promo-banner__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 56% 42%; }
+.promo-banner__card {
+  position: absolute; left: clamp(16px, 3.6vw, 48px); top: 50%; transform: translateY(-50%);
+  width: clamp(207px, 19.55vw, 264px); background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.45);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px; padding: clamp(18px, 1.44vw, 23px) clamp(16px, 1.27vw, 21px);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+  min-height: clamp(207px, 21.85vw, 264px); text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.promo-banner__card:hover { transform: translateY(-54%); }
+.promo-banner__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.promo-banner__label { font-size: clamp(14px, 0.95vw, 16px); font-weight: 500; color: rgba(51,36,29,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
+.promo-banner__arr {
+  flex-shrink: 0; width: 37px; height: 37px; border-radius: 50%;
+  background: var(--c-accent); color: #fff; display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.promo-banner__arr svg { width: 18px; height: 18px; }
+.promo-banner__card:hover .promo-banner__arr { transform: translate(3px, -3px); }
+.promo-banner__bottom { display: flex; flex-direction: column; gap: 9px; color: rgba(51,36,29,0.6); }
+.promo-banner__pct { font-size: clamp(37px, 3.91vw, 64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-style: normal; }
+.promo-banner__desc { font-size: 14px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
+.promo-banner__dots { display: flex; align-items: center; gap: 10px; }
+
+@media (max-width: 767px) { .services-desktop { display: none; } }
+
+/* ── MOBILE (≤767px) — reuses .mh-booking/.mh-footer verbatim
+   (mobile-booking.css), same pattern as promos.html. ── */
+.mobile-services { display: none; }
+@media (max-width: 767px) {
+  footer.site-footer { display: none !important; }
+  .mobile-services { display: flex; flex-direction: column; gap: 56px; padding-top: 84px; }
+  .mobile-services .mh-footer { margin-top: 0; } /* cancel base.css's `section + footer` auto-margin so 56px isn't doubled */
+
+  /* copied verbatim from home.css's .mh-services/.mh-service-card
+     (index.html mobile #services block), per explicit request */
+  .mh-services { display: flex; flex-direction: column; gap: 28px; padding: 0 20px; }
+  .mh-services__stack { display: flex; flex-direction: column; gap: 16px; }
+  .mh-service-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; height: 450px; padding: 32px; border: 1px solid #d9d9d9; border-radius: 20px; text-align: center; text-decoration: none; color: inherit; }
+  .mh-service-card__badge { width: 48px; height: 48px; border-radius: 24px; background: #ededed; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.04em; color: #595961; flex-shrink: 0; }
+  .mh-service-card__photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .mh-service-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mh-service-card__title { font-size: 22px; font-weight: 600; letter-spacing: -0.04em; color: var(--c-text); margin: 0; }
+  .mh-service-card__desc { font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #595961; margin: 0; }
+  .mh-services__cta { display: flex; justify-content: center; }
+  .mh-services__cta .mh-btn-primary { width: auto; padding: 14px 28px; gap: 10px; }
+  .mh-services__cta .mh-btn-primary span { font-size: 17px; }
+  .mh-services__cta .mh-btn-primary svg { width: 24px; height: 24px; }
+
+  /* .mh-promo-card visuals copied from promos.css's mobile block, but
+     shown one at a time here as a swipeable carousel with dot pagination
+     (via the shared makeFilmstrip helper), per explicit request — only
+     one card + dots should be visible, not a stacked list. */
+  .mh-promos-hero { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+  .mh-promos-heading { font-size: 28px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--c-text); text-align: center; padding: 0 20px; margin: 0; }
+  .mh-promos-cards {
+    display: flex; gap: 18px; padding: 0 20px; width: 100%;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .mh-promos-cards::-webkit-scrollbar { display: none; }
+  .mh-promo-card { position: relative; flex: 0 0 100%; scroll-snap-align: start; height: 432px; border-radius: 16px; overflow: hidden; background: #23241d; }
+  .mh-promo-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mh-promos-dots { display: flex; justify-content: center; gap: 10px; }
+  .mh-promos-cards .mh-promo-card:nth-child(1) img { object-position: 70% center; }
+  .mh-promos-cards .mh-promo-card:nth-child(2) img { object-position: 78% 35%; }
+  .mh-promos-cards .mh-promo-card:nth-child(3) img { object-position: 65% center; }
+  .mh-promo-card__panel { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 190px; background: rgba(255,253,249,0.2); border-radius: 16px; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .mh-promo-card__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .mh-promo-arr { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--c-accent); display: flex; align-items: center; justify-content: center; }
+  .mh-promo-card__label { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; color: rgba(51,36,29,0.6); max-width: 229px; margin: 0; }
+  .mh-promo-card__body { display: flex; flex-direction: column; gap: 6px; color: rgba(51,36,29,0.6); }
+  .mh-promo-card__pct { font-size: 52px; font-weight: 500; line-height: 1; margin: 0; }
+  .mh-promo-card__desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.8; margin: 0; }
+
+  .mh-services-contact { display: flex; flex-direction: column; gap: 20px; width: 100%; padding: 16px 20px 0; }
+  .mh-services-contact__lines { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 16px 0; border-top: 1px solid rgba(51,36,29,0.1); border-bottom: 1px solid rgba(51,36,29,0.1); font-size: 14px; }
+  .mh-services-contact__lines p { margin: 0; }
+  .mh-services-contact__lines .is-strong { font-weight: 500; color: var(--c-text); }
+  .mh-services-contact__lines .is-muted { font-weight: 400; color: #595961; }
+  .mh-services-contact__map { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; }
+  .mh-services-contact__map img { width: 100%; height: 100%; object-fit: cover; display: block; }
+}

@@ -1,0 +1,229 @@
+/* ============================================================
+   SERVICE PROCEDURE — services/procedures/*.html, one page per
+   individual procedure (e.g. "Лазерная эпиляция на александритовом
+   лазере"), one level below the direction pages (services/*.html).
+   Matches Figma nodes 2257:2375 (desktop) / 2265:855 (mobile),
+   plus detail refs 2259:2837 (before/after) and 2264:938 (FAQ
+   closed state). Reuses header.css/footer.css/buttons.css/
+   forms.css(.sec-booking)/mobile-booking.css/dots.css/
+   booking-popup.css/services.css(.sec-promo-banner,.promo-banner*,
+   .hero__cta) verbatim — only the sections unique to a procedure
+   page (hero, indications, before/after slider, prices, FAQ) are
+   new here.
+   ============================================================ */
+body.page--service-procedure { background: #fff; color: var(--c-text); }
+.svc-desktop { display: flex; flex-direction: column; align-items: center; gap: 160px; margin-top: var(--header-h); padding-bottom: 160px; }
+@media (max-width: 767px) { .svc-desktop { display: none; } }
+
+/* ── HERO — pixel-matched to Figma node 2257:2375 at its native 1920
+   frame: row padding 180 (== var(--gutter)'s clamped max at 1920),
+   text col 746px / gap 46px / image 768x1060 (746+46+768=1560=1920-360).
+   Text col height 769px with justify-content:space-between (no gap
+   value of its own — Figma has none either) is Figma's literal layout;
+   kept as a min-height so it still degrades gracefully below 1920.
+   Media's max-height is additionally capped to the viewport (minus
+   the fixed header) so the video itself never pushes the hero past
+   one screen — everything else here is untouched Figma sizing. ── */
+.svc-hero { display: flex; align-items: center; gap: clamp(24px, 2.4vw, 46px); width: 100%; padding: 56px var(--gutter) 0; }
+.svc-hero__col { flex: 1 1 0; min-width: 0; max-width: 746px; min-height: 769px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; align-items: flex-start; }
+.svc-hero__title { width: 100%; font-size: clamp(32px, 3.33vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; font-style: normal; margin: 0; }
+.svc-hero__desc { width: 100%; font-size: clamp(16px, 1.25vw, 24px); font-weight: 300; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.2; font-style: normal; }
+.svc-hero__desc p { margin: 0; }
+.svc-hero__desc p.is-spacer { line-height: 1.2; }
+.svc-hero__bullets { width: 100%; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; font-size: clamp(16px, 1.25vw, 24px); font-weight: 300; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.5; }
+.svc-hero__bullets li::before { content: '— '; }
+.svc-hero__media { flex: 0 0 clamp(280px, 40vw, 768px); aspect-ratio: 768 / 1060; max-height: min(1060px, calc(100vh - var(--header-h) - 56px)); border-radius: 20px; overflow: hidden; position: relative; background: #f5f5f3; }
+.svc-hero__media video, .svc-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* .hero__cta (services.css) is deliberately shrunk site-wide per an earlier
+   explicit request; Figma's hero button on THIS node is full-size (18/50
+   padding, 24px text, 23px gap) — restored here, scoped to the hero only,
+   so the shared class stays shrunk everywhere else. */
+.svc-hero__col .pill-btn.hero__cta { padding: clamp(14px, 0.94vw, 18px) clamp(28px, 2.6vw, 50px); font-size: clamp(17px, 1.25vw, 24px); letter-spacing: -0.04em; gap: clamp(14px, 1.2vw, 23px); }
+.svc-hero__col .pill-btn.hero__cta svg { width: clamp(22px, 1.93vw, 37px); height: clamp(22px, 1.93vw, 37px); }
+.svc-sound-btn {
+  position: absolute; z-index: 5; left: 20px; bottom: 20px; width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(51,36,29,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.svc-sound-btn:hover { background: rgba(51,36,29,0.75); transform: scale(1.06); }
+.svc-sound-btn svg { width: 22px; height: 22px; color: #fff; }
+.svc-sound-btn .icon-muted { display: block; }
+.svc-sound-btn .icon-on { display: none; }
+.svc-sound-btn.is-on .icon-muted { display: none; }
+.svc-sound-btn.is-on .icon-on { display: block; }
+
+/* video play/pause + seek — click the media to toggle, drag/click the
+   bottom bar to scrub; play indicator only shows while paused */
+.svc-hero__media, .mh-svc-hero__media { cursor: pointer; }
+.svc-play-indicator {
+  position: absolute; z-index: 4; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.85);
+  width: 64px; height: 64px; border-radius: 50%; background: rgba(51,36,29,0.5);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+.svc-play-indicator svg { width: 22px; height: 22px; margin-left: 3px; }
+.is-paused .svc-play-indicator { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.svc-video-bar { position: absolute; z-index: 5; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(255,255,255,0.25); cursor: pointer; }
+.svc-video-bar__fill { height: 100%; width: 0%; background: #fff; pointer-events: none; }
+
+/* ── PROMO (single item, reuses services.css's carousel classes) ── */
+.svc-promo-heading { font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; text-align: left; width: 100%; }
+.svc-promo-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 40px; width: 100%; padding: 0 var(--gutter); margin-top: -80px; }
+
+/* ── shared dark wrapper for indications + results, so they read as one
+   continuous olive block with no white seam between them (both are
+   nested inside 2259:2771 in Figma, not two separate full-width
+   sections) ── */
+.svc-dark-group { background: var(--c-accent); width: 100%; display: flex; flex-direction: column; gap: clamp(40px, 4.5vw, 88px); padding: 64px 0; }
+
+/* ── INDICATIONS / CONTRAINDICATIONS (dark) ── */
+.svc-indications { width: 100%; padding: 0 var(--gutter); display: flex; flex-direction: column; gap: 56px; }
+.svc-indications__heading { font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: #fff; letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
+.svc-indications__cols { display: flex; gap: clamp(32px, 5vw, 80px); align-items: flex-start; width: 100%; }
+.svc-indications__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+.svc-indications__badge { display: inline-flex; align-self: flex-start; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; font-size: 15px; font-weight: 500; color: #fff; letter-spacing: -0.02em; font-style: normal; }
+.svc-indications__list { display: flex; flex-direction: column; gap: 22px; }
+.svc-indications__item { display: flex; flex-direction: column; gap: 14px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+.svc-indications__item:last-child { border-bottom: none; padding-bottom: 0; }
+.svc-indications__item-row { display: flex; gap: clamp(14px, 1.6vw, 24px); align-items: flex-start; }
+.svc-indications__num { flex: 0 0 auto; font-size: clamp(17px, 1.4vw, 22px); font-weight: 500; color: #fff; letter-spacing: -0.03em; font-style: normal; width: 32px; }
+.svc-indications__item-title { font-size: clamp(17px, 1.4vw, 22px); font-weight: 500; color: #fff; letter-spacing: -0.03em; margin: 0 0 6px; font-style: normal; }
+.svc-indications__item-desc { font-size: clamp(14px, 1.05vw, 17px); font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.55; margin: 0; font-style: normal; }
+@media (max-width: 1023px) { .svc-indications__cols { flex-direction: column; gap: 48px; } }
+
+/* ── BEFORE/AFTER RESULTS SLIDER ── */
+.svc-results { width: 100%; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; gap: clamp(32px, 3.33vw, 64px); }
+.svc-results__dots { display: flex; align-items: center; gap: 10px; }
+.svc-results__dots .dot { background: rgba(255,255,255,0.35); }
+.svc-results__dots .dot--active { background: #fff; }
+.svc-results__header { display: flex; flex-direction: column; gap: 24px; width: 100%; max-width: 1320px; }
+.svc-results__heading { font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: #fff; letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
+.svc-results__subheading { font-size: clamp(15px, 1.25vw, 22px); font-weight: 300; color: rgba(255,255,255,0.9); letter-spacing: -0.03em; line-height: 1.4; margin: 0; }
+
+/* slightly smaller than Figma's literal 1320px per explicit request */
+.svc-compare { --pos: 50%; position: relative; width: 100%; max-width: 1140px; aspect-ratio: 1320 / 740; border-radius: 24px; border: 1px solid rgba(255,255,255,0.25); overflow: hidden; touch-action: pan-y; cursor: ew-resize; user-select: none; background: #ccc4b3; }
+.svc-compare__after, .svc-compare__before { position: absolute; inset: 0; width: 100%; height: 100%; }
+.svc-compare__after img, .svc-compare__before img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; -webkit-user-drag: none; }
+.svc-compare__before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); box-shadow: 2px 0 0 0 #fff; }
+.svc-compare__badge { position: absolute; top: 31px; z-index: 3; display: inline-flex; align-items: center; padding: 12px 24px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-size: 16px; font-weight: 600; color: #595961; text-transform: uppercase; letter-spacing: 0.02em; pointer-events: none; }
+.svc-compare__badge--before { left: 31px; }
+.svc-compare__badge--after { right: 31px; }
+.svc-compare__handle { position: absolute; top: calc(50% - 40px); z-index: 4; left: var(--pos); transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; background: var(--c-accent); box-shadow: 0 4px 8px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; font-size: 16px; font-weight: 700; pointer-events: none; }
+.svc-compare__handle svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+/* multiple before/after cases, navigated via the pagination dots only
+   (no on-canvas arrows — keeps the widget exactly as Figma has it) */
+.svc-results__slides { position: relative; width: 100%; }
+.svc-compare-slide { display: none; }
+.svc-compare-slide.is-active { display: flex; flex-direction: column; align-items: center; gap: clamp(24px, 2.5vw, 40px); width: 100%; }
+.svc-results__soon { width: 100%; max-width: 1140px; aspect-ratio: 1320 / 740; border-radius: 24px; border: 1px dashed rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.svc-results__soon p { color: rgba(255,255,255,0.85); font-size: clamp(16px, 1.3vw, 22px); font-weight: 300; max-width: 420px; margin: 0; }
+
+.svc-case-info { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 1.25vw, 24px); width: 100%; max-width: 1140px; }
+.svc-case-info__item { background: rgba(250,248,245,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 16px 24px; display: flex; flex-direction: column; gap: 8px; }
+.svc-case-info__label { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+.svc-case-info__value { font-size: clamp(15px, 1.1vw, 18px); font-weight: 600; color: #fff; margin: 0; }
+@media (max-width: 900px) { .svc-case-info { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── PRICES ── */
+.svc-prices { width: 100%; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(40px, 5vw, 80px); }
+.svc-prices__heading { font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
+.svc-gender-toggle { display: flex; align-items: center; gap: 10px; margin: 0; font-size: clamp(18px, 1.6vw, 28px); font-weight: 300; letter-spacing: -0.03em; font-style: normal; background: none; border: none; padding: 0; cursor: pointer; font-family: var(--f); }
+.svc-gender-toggle span { transition: color 0.2s; }
+.svc-gender-toggle .is-sep { color: rgba(51,36,29,0.35); cursor: default; }
+.svc-gender-toggle .is-off { color: rgba(51,36,29,0.35); }
+.svc-gender-toggle .is-on { color: var(--c-text); }
+
+.svc-price-table { width: 100%; }
+.svc-price-table__title { font-size: clamp(20px, 1.6vw, 28px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.2; margin: 0; padding-bottom: 20px; }
+.svc-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(32px, 5vw, 80px); }
+.svc-price-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #d9d9d9; }
+.svc-price-row__name { font-size: clamp(15px, 1.15vw, 20px); font-weight: 300; color: var(--c-text); letter-spacing: -0.02em; }
+.svc-price-row__price { font-size: clamp(15px, 1.15vw, 20px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; text-align: right; white-space: nowrap; }
+.svc-price-note { font-size: 15px; font-weight: 400; color: rgba(51,36,29,0.6); padding: 24px 0 0; text-align: center; width: 100%; }
+
+.svc-combos__title { font-size: clamp(20px, 1.6vw, 28px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; margin: 0 0 4px; padding: clamp(24px, 3vw, 40px) 0 20px; width: 100%; }
+.svc-combo-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px 0; border-top: 1px solid #d9d9d9; }
+.svc-combo-row__name { font-size: clamp(16px, 1.15vw, 20px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; margin: 0 0 6px; }
+.svc-combo-row__desc { font-size: clamp(13px, 0.9vw, 16px); font-weight: 300; color: rgba(51,36,29,0.6); letter-spacing: -0.02em; margin: 0; }
+.svc-combo-row__price { flex-shrink: 0; font-size: clamp(16px, 1.15vw, 20px); font-weight: 400; color: var(--c-text); white-space: nowrap; }
+@media (max-width: 767px) { .svc-price-grid { grid-template-columns: 1fr; } }
+
+/* ── FAQ ACCORDION ── */
+.svc-faq { width: 100%; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(32px, 4vw, 60px); }
+.svc-faq__heading { font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
+.svc-faq__stack { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+.svc-faq-card { display: flex; align-items: stretch; width: 100%; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px rgba(51,36,29,0.06); overflow: hidden; }
+.svc-faq-card__bar { flex: 0 0 3.5px; background: var(--c-accent); }
+.svc-faq-card__body { flex: 1 1 0; min-width: 0; padding: clamp(20px, 2vw, 32px); }
+.svc-faq-card__q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; background: none; border: none; padding: 0; cursor: pointer; text-align: left; font-family: var(--f); }
+.svc-faq-card__q-text { flex: 1 1 0; font-size: clamp(17px, 1.4vw, 24px); font-weight: 500; color: var(--c-text); letter-spacing: -0.03em; line-height: 1.3; }
+.svc-faq-card__toggle { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 20px; background: var(--c-accent); display: flex; align-items: center; justify-content: center; }
+.svc-faq-card__toggle svg { width: 16px; height: 16px; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.svc-faq-card__a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease; opacity: 0; margin-top: 0; }
+.svc-faq-card__a p { font-size: clamp(15px, 1.05vw, 18px); font-weight: 300; color: #595961; line-height: 1.6; margin: 0; }
+.svc-faq-card.is-open .svc-faq-card__a { margin-top: 16px; opacity: 1; }
+.svc-faq-card.is-open .svc-faq-card__toggle svg { transform: rotate(45deg); }
+
+/* ── MOBILE (≤767px) ── */
+.svc-mobile { display: none; }
+@media (max-width: 767px) {
+  footer.site-footer { display: none !important; }
+  .svc-mobile { display: flex; flex-direction: column; gap: 56px; padding-top: 84px; }
+  .svc-mobile .mh-footer { margin-top: 0; }
+  .svc-mobile .mh-promos-heading { text-align: left; }
+
+  .mh-svc-hero { display: flex; flex-direction: column; gap: 24px; padding: 0 20px; }
+  .mh-svc-hero__title { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; margin: 0; }
+  .mh-svc-hero__desc { font-size: 16px; font-weight: 300; color: var(--c-text); line-height: 1.4; margin: 0; }
+  .mh-svc-hero__bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; font-size: 15px; font-weight: 300; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.5; }
+  .mh-svc-hero__bullets li::before { content: '— '; }
+  .mh-svc-hero__media { width: 100%; height: 432px; border-radius: 16px; overflow: hidden; position: relative; background: #f5f5f3; }
+  .mh-svc-hero__media video, .mh-svc-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mh-svc-hero__media .svc-sound-btn { width: 40px; height: 40px; left: 14px; bottom: 14px; }
+  .mh-svc-hero__media .svc-sound-btn svg { width: 18px; height: 18px; }
+  .mh-svc-hero__media .svc-play-indicator { width: 52px; height: 52px; }
+  .mh-svc-hero__media .svc-play-indicator svg { width: 18px; height: 18px; }
+
+  .mh-svc-dark-group { background: var(--c-accent); display: flex; flex-direction: column; gap: 36px; padding: 48px 0; }
+  .mh-svc-results .svc-results__dots { justify-content: center; width: 100%; }
+  .mh-svc-indications { padding: 0 20px; display: flex; flex-direction: column; gap: 32px; }
+  .mh-svc-indications__heading { font-size: 28px; font-weight: 400; color: #fff; letter-spacing: -0.04em; line-height: 1.1; margin: 0; }
+  .mh-svc-indications__col { display: flex; flex-direction: column; gap: 20px; }
+  .mh-svc-indications__badge { display: inline-flex; align-self: flex-start; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; font-size: 14px; font-weight: 500; color: #fff; }
+  .mh-svc-indications__list { display: flex; flex-direction: column; gap: 16px; }
+  .mh-svc-indications__item { display: flex; flex-direction: column; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .mh-svc-indications__item:last-child { border-bottom: none; padding-bottom: 0; }
+  .mh-svc-indications__item-row { display: flex; gap: 16px; align-items: flex-start; }
+  .mh-svc-indications__num { flex: 0 0 auto; font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.8); width: 24px; }
+  .mh-svc-indications__item-title { font-size: 18px; font-weight: 500; color: #fff; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .mh-svc-indications__item-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.4; margin: 0; }
+
+  .mh-svc-results { padding: 0 20px; display: flex; flex-direction: column; gap: 32px; }
+  .mh-svc-results__heading { font-size: 28px; font-weight: 400; color: #fff; letter-spacing: -0.04em; line-height: 1.1; margin: 0 0 12px; }
+  .mh-svc-results__subheading { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.4; margin: 0; }
+  .mh-svc-compare-wrap { width: 100%; }
+  .mh-svc-compare-wrap .svc-compare__badge--before { left: 16px; }
+  .mh-svc-compare-wrap .svc-compare__badge--after { right: 16px; }
+  .mh-svc-case-info { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+  .mh-svc-case-info__item { background: rgba(250,248,245,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+  .mh-svc-case-info__label { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.7); text-transform: uppercase; margin: 0; }
+  .mh-svc-case-info__value { font-size: 15px; font-weight: 600; color: #fff; margin: 0; }
+
+  .mh-svc-prices { padding: 0 20px; display: flex; flex-direction: column; gap: 32px; }
+  .mh-svc-prices__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0 0 12px; }
+  .mh-svc-price-table__title { font-size: 18px; font-weight: 500; color: var(--c-text); margin: 0 0 8px; }
+  .mh-svc-price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0; border-bottom: 1px solid #d9d9d9; letter-spacing: -0.03em; }
+  .mh-svc-price-row__name { font-size: 16px; font-weight: 300; color: var(--c-text); }
+  .mh-svc-price-row__price { font-size: 16px; font-weight: 500; color: var(--c-text); white-space: nowrap; text-align: right; }
+  .mh-svc-combos__title { font-size: 18px; font-weight: 500; color: var(--c-text); margin: 0; padding: 24px 0 12px; }
+  .mh-svc-combo-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #d9d9d9; }
+  .mh-svc-combo-row__name { font-size: 16px; font-weight: 600; color: var(--c-text); margin: 0 0 4px; }
+  .mh-svc-combo-row__desc { font-size: 13px; font-weight: 300; color: rgba(51,36,29,0.6); margin: 0; }
+  .mh-svc-combo-row__price { flex-shrink: 0; font-size: 16px; font-weight: 600; color: var(--c-accent); white-space: nowrap; }
+
+  .mh-svc-faq { padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
+  .mh-svc-faq__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; }
+  .mh-svc-faq .svc-faq__stack { gap: 16px; }
+}

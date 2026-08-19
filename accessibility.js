@@ -28,6 +28,22 @@
 #a11y-toggle .a11y-label { display: none; }
 #a11y-toggle.is-active { color: var(--c-accent, #777247); opacity: 1; }
 
+/* mobile menu variant — sits as a labeled row inside the slide-out nav,
+   the header's icon-only button is hidden at this breakpoint instead */
+@media (max-width: 1024px) {
+  #a11y-toggle { display: none !important; }
+}
+#a11y-toggle-menu {
+  width: auto; height: auto; border-radius: 0;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0; opacity: 1; color: #33241D;
+  font-size: 18px; font-weight: 500; letter-spacing: -0.02em;
+  font-family: inherit;
+}
+#a11y-toggle-menu svg { width: 22px; height: 22px; }
+#a11y-toggle-menu .a11y-label { display: inline; }
+#a11y-toggle-menu.is-active { color: var(--c-accent, #777247); }
+
 /* fixed-position fallback for pages without a header actions row */
 #a11y-toggle.a11y-fixed {
   position: fixed; top: 16px; right: 12px; z-index: 600;
@@ -170,18 +186,24 @@ html.a11y-mode .cookie-banner { display: none !important; }
   styleEl.textContent = css;
   document.head.appendChild(styleEl);
 
-  /* ── Create toggle button ───────────────────────────────────────── */
+  /* ── Create toggle button(s) ───────────────────────────────────────
+     The header gets an icon-only button (hidden ≤1024px via CSS above);
+     the mobile slide-out menu gets a second, labeled instance so the
+     control stays reachable once the header icon is hidden on mobile. */
+  var ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+    '<path d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z" stroke="currentColor" stroke-width="1.5"/>' +
+    '<path d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z" stroke="currentColor" stroke-width="1.5"/>' +
+    '</svg>';
+
   function createBtn() {
     var btn = document.createElement('button');
     btn.id = BTN_ID;
     btn.type = 'button';
+    btn.classList.add('a11y-toggle-btn');
     btn.setAttribute('aria-label', 'Версия для слабовидящих');
     btn.setAttribute('title', 'Версия для слабовидящих');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
-      '<path d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z" stroke="currentColor" stroke-width="1.5"/>' +
-      '<path d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z" stroke="currentColor" stroke-width="1.5"/>' +
-      '</svg><span class="a11y-label">Aa</span>';
+    btn.innerHTML = ICON_SVG + '<span class="a11y-label">Aa</span>';
 
     var headerActions = document.querySelector('.site-header__actions, .site-hd__actions');
     if (headerActions) {
@@ -193,31 +215,53 @@ html.a11y-mode .cookie-banner { display: none !important; }
     return btn;
   }
 
+  function createMenuBtn() {
+    var menuBottom = document.querySelector('.mobile-nav-bottom');
+    if (!menuBottom) return null;
+
+    var btn = document.createElement('button');
+    btn.id = 'a11y-toggle-menu';
+    btn.type = 'button';
+    btn.classList.add('a11y-toggle-btn');
+    btn.setAttribute('aria-label', 'Версия для слабовидящих');
+    btn.setAttribute('title', 'Версия для слабовидящих');
+    btn.innerHTML = ICON_SVG + '<span class="a11y-label">Версия для слабовидящих</span>';
+
+    menuBottom.insertBefore(btn, menuBottom.firstChild);
+    return btn;
+  }
+
   /* ── Toggle logic ───────────────────────────────────────────────── */
   function enable() {
     document.documentElement.classList.add('a11y-mode');
     localStorage.setItem(STORAGE_KEY, '1');
-    var btn = document.getElementById(BTN_ID);
-    if (btn) btn.classList.add('is-active');
+    document.querySelectorAll('.a11y-toggle-btn').forEach(function (btn) {
+      btn.classList.add('is-active');
+    });
   }
 
   function disable() {
     document.documentElement.classList.remove('a11y-mode');
     localStorage.removeItem(STORAGE_KEY);
-    var btn = document.getElementById(BTN_ID);
-    if (btn) btn.classList.remove('is-active');
+    document.querySelectorAll('.a11y-toggle-btn').forEach(function (btn) {
+      btn.classList.remove('is-active');
+    });
+  }
+
+  function toggle() {
+    if (document.documentElement.classList.contains('a11y-mode')) {
+      disable();
+    } else {
+      enable();
+    }
   }
 
   function init() {
     var btn = createBtn();
+    var menuBtn = createMenuBtn();
     if (localStorage.getItem(STORAGE_KEY)) enable();
-    btn.addEventListener('click', function () {
-      if (document.documentElement.classList.contains('a11y-mode')) {
-        disable();
-      } else {
-        enable();
-      }
-    });
+    btn.addEventListener('click', toggle);
+    if (menuBtn) menuBtn.addEventListener('click', toggle);
   }
 
   if (document.readyState === 'loading') {

@@ -43,6 +43,7 @@
 }
 
 [data-rr] { opacity: 0; }
+[data-rr="type"] { opacity: 1; }
 
 [data-rr="up"].rr-in {
   animation: rrFadeUp var(--rr-dur, 0.72s) ${EASE} var(--rr-del, 0s) both;
@@ -65,6 +66,18 @@
 [data-rr="img"].rr-in {
   animation: rrImgIn var(--rr-dur, 1s) ${EASE} var(--rr-del, 0s) both;
 }
+
+/* ── TYPEWRITER (mission statement) ──────────────────────────── */
+[data-rr="type"] { position: relative; }
+[data-rr="type"] .tw-ch { opacity: 0; }
+[data-rr="type"] .tw-ch.is-in { opacity: 1; }
+[data-rr="type"] .tw-caret {
+  position: absolute; top: 0; left: 0; width: 2px;
+  background: var(--c-accent, #777247); opacity: 0; pointer-events: none;
+}
+@keyframes twBlink { 50% { opacity: 0; } }
+[data-rr="type"] .tw-caret.is-active { opacity: 1; animation: twBlink 0.9s steps(1) infinite; }
+[data-rr="type"] .tw-caret.tw-done { opacity: 0; animation: none; }
 
 /* ── SMART NAVBAR ── */
 .site-hd,
@@ -285,10 +298,12 @@
     // Homepage stats (#about-stats-home) are excluded — they run inside the
     // "Экспертная красота" section's own entrance sequence, timed to appear
     // only after the circle/device photo has finished, not on their own
-    // independent scroll trigger. about.html's stats block keeps this rule.
-    ['.about-stat:not(#about-stats-home .about-stat)', 'scale', 0.65, 0, 0.08],
+    // independent scroll trigger. about.html's hero stats (.about-hero) are
+    // also excluded — they run their own photo→title→cards entrance defined
+    // inline in about.html, same reasoning as the homepage hero.
+    ['.about-stat:not(#about-stats-home .about-stat):not(.about-hero .about-stat)', 'scale', 0.65, 0, 0.08],
     ['.about-ph',                   'img',    0.9,  0,    0.14 ],
-    ['.about-photo-wrap',           'img',    0.9,  0.05, 0    ],
+    ['.about-photo-wrap:not(.about-hero .about-photo-wrap)', 'img', 0.9, 0.05, 0],
     ['.desc-photo',                 'img',    0.9,  0,    0    ],
     ['.svc-intro-photo',            'img',    0.9,  0,    0    ],
     ['.founder-photo',              'img',    0.9,  0,    0    ],
@@ -363,6 +378,7 @@
     initParallax();
     initInnerHeroParallax();
     initHoverTilt();
+    initMissionTypewriter();
   }
 
   /* ── HOMEPAGE HERO parallax ─────────────────────────── */
@@ -411,6 +427,77 @@
         ticking = true;
       }
     }, { passive: true });
+  }
+
+  /* ── TYPEWRITER (mission statement) ─────────────────────
+     Pre-renders the full text (so line-wrapping is correct from the
+     start and nothing reflows while typing), wraps every character in
+     its own span, then reveals them one at a time via opacity — an
+     absolutely-positioned caret tracks the current character's rect. */
+  function initMissionTypewriter() {
+    const el = document.querySelector('[data-rr="type"]');
+    if (!el || el.dataset.twDone) return;
+    el.dataset.twDone = '1';
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function wrapChars(node) {
+      const spans = [];
+      Array.from(node.childNodes).forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const frag = document.createDocumentFragment();
+          for (const ch of child.textContent) {
+            const span = document.createElement('span');
+            span.className = 'tw-ch';
+            span.textContent = ch;
+            frag.appendChild(span);
+            spans.push(span);
+          }
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          spans.push(...wrapChars(child));
+        }
+      });
+      return spans;
+    }
+
+    const chars = wrapChars(el);
+    if (!chars.length) return;
+
+    const caret = document.createElement('span');
+    caret.className = 'tw-caret';
+    el.appendChild(caret);
+
+    function positionCaret(span) {
+      const pRect = el.getBoundingClientRect();
+      const cRect = span.getBoundingClientRect();
+      caret.style.height = cRect.height + 'px';
+      caret.style.transform = `translate(${cRect.right - pRect.left}px, ${cRect.top - pRect.top}px)`;
+    }
+
+    positionCaret(chars[0]);
+
+    const typeObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        typeObs.disconnect();
+        caret.classList.add('is-active');
+        let i = 0;
+        (function step() {
+          if (i >= chars.length) {
+            setTimeout(() => caret.classList.add('tw-done'), 600);
+            return;
+          }
+          const span = chars[i];
+          span.classList.add('is-in');
+          positionCaret(span);
+          const isSpace = span.textContent === ' ';
+          i++;
+          setTimeout(step, isSpace ? 26 : 14 + Math.random() * 24);
+        })();
+      });
+    }, { threshold: 0.5 });
+    typeObs.observe(el);
   }
 
   /* ── CARD 3D TILT ────────────────────────────────────── */

@@ -1,0 +1,189 @@
+/* ============================================================
+   ABOUT PAGE — about.html-only styles.
+   Renamed to a namespaced BEM scheme so nothing here can ever
+   collide with a same-named class on another page again (this
+   session's bugs: about-stat, about-photo-wrap, article-card
+   were all this exact failure mode before the rename).
+   ============================================================ */
+
+/* ── HERO ─────────────────────────────────────────────────── */
+/* All measurements below are read directly from the Figma frame (1920 canvas)
+   and expressed as clamp(min, px/19.2 vw, px) so proportions stay locked at
+   any viewport width — 19.2px = 1vw at the 1920px canvas width. */
+.about-hero { padding-top: calc(var(--header-h) + clamp(24px, 3.7vw, 71px)); }
+.about-hero__row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.25vw, 24px); align-items: stretch; }
+.about-hero__row > * { min-width: 0; }
+.about-hero__left { display: flex; flex-direction: column; justify-content: space-between; gap: clamp(10px, 1.04vw, 20px); }
+.about-hero__title { font-size: clamp(28px, 3.33vw, 64px); font-weight: 400; line-height: 1; letter-spacing: -0.04em; color: var(--c-text); font-style: normal; }
+.about-hero__cards { display: flex; flex-direction: column; gap: clamp(16px, 1.72vw, 33px); }
+.about-hero__cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(10px, 1.04vw, 20px); }
+.about-hero__card {
+  border: 1px solid #f0f0f0; border-radius: clamp(12px, 1.04vw, 20px); padding: clamp(16px, 1.67vw, 32px);
+  display: flex; flex-direction: column; gap: clamp(6px, 0.625vw, 12px);
+  aspect-ratio: 372 / 305; background: #fff;
+}
+.about-hero__card--accent { background: var(--c-accent); }
+.about-hero__card--grey { background: #ededed; }
+.about-hero__number { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(51,36,29,0.6); }
+.about-hero__card--accent .about-hero__number { color: #d9d9d9; }
+/* the site-wide hover tint (animations.js) reads oddly on the olive card — keep its number steady */
+.about-hero__card--accent:hover .about-hero__number { color: #d9d9d9 !important; }
+.about-hero__card-title { font-size: clamp(13px, 0.83vw, 16px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.25; color: var(--c-text); }
+.about-hero__card--accent .about-hero__card-title { color: #fff; }
+.about-hero__card-text { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(51,36,29,0.6); opacity: 0.7; }
+.about-hero__card--accent .about-hero__card-text { color: #fff; opacity: 0.7; }
+.about-hero__team-photo { width: 100%; border-radius: clamp(12px, 1.04vw, 20px); overflow: hidden; aspect-ratio: 768 / 769; }
+.about-hero__team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 49% 100%; display: block; }
+
+@media (max-width: 900px) {
+  .about-hero__row { grid-template-columns: 1fr; }
+  .about-hero__left { gap: 32px; }
+  .about-hero__team-photo { aspect-ratio: 4/3; }
+}
+.about-hero__dots { display: none; }
+/* ── mobile hero — exact values pulled from Figma node 2250:865 ── */
+@media (max-width: 767px) {
+  .about-hero__row { gap: 20px; }
+  .about-hero__left { gap: 20px; }
+  .about-hero__title { font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; text-align: center; }
+  .about-hero__cards {
+    display: flex; flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory;
+    gap: 20px; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px;
+  }
+  .about-hero__cards::-webkit-scrollbar { display: none; }
+  .about-hero__cards-row { display: contents; }
+  .about-hero__card {
+    flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 350 / 305;
+    border-radius: 20px; padding: 32px; gap: 12px; justify-content: flex-start;
+  }
+  .about-hero__number { font-size: 18px; line-height: 1.4; letter-spacing: -0.04em; }
+  .about-hero__card-title { font-size: 24px; font-weight: 500; line-height: 1.2; letter-spacing: -0.04em; }
+  .about-hero__card-text { font-size: 18px; line-height: 1.4; letter-spacing: -0.04em; }
+  .about-hero__dots { display: flex; gap: 10px; justify-content: center; margin-top: 0; }
+  .about-hero__team-photo { aspect-ratio: 350 / 462; border-radius: 16px; }
+  .about-hero__team-photo img { object-position: center 22%; }
+}
+
+/* ── HERO ENTRANCE SEQUENCE — photo (right) → title (left) → cards (stagger) on
+   desktop; title → cards → photo, top-to-bottom, on mobile (see inline <script>) ── */
+.about-hero .about-hero__team-photo,
+.about-hero .about-hero__title,
+.about-hero .about-hero__card { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .about-hero .about-hero__team-photo,
+  .about-hero .about-hero__title,
+  .about-hero .about-hero__card { opacity: 1 !important; }
+}
+
+/* ── MISSION STATEMENT ────────────────────────────────────── */
+/* Figma: w-[1365px], text-[48px], leading-[1.2], no letter-spacing */
+.about-mission { padding: 0; }
+.about-mission__text {
+  max-width: clamp(300px, 71.09vw, 1365px); margin: 0 auto; text-align: center;
+  font-size: clamp(22px, 2.5vw, 48px); font-weight: 400; line-height: 1.2;
+  letter-spacing: normal; color: var(--c-text); font-style: normal;
+}
+.about-mission__dim { color: rgba(51,36,29,0.4); }
+.about-mission__br { display: none; }
+/* Figma mobile (node 2250:865): full-width text block, 20px section padding,
+   350px effective content width, text-[24px], leading-[1.2], no letter-spacing */
+@media (max-width: 767px) {
+  .about-mission { padding: 64px 0; }
+  .about-mission .wrap { padding: 0 20px; }
+  .about-mission__text { max-width: none; font-size: 24px; line-height: 1.2; letter-spacing: normal; }
+  .about-mission__br { display: block; }
+}
+
+/* ── ВНУТРИ КЛИНИКИ ────────────────────────────────────────── */
+.about-interior { padding: 0; }
+.about-interior__h { padding: 0 var(--gutter); margin-bottom: clamp(40px, 6.56vw, 126px); text-align: left; }
+.about-interior__h.sec-h { color: var(--c-text); }
+.about-interior__row { display: flex; align-items: stretch; gap: 24px; overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; scrollbar-width: none; -ms-overflow-style: none; }
+.about-interior__row::-webkit-scrollbar { display: none; }
+.about-interior__item { flex: 0 0 auto; height: clamp(220px, 35.83vw, 688px); aspect-ratio: 3 / 2; border-radius: 16px; overflow: hidden; }
+.about-interior__item:first-child { margin-left: var(--gutter); }
+.about-interior__item:last-child { margin-right: var(--gutter); }
+.about-interior__item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.about-interior__nav { display: flex; align-items: center; justify-content: center; padding: 0 var(--gutter); margin-top: 32px; }
+.about-interior__dots { display: flex; gap: 10px; }
+
+/* ── СТАТЬИ И НОВОСТИ ─────────────────────────────────────── */
+/* Figma: feature card size-[719.026px] (square), Stats_Grid gap-[33px] row / ~24px
+   column, small cards w-[372px] h-[339px] (Stats_Grid h-711 minus 33 gap, /2 rows). */
+.about-articles { padding: 0; }
+.about-articles__row { display: flex; gap: clamp(10px, 1.04vw, 20px); align-items: center; }
+.about-articles__card {
+  position: relative; display: block; border-radius: clamp(12px, 1.04vw, 20px); overflow: hidden;
+  text-decoration: none; background: #ededed;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
+}
+.about-articles__card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(51,36,29,0.18), 0 4px 12px rgba(51,36,29,0.08); }
+.about-articles__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+.about-articles__card:hover .about-articles__bg { transform: scale(1.05); }
+video.about-articles__bg { background: #23241d; }
+
+/* Feature card — dark video, white text, absolute-positioned exactly per Figma.
+   Card is 769px wide × 719px tall (not square). Text: left/top 48px = 6.24%/6.68%,
+   width 658px = 85.6% of 769; excerpt top 590px = 82.06% of 719. */
+.about-articles__featured { flex: 0 0 clamp(280px, 40.05vw, 769px); aspect-ratio: 769 / 719; }
+.about-articles__overlay--featured {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 6.71%, rgba(102,102,102,0) 99.96%);
+}
+.about-articles__title--featured {
+  position: absolute; z-index: 2; left: 6.24%; top: 6.68%; width: 85.6%;
+  font-size: clamp(22px, 2.5vw, 48px); font-weight: 500; line-height: 1.1; letter-spacing: normal; color: #fff;
+}
+.about-articles__excerpt--featured {
+  position: absolute; z-index: 2; left: 6.24%; bottom: 6.68%; width: 85.6%;
+  font-size: clamp(14px, 1.15vw, 22px); font-weight: 400; line-height: 1.3; letter-spacing: -0.04em; color: #fff;
+}
+
+/* Small cards — light photo, no overlay, dark text (Figma Stat_01…04 pattern) */
+.about-articles__grid { flex: 1; min-width: 0; display: grid; grid-template-columns: 376fr 372fr; column-gap: clamp(10px, 1.04vw, 20px); row-gap: clamp(16px, 1.72vw, 33px); }
+.about-articles__grid .about-articles__card { aspect-ratio: 372 / 339; border: 1px solid #ededed; background: #fff; }
+.about-articles__grid .about-articles__bg { object-position: center top; }
+.about-articles__frame {
+  position: relative; z-index: 2; height: 100%; width: 100%; padding: clamp(16px, 1.67vw, 32px);
+  display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; box-sizing: border-box;
+}
+.about-articles__grid .about-articles__title { width: 100%; font-size: clamp(13px, 0.83vw, 16px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.25; color: var(--c-text); }
+.about-articles__title--narrow { max-width: 70%; }
+.about-articles__grid .about-articles__excerpt { width: 100%; font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(51,36,29,0.6); opacity: 0.7; }
+
+@media (max-width: 900px) and (min-width: 768px) {
+  .about-articles__row { flex-direction: column; }
+  .about-articles__featured { flex: none; width: 100%; aspect-ratio: 4/3; }
+}
+.about-articles__dots { display: none; }
+@media (max-width: 767px) {
+  .about-articles { padding-bottom: 32px; }
+  .about-articles__row {
+    display: flex; flex-direction: row; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
+    gap: 12px; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px;
+  }
+  .about-articles__row::-webkit-scrollbar { display: none; }
+  .about-articles__grid { display: contents; }
+  .about-articles__card, .about-articles__featured { flex: 0 0 100%; width: 100%; scroll-snap-align: start; aspect-ratio: 350 / 462; border-radius: 16px; }
+  .about-articles__grid .about-articles__card { aspect-ratio: 350 / 462; }
+  .about-articles__frame { padding: 32px; }
+  .about-articles__grid .about-articles__title { font-size: 22px; font-weight: 500; line-height: 1.1; }
+  .about-articles__title--narrow { max-width: 100%; }
+  .about-articles__grid .about-articles__excerpt { font-size: 14px; opacity: 0.6; }
+  .about-articles__dots { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+}
+
+/* ── FOOTER — page-specific override only; base rules live in
+   components/footer.css. about.html uses a 2-col grid at this
+   breakpoint (index.html stacks instead — intentional divergence). ── */
+@media (max-width: 640px) {
+  .footer-nav { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 16px 20px; }
+  .footer-nav__group { display: contents; }
+  .footer-brand-row { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── MOBILE booking/footer section swap ── */
+@media (max-width: 767px) {
+  .sec-booking, .site-footer { display: none; }
+}
