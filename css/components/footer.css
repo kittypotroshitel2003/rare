@@ -5,7 +5,13 @@
    2-col grid, index.html stacks — intentional divergence, not a bug).
    ============================================================ */
 .site-footer { background: var(--c-bg); padding: clamp(36px, 4.5vw, 88px) 0 clamp(24px, 3.3vw, 64px); }
-.footer-wrap { max-width: 1920px; margin: 0 auto; padding: 0 clamp(20px, 6.25vw, 120px); }
+/* Hardcoded clamp (not var(--gutter)) on purpose: footer.css is shared by
+   pages on tokens.css (--gutter caps at 180px), inner-header.css
+   (--gutter caps at 72px, or 180px only with body.page--inner-lg), and
+   legacy styles.css (--gutter caps at 96px) — var(--gutter) would give
+   every page a different footer inset. This guarantees the same 180px
+   cap everywhere, independent of which token file the page loads. */
+.footer-wrap { max-width: 1920px; margin: 0 auto; padding: 0 clamp(20px, 9.375vw, 180px); }
 .footer-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 16px; color: var(--c-text); }
 .footer-nav__group { display: flex; gap: clamp(20px, 2.1vw, 40px); flex-wrap: wrap; }
 .footer-nav a { text-decoration: none; color: inherit; transition: opacity 0.2s; }

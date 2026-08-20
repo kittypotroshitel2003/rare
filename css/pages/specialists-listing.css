@@ -1,35 +1,52 @@
 /* ============================================================
-   SPECIALISTS LISTING — specialists/index.html grid of team cards.
-   Compact token/footer variant.
+   SPECIALISTS LISTING — specialists/index.html "Наша команда" grid.
+   Matches Figma nodes 2273:3418 (desktop) / 2273:3914 (mobile).
+   Reuses header.css/footer.css/buttons.css/forms.css(.sec-booking)/
+   mobile-booking.css/booking-popup.css verbatim — only the team grid
+   is unique to this page.
    ============================================================ */
-.site-hd { padding: 24px var(--gutter); }
-.sec-h { font-size: clamp(22px, 2.2vw, 38px); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; color: var(--c-text); font-style: normal; }
+body.page--specialists-listing { background: #fff; color: var(--c-text); }
 
-.inner-hero { position: relative; height: clamp(320px, 30vw, 520px); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
-.inner-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-.inner-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,47,39,0.3), rgba(16,47,39,0.72)); }
-.inner-hero__cnt { position: relative; z-index: 2; padding-bottom: 72px; width: 100%; }
-.inner-hero__title { text-align: left; font-size: clamp(36px, 4vw, 64px); font-weight: 400; color: #FDFCF8; letter-spacing: -0.02em; line-height: 1; font-style: normal; }
+/* ── TEAM GRID (desktop) ── */
+.spec-team { width: 100%; padding: calc(var(--header-h) + clamp(24px, 3.7vw, 64px)) var(--gutter) 0 var(--gutter); display: flex; flex-direction: column; gap: 64px; }
+.spec-team__heading { font-size: clamp(32px, 3.33vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; margin: 0; font-style: normal; }
+.spec-team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 73px 24px; }
+@media (max-width: 1400px) { .spec-team__grid { grid-template-columns: repeat(3, 1fr); gap: 48px 24px; } }
+@media (max-width: 1023px) { .spec-team__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
 
-.sec-spec-page { background: var(--c-bg); padding: 72px 0; }
-.sec-spec-page .sec-h { color: var(--c-text); margin-bottom: 72px; }
-.spec-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
 .spec-card {
-  border-radius: 20px; overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(51,36,29,0.08);
-  display: flex; flex-direction: column;
-  text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
+  position: relative; aspect-ratio: 372 / 532; border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: clamp(18px, 1.6vw, 24px) clamp(18px, 1.6vw, 24px) clamp(24px, 2.4vw, 36px);
+  gap: 12px; text-decoration: none; background: #ccc4b3;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
 }
-.spec-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(51,36,29,0.12); }
-.spec-card__photo { width: 100%; height: 480px; overflow: hidden; background: #f5f2ed; flex-shrink: 0; }
-.spec-card__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(1); transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), filter 0.5s ease; }
-.spec-card:hover .spec-card__photo img { transform: scale(1.04); filter: grayscale(0); }
-.spec-card__info { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 8px; }
-.spec-card__name { font-size: 22px; font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; font-style: normal; }
-.spec-card__role { font-size: 16px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.3; font-style: normal; }
+.spec-card:hover, .spec-card:focus-visible { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(51,36,29,0.22); }
+.spec-card:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.spec-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.spec-card:hover img { transform: scale(1.05); }
+.spec-card::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.5) 94%); pointer-events: none; }
+.spec-card__name { position: relative; z-index: 2; margin: 0; font-size: clamp(18px, 1.25vw, 24px); font-weight: 500; color: #fff; letter-spacing: -0.04em; line-height: 1; font-style: normal; }
+.spec-card__role { position: relative; z-index: 2; margin: 0; font-size: clamp(14px, 0.94vw, 18px); font-weight: 300; color: #fff; line-height: 1.6; font-style: normal; }
 
-.sec-cta { background: var(--c-bg); padding: 72px 0; text-align: center; }
-.cta-heading { font-size: clamp(22px, 2.2vw, 38px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 32px; font-style: normal; }
-.cta-sub { font-size: 24px; font-weight: 400; color: var(--c-muted); letter-spacing: -0.02em; margin-bottom: 48px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.4; }
+@media (max-width: 767px) { .spec-team, .sec-booking, .site-footer { display: none; } }
+
+/* ── TEAM GRID (mobile ≤767px) ── */
+.mh-spec-team { display: none; }
+@media (max-width: 767px) {
+  .mh-spec-team { display: flex; flex-direction: column; gap: 28px; padding: calc(var(--header-h) + 20px) 20px 0; }
+  /* .mh-booking's own DOM-adjacent sibling is the hidden .site-footer (a
+     <footer>, not a <section>), so base.css's "section + section, section +
+     footer" auto-spacing rule never matches it — set the gap explicitly. */
+  .mh-booking { margin-top: 64px; }
+  .mh-spec-team__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; font-style: normal; }
+  .mh-spec-card {
+    position: relative; height: 450px; width: 100%; border-radius: 16px; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 24px 24px 36px; gap: 12px; text-decoration: none; background: #ccc4b3;
+  }
+  .mh-spec-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .mh-spec-card::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.5) 94%); pointer-events: none; }
+  .mh-spec-card__name { position: relative; z-index: 2; margin: 0; font-size: 24px; font-weight: 500; color: #fff; letter-spacing: -0.04em; line-height: 1; font-style: normal; }
+  .mh-spec-card__role { position: relative; z-index: 2; margin: 0; font-size: 18px; font-weight: 300; color: #fff; line-height: 1.6; font-style: normal; }
+}

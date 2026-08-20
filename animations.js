@@ -335,6 +335,13 @@
     ['.spec-rev-card',              'up',     0.55, 0,    0.05 ],
     ['.other-spec-card',            'scale',  0.6,  0,    0.07 ],
     ['.edu-item',                   'up',     0.5,  0,    0.04 ],
+    // .spec-proc-card mirrors the homepage "Направления услуг" tiles
+    // (.dir-tile, defined earlier in this list) — same scale/blur-in
+    // reveal + stagger, so the specialist's procedure cards animate
+    // identically to the services section on the homepage. Overrides
+    // the plain "up" data-rr the markup sets inline (dataset.rr gets
+    // reassigned here before the element is observed).
+    ['.spec-proc-card',             'scale',  1.0,  0,    0.12 ],
 
     // ── Promo card (sticky) ────────────────────────────────
     ['.promo-card.promo-card--sticky', 'right', 0.8, 0.15, 0  ],
@@ -379,6 +386,7 @@
     initInnerHeroParallax();
     initHoverTilt();
     initMissionTypewriter();
+    initStatCounters();
   }
 
   /* ── HOMEPAGE HERO parallax ─────────────────────────── */
@@ -514,6 +522,52 @@
       });
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
+  }
+
+  /* ── STAT COUNTERS (specialist hero: "12+ лет опыта", "8 сертификатов") ──
+     Same count-up pattern as main.js's initCounterAnimation (homepage
+     .about-v2__stat-num), reimplemented here since specialist pages don't
+     load main.js. Numbers count up from 0 once their block scrolls in,
+     timed just after the block's own fade-up (see .spec-hero__stats in
+     RULES) finishes materializing. */
+  function initStatCounters() {
+    const groups = document.querySelectorAll('.spec-hero__stats');
+    if (!groups.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function parseTarget(el) {
+      const text = el.textContent.trim();
+      const num = parseFloat(text.replace(/[^\d.]/g, ''));
+      const suffix = text.replace(/[\d.\s]/g, '');
+      return { num, suffix };
+    }
+
+    function animateCounter(el, target, suffix, duration) {
+      const isInt = Number.isInteger(target);
+      const start = performance.now();
+      (function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = eased * target;
+        el.textContent = (isInt ? Math.round(current) : current.toFixed(1)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      })(start);
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        obs.unobserve(entry.target);
+        setTimeout(() => {
+          entry.target.querySelectorAll('.spec-stat__num').forEach((el) => {
+            const { num, suffix } = parseTarget(el);
+            if (!isNaN(num)) animateCounter(el, num, suffix, 1400);
+          });
+        }, 300);
+      });
+    }, { threshold: 0.4 });
+
+    groups.forEach((g) => obs.observe(g));
   }
 
   /* ── NAVBAR ────────────────────────────────────────

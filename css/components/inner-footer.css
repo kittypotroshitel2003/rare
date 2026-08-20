@@ -23,6 +23,14 @@
   background: linear-gradient(rgba(40,38,18,0.1), rgba(40,38,18,0.1)), url('../../assets/photos/footer-texture.webp');
   background-size: cover; background-position: center; padding: 60px 0 40px; border-top: none;
 }
+/* Footer-only override of the generic "body.page--inner .wrap" side inset
+   (inner-header.css, capped at 72px, or 180px only under .page--inner-lg)
+   so the footer always gets the full 180px cap regardless of which inner
+   variant the page uses — matches "body" for equal (0,2,1) specificity to
+   that rule, so cascade order (this file loads after inner-header.css on
+   every page that has both) decides it, without touching the padding of
+   every other .wrap section on the page. */
+body .site-footer .wrap { padding: 0 clamp(20px, 9.375vw, 180px); }
 .footer-grid { display: grid; grid-template-columns: minmax(220px,335px) repeat(3,1fr); gap: 60px; align-items: start; }
 .footer-logo { margin-bottom: 24px; }
 .footer-logo img { height: 40px; width: auto; }

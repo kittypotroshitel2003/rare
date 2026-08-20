@@ -222,6 +222,9 @@ body.page--service-procedure { background: #fff; color: var(--c-text); }
   .mh-svc-combo-row__name { font-size: 16px; font-weight: 600; color: var(--c-text); margin: 0 0 4px; }
   .mh-svc-combo-row__desc { font-size: 13px; font-weight: 300; color: rgba(51,36,29,0.6); margin: 0; }
   .mh-svc-combo-row__price { flex-shrink: 0; font-size: 16px; font-weight: 600; color: var(--c-accent); white-space: nowrap; }
+  .mh-svc-prices .mh-btn-primary { width: auto; padding: 14px 32px; gap: 12px; }
+  .mh-svc-prices .mh-btn-primary span { font-size: 17px; }
+  .mh-svc-prices .mh-btn-primary svg { width: 24px; height: 24px; }
 
   .mh-svc-faq { padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
   .mh-svc-faq__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; }
