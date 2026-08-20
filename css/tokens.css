@@ -6,12 +6,12 @@
    ============================================================ */
 :root {
   --c-dark:     #FFFFFF;
-  --c-accent:   #767E5D;
+  --c-accent:   #48627C;
   --c-bg:       #FFFFFF;
-  --c-text:     #33241D;
-  --c-muted:    #6b5e4f;
+  --c-text:     #1D2833;
+  --c-muted:    #595961;
   --c-white:    #FFFFFF;
-  --c-w50:      rgba(51,36,29,0.5);
+  --c-w50:      rgba(29,40,51,0.5);
   --header-h:   calc(48px + clamp(24px, 1.875vw, 36px));
   --f:          'Inter', sans-serif;
   --r-card:     10px;

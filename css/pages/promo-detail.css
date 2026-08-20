@@ -32,7 +32,7 @@
 .promo-card__tel { text-align: center; font-size: 18px; color: var(--c-w50); text-decoration: none; display: block; transition: color 0.2s; }
 .promo-card__tel:hover { color: var(--c-text); }
 
-.promo-terms { margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(51,36,29,0.1); }
+.promo-terms { margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(29,40,51,0.1); }
 .promo-terms h3 { font-size: 28px; font-weight: 400; letter-spacing: -0.02em; color: var(--c-text); margin-bottom: 24px; font-style: normal; }
 .promo-terms ul { display: flex; flex-direction: column; gap: 12px; padding-left: 0; list-style: none; }
 .promo-terms ul li { font-size: 18px; color: var(--c-muted); line-height: 1.5; padding-left: 20px; position: relative; }

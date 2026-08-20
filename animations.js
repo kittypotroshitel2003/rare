@@ -73,7 +73,7 @@
 [data-rr="type"] .tw-ch.is-in { opacity: 1; }
 [data-rr="type"] .tw-caret {
   position: absolute; top: 0; left: 0; width: 2px;
-  background: var(--c-accent, #777247); opacity: 0; pointer-events: none;
+  background: var(--c-accent, #48627C); opacity: 0; pointer-events: none;
 }
 @keyframes twBlink { 50% { opacity: 0; } }
 [data-rr="type"] .tw-caret.is-active { opacity: 1; animation: twBlink 0.9s steps(1) infinite; }
@@ -106,7 +106,7 @@
 .site-header.rr-nav-solid .site-header__nav a,
 .site-header.rr-nav-solid .site-header__social a,
 .site-header.rr-nav-solid .site-header__phone {
-  color: #33241D !important;
+  color: #1D2833 !important;
 }
 /* phone icon + logo are flat <img>s, so they can't inherit color — the
    files themselves are dark ink (correct once solid); invert them back
@@ -153,7 +153,7 @@
 
 /* stat glow */
 .about-stat__n { display: inline-block; transition: color 0.3s ease; }
-.about-stat:hover .about-stat__n { color: #777247; }
+.about-stat:hover .about-stat__n { color: #48627C; }
 
 /* proc-row hover */
 .proc-row {

@@ -13,21 +13,21 @@
   display: inline-flex; align-items: center; justify-content: center;
   background: transparent; color: var(--c-text); border-radius: 10px;
   font-family: var(--f); font-weight: 500; font-style: normal;
-  text-decoration: none; border: 1.5px solid rgba(53,40,26,0.25); cursor: pointer;
+  text-decoration: none; border: 1.5px solid rgba(29,40,51,0.25); cursor: pointer;
   transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
   line-height: 1; box-shadow: 0 2px 12px rgba(16,47,39,0.08);
 }
-.pill-btn:hover { background: var(--c-accent); border-color: var(--c-accent); color: #fdfcf8; box-shadow: none; }
+.pill-btn:hover { background: #18334E; border-color: #18334E; color: #fdfcf8; box-shadow: none; }
 .pill-btn:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(16,47,39,0.1); }
 /* Filled dark variant — for CTAs on cream/light backgrounds (index.html only so far) */
 .pill-btn--dark { background: var(--c-dark); color: var(--c-text); border-color: var(--c-dark); box-shadow: 0 4px 20px rgba(16,47,39,0.25); }
-.pill-btn--dark:hover { background: var(--c-accent); border-color: var(--c-accent); color: #fdfcf8; box-shadow: 0 8px 28px rgba(16,47,39,0.32); }
+.pill-btn--dark:hover { background: #18334E; border-color: #18334E; color: #fdfcf8; box-shadow: 0 8px 28px rgba(16,47,39,0.32); }
 /* Outline ghost variant — for dark-bg sections (index.html only so far) */
-.pill-btn--ghost { background: transparent; color: var(--c-text); border: 1.5px solid rgba(53,40,26,0.45); box-shadow: none; }
-.pill-btn--ghost:hover { background: rgba(53,40,26,0.1); border-color: rgba(53,40,26,0.75); box-shadow: none; }
+.pill-btn--ghost { background: transparent; color: var(--c-text); border: 1.5px solid rgba(29,40,51,0.45); box-shadow: none; }
+.pill-btn--ghost:hover { background: rgba(29,40,51,0.1); border-color: rgba(29,40,51,0.75); box-shadow: none; }
 
 /* mobile-only primary CTA (booking forms, footer, mobile-home sections) */
 .mh-btn-primary { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--c-accent); color: #fff; border-radius: 12px; padding: 18px 48px; text-decoration: none; width: 280px; transition: background 0.2s; border: none; cursor: pointer; }
-.mh-btn-primary:hover, .mh-btn-primary:active { background: #666139; }
+.mh-btn-primary:hover, .mh-btn-primary:active { background: #18334E; }
 .mh-btn-primary span { font-size: 24px; font-weight: 400; letter-spacing: -0.04em; white-space: nowrap; }
 .mh-btn-primary svg { width: 37px; height: 37px; flex-shrink: 0; }

@@ -21,21 +21,21 @@
 .booking-field { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: clamp(10px, 0.83vw, 16px); }
 .booking-field label { font-size: clamp(13px, 0.83vw, 16px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; display: block; font-style: normal; padding: 0; }
 .booking-field input {
-  background: var(--c-bg); border: none; border-bottom: 1px solid rgba(53,40,26,0.25);
+  background: var(--c-bg); border: none; border-bottom: 1px solid rgba(29,40,51,0.25);
   padding: clamp(14px, 1.25vw, 24px) clamp(8px, 0.52vw, 10px) clamp(14px, 1.25vw, 24px) clamp(14px, 1.25vw, 24px);
   font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; color: var(--c-text);
   letter-spacing: -0.04em; font-family: var(--f); width: 100%; font-style: normal; outline: none;
   transition: border-color 0.25s ease, color 0.25s ease;
 }
-.booking-field input::placeholder { color: rgba(53,40,26,0.5); }
+.booking-field input::placeholder { color: rgba(29,40,51,0.5); }
 .booking-field input:focus { border-bottom-color: var(--c-accent); outline: none; }
 .booking-svc-field { display: flex; flex-direction: column; gap: clamp(10px, 0.83vw, 16px); margin-top: clamp(20px, 1.9vw, 36px); }
 .booking-svc-label { font-size: clamp(13px, 0.83vw, 16px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; display: block; font-style: normal; padding: 0; }
-.booking-svc-wrap { position: relative; border-bottom: 1px solid rgba(53,40,26,0.25); }
+.booking-svc-wrap { position: relative; border-bottom: 1px solid rgba(29,40,51,0.25); }
 .booking-svc-sel {
   appearance: none; -webkit-appearance: none; background: var(--c-bg); border: none; width: 100%;
   padding: clamp(14px, 1.25vw, 24px) 40px clamp(14px, 1.25vw, 24px) clamp(14px, 1.25vw, 24px);
-  font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; color: rgba(53,40,26,0.5);
+  font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; color: rgba(29,40,51,0.5);
   letter-spacing: -0.04em; font-family: var(--f); cursor: pointer; outline: none; font-style: normal;
 }
 .booking-svc-sel option { color: var(--c-text); font-weight: 400; }
@@ -49,7 +49,7 @@
   transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
 }
 .booking-submit svg { width: 20px; height: 20px; flex-shrink: 0; }
-.booking-submit:hover { background: #5e6249; }
+.booking-submit:hover { background: #18334E; }
 @keyframes fieldShake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
 .booking-field__err { font-size: 13px; font-weight: 400; color: #c94444; letter-spacing: -0.01em; line-height: 1; font-style: normal; margin-top: 8px; display: none; font-family: var(--f); }
 .booking-svc-field .booking-field__err { font-size: 13px; color: #c94444; margin-top: 8px; display: none; font-family: var(--f); font-style: normal; }

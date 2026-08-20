@@ -11,7 +11,7 @@
 
 .price-tabs-bar {
   background: var(--c-bg);
-  border-bottom: 1px solid rgba(51,36,29,0.1);
+  border-bottom: 1px solid rgba(29,40,51,0.1);
   position: sticky; top: 0; z-index: 100;
 }
 .price-tabs {
@@ -53,7 +53,7 @@
 }
 .price-cat-num {
   font-size: clamp(56px,5vw,96px);
-  font-weight: 400; color: rgba(51,36,29,0.07);
+  font-weight: 400; color: rgba(29,40,51,0.07);
   letter-spacing: -0.04em; line-height: 1;
   font-style: normal; flex-shrink: 0;
   transition: color 0.4s;
@@ -65,7 +65,7 @@
   display: flex; align-items: baseline; justify-content: space-between;
   gap: 24px;
   padding: 22px 0;
-  border-bottom: 1px solid rgba(51,36,29,0.08);
+  border-bottom: 1px solid rgba(29,40,51,0.08);
   cursor: default;
   opacity: 0;
   transform: translateY(20px);

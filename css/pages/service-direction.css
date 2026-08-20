@@ -22,20 +22,82 @@ body.page--service-direction { background: #fff; color: var(--c-text); }
 .svcdir-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; font-weight: 400; letter-spacing: -0.02em; font-style: normal; }
 .svcdir-breadcrumb a { color: #595961; text-decoration: none; transition: color 0.2s; }
 .svcdir-breadcrumb a:hover { color: var(--c-text); }
-.svcdir-breadcrumb__sep { color: rgba(51, 36, 29, 0.3); }
+.svcdir-breadcrumb__sep { color: rgba(29,40,51, 0.3); }
 .svcdir-breadcrumb__current { color: var(--c-text); font-weight: 500; }
 
 .svcdir-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px, 2.5vw, 48px); width: 100%; }
-.svcdir-card {
-  display: flex; flex-direction: column; align-items: center; gap: 20px;
-  width: 380px; max-width: 100%; padding: 64px 32px 32px;
-  background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; text-align: center;
+
+/* Same hover choreography as the homepage's "Направления услуг" tiles
+   (.dir-tile in home.css): circular photo expands to fill the card, a
+   scrim darkens it, the default badge/title/desc fade out and an
+   accent-colored badge + white title fade+scale in. Most of these are
+   plain <div>s (no arrow button — there's nowhere for them to navigate
+   to); the few that are real <a> links to their own procedure page
+   (e.g. laser.html's epilation card) also render .svcdir-card__arrow,
+   defined further down. */
+.svcdir-card { position: relative; overflow: hidden; background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; width: 380px; max-width: 100%; aspect-ratio: 380 / 520; text-decoration: none; color: inherit; display: block; }
+.svcdir-card__scrim { position: absolute; inset: 0; z-index: 2; background: rgba(0,0,0,0.25); opacity: 0; transition: opacity 0.3s ease; }
+.svcdir-card:hover .svcdir-card__scrim { opacity: 1; transition: opacity 0.35s ease 0.1s; }
+.svcdir-card__photo {
+  position: absolute; z-index: 1; overflow: hidden;
+  top: 116px; left: calc(50% - 100px);
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              top 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), left 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+.svcdir-card__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.svcdir-card:hover .svcdir-card__photo { top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px; }
+.svcdir-card__body { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 64px 32px 32px; text-align: center; height: 100%; transition: opacity 0.2s ease; }
+.svcdir-card:hover .svcdir-card__body { opacity: 0; }
 .svcdir-card__num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 24px; background: #ededed; color: #595961; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.02em; font-style: normal; }
-.svcdir-card__photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-.svcdir-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.svcdir-card__photo-spacer { width: 200px; height: 200px; flex-shrink: 0; }
 .svcdir-card__title { font-size: 22px; font-weight: 600; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.25; font-style: normal; margin: 0; }
 .svcdir-card__desc { font-size: 15px; font-weight: 400; color: #595961; letter-spacing: -0.04em; line-height: 1.4; font-style: normal; margin: 0; }
+.svcdir-card__num-hover {
+  position: absolute; z-index: 4; opacity: 0; transform: scale(0.6);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  left: 24px; top: 24px; width: 48px; height: 48px; border-radius: 24px;
+  background: var(--c-accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 500; letter-spacing: -0.02em;
+}
+.svcdir-card__title-hover {
+  position: absolute; z-index: 4; opacity: 0;
+  transform: translate(-50%, -42%) scale(0.85);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  left: 50%; top: 46.15%;
+  width: 87%; margin: 0; text-align: center; color: #fff;
+  font-size: clamp(17px, 1.9vw, 26px); font-weight: 600; letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+.svcdir-card:hover .svcdir-card__num-hover {
+  opacity: 1; transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s;
+}
+.svcdir-card:hover .svcdir-card__title-hover {
+  opacity: 1; transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.44s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.44s;
+}
+/* only the handful of .svcdir-card elements that are real <a> links
+   (e.g. laser.html's epilation card, which points at its own procedure
+   page) render this — plain non-link cards never include the markup */
+.svcdir-card__arrow {
+  position: absolute; z-index: 4; opacity: 0; transform: scale(0.6);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 22px;
+  background: var(--c-accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.svcdir-card__arrow svg { width: 18px; height: 18px; }
+.svcdir-card:hover .svcdir-card__arrow {
+  opacity: 1; transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s;
+}
 
 .svcdir-cta-wrap { display: flex; justify-content: center; margin-top: clamp(8px, 1vw, 16px); }
 
@@ -54,6 +116,6 @@ body.page--service-direction { background: #fff; color: var(--c-text); }
   .mh-services__head { display: flex; flex-direction: column; gap: 10px; }
   .mh-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 400; letter-spacing: -0.02em; font-style: normal; }
   .mh-breadcrumb a { color: #595961; text-decoration: none; }
-  .mh-breadcrumb__sep { color: rgba(51, 36, 29, 0.3); }
+  .mh-breadcrumb__sep { color: rgba(29,40,51, 0.3); }
   .mh-breadcrumb__current { color: var(--c-text); font-weight: 500; }
 }

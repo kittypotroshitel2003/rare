@@ -26,7 +26,7 @@
 #a11y-toggle:hover { opacity: 1; }
 #a11y-toggle svg { width: 20px; height: 20px; display: block; }
 #a11y-toggle .a11y-label { display: none; }
-#a11y-toggle.is-active { color: var(--c-accent, #777247); opacity: 1; }
+#a11y-toggle.is-active { color: var(--c-accent, #48627C); opacity: 1; }
 
 /* mobile menu variant — sits as a labeled row inside the slide-out nav,
    the header's icon-only button is hidden at this breakpoint instead */
@@ -36,13 +36,13 @@
 #a11y-toggle-menu {
   width: auto; height: auto; border-radius: 0;
   display: flex; align-items: center; gap: 12px;
-  padding: 0; opacity: 1; color: #33241D;
+  padding: 0; opacity: 1; color: #1D2833;
   font-size: 18px; font-weight: 500; letter-spacing: -0.02em;
   font-family: inherit;
 }
 #a11y-toggle-menu svg { width: 22px; height: 22px; }
 #a11y-toggle-menu .a11y-label { display: inline; }
-#a11y-toggle-menu.is-active { color: var(--c-accent, #777247); }
+#a11y-toggle-menu.is-active { color: var(--c-accent, #48627C); }
 
 /* fixed-position fallback for pages without a header actions row */
 #a11y-toggle.a11y-fixed {
@@ -53,7 +53,7 @@
   opacity: 1;
 }
 #a11y-toggle.a11y-fixed:hover { background: rgba(253,252,248,0.12); }
-#a11y-toggle.a11y-fixed.is-active { background: var(--c-accent, #777247); border-color: var(--c-accent, #777247); color: #fff; }
+#a11y-toggle.a11y-fixed.is-active { background: var(--c-accent, #48627C); border-color: var(--c-accent, #48627C); color: #fff; }
 @media (max-width: 767px) {
   #a11y-toggle.a11y-fixed { top: 12px; right: 60px; width: 24px; height: 24px; }
 }

@@ -60,7 +60,7 @@ body.page--services { background: #fff; color: var(--c-text); }
   box-shadow: none; gap: clamp(10px, 1vw, 18px);
 }
 .hero__cta.hero__cta { border-radius: 12px !important; }
-.hero__cta:hover { background: #666139; border-color: #666139; color: #fff; }
+.hero__cta:hover { background: #18334E; border-color: #18334E; color: #fff; }
 .hero__cta svg { flex-shrink: 0; width: clamp(18px, 1.45vw, 28px); height: clamp(18px, 1.45vw, 28px); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
 .hero__cta:hover svg { transform: translate(3px, -3px); }
 
@@ -92,7 +92,7 @@ body.page--services { background: #fff; color: var(--c-text); }
 }
 .promo-banner__card:hover { transform: translateY(-54%); }
 .promo-banner__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
-.promo-banner__label { font-size: clamp(14px, 0.95vw, 16px); font-weight: 500; color: rgba(51,36,29,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
+.promo-banner__label { font-size: clamp(14px, 0.95vw, 16px); font-weight: 500; color: rgba(29,40,51,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
 .promo-banner__arr {
   flex-shrink: 0; width: 37px; height: 37px; border-radius: 50%;
   background: var(--c-accent); color: #fff; display: flex; align-items: center; justify-content: center;
@@ -100,7 +100,7 @@ body.page--services { background: #fff; color: var(--c-text); }
 }
 .promo-banner__arr svg { width: 18px; height: 18px; }
 .promo-banner__card:hover .promo-banner__arr { transform: translate(3px, -3px); }
-.promo-banner__bottom { display: flex; flex-direction: column; gap: 9px; color: rgba(51,36,29,0.6); }
+.promo-banner__bottom { display: flex; flex-direction: column; gap: 9px; color: rgba(29,40,51,0.6); }
 .promo-banner__pct { font-size: clamp(37px, 3.91vw, 64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-style: normal; }
 .promo-banner__desc { font-size: 14px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
 .promo-banner__dots { display: flex; align-items: center; gap: 10px; }
@@ -151,13 +151,13 @@ body.page--services { background: #fff; color: var(--c-text); }
   .mh-promo-card__panel { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 190px; background: rgba(255,253,249,0.2); border-radius: 16px; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .mh-promo-card__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .mh-promo-arr { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--c-accent); display: flex; align-items: center; justify-content: center; }
-  .mh-promo-card__label { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; color: rgba(51,36,29,0.6); max-width: 229px; margin: 0; }
-  .mh-promo-card__body { display: flex; flex-direction: column; gap: 6px; color: rgba(51,36,29,0.6); }
+  .mh-promo-card__label { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; color: rgba(29,40,51,0.6); max-width: 229px; margin: 0; }
+  .mh-promo-card__body { display: flex; flex-direction: column; gap: 6px; color: rgba(29,40,51,0.6); }
   .mh-promo-card__pct { font-size: 52px; font-weight: 500; line-height: 1; margin: 0; }
   .mh-promo-card__desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.8; margin: 0; }
 
   .mh-services-contact { display: flex; flex-direction: column; gap: 20px; width: 100%; padding: 16px 20px 0; }
-  .mh-services-contact__lines { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 16px 0; border-top: 1px solid rgba(51,36,29,0.1); border-bottom: 1px solid rgba(51,36,29,0.1); font-size: 14px; }
+  .mh-services-contact__lines { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 16px 0; border-top: 1px solid rgba(29,40,51,0.1); border-bottom: 1px solid rgba(29,40,51,0.1); font-size: 14px; }
   .mh-services-contact__lines p { margin: 0; }
   .mh-services-contact__lines .is-strong { font-weight: 500; color: var(--c-text); }
   .mh-services-contact__lines .is-muted { font-weight: 400; color: #595961; }

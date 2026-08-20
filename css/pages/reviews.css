@@ -28,8 +28,8 @@
 .pi-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: start; }
 
 .pi-left { display: flex; flex-direction: column; gap: 20px; }
-.platform-card { position: relative; overflow: hidden; border: 1px solid rgba(51,36,29,0.1); background: #fff; border-radius: 16px; text-decoration: none; transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.platform-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(51,36,29,0.1); }
+.platform-card { position: relative; overflow: hidden; border: 1px solid rgba(29,40,51,0.1); background: #fff; border-radius: 16px; text-decoration: none; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.platform-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(29,40,51,0.1); }
 .platform-card--main { padding: 32px; }
 .platform-card__top { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
 .platform-badge { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0; }
@@ -61,14 +61,14 @@
 }
 .inspire-steps-simple li:not(:last-child)::after {
   content: ''; position: absolute; left: 16px; top: 36px; width: 1px; height: calc(100% - 20px);
-  border-left: 1px dashed rgba(51,36,29,0.25);
+  border-left: 1px dashed rgba(29,40,51,0.25);
 }
 .inspire-actions { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
 .inspire-actions .pill-btn { padding: 16px 30px; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 8px; }
 .inspire-actions .pill-btn--fill { background: var(--c-text); color: #fdfcf8; border-color: var(--c-text); }
-.inspire-actions .pill-btn--fill:hover { background: var(--c-accent); border-color: var(--c-accent); }
-.inspire-actions .pill-btn--ghost { background: transparent; color: var(--c-text); border: 1.5px solid rgba(51,36,29,0.2); }
-.inspire-actions .pill-btn--ghost:hover { background: rgba(51,36,29,0.05); }
+.inspire-actions .pill-btn--fill:hover { background: #18334E; border-color: #18334E; }
+.inspire-actions .pill-btn--ghost { background: transparent; color: var(--c-text); border: 1.5px solid rgba(29,40,51,0.2); }
+.inspire-actions .pill-btn--ghost:hover { background: rgba(29,40,51,0.05); }
 @media (max-width: 900px) { .pi-grid { grid-template-columns: 1fr; } .pi-left-row { grid-template-columns: 1fr; } }
 
 .sec-eyebrow { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 12px; }
@@ -76,8 +76,8 @@
 .sec-reviews { padding: 72px 0; }
 .sec-reviews .sec-h { margin-bottom: 72px; }
 .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-.review-card { border: 1px solid rgba(51,36,29,0.12); border-radius: var(--r-card); padding: 36px 28px; display: flex; flex-direction: column; gap: 20px; transition: box-shadow 0.2s; }
-.review-card:hover { box-shadow: 0 4px 24px rgba(51,36,29,0.1); }
+.review-card { border: 1px solid rgba(29,40,51,0.12); border-radius: var(--r-card); padding: 36px 28px; display: flex; flex-direction: column; gap: 20px; transition: box-shadow 0.2s; }
+.review-card:hover { box-shadow: 0 4px 24px rgba(29,40,51,0.1); }
 .review-stars { font-size: 20px; color: var(--c-accent); }
 .review-text { font-size: 20px; font-weight: 300; color: var(--c-text); line-height: 1.5; letter-spacing: -0.02em; font-style: normal; }
 .review-author { display: flex; flex-direction: column; gap: 4px; margin-top: auto; }
@@ -94,12 +94,12 @@
 .founder-fb-who__role { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-w50); }
 .founder-fb-who__name { font-size: 18px; font-weight: 500; color: var(--c-text); }
 .fb-form { display: flex; flex-direction: column; gap: 20px; }
-.fb-form input, .fb-form textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(51,36,29,0.25); color: var(--c-text); font-family: var(--f); font-size: 16px; padding: 12px 0; outline: none; transition: border-color 0.2s; }
-.fb-form input::placeholder, .fb-form textarea::placeholder { color: rgba(51,36,29,0.4); }
+.fb-form input, .fb-form textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(29,40,51,0.25); color: var(--c-text); font-family: var(--f); font-size: 16px; padding: 12px 0; outline: none; transition: border-color 0.2s; }
+.fb-form input::placeholder, .fb-form textarea::placeholder { color: rgba(29,40,51,0.4); }
 .fb-form input:focus, .fb-form textarea:focus { border-color: var(--c-accent); }
 .fb-form textarea { resize: vertical; min-height: 80px; }
 .fb-form button { align-self: flex-start; margin-top: 8px; padding: 16px 32px; font-size: 16px; }
-.fb-form__note { font-size: 13px; color: rgba(51,36,29,0.4); margin-top: -8px; }
+.fb-form__note { font-size: 13px; color: rgba(29,40,51,0.4); margin-top: -8px; }
 @media (max-width: 900px) { .founder-fb-inner { grid-template-columns: 1fr; gap: 40px; } }
 
 .sec-cta { background: var(--c-dark); padding: 72px 0; text-align: center; }

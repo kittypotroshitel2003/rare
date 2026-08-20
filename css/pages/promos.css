@@ -34,7 +34,7 @@ body.page--promos { background: #fff; color: var(--c-text); }
 .promo-tile__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .promo-tile__title {
   font-size: clamp(12px, 0.9375vw, 18px); font-weight: 500; line-height: 1.1; letter-spacing: -0.04em;
-  color: rgba(51,36,29,0.6); max-width: 82.9%; margin: 0;
+  color: rgba(29,40,51,0.6); max-width: 82.9%; margin: 0;
 }
 .promo-tile__arr {
   flex-shrink: 0; width: clamp(24px, 2.08vw, 40px); height: clamp(24px, 2.08vw, 40px); border-radius: 50%;
@@ -43,7 +43,7 @@ body.page--promos { background: #fff; color: var(--c-text); }
 }
 .promo-tile:hover .promo-tile__arr { transform: translate(3px, -3px); }
 .promo-tile__arr svg { width: 35%; height: 35%; }
-.promo-tile__body { display: flex; flex-direction: column; gap: clamp(4px, 0.52vw, 10px); color: rgba(51,36,29,0.6); }
+.promo-tile__body { display: flex; flex-direction: column; gap: clamp(4px, 0.52vw, 10px); color: rgba(29,40,51,0.6); }
 .promo-tile__num { font-size: clamp(32px, 4.6875vw, 90px); font-weight: 500; line-height: 1; letter-spacing: -0.04em; margin: 0; }
 .promo-tile__desc { font-size: clamp(10px, 0.78vw, 15px); font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.7; margin: 0; }
 
@@ -85,8 +85,8 @@ body.page--promos { background: #fff; color: var(--c-text); }
      this page doesn't load — without it the span has no size/background,
      just a bare white-stroke svg with nothing behind it. */
   .mh-promo-arr { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--c-accent); display: flex; align-items: center; justify-content: center; }
-  .mh-promo-card__label { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; color: rgba(51,36,29,0.6); max-width: 229px; margin: 0; }
-  .mh-promo-card__body { display: flex; flex-direction: column; gap: 6px; color: rgba(51,36,29,0.6); }
+  .mh-promo-card__label { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; color: rgba(29,40,51,0.6); max-width: 229px; margin: 0; }
+  .mh-promo-card__body { display: flex; flex-direction: column; gap: 6px; color: rgba(29,40,51,0.6); }
   .mh-promo-card__pct { font-size: 52px; font-weight: 500; line-height: 1; margin: 0; }
   .mh-promo-card__desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.8; margin: 0; }
 }

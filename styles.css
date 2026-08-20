@@ -3486,18 +3486,18 @@ em.accent {
   padding: 0 40px; position: relative; border-radius: 0;
   transition: background 0.35s ease; cursor: default;
 }
-.page-about .adv-item + .adv-item { border-left: 1px solid rgba(53,40,26,0.12); }
+.page-about .adv-item + .adv-item { border-left: 1px solid rgba(29,40,51,0.12); }
 .page-about .adv-item:hover { background: rgba(111,161,135,0.06); }
 .page-about .adv-icon { height: 155px; display: flex; align-items: center; justify-content: center; overflow: visible; padding-top: 32px; }
 .page-about .adv-icon img { max-height: 140px; max-width: 180px; object-fit: contain; }
 .page-about .adv-label {
   font-size: clamp(16px, 1.25vw, 22px); font-weight: 500;
-  color: var(--c-text, #35281a); letter-spacing: -0.02em; line-height: 1.2;
+  color: var(--c-text, #1D2833); letter-spacing: -0.02em; line-height: 1.2;
   text-align: center; font-style: normal;
 }
 @media (max-width: 767px) {
   .page-about .adv-row { flex-direction: column; gap: 40px; }
-  .page-about .adv-item + .adv-item { border-left: none; border-top: 1px solid rgba(53,40,26,0.12); padding-top: 40px; }
+  .page-about .adv-item + .adv-item { border-left: none; border-top: 1px solid rgba(29,40,51,0.12); padding-top: 40px; }
   .page-about .adv-item { padding: 0 24px; }
   .page-about .adv-icon { height: 130px; padding-top: 0; }
 }

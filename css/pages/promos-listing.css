@@ -14,7 +14,7 @@ body.page--promos-listing { --c-grey: #595961; --f: 'Inter', 'Involve', sans-ser
    Base layout defined fresh here since inner-header.css is not
    linked on this page. */
 *, *::before, *::after { box-sizing: border-box; }
-body.page--promos-listing { margin: 0; font-family: var(--f); color: #33241D; background: #fff; }
+body.page--promos-listing { margin: 0; font-family: var(--f); color: #1D2833; background: #fff; }
 body.page--promos-listing h1, body.page--promos-listing h2, body.page--promos-listing h3,
 body.page--promos-listing p, body.page--promos-listing ul, body.page--promos-listing ol,
 body.page--promos-listing figure, body.page--promos-listing form {
@@ -37,11 +37,11 @@ body.page--promos-listing button { cursor: pointer; }
 .site-hd__nav a:hover { opacity: 0.7; }
 .site-hd__actions { display: flex; align-items: center; }
 .site-hd__connect { position: relative; }
-.site-hd__contact { display: flex; align-items: center; gap: 8px; font-weight: 500; background: none; border: none; cursor: pointer; font-family: var(--f); color: #33241D; }
+.site-hd__contact { display: flex; align-items: center; gap: 8px; font-weight: 500; background: none; border: none; cursor: pointer; font-family: var(--f); color: #1D2833; }
 .site-hd__contact:hover { opacity: 0.7; }
 .site-hd__connect-panel {
   position: absolute; top: calc(100% + 18px); right: 0; background: #fff;
-  border: 1px solid rgba(51,36,29,0.1); border-radius: 14px; box-shadow: 0 24px 64px rgba(16,47,39,0.18);
+  border: 1px solid rgba(29,40,51,0.1); border-radius: 14px; box-shadow: 0 24px 64px rgba(16,47,39,0.18);
   padding: 12px; min-width: 240px; display: flex; flex-direction: column; gap: 2px;
   opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px);
   transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s; z-index: 400;
@@ -49,17 +49,17 @@ body.page--promos-listing button { cursor: pointer; }
 .site-hd__connect:hover .site-hd__connect-panel, .site-hd__connect:focus-within .site-hd__connect-panel {
   opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
 }
-.site-hd__connect-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; font-size: 14.5px; font-weight: 500; color: #33241D; text-decoration: none; transition: background 0.15s ease; }
-.site-hd__connect-item:hover { background: rgba(119,114,71,0.08); color: #767E5D; }
+.site-hd__connect-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; font-size: 14.5px; font-weight: 500; color: #1D2833; text-decoration: none; transition: background 0.15s ease; }
+.site-hd__connect-item:hover { background: rgba(119,114,71,0.08); color: #48627C; }
 .site-hd__connect-item svg, .site-hd__connect-item img { width: 20px; height: 20px; flex-shrink: 0; }
 
 .pill-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  background: #767E5D; color: #fff; border-radius: 6px; border: none;
+  background: #48627C; color: #fff; border-radius: 6px; border: none;
   font-family: var(--f); font-weight: 400; text-decoration: none; cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
-.pill-btn:hover { background: #666139; }
+.pill-btn:hover { background: #18334E; }
 
 body.page--promos-listing .site-hd {
   position: static !important;
@@ -86,7 +86,7 @@ body.page--promos-listing .site-hd__cta { padding: 12px 42px; font-size: 18px; l
 .promos-active { width: 100%; }
 .promos-active__heading {
   font-size: 64px; font-weight: 400; letter-spacing: -2.56px; line-height: 1;
-  color: #33241D; margin-bottom: 48px;
+  color: #1D2833; margin-bottom: 48px;
 }
 .promos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
 .promo-tile {
@@ -104,45 +104,45 @@ body.page--promos-listing .site-hd__cta { padding: 12px 42px; font-size: 18px; l
 .promo-tile__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .promo-tile__title {
   font-size: 18px; font-weight: 500; line-height: 1.1; letter-spacing: -0.72px;
-  color: rgba(51,36,29,0.6); max-width: 194px;
+  color: rgba(29,40,51,0.6); max-width: 194px;
 }
 .promo-tile__arr {
   flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
-  background: #767E5D; display: flex; align-items: center; justify-content: center;
+  background: #48627C; display: flex; align-items: center; justify-content: center;
 }
-.promo-tile__body { display: flex; flex-direction: column; gap: 10px; color: rgba(51,36,29,0.6); }
+.promo-tile__body { display: flex; flex-direction: column; gap: 10px; color: rgba(29,40,51,0.6); }
 .promo-tile__num { font-size: 90px; font-weight: 500; line-height: 1; letter-spacing: -3.6px; }
 .promo-tile__desc { font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.6px; opacity: 0.7; }
 
 /* ── ONLINE BOOKING ── */
 .promos-booking { display: flex; gap: 156px; align-items: flex-end; width: 100%; max-width: 1560px; }
 .promos-booking__left { display: flex; flex-direction: column; gap: 64px; width: 768px; flex-shrink: 0; }
-.promos-booking__heading { font-size: 64px; font-weight: 400; letter-spacing: -2.56px; line-height: 1; color: #33241D; margin-bottom: 48px; }
-.promos-booking__lead { font-size: 18px; letter-spacing: -0.72px; line-height: 1; color: #33241D; }
+.promos-booking__heading { font-size: 64px; font-weight: 400; letter-spacing: -2.56px; line-height: 1; color: #1D2833; margin-bottom: 48px; }
+.promos-booking__lead { font-size: 18px; letter-spacing: -0.72px; line-height: 1; color: #1D2833; }
 
 .promos-form { display: flex; flex-direction: column; gap: 32px; }
 .promos-form__row { display: flex; gap: 24px; }
 .promos-form__field { flex: 1; display: flex; flex-direction: column; gap: 32px; position: relative; }
 .promos-form__label { font-size: 18px; letter-spacing: -0.72px; color: var(--c-grey); }
 .promos-form__input, .promos-form__select {
-  width: 100%; border: none; border-bottom: 1px solid #33241D;
+  width: 100%; border: none; border-bottom: 1px solid #1D2833;
   padding: 24px 10px 24px 24px; font-family: var(--f); font-size: 24px; letter-spacing: -0.96px;
   color: var(--c-grey); background: none; outline: none;
 }
-.promos-form__select-wrap { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #33241D; padding: 24px 10px 24px 24px; }
+.promos-form__select-wrap { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1D2833; padding: 24px 10px 24px 24px; }
 .promos-form__select-wrap select { flex: 1; border: none; background: none; outline: none; font-family: var(--f); font-size: 24px; letter-spacing: -0.96px; color: var(--c-grey); appearance: none; }
 .promos-form__submit {
   display: flex; align-items: center; justify-content: center; gap: 23px;
-  width: 100%; background: #767E5D; color: #fff; border: none; border-radius: 12px;
+  width: 100%; background: #48627C; color: #fff; border: none; border-radius: 12px;
   padding: 18px 50px; font-family: var(--f); font-size: 24px; letter-spacing: -0.96px;
   cursor: pointer; transition: background 0.2s;
 }
-.promos-form__submit:hover { background: #666139; }
+.promos-form__submit:hover { background: #18334E; }
 
 .promos-booking__right { display: flex; flex-direction: column; gap: 24px; width: 636px; flex-shrink: 0; }
 .promos-contact-row {
-  display: flex; justify-content: space-between; border-bottom: 1px solid #33241D;
-  padding-bottom: 24px; font-size: 18px; letter-spacing: -0.72px; color: #33241D;
+  display: flex; justify-content: space-between; border-bottom: 1px solid #1D2833;
+  padding-bottom: 24px; font-size: 18px; letter-spacing: -0.72px; color: #1D2833;
 }
 .promos-map { border-radius: 16px; overflow: hidden; height: 340px; }
 .promos-map img { width: 100%; height: 100%; object-fit: cover; }
@@ -152,23 +152,23 @@ body.page--promos-listing .site-hd__cta { padding: 12px 42px; font-size: 18px; l
 .promos-footer__nav { display: flex; justify-content: space-between; font-size: 15px; letter-spacing: -0.6px; color: var(--c-grey); }
 .promos-footer__nav-group { display: flex; gap: 40px; align-items: center; }
 .promos-footer__nav-group a { color: inherit; }
-.promos-footer__divider { height: 1px; background: rgba(51,36,29,0.12); width: 100%; }
+.promos-footer__divider { height: 1px; background: rgba(29,40,51,0.12); width: 100%; }
 .promos-footer__socials { display: flex; gap: 12px; }
-.promos-footer__social { width: 44px; height: 44px; border-radius: 22px; background: #33241D; display: flex; align-items: center; justify-content: center; }
+.promos-footer__social { width: 44px; height: 44px; border-radius: 22px; background: #1D2833; display: flex; align-items: center; justify-content: center; }
 .promos-footer__brand-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
-.promos-footer__wordmark { font-family: var(--f); font-weight: 300; font-size: 240px; line-height: 0.8; color: #33241D; white-space: nowrap; }
+.promos-footer__wordmark { font-family: var(--f); font-weight: 300; font-size: 240px; line-height: 0.8; color: #1D2833; white-space: nowrap; }
 .promos-footer__cta { display: flex; flex-direction: column; gap: 28px; width: 460px; flex-shrink: 0; padding-bottom: 16px; }
 .promos-footer__cta p { font-size: 15px; letter-spacing: -0.6px; color: var(--c-grey); line-height: 1.4; }
 .promos-footer__cta-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  background: #767E5D; color: #fff; border-radius: 8px; padding: 12px 32px;
+  background: #48627C; color: #fff; border-radius: 8px; padding: 12px 32px;
   font-size: 15px; font-weight: 500; letter-spacing: 0.5px; text-decoration: none;
   align-self: flex-start; transition: background 0.2s;
 }
-.promos-footer__cta-btn:hover { background: #666139; }
+.promos-footer__cta-btn:hover { background: #18334E; }
 .promos-footer__bottom {
-  display: flex; justify-content: space-between; border-top: 1px solid rgba(51,36,29,0.12);
-  padding-top: 32px; font-size: 15px; letter-spacing: -0.6px; color: rgba(51,36,29,0.6);
+  display: flex; justify-content: space-between; border-top: 1px solid rgba(29,40,51,0.12);
+  padding-top: 32px; font-size: 15px; letter-spacing: -0.6px; color: rgba(29,40,51,0.6);
 }
 .promos-footer__legal { display: flex; gap: 32px; }
 .promos-footer__legal a { color: inherit; text-decoration: none; }

@@ -8,7 +8,7 @@
 @media (max-width: 767px) {
   .mh-section-title { font-size: 28px; font-weight: 400; line-height: 1; letter-spacing: -0.04em; color: var(--c-text); font-style: normal; }
 
-  .mh-booking { padding: 40px 20px 0; border-top: 1px solid rgba(51,36,29,0.1); display: flex; flex-direction: column; gap: 32px; }
+  .mh-booking { padding: 40px 20px 0; border-top: 1px solid rgba(29,40,51,0.1); display: flex; flex-direction: column; gap: 32px; }
   .mh-booking__desc { font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #595961; margin-top: 23px; }
   .mh-form { display: flex; flex-direction: column; gap: 24px; }
   .mh-field { display: flex; flex-direction: column; gap: 8px; }
@@ -28,7 +28,7 @@
   .mh-footer { background: #fff; padding: 0 20px 40px; display: flex; flex-direction: column; gap: 32px; }
   .mh-footer__links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 16px; font-weight: 500; letter-spacing: -0.04em; color: var(--c-text); }
   .mh-footer__links a { text-decoration: none; color: inherit; }
-  .mh-footer__div { height: 1px; background: rgba(51,36,29,0.12); width: 100%; }
+  .mh-footer__div { height: 1px; background: rgba(29,40,51,0.12); width: 100%; }
   .mh-footer__socials { display: flex; gap: 12px; }
   .mh-footer__socials a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
   .mh-footer__socials a.is-plain img { width: 40px; height: 40px; }
@@ -38,7 +38,7 @@
   .mh-footer__wordmark { font-size: 64px; font-weight: 300; line-height: 0.8; color: var(--c-text); }
   .mh-footer__text { font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #595961; }
   .mh-footer__pill { display: flex; align-items: center; justify-content: center; background: var(--c-accent); color: #fff; border-radius: 8px; padding: 12px 24px; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; width: 100%; }
-  .mh-footer__legal { display: flex; flex-direction: column; gap: 16px; font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: rgba(51,36,29,0.6); }
+  .mh-footer__legal { display: flex; flex-direction: column; gap: 16px; font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: rgba(29,40,51,0.6); }
 
   .mh-booking, .mh-footer { display: flex; }
 }
