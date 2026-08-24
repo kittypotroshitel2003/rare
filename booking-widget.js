@@ -15,7 +15,12 @@
     'box-shadow:0 6px 24px rgba(29,40,51,0.3);transition:background 0.2s ease;}' +
     '#rr-booking-widget:hover{background:#18334E;}' +
     '#rr-booking-widget svg{flex-shrink:0;}' +
-    '@media (max-width:640px){#rr-booking-widget{right:16px;bottom:16px;padding:12px 18px;font-size:14px;}#rr-booking-widget .rr-bw-label{display:none;}}';
+    '@media (max-width:640px){#rr-booking-widget{right:16px;bottom:16px;padding:12px 18px;font-size:14px;}#rr-booking-widget .rr-bw-label{display:none;}}' +
+    /* mobile pages already surface their own persistent "Записаться" CTAs
+       (hero button, sticky footer pill) — the floating widget only adds a
+       second, overlapping button on small screens, so it's hidden below
+       the site's standard mobile breakpoint rather than repositioned. */
+    '@media (max-width:767px){#rr-booking-widget{display:none !important;}}';
 
   var styleEl = document.createElement('style');
   styleEl.textContent = css;

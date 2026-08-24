@@ -18,7 +18,7 @@
 .footer-nav a:hover { opacity: 0.6; }
 .footer-div { height: 1px; background: rgba(29,40,51,0.15); margin: clamp(24px, 2.5vw, 44px) 0; }
 .footer-socials { display: flex; gap: 12px; margin-bottom: clamp(20px, 2.2vw, 40px); }
-.footer-social { width: 44px; height: 44px; border-radius: 50%; background: var(--c-text); display: flex; align-items: center; justify-content: center; transition: opacity 0.2s; }
+.footer-social { width: 44px; height: 44px; border-radius: 50%; background: var(--c-accent); display: flex; align-items: center; justify-content: center; transition: opacity 0.2s; }
 .footer-social:hover { opacity: 0.75; }
 .footer-social img { width: 24px; height: 20px; }
 .footer-social--plain { background: transparent; }

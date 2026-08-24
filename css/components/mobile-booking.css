@@ -32,7 +32,7 @@
   .mh-footer__socials { display: flex; gap: 12px; }
   .mh-footer__socials a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
   .mh-footer__socials a.is-plain img { width: 40px; height: 40px; }
-  .mh-footer__socials a:not(.is-plain) { background: var(--c-text); border-radius: 50%; }
+  .mh-footer__socials a:not(.is-plain) { background: var(--c-accent); border-radius: 50%; }
   .mh-footer__socials a:not(.is-plain) img { width: 22px; height: 18px; }
   .mh-footer__brand { display: flex; flex-direction: column; gap: 24px; }
   .mh-footer__wordmark { font-size: 64px; font-weight: 300; line-height: 0.8; color: var(--c-text); }

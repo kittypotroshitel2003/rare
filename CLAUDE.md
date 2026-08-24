@@ -2,6 +2,14 @@
 
 ## Always Do First
 - **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
+- **Invoke the relevant Emil Kowalski skills** (installed under `~/.claude/skills/`) at the start of every new request that touches frontend code, before writing or editing anything:
+  - `emil-design-eng` and `apple-design` — general polish/craft philosophy, load these first on any UI work.
+  - `find-animation-opportunities` — when starting work on a page/section, to spot places that should animate but don't.
+  - `animate` — when actually implementing any motion/transition.
+  - `review-animations` — after implementing motion, to check it against the standards.
+  - `improve-animations` — when asked to audit or improve animation across multiple pages.
+  - `animation-vocabulary` — to look up the exact name of an effect being discussed.
+  - `pick-ui-library` / `prototype` / `ask-sonner` / `animate-expo` / `write-swift` are installed but not applicable to this project (plain HTML/CSS/JS, no React/Expo/Swift, no toast library) — skip them here.
 
 ## Reference Images
 - If a reference image is provided: match layout, spacing, typography, and color exactly. Swap in placeholder content (images via `https://placehold.co/`, generic copy). Do not improve or add to the design.

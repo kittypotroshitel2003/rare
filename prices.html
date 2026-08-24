@@ -1,296 +1,901 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"/>
-<link rel="preload" href="responsive.css?v=202608201600" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202608201600"/></noscript>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Цены — RA|RÉ Клиника экспертной косметологии в Анапе</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
-<link rel="stylesheet" href="css/components/inner-header.css?v=202608201600"/>
-<link rel="stylesheet" href="css/components/inner-footer.css?v=202608201600"/>
-<link rel="stylesheet" href="css/pages/prices.css?v=202608180930"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Цены — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+  <meta name="description" content="Прайс на услуги клиники RA|RÉ в Анапе — консультации, трихология, фотопорация Nordlys Candela, SMAS-лифтинг, лазерная шлифовка, RF-лифтинг и другие процедуры."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/>
+  <link rel="dns-prefetch" href="https://yandex.ru"/>
+  <link rel="stylesheet" href="css/tokens.css?v=202608180930"/>
+  <link rel="stylesheet" href="css/base.css?v=202608180930"/>
+  <link rel="stylesheet" href="css/components/header.css?v=202608201600"/>
+  <link rel="stylesheet" href="css/components/footer.css?v=202608211130"/>
+  <link rel="stylesheet" href="css/components/buttons.css?v=202608241200"/>
+  <link rel="stylesheet" href="css/components/mobile-booking.css?v=202608211130"/>
+  <link rel="stylesheet" href="css/components/booking-popup.css?v=202608180930"/>
+  <link rel="stylesheet" href="css/components/forms.css?v=202608201600"/>
+  <link rel="stylesheet" href="css/pages/prices.css?v=202608211130"/>
+  <link rel="stylesheet" href="responsive.css?v=202608241200"/>
 </head>
-<body class="page page--inner page--prices">
+<body class="page page--prices">
 
-<header class="site-hd">
-  <a href="index.html" class="site-hd__logo">
+<header class="site-header">
+  <a href="index.html" class="site-header__logo">
     <img src="assets/icons/logo.svg" alt="RA|RÉ"/>
   </a>
-  <nav class="site-hd__nav">
+  <nav class="site-header__nav">
     <a href="about.html">О клинике</a>
     <a href="promos.html">Акции</a>
     <div class="nav-services">
-      <a href="services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a>
+      <a href="services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="svc-mega">
-          <div class="svc-mega__col">
-            <p class="svc-mega__h">Консультации</p>
-            <a href="services/consultations.html">Приём косметолога</a>
-            <a href="services/consultations.html">Приём трихолога</a>
-            <a href="services/consultations.html">Приём нутрициолога</a>
-            <p class="svc-mega__h">SMAS и диагностика</p>
-            <a href="services/lifts.html">SMAS-лифтинг</a>
-            <a href="services/diagnostics.html">УЗИ диагностика кожи</a>
-          </div>
-          <div class="svc-mega__col">
-            <p class="svc-mega__h">Фотосистема IPL Nordlys</p>
-            <a href="services/light.html">Фотоомоложение</a>
-            <a href="services/light.html">Лечение акне</a>
-            <a href="services/light.html">Лечение купероза и розацеа</a>
-            <a href="services/light.html">Устранение пигментации</a>
-            <p class="svc-mega__h">Лифтинги</p>
-            <a href="services/lifts.html">RF-лифтинг Volnewmer</a>
-            <a href="services/lifts.html">RF-лифтинг Sylfirm X</a>
-          </div>
-          <div class="svc-mega__col">
-            <p class="svc-mega__h">Инъекционная косметология</p>
-            <a href="services/injections.html">PRP-терапия</a>
-            <a href="services/injections.html">Контурная пластика</a>
-            <a href="services/injections.html">Ботулинотерапия</a>
-            <a href="services/injections.html">Коллагенотерапия</a>
-            <a href="services/injections.html">Карбокситерапия</a>
-            <a href="services/injections.html">Биоревитализация и мезотерапия</a>
-            <a href="services/injections.html">Экзосомы</a>
-          </div>
-          <div class="svc-mega__col">
-            <p class="svc-mega__h">Эстетическая косметология</p>
-            <a href="services/skin.html">Пилинг</a>
-            <a href="services/skin.html">Чистки</a>
-            <a href="services/light.html">ФДТ Revixan</a>
-            <a href="services/skin.html">Гидропилинг Hydra Touch H2</a>
-            <p class="svc-mega__h">Тело, эпиляция и SPA</p>
-            <a href="services/laser.html">Лазерная эпиляция</a>
-            <a href="services/lifts.html">RSL Beautylizer</a>
-            <a href="services/spa.html">LPG массаж</a>
-            <a href="services/spa.html">Массажи и SPA-уходы</a>
-          </div>
-          <div class="svc-mega__all"><a href="services.html" class="pill-btn">Все услуги →</a></div>
+        <div class="svc-mega__col">
+          <p class="svc-mega__h">Консультации</p>
+          <a href="services/consultations.html">Приём косметолога</a>
+          <a href="services/consultations.html">Приём трихолога</a>
+          <a href="services/consultations.html">Приём нутрициолога</a>
+          <p class="svc-mega__h">SMAS и диагностика</p>
+          <a href="services/lifts.html">SMAS-лифтинг</a>
+          <a href="services/diagnostics.html">УЗИ диагностика кожи</a>
         </div>
+        <div class="svc-mega__col">
+          <p class="svc-mega__h">Фотосистема IPL Nordlys</p>
+          <a href="services/light.html">Фотоомоложение</a>
+          <a href="services/light.html">Лечение акне</a>
+          <a href="services/light.html">Лечение купероза и розацеа</a>
+          <a href="services/light.html">Устранение пигментации</a>
+          <p class="svc-mega__h">Лифтинги</p>
+          <a href="services/lifts.html">RF-лифтинг Volnewmer</a>
+          <a href="services/lifts.html">RF-лифтинг Sylfirm X</a>
+        </div>
+        <div class="svc-mega__col">
+          <p class="svc-mega__h">Инъекционная косметология</p>
+          <a href="services/injections.html">PRP-терапия</a>
+          <a href="services/injections.html">Контурная пластика</a>
+          <a href="services/injections.html">Ботулинотерапия</a>
+          <a href="services/injections.html">Коллагенотерапия</a>
+          <a href="services/injections.html">Карбокситерапия</a>
+          <a href="services/injections.html">Биоревитализация и мезотерапия</a>
+          <a href="services/injections.html">Экзосомы</a>
+        </div>
+        <div class="svc-mega__col">
+          <p class="svc-mega__h">Эстетическая косметология</p>
+          <a href="services/skin.html">Пилинг</a>
+          <a href="services/skin.html">Чистки</a>
+          <a href="services/light.html">ФДТ Revixan</a>
+          <a href="services/skin.html">Гидропилинг Hydra Touch H2</a>
+          <p class="svc-mega__h">Тело, эпиляция и SPA</p>
+          <a href="services/laser.html">Лазерная эпиляция</a>
+          <a href="services/lifts.html">RSL Beautylizer</a>
+          <a href="services/spa.html">LPG массаж</a>
+          <a href="services/spa.html">Массажи и SPA-уходы</a>
+        </div>
+        <div class="svc-mega__all"><a href="services.html" class="pill-btn">Все услуги →</a></div>
+      </div>
     </div>
     <a href="specialists/index.html">Специалисты</a>
-    <a href="prices.html">Цены</a>
+    <a href="prices.html" style="opacity:0.5">Цены</a>
     <a href="certificates.html">Сертификаты</a>
     <a href="reviews/index.html">Отзывы</a>
   </nav>
-  <div class="site-hd__actions">
-    <div class="site-hd__connect">
-      <button type="button" class="site-hd__contact" aria-haspopup="true">Связаться <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="site-hd__connect-panel">
-        <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="site-hd__connect-item">
+  <div class="site-header__actions">
+    <div class="site-header__connect">
+      <button type="button" class="site-header__contact" aria-haspopup="true">Связаться <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="site-header__connect-panel">
+        <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="site-header__connect-item">
           <img src="assets/icons/vk.svg" alt="" width="20" height="20"/>
           VK
         </a>
-        <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" class="site-hd__connect-item">
+        <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" class="site-header__connect-item">
           <img src="assets/icons/max.svg" alt="" width="20" height="20"/>
           MAX
         </a>
-        <a href="tel:+79002761116" class="site-hd__connect-item">
+        <a href="tel:+79002761116" class="site-header__connect-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           +7 (900) 276-11-16
         </a>
       </div>
     </div>
-    <a href="index.html#booking" class="pill-btn site-hd__cta">Записаться</a>
+    <a href="#booking" class="pill-btn site-header__cta">Записаться</a>
   </div>
 </header>
 
-<section class="inner-hero">
-  <div class="inner-hero__bg" style="background-image:url('assets/photos/hero-prices.webp');"></div>
-  <div class="inner-hero__overlay"></div>
-  <div class="inner-hero__cnt wrap">
-    <h1 class="inner-hero__title">Цены</h1>
-  </div>
-</section>
+<!-- ══════════════════════════════════════
+     DESKTOP (≥768px)
+══════════════════════════════════════ -->
+<div class="prices-desktop">
+  <section class="wrap">
+    <div class="price-hero">
+      <h1 class="price-hero__title">Прайс на услуги</h1>
+      <p class="price-hero__sub">В клинике эстетической медицины RA|RÉ мы собрали передовые мировые технологии, чтобы предоставить вам исключительный уход и видимые результаты.</p>
+    </div>
 
-<div class="price-tabs-bar">
-  <div class="price-tabs">
-    <a href="#lifts" class="price-tab active">Лифтинги</a>
-    <a href="#laser" class="price-tab">Эпиляция</a>
-    <a href="#inject" class="price-tab">Инъекции</a>
-    <a href="#skin" class="price-tab">Лечение</a>
-    <a href="#spa" class="price-tab">SPA</a>
+    <div class="price-accordions">
+
+      <div class="price-accordion is-open" id="cat-consult">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Консультации и диагностика</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">Прием (60 мин): физик. осмотр, сбор анамнеза, дерматоскопия</span><span class="price-item__price">6 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Трихоскопическая диагностика 1 час</span><span class="price-item__price">6 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Консультация врача-дерматолога с трихоскопической диагностикой (первичная)</span><span class="price-item__price">6 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Консультация врача-дерматолога с трихоскопией адресными элементами в зоне лечения</span><span class="price-item__price">6 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Консультация косметолога</span><span class="price-item__price">3 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Консультация нутрициолога</span><span class="price-item__price">6 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Расширенная консультация нутрициолога с месячной поддержкой</span><span class="price-item__price">10 000 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-tricho">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Трихология</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">Мезотерапия для кожи головы (Hairex/AMIPED, 2 мл)</span><span class="price-item__price">8 500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Карбокситерапия для лечения кожи головы</span><span class="price-item__price">5 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">PRP-Медитерапия из плазмы</span><span class="price-item__price">8 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Конъюнктивная гринтерапия</span><span class="price-item__price">8 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная мезотерапия ERBIUM 2 мл</span><span class="price-item__price">6 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная мезная кожа головы 4 зоны</span><span class="price-item__price">8 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Восстановление волос на отрезке (NANO ПЛАЗМА)</span><span class="price-item__price">17 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Восстановление волос (4 пробирки)</span><span class="price-item__price">25 000 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-nordlys">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Фотопорация Nordlys Candela</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">IPR MixLight: Фотопорация + пигментное поражение, восстановление сосудов</span><span class="price-item__price">9 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Фотоомоложение/вое лечение</span><span class="price-item__price">9 850 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Восстановление волос без</span><span class="price-item__price">7 500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная пигментация щёк</span><span class="price-item__price">6 100 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная пигментация подбородок</span><span class="price-item__price">6 100 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная пигментация шеи</span><span class="price-item__price">7 500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная декол (без полного)</span><span class="price-item__price">9 300 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная (площадь)</span><span class="price-item__price">9 300 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная купероз (ещё варианты)</span><span class="price-item__price">7 500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Сосудисток вилкой (1 шт.)</span><span class="price-item__price">500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Фотоомоложение деколте</span><span class="price-item__price">19 850 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Фотоомоложение лицо</span><span class="price-item__price">14 800 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Линейная пигментация нос/руки (обе руки)</span><span class="price-item__price">9 300 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Фотоомоложение руки</span><span class="price-item__price">9 100 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-smas">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">SMAS-лифтинг Ultraformer MPT</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">Лицо 300</span><span class="price-item__price">89 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лицо 500</span><span class="price-item__price">139 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лицо 300 (серия)</span><span class="price-item__price">55 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лицо 500 (серия)</span><span class="price-item__price">89 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Нижние крылья, нос 300</span><span class="price-item__price">30 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Периорбитальная область 300</span><span class="price-item__price">30 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Периорбитальная область 100</span><span class="price-item__price">13 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лицо + Шея 800</span><span class="price-item__price">189 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лицо: Дополнительная линия (до 100 линий) 1 п.</span><span class="price-item__price">10 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Субментальная область (область от 2 бортов) подбородок 300</span><span class="price-item__price">49 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Трио 1 обл.</span><span class="price-item__price">1 п.</span></div>
+            <div class="price-item"><span class="price-item__name">Аппаратная безинъекционная процедура + 4 Сыворотки</span><span class="price-item__price">25 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Процедура Open Eyes (SMAS Ultraformer + 1800 л., в место 60000 линий)</span><span class="price-item__price">50 000 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-resurf">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Лазерная шлифовка</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">LightRadii: Фотопорация + полноценная коррекция</span><span class="price-item__price">20 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная шлифовка на CO2 + лицо + шея</span><span class="price-item__price">17 500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная шлифовка CO2 + SMAS + лечение</span><span class="price-item__price">20 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная шлифовка СОСУДОВ/периоральная</span><span class="price-item__price">11 900 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная шлифовка стоп/руки до 1 см2</span><span class="price-item__price">8 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лазерная шлифовка (бородавок) более 0.5 см</span><span class="price-item__price">100 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-valuniter">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Монополярный радиочастотный (RF) лифтинг Valuniter</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">Монополярный радиочастотный (RF) 300 лифтинг на аппарате Valuniter 1</span><span class="price-item__price">15 900 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Монополярный радиочастотный (RF) 12500 лифтинг на аппарате Valuniter 1 базис</span><span class="price-item__price">17 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Монополярный радиочастотный (RF) лифтинг на аппарате Valuniter 5</span><span class="price-item__price">11 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Монополярный радиочастотный (RF) лифтинг на аппарате Valuniter 3Dcoбъёмная</span><span class="price-item__price">54 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Монополярный радиочастотный (RF) лицо + лифтинг на аппарате Valuniter подбородок</span><span class="price-item__price">17 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Процедура Open Eyes (SMAS Ultraformer + 57000 р., вместо 60000 линий)</span><span class="price-item__price">50 000 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-sylfirm">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Микроигольчатый RF-лифтинг Sylfirm X</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">Лицо</span><span class="price-item__price">30 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Декольте</span><span class="price-item__price">33 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Шея+декольте</span><span class="price-item__price">66 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Вены</span><span class="price-item__price">24 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Кожаная</span><span class="price-item__price">39 900 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Ладони</span><span class="price-item__price">41 900 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Шея</span><span class="price-item__price">10 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Блеф</span><span class="price-item__price">30 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Лицо+шея</span><span class="price-item__price">36 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">1/5 минуто</span><span class="price-item__price">3 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Кожа+настр</span><span class="price-item__price">42 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Клетка рук</span><span class="price-item__price">24 500 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-accordion is-open" id="cat-revilab">
+        <button type="button" class="price-accordion__head">
+          <p class="price-accordion__title">Фотодинамическая терапия Revilab</p>
+          <span class="price-accordion__toggle">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </span>
+        </button>
+        <div class="price-accordion__body">
+          <div class="price-accordion__list">
+            <div class="price-item"><span class="price-item__name">В02 Ревилаб с кожицы</span><span class="price-item__price">4 500 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">Фотобиомодуляция Ревилаб в составе процедуры</span><span class="price-item__price">2 000 ₽</span></div>
+            <div class="price-item"><span class="price-item__name">В02 Ревилаб 8-я процедура</span><span class="price-item__price">22 000 ₽</span></div>
+          </div>
+          <div class="price-accordion__cta">
+            <p class="price-accordion__note">* Точная стоимость и количество необходимых процедур определяются врачом на первичной консультации.</p>
+            <a href="#booking" class="pill-btn hero__cta">Записаться на процедуру <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec-booking wrap" id="booking">
+    <div class="booking-inner">
+      <div class="booking-col booking-col--form">
+        <div class="booking-text">
+          <h2 class="booking-heading"><em class="serif-italic">Онлайн</em>-запись</h2>
+          <p class="booking-desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
+        </div>
+        <form class="booking-form" action="#" method="POST">
+          <div class="booking-row">
+            <div class="booking-field">
+              <label for="b-name">Ваше имя*</label>
+              <input id="b-name" type="text" name="name" placeholder="Анна" autocomplete="name" required/>
+              <span class="booking-field__err">Пожалуйста, введите имя</span>
+            </div>
+            <div class="booking-field">
+              <label for="b-phone">Телефон*</label>
+              <input id="b-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required/>
+              <span class="booking-field__err">Введите корректный номер</span>
+            </div>
+          </div>
+          <div class="booking-svc-field">
+            <label class="booking-svc-label">Услуга</label>
+            <div class="booking-svc-wrap">
+              <select class="booking-svc-sel" name="service">
+                <option value="" disabled selected>Выбрать услугу</option>
+                <optgroup label="Лицо">
+                  <option value="smas">SMAS-лифтинг</option>
+                  <option value="rf-lifting">РФ-лифтинг (монополярный)</option>
+                  <option value="injections">Инъекционная косметология</option>
+                  <option value="biorev">Биоревитализация</option>
+                  <option value="peeling">Химический пилинг</option>
+                  <option value="care">Уходовые программы</option>
+                </optgroup>
+                <optgroup label="Тело">
+                  <option value="laser">Лазерная эпиляция</option>
+                  <option value="cryo">Криолиполиз</option>
+                  <option value="rf-body">RF-лифтинг тела</option>
+                  <option value="lpg">LPG-массаж</option>
+                  <option value="press">Прессотерапия</option>
+                </optgroup>
+                <optgroup label="Волосы">
+                  <option value="meso-hair">Мезотерапия волос</option>
+                  <option value="prp">Плазмотерапия (PRP)</option>
+                  <option value="tricho">Трихоскопия</option>
+                </optgroup>
+                <optgroup label="SPA">
+                  <option value="massage">Классический массаж</option>
+                  <option value="stone">Стоун-терапия</option>
+                  <option value="spa">SPA-программы</option>
+                </optgroup>
+                <option value="other">Другое</option>
+              </select>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <button type="submit" class="booking-submit">Отправить заявку
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p style="font-size:12px;color:rgba(29,40,51,0.5);letter-spacing:-0.01em;line-height:1.3;margin-top:10px;font-style:normal;">
+            Отправляя данную форму вы соглашаетесь с <a href="docs/processing.docx" style="color:inherit;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener noreferrer">обработкой персональных данных</a>
+          </p>
+        </form>
+      </div>
+      <div class="booking-col booking-col--map">
+        <div class="contacts-bar">
+          <p>Анапа, ул. Владимирская, 120</p>
+          <a href="tel:+79002761116">+7 (900) 276-11-16</a>
+          <p>Пн-Вс: 9:00 — 20:00</p>
+        </div>
+        <a class="booking-map" href="https://yandex.ru/maps/?ll=37.331145,44.879223&z=17&pt=37.331145,44.879223,pm2rdl" target="_blank" rel="noopener noreferrer" aria-label="Открыть карту — Анапа, Владимирская 120">
+          <img src="https://static-maps.yandex.ru/1.x/?ll=37.331145,44.879223&z=16&l=map&pt=37.331145,44.879223,pm2rdl&size=650,450" alt="Клиника RA|RÉ на карте — Анапа, Владимирская 120" loading="lazy"/>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════
+     MOBILE (≤767px)
+══════════════════════════════════════ -->
+<div class="mobile-prices">
+
+  <section class="mh-price-hero">
+    <h1 class="mh-price-hero__title">Прайс на услуги</h1>
+    <p class="mh-price-hero__sub">В клинике эстетической медицины RA|RÉ мы собрали передовые мировые технологии для вашей красоты и здоровья.</p>
+  </section>
+
+  <div class="mh-price-accordions">
+
+    <div class="mh-price-accordion is-open">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Консультации и диагностика</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">Прием (60 мин): физик. осмотр, сбор анамнеза, дерматоскопия</span><span class="mh-price-row__price">6 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Трихоскопическая диагностика 1 час</span><span class="mh-price-row__price">6 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Консультация врача-дерматолога с трихоскопической диагностикой (первичная)</span><span class="mh-price-row__price">6 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Консультация врача-дерматолога с трихоскопией адресными элементами в зоне лечения</span><span class="mh-price-row__price">6 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Консультация косметолога</span><span class="mh-price-row__price">3 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Консультация нутрициолога</span><span class="mh-price-row__price">6 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Расширенная консультация нутрициолога с месячной поддержкой</span><span class="mh-price-row__price">10 000 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Трихология</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">Мезотерапия для кожи головы (Hairex/AMIPED, 2 мл)</span><span class="mh-price-row__price">8 500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Карбокситерапия для лечения кожи головы</span><span class="mh-price-row__price">5 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">PRP-Медитерапия из плазмы</span><span class="mh-price-row__price">8 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Конъюнктивная гринтерапия</span><span class="mh-price-row__price">8 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная мезотерапия ERBIUM 2 мл</span><span class="mh-price-row__price">6 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная мезная кожа головы 4 зоны</span><span class="mh-price-row__price">8 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Восстановление волос на отрезке (NANO ПЛАЗМА)</span><span class="mh-price-row__price">17 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Восстановление волос (4 пробирки)</span><span class="mh-price-row__price">25 000 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Фотопорация Nordlys Candela</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">IPR MixLight: Фотопорация + пигментное поражение, восстановление сосудов</span><span class="mh-price-row__price">9 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Фотоомоложение/вое лечение</span><span class="mh-price-row__price">9 850 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Восстановление волос без</span><span class="mh-price-row__price">7 500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная пигментация щёк</span><span class="mh-price-row__price">6 100 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная пигментация подбородок</span><span class="mh-price-row__price">6 100 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная пигментация шеи</span><span class="mh-price-row__price">7 500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная декол (без полного)</span><span class="mh-price-row__price">9 300 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная (площадь)</span><span class="mh-price-row__price">9 300 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная купероз (ещё варианты)</span><span class="mh-price-row__price">7 500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Сосудисток вилкой (1 шт.)</span><span class="mh-price-row__price">500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Фотоомоложение деколте</span><span class="mh-price-row__price">19 850 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Фотоомоложение лицо</span><span class="mh-price-row__price">14 800 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Линейная пигментация нос/руки (обе руки)</span><span class="mh-price-row__price">9 300 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Фотоомоложение руки</span><span class="mh-price-row__price">9 100 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion is-open">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">SMAS-лифтинг Ultraformer MPT</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо 300</span><span class="mh-price-row__price">89 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо 500</span><span class="mh-price-row__price">139 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо 300 (серия)</span><span class="mh-price-row__price">55 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо 500 (серия)</span><span class="mh-price-row__price">89 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Нижние крылья, нос 300</span><span class="mh-price-row__price">30 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Периорбитальная область 300</span><span class="mh-price-row__price">30 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Периорбитальная область 100</span><span class="mh-price-row__price">13 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо + Шея 800</span><span class="mh-price-row__price">189 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо: Дополнительная линия (до 100 линий) 1 п.</span><span class="mh-price-row__price">10 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Субментальная область (область от 2 бортов) подбородок 300</span><span class="mh-price-row__price">49 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Трио 1 обл.</span><span class="mh-price-row__price">1 п.</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Аппаратная безинъекционная процедура + 4 Сыворотки</span><span class="mh-price-row__price">25 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Процедура Open Eyes (SMAS Ultraformer + 1800 л., в место 60000 линий)</span><span class="mh-price-row__price">50 000 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Лазерная шлифовка</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">LightRadii: Фотопорация + полноценная коррекция</span><span class="mh-price-row__price">20 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная шлифовка на CO2 + лицо + шея</span><span class="mh-price-row__price">17 500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная шлифовка CO2 + SMAS + лечение</span><span class="mh-price-row__price">20 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная шлифовка СОСУДОВ/периоральная</span><span class="mh-price-row__price">11 900 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная шлифовка стоп/руки до 1 см2</span><span class="mh-price-row__price">8 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лазерная шлифовка (бородавок) более 0.5 см</span><span class="mh-price-row__price">100 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Монополярный радиочастотный (RF) лифтинг Valuniter</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">Монополярный радиочастотный (RF) 300 лифтинг на аппарате Valuniter 1</span><span class="mh-price-row__price">15 900 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Монополярный радиочастотный (RF) 12500 лифтинг на аппарате Valuniter 1 базис</span><span class="mh-price-row__price">17 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Монополярный радиочастотный (RF) лифтинг на аппарате Valuniter 5</span><span class="mh-price-row__price">11 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Монополярный радиочастотный (RF) лифтинг на аппарате Valuniter 3Dcoбъёмная</span><span class="mh-price-row__price">54 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Монополярный радиочастотный (RF) лицо + лифтинг на аппарате Valuniter подбородок</span><span class="mh-price-row__price">17 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Процедура Open Eyes (SMAS Ultraformer + 57000 р., вместо 60000 линий)</span><span class="mh-price-row__price">50 000 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Микроигольчатый RF-лифтинг Sylfirm X</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо</span><span class="mh-price-row__price">30 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Декольте</span><span class="mh-price-row__price">33 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Шея+декольте</span><span class="mh-price-row__price">66 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Вены</span><span class="mh-price-row__price">24 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Кожаная</span><span class="mh-price-row__price">39 900 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Ладони</span><span class="mh-price-row__price">41 900 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Шея</span><span class="mh-price-row__price">10 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Блеф</span><span class="mh-price-row__price">30 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Лицо+шея</span><span class="mh-price-row__price">36 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">1/5 минуто</span><span class="mh-price-row__price">3 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Кожа+настр</span><span class="mh-price-row__price">42 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Клетка рук</span><span class="mh-price-row__price">24 500 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mh-price-accordion">
+      <button type="button" class="mh-price-accordion__head">
+        <p class="mh-price-accordion__title">Фотодинамическая терапия Revilab</p>
+        <span class="mh-price-accordion__toggle">
+          <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1D2833" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+      </button>
+      <div class="mh-price-accordion__body">
+        <div class="mh-price-accordion__list">
+          <div class="mh-price-row"><span class="mh-price-row__name">В02 Ревилаб с кожицы</span><span class="mh-price-row__price">4 500 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">Фотобиомодуляция Ревилаб в составе процедуры</span><span class="mh-price-row__price">2 000 ₽</span></div>
+          <div class="mh-price-row"><span class="mh-price-row__name">В02 Ревилаб 8-я процедура</span><span class="mh-price-row__price">22 000 ₽</span></div>
+        </div>
+        <div class="mh-price-accordion__cta">
+          <p class="mh-price-accordion__note">* Точная стоимость и количество процедур определяются на консультации.</p>
+          <a href="index.html#booking" class="mh-price-cta__btn">Записаться на процедуру</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="mh-footer">
+    <nav class="mh-footer__links">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О клинике</a>
+      <a href="services.html">Услуги</a>
+      <a href="specialists/index.html">Специалисты</a>
+      <a href="prices.html">Цены</a>
+      <a href="promos.html">Акции</a>
+      <a href="reviews/index.html">Отзывы</a>
+      <a href="index.html#booking">Контакты</a>
+    </nav>
+    <div class="mh-footer__div"></div>
+    <div class="mh-footer__socials">
+      <a href="tel:+79002761116" aria-label="Позвонить"><img src="assets/icons/footer-phone.svg" alt=""/></a>
+      <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" aria-label="VK"><img src="assets/icons/footer-vk.svg" alt=""/></a>
+      <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" aria-label="MAX"><img src="assets/icons/footer-max.svg" alt=""/></a>
+    </div>
+    <div class="mh-footer__brand">
+      <p class="mh-footer__wordmark">RA|RÉ</p>
+      <p class="mh-footer__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+      <a href="index.html#booking" class="mh-footer__pill">Записаться на приём</a>
+    </div>
+    <div class="mh-footer__div"></div>
+    <div class="mh-footer__legal">
+      <p>Copyright © RA|RÉ, 2026</p>
+      <a href="docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+      <a href="docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     DESKTOP FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <nav class="footer-nav">
+      <div class="footer-nav__group">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О клинике</a>
+        <a href="services.html">Услуги</a>
+        <a href="specialists/index.html">Специалисты</a>
+        <a href="prices.html">Цены</a>
+      </div>
+      <div class="footer-nav__group">
+        <a href="promos.html">Акции</a>
+        <a href="reviews/index.html">Отзывы</a>
+        <a href="#booking">Контакты</a>
+      </div>
+    </nav>
+    <div class="footer-div"></div>
+    <div class="footer-socials">
+      <a href="tel:+79002761116" class="footer-social" aria-label="Позвонить"><img src="assets/icons/footer-phone.svg" alt=""/></a>
+      <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="footer-social" aria-label="VK"><img src="assets/icons/footer-vk.svg" alt=""/></a>
+      <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" class="footer-social" aria-label="MAX"><img src="assets/icons/footer-max.svg" alt=""/></a>
+    </div>
+    <div class="footer-brand-row">
+      <p class="footer-wordmark">RA|RÉ</p>
+      <div class="footer-cta">
+        <p class="footer-cta__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+        <a href="#booking" class="footer-cta__btn">Записаться на приём</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright © RA|RÉ, 2026</p>
+      <div class="footer-legal">
+        <a href="docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+        <a href="docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+      </div>
+      <a href="https://podpisait.ru/" target="_blank" rel="noopener noreferrer" class="footer-made">
+        <span>Разработано</span>
+        <img src="assets/icons/podpisait.svg" alt="Подписайт"/>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SUCCESS POPUP ══════════════════════════════════════════════ -->
+<div class="booking-popup" id="booking-popup" role="dialog" aria-modal="true" aria-label="Заявка отправлена">
+  <div class="booking-popup__overlay" id="booking-popup-overlay"></div>
+  <div class="booking-popup__card">
+    <div class="booking-popup__check">
+      <svg viewBox="0 0 34 34"><polyline points="6,17 14,25 28,9"/></svg>
+    </div>
+    <h3 class="booking-popup__title">Заявка отправлена!</h3>
+    <p class="booking-popup__desc">Наш менеджер свяжется с вами<br>в ближайшее время</p>
+    <button class="pill-btn booking-popup__close" id="booking-popup-close">Хорошо</button>
   </div>
 </div>
 
-<section class="sec-prices">
-  <div class="wrap">
-
-    <div class="price-category" id="lifts">
-      <div class="price-cat-header">
-        <h2 class="price-cat-title">Аппаратные лифтинги</h2>
-        <span class="price-cat-num">01</span>
-      </div>
-      <div class="price-list">
-        <div class="price-row"><span class="price-row__name">SMAS-лифтинг Ultraformer MPT<span class="price-row__note">от 500 линий, лицо и шея</span></span><span class="price-row__val">от 25 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">SMAS-лифтинг Ultraformer MPT<span class="price-row__note">тело (живот, бёдра)</span></span><span class="price-row__val">от 18 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Монополярный РФ-лифтинг<span class="price-row__note">от 400 импульсов, лицо</span></span><span class="price-row__val">от 12 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Монополярный РФ-лифтинг<span class="price-row__note">тело (живот, бёдра, ягодицы)</span></span><span class="price-row__val">от 10 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Фотоомоложение Nordlys IPL<span class="price-row__note">лицо целиком</span></span><span class="price-row__val">от 8 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Фотоомоложение Nordlys IPL<span class="price-row__note">зона декольте</span></span><span class="price-row__val">от 6 000 ₽</span></div>
-      </div>
-    </div>
-
-    <div class="price-category" id="laser">
-      <div class="price-cat-header">
-        <h2 class="price-cat-title">Лазерная эпиляция</h2>
-        <span class="price-cat-num">02</span>
-      </div>
-      <div class="price-list">
-        <div class="price-row"><span class="price-row__name">Верхняя губа</span><span class="price-row__val">от 800 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Подмышки</span><span class="price-row__val">от 2 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Бикини классика</span><span class="price-row__val">от 2 500 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Бикини глубокое</span><span class="price-row__val">от 3 500 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Голени</span><span class="price-row__val">от 4 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Ноги полностью</span><span class="price-row__val">от 7 500 ₽</span></div>
-      </div>
-    </div>
-
-    <div class="price-category" id="inject">
-      <div class="price-cat-header">
-        <h2 class="price-cat-title">Инъекционная косметология</h2>
-        <span class="price-cat-num">03</span>
-      </div>
-      <div class="price-list">
-        <div class="price-row"><span class="price-row__name">Ботулинотерапия — лоб<span class="price-row__note">расслабление мимических морщин</span></span><span class="price-row__val">от 6 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Ботулинотерапия — межбровье</span><span class="price-row__val">от 5 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Ботулинотерапия — лоб + межбровье + «гусиные лапки»</span><span class="price-row__val">от 14 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Контурная пластика губ<span class="price-row__note">1 мл гиалуроновой кислоты</span></span><span class="price-row__val">от 12 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Контурная пластика скул / носогубных складок</span><span class="price-row__val">от 14 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Биоревитализация — лицо<span class="price-row__note">1 процедура</span></span><span class="price-row__val">от 7 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Плазмолифтинг — лицо</span><span class="price-row__val">от 5 500 ₽</span></div>
-      </div>
-    </div>
-
-    <div class="price-category" id="skin">
-      <div class="price-cat-header">
-        <h2 class="price-cat-title">Лечение кожи</h2>
-        <span class="price-cat-num">04</span>
-      </div>
-      <div class="price-list">
-        <div class="price-row"><span class="price-row__name">Лечение акне — комплекс<span class="price-row__note">консультация + процедура</span></span><span class="price-row__val">от 5 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Лечение розацеа Nordlys<span class="price-row__note">1 сеанс</span></span><span class="price-row__val">от 7 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Удаление пигментации<span class="price-row__note">1 зона</span></span><span class="price-row__val">от 4 500 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Лечение купероза / сосудистой сетки</span><span class="price-row__val">от 4 000 ₽</span></div>
-      </div>
-    </div>
-
-    <div class="price-category" id="spa">
-      <div class="price-cat-header">
-        <h2 class="price-cat-title">SPA и уходовые программы</h2>
-        <span class="price-cat-num">05</span>
-      </div>
-      <div class="price-list">
-        <div class="price-row"><span class="price-row__name">Классический уходовый массаж лица</span><span class="price-row__val">от 2 500 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Профессиональная чистка лица</span><span class="price-row__val">от 3 500 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Релаксирующий SPA-массаж тела<span class="price-row__note">60 минут</span></span><span class="price-row__val">от 4 500 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">Антицеллюлитный массаж<span class="price-row__note">60 минут</span></span><span class="price-row__val">от 4 000 ₽</span></div>
-        <div class="price-row"><span class="price-row__name">SPA-программа «Полное преображение»<span class="price-row__note">уход лицо + тело, 2 часа</span></span><span class="price-row__val">от 9 000 ₽</span></div>
-      </div>
-    </div>
-
-    <div class="price-disclaimer">
-      <p>Указаны ориентировочные цены. Окончательная стоимость определяется на консультации и зависит от количества процедур, используемых препаратов и индивидуальных особенностей. Уточняйте актуальные цены по телефону <a href="tel:+79002761116">+7 (900) 276-11-16</a>.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="sec-cta">
-  <div class="wrap">
-    <h2 class="cta-heading">Запишитесь на<br>консультацию</h2>
-    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
-      <a href="index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться на приём</a>
-      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-text);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer"><div class="wrap"><div class="footer-grid">
-  <div>
-    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo-white.svg" alt="RA|RÉ"/></a></div>
-    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
-    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
-    <p class="footer-addr">Анапа, Владимирская 120</p>
-  </div>
-  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
-    <a href="services/lifts.html">SMAS-лифтинг</a>
-    <a href="services/injections.html">Инъекционная косметология</a>
-    <a href="services/laser.html">Лазерная эпиляция</a>
-    <a href="services/lifts.html">Аппаратные лифтинги</a>
-    <a href="services/skin.html">Уход за кожей</a>
-    <a href="services/spa.html">SPA-программы</a>
-  </div></div>
-  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
-    <a href="about.html">О клинике</a>
-    <a href="specialists/index.html">Специалисты</a>
-    <a href="certificates.html">Сертификаты</a>
-    <a href="reviews/index.html">Отзывы</a>
-    <a href="articles/index.html">Статьи</a>
-    <a href="promos.html">Акции</a>
-    <a href="prices.html">Цены</a>
-  </div></div>
-  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
-    <a href="docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
-    <a href="docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
-    <a href="index.html#contacts">Контакты</a>
-    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
-  </div></div>
-</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
-
-<script src="docs-popup.js" defer></script>
-<script src="animations.js?v=202607162000" defer></script>
-<script src="mobile-nav.js?v=202606041800" defer></script>
-<script src="./accessibility.js" defer></script>
 <script>
-// Scroll-reveal animation for price rows
-(function(){
-  var rows = document.querySelectorAll('.price-row');
-  if(!rows.length) return;
+(function () {
+  function hoverIntent(trigger, panel, closeDelay) {
+    var closeTimer = null;
+    function open() { clearTimeout(closeTimer); trigger.classList.add('is-open'); }
+    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { trigger.classList.remove('is-open'); }, closeDelay); }
+    trigger.addEventListener('mouseenter', open);
+    trigger.addEventListener('mouseleave', scheduleClose);
+    panel.addEventListener('mouseenter', open);
+    panel.addEventListener('mouseleave', scheduleClose);
+  }
+  var servicesTrigger = document.querySelector('.nav-services');
+  var servicesPanel = document.querySelector('.svc-mega');
+  if (servicesTrigger && servicesPanel) hoverIntent(servicesTrigger, servicesPanel, 300);
+  var connectTrigger = document.querySelector('.site-header__connect');
+  var connectPanel = document.querySelector('.site-header__connect-panel');
+  if (connectTrigger && connectPanel) hoverIntent(connectTrigger, connectPanel, 300);
+})();
 
-  // Fallback: reveal all rows after 1.5s if not already visible
-  var fallback = setTimeout(function(){
-    rows.forEach(function(r,i){
-      if(!r.classList.contains('visible')){
-        r.style.transitionDelay = (i % 7 * 50)+'ms';
-        r.classList.add('visible');
-      }
+/* ── Price accordions: click to expand/collapse, independent (non-exclusive) ── */
+(function () {
+  function initAccordions(headSel, bodySel, cardSel) {
+    document.querySelectorAll(cardSel).forEach(function (card) {
+      var head = card.querySelector(headSel);
+      var body = card.querySelector(bodySel);
+      if (!head || !body) return;
+      var isOpenInitially = card.classList.contains('is-open');
+      head.setAttribute('aria-expanded', isOpenInitially ? 'true' : 'false');
+      if (isOpenInitially) body.style.maxHeight = body.scrollHeight + 'px';
+      head.addEventListener('click', function () {
+        var isOpen = card.classList.contains('is-open');
+        if (isOpen) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
+          card.classList.remove('is-open');
+          head.setAttribute('aria-expanded', 'false');
+        } else {
+          card.classList.add('is-open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+          head.setAttribute('aria-expanded', 'true');
+          body.addEventListener('transitionend', function handler() {
+            if (card.classList.contains('is-open')) body.style.maxHeight = 'none';
+            body.removeEventListener('transitionend', handler);
+          });
+        }
+      });
     });
-  }, 1500);
+  }
+  initAccordions('.price-accordion__head', '.price-accordion__body', '.price-accordion');
+  initAccordions('.mh-price-accordion__head', '.mh-price-accordion__body', '.mh-price-accordion');
+})();
 
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        var siblings = Array.from(e.target.closest('.price-list').querySelectorAll('.price-row'));
-        var idx = siblings.indexOf(e.target);
-        e.target.style.transitionDelay = (idx * 55) + 'ms';
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+/* ── Desktop booking form (ported verbatim from services.html) ── */
+(function () {
+  var form = document.querySelector('.booking-form');
+  if (!form) return;
+
+  var nameInput  = document.getElementById('b-name');
+  var phoneInput = document.getElementById('b-phone');
+
+  function getWrap(el) { return el.closest('.booking-field') || el.closest('.booking-svc-field'); }
+
+  function showError(el, msg) {
+    var wrap = getWrap(el);
+    if (!wrap) return;
+    wrap.classList.remove('has-error', 'has-ok');
+    void wrap.offsetWidth;
+    wrap.classList.add('has-error');
+    var errEl = wrap.querySelector('.booking-field__err');
+    if (errEl && msg) errEl.textContent = msg;
+  }
+
+  function showOk(el) {
+    var wrap = getWrap(el);
+    if (!wrap) return;
+    wrap.classList.remove('has-error');
+    wrap.classList.add('has-ok');
+  }
+
+  function clearState(el) {
+    var wrap = getWrap(el);
+    if (wrap) wrap.classList.remove('has-error', 'has-ok');
+  }
+
+  function phoneOk(val) {
+    return val.replace(/\D/g, '').length === 11;
+  }
+
+  nameInput.addEventListener('blur', function () {
+    if (!this.value.trim()) showError(this, 'Пожалуйста, введите имя');
+    else showOk(this);
+  });
+  phoneInput.addEventListener('blur', function () {
+    if (!this.value.trim()) showError(this, 'Пожалуйста, введите телефон');
+    else if (!phoneOk(this.value)) showError(this, 'Введите корректный номер');
+    else showOk(this);
+  });
+
+  nameInput.addEventListener('input', function () { if (this.value.trim()) clearState(this); });
+  phoneInput.addEventListener('input', function () { if (this.value.trim()) clearState(this); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    if (!nameInput.value.trim()) { showError(nameInput, 'Пожалуйста, введите имя'); ok = false; }
+    if (!phoneInput.value.trim()) {
+      showError(phoneInput, 'Пожалуйста, введите телефон'); ok = false;
+    } else if (!phoneOk(phoneInput.value)) {
+      showError(phoneInput, 'Введите корректный номер'); ok = false;
+    }
+    if (!ok) return;
+
+    form.reset();
+    form.querySelectorAll('.booking-field, .booking-svc-field').forEach(function (w) {
+      w.classList.remove('has-error', 'has-ok');
     });
-  }, {threshold: 0.05, rootMargin: '0px 0px -20px 0px'});
+    openBookingPopup();
+  });
+})();
 
-  rows.forEach(function(r){ obs.observe(r); });
+/* ── Mobile booking form: validation + shared success popup ── */
+(function () {
+  var form = document.getElementById('mh-booking-form');
+  if (!form) return;
+  var nameInput = document.getElementById('mh-b-name');
+  var phoneInput = document.getElementById('mh-b-phone');
+  function showError(input, msg) {
+    var wrap = input.closest('.mh-field');
+    wrap.classList.add('has-error');
+    var errEl = wrap.querySelector('.mh-field__err');
+    if (errEl && msg) errEl.textContent = msg;
+  }
+  function clearState(input) { input.closest('.mh-field').classList.remove('has-error'); }
+  function phoneOk(val) { return val.replace(/\D/g, '').length === 11; }
+  nameInput.addEventListener('input', function () { if (this.value.trim()) clearState(this); });
+  phoneInput.addEventListener('input', function () { if (this.value.trim()) clearState(this); });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    if (!nameInput.value.trim()) { showError(nameInput, 'Пожалуйста, введите имя'); ok = false; }
+    if (!phoneInput.value.trim()) { showError(phoneInput, 'Пожалуйста, введите телефон'); ok = false; }
+    else if (!phoneOk(phoneInput.value)) { showError(phoneInput, 'Введите корректный номер'); ok = false; }
+    if (!ok) return;
+    form.reset();
+    form.querySelectorAll('.mh-field').forEach(function (w) { w.classList.remove('has-error'); });
+    openBookingPopup();
+  });
+})();
 
-  // Active tab on scroll
-  var cats = document.querySelectorAll('.price-category');
-  var tabs = document.querySelectorAll('.price-tab');
-
-  var tabObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        var id = e.target.id;
-        tabs.forEach(function(t){
-          t.classList.toggle('active', t.getAttribute('href') === '#'+id);
-        });
-      }
-    });
-  }, {threshold: 0.3});
-
-  cats.forEach(function(c){ tabObs.observe(c); });
+/* ── SUCCESS POPUP ── */
+function openBookingPopup() {
+  var popup = document.getElementById('booking-popup');
+  if (!popup) return;
+  document.body.style.overflow = 'hidden';
+  popup.classList.add('is-open');
+}
+(function () {
+  var popup   = document.getElementById('booking-popup');
+  var overlay = document.getElementById('booking-popup-overlay');
+  var btnClose = document.getElementById('booking-popup-close');
+  if (!popup) return;
+  function close() { popup.classList.remove('is-open'); document.body.style.overflow = ''; }
+  btnClose.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && popup.classList.contains('is-open')) close(); });
 })();
 </script>
+<script src="docs-popup.js" defer></script>
+<script src="animations.js?v=202608241200" defer></script>
+<script src="mobile-nav.js?v=202606041800" defer></script>
+<script src="./accessibility.js" defer></script>
 <script src="booking-widget.js" defer></script>
 </body>
 </html>

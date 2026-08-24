@@ -12,13 +12,14 @@
 <link rel="stylesheet" href="../css/tokens.css?v=202608191700"/>
 <link rel="stylesheet" href="../css/base.css?v=202608191700"/>
 <link rel="stylesheet" href="../css/components/header.css?v=202608201600"/>
-<link rel="stylesheet" href="../css/components/footer.css?v=202608201600"/>
-<link rel="stylesheet" href="../css/components/buttons.css?v=202608201600"/>
+<link rel="stylesheet" href="../css/components/footer.css?v=202608211130"/>
+<link rel="stylesheet" href="../css/components/buttons.css?v=202608241200"/>
 <link rel="stylesheet" href="../css/components/forms.css?v=202608201600"/>
-<link rel="stylesheet" href="../css/components/mobile-booking.css?v=202608191700"/>
+<link rel="stylesheet" href="../css/components/mobile-booking.css?v=202608211130"/>
 <link rel="stylesheet" href="../css/components/booking-popup.css?v=202608191700"/>
-<link rel="stylesheet" href="../css/pages/specialist-detail.css?v=202608201600"/>
-<link rel="stylesheet" href="../responsive.css?v=202608201600"/>
+<link rel="stylesheet" href="../css/components/dots.css?v=202608211400"/>
+<link rel="stylesheet" href="../css/pages/specialist-detail.css?v=202608241200"/>
+<link rel="stylesheet" href="../responsive.css?v=202608241200"/>
 </head>
 <body class="page page--specialist-detail">
 
@@ -114,7 +115,6 @@
   <section class="spec-hero wrap">
     <div class="spec-hero__info">
       <div class="spec-hero__head">
-        <p class="spec-hero__role" data-rr="up">Врач-косметолог</p>
         <h1 class="spec-hero__name" data-rr="up" style="--rr-del:0.05s">Анна Иванова</h1>
         <p class="spec-hero__bio" data-rr="up" style="--rr-del:0.1s">Врач-косметолог с 12-летним стажем. Специализируется на аппаратных методиках омоложения, SMAS-лифтинге и инъекционной косметологии.</p>
       </div>
@@ -259,14 +259,14 @@
     <div class="booking-inner">
       <div class="booking-col booking-col--form">
         <div class="booking-text">
-          <h2 class="booking-heading" data-rr="up">Записаться к<br>Анне Ивановой</h2>
+          <h2 class="booking-heading" data-rr="up">Запишитесь к<br>Анне Ивановой</h2>
           <p class="booking-desc" data-rr="up" style="--rr-del:0.05s">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
         </div>
         <form class="booking-form" id="specBookingForm" action="#" method="POST" data-rr="up" style="--rr-del:0.1s">
           <div class="booking-row">
             <div class="booking-field">
               <label for="b-name">Ваше имя*</label>
-              <input id="b-name" type="text" name="name" placeholder="Анна" autocomplete="name" required/>
+              <input id="b-name" type="text" name="name" placeholder="Введите имя" autocomplete="name" required/>
               <span class="booking-field__err">Пожалуйста, введите имя</span>
             </div>
             <div class="booking-field">
@@ -279,7 +279,7 @@
             <label class="booking-svc-label">Услуга</label>
             <div class="booking-svc-wrap">
               <select class="booking-svc-sel" name="service">
-                <option value="" selected disabled>Выбрать услугу</option>
+                <option value="" selected disabled>Выбрать направление</option>
                 <option value="smas">SMAS-лифтинг</option>
                 <option value="biorev">Биоревитализация</option>
                 <option value="threads">Нитевой лифтинг</option>
@@ -313,7 +313,7 @@
 
   <section class="spec-others wrap">
     <div class="spec-sec-head"><h2 data-rr="up">Другие специалисты</h2></div>
-    <div class="spec-others__grid">
+    <div class="spec-others__grid" id="spec-others-cards">
       <a href="mariya-viktorovna.html" class="spec-other-card" data-rr="up">
         <img src="../assets/photos/spec-mariya.webp?v=9" alt="Мария Викторовна" loading="lazy"/>
         <p class="spec-other-card__name">Мария Викторовна</p>
@@ -335,9 +335,40 @@
         <p class="spec-other-card__role">Врач-дерматовенеролог, косметолог</p>
       </a>
     </div>
+    <div class="spec-others__dots" id="spec-others-dots"></div>
   </section>
 
 </main>
+
+<footer class="mh-footer">
+  <nav class="mh-footer__links">
+    <a href="../index.html">Главная</a>
+    <a href="../about.html">О клинике</a>
+    <a href="../services.html">Услуги</a>
+    <a href="index.html">Специалисты</a>
+    <a href="../prices.html">Цены</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="#booking">Контакты</a>
+  </nav>
+  <div class="mh-footer__div"></div>
+  <div class="mh-footer__socials">
+    <a href="tel:+79002761116" aria-label="Позвонить"><img src="../assets/icons/footer-phone.svg" alt=""/></a>
+    <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" aria-label="VK"><img src="../assets/icons/footer-vk.svg" alt=""/></a>
+    <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" aria-label="MAX"><img src="../assets/icons/footer-max.svg" alt=""/></a>
+  </div>
+  <div class="mh-footer__brand">
+    <p class="mh-footer__wordmark">RA|RÉ</p>
+    <p class="mh-footer__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+    <a href="#booking" class="mh-footer__pill">Записаться на приём</a>
+  </div>
+  <div class="mh-footer__div"></div>
+  <div class="mh-footer__legal">
+    <p>Copyright © RA|RÉ, 2026</p>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+    <a href="../docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+  </div>
+</footer>
 
 <footer class="site-footer">
   <div class="footer-wrap">
@@ -401,7 +432,12 @@
   <img id="docLbImg" src="" alt="" style="max-width:90vw;max-height:88vh;object-fit:contain;border-radius:8px;"/>
 </div>
 
+<script src="../js/filmstrip.js?v=202608180930"></script>
 <script>
+if (typeof makeFilmstrip === 'function') {
+  makeFilmstrip('spec-others-cards', 'spec-others-dots', '.spec-other-card');
+}
+
 (function () {
   var frame = document.getElementById('specVideoFrame');
   var video = document.getElementById('specVideo');
@@ -487,7 +523,7 @@ function openBookingPopup() {
 })();
 </script>
 <script src="../docs-popup.js" defer></script>
-<script src="../animations.js?v=202608201010" defer></script>
+<script src="../animations.js?v=202608241200" defer></script>
 <script src="../mobile-nav.js?v=202606041800" defer></script>
 <script src="../accessibility.js" defer></script>
 <script src="../booking-widget.js" defer></script>

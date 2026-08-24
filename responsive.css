@@ -257,21 +257,9 @@
   /* ── Footer ── */
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 
-  /* ── Specialist detail hero ── */
-  .spec-hero-inner { gap: 40px; }
-  .spec-hero__photo { width: 340px; height: 460px; }
-
-  /* ── Spec booking ── */
-  .spec-booking-form { flex: 0 0 420px; }
-
-  /* ── Spec other grid ── */
-  .other-spec-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* ── Spec services ── */
-  .spec-svc-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* ── Spec reviews ── */
-  .spec-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  /* ── Specialist DETAIL hero/booking/other-grid/services/reviews: dead
+     legacy selectors, see the mobile block below for the explanation —
+     none of these classes exist in current specialist-detail.html. ── */
 }
 
 /* ─── MOBILE ≤767px ─────────────────────────────── */
@@ -281,11 +269,9 @@
   .sec-start, .sec-about, .sec-adv, .sec-promos,
   .sec-interior, .sec-results, .sec-booking, .sec-founder,
   .sec-spec, .sec-contacts, .sec-cta,
-  .sec-spec-page, .sec-articles, .sec-gallery, .sec-contact,
-  .sec-edu, .sec-spec-svcs, .sec-spec-booking, .sec-spec-reviews,
-  .sec-other-spec, .sec-video { padding: 60px 0; }
+  .sec-articles { padding: 60px 0; }
   .sec-dir { padding: 60px 0 48px; }
-  .spec-hero { padding: 48px 0 60px; }
+  /* .spec-hero padding lives only in specialist-detail.css's mobile block now */
 
   /* ── Typography ── */
   .sec-h { font-size: clamp(26px, 7.5vw, 44px); }
@@ -430,52 +416,16 @@
   .footer-copy { font-size: 17px; margin-top: 28px; }
   .footer-links a { font-size: 16px; }
 
-  /* ── Specialist DETAIL hero ── */
-  .spec-hero-inner { flex-direction: column; gap: 32px; }
-  .spec-hero__photo {
-    width: 100% !important; flex-shrink: 1;
-    height: clamp(300px, 90vw, 480px);
-    border-radius: 16px;
-  }
-  .spec-hero__name { font-size: clamp(32px, 9vw, 60px); }
-  .spec-hero__role { font-size: 14px; }
-  .spec-hero__stats { gap: 20px; flex-wrap: wrap; }
-  .spec-stat__num { font-size: 36px; }
-  .spec-stat__label { font-size: 14px; }
-  .spec-hero__bio { font-size: 16px; }
-  .spec-hero__tags { gap: 8px; }
-  .spec-tag { font-size: 13px; padding: 7px 14px; }
-  .spec-hero__actions { flex-direction: column; align-items: flex-start; gap: 12px; }
-
-  /* ── Spec services grid ── */
-  .spec-svc-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 40px; }
-  .spec-svc-card { padding: 24px 20px; }
-
-  /* ── Spec reviews ── */
-  .spec-reviews-grid { grid-template-columns: 1fr; gap: 12px; }
-  .spec-rev-card { padding: 24px; }
-
-  /* ── Spec booking ── */
-  .spec-booking-inner { flex-direction: column; gap: 36px; }
-  .spec-booking-form { flex: none; width: 100%; padding: 32px 24px; }
-  .spec-booking-text h2 { font-size: clamp(26px, 7.5vw, 48px); }
-  .spec-booking-text p { font-size: 16px; }
-
-  /* ── Other specialists grid ── */
-  .other-spec-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .other-spec-card { height: 260px; }
-  .other-spec-card__name { font-size: 17px; }
-  .other-spec-card__role { font-size: 13px; }
-
-  /* ── Video section ── */
-  .video-inner { flex-direction: column; gap: 32px; }
-  .video-frame { width: 100%; height: clamp(190px, 55vw, 315px); flex-shrink: 1; }
-
-  /* ── Education section ── */
-  .edu-item { gap: 16px; padding: 24px 0; }
-  .edu-year { width: 72px; font-size: 15px; }
-  .edu-title { font-size: 18px; }
-  .edu-desc { font-size: 15px; }
+  /* ── Specialist DETAIL hero, services, reviews, booking, other-grid,
+     video, education: dead legacy selectors from a pre-BEM version of
+     this page (.spec-hero-inner, .spec-hero__role/__tags/__actions,
+     .spec-tag, .spec-svc-*, .spec-reviews-grid, .spec-rev-*,
+     .spec-booking-*, .other-spec-*, .video-inner/frame, .edu-item/year/
+     title/desc) removed — none of these classes exist in current
+     specialist-detail.html markup. The live classes that used to be
+     mixed in here (.spec-hero__photo/__name/__stats/.spec-stat__num/
+     __label/.spec-hero__bio) are now defined exactly once, in
+     css/pages/specialist-detail.css's own mobile block. ── */
 
   /* ── Inner hero (subpages) ── */
   .inner-hero { height: clamp(220px, 50vw, 360px); }
@@ -896,11 +846,6 @@
   /* ── Footer grid — force 2-col at tablet (overrides inline CSS) ── */
   .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
 
-  /* ── Specialist detail hero — reduce photo, keep side-by-side ── */
-  .spec-hero-inner { gap: 40px !important; }
-  .spec-hero__photo { width: 280px !important; height: 380px !important; flex-shrink: 0 !important; }
-  .spec-hero__name { font-size: clamp(32px, 4vw, 64px) !important; }
-
   /* ── svc-intro layout (laser, injections, skin, lifts, spa pages) ── */
   .svc-intro-inner { flex-direction: column !important; gap: 40px !important; }
   .svc-intro-photo { width: 100% !important; height: clamp(280px, 45vw, 480px) !important; }
@@ -929,35 +874,9 @@
   .svc-reviews-grid  { grid-template-columns: 1fr !important; }
   .pairs-grid        { grid-template-columns: 1fr !important; }
 
-  /* specialist detail */
-  .spec-svc-grid     { grid-template-columns: 1fr !important; gap: 12px !important; margin-top: 32px !important; }
-  .spec-reviews-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
-  .spec-rev-card     { padding: 22px 18px !important; }
-  .spec-rev-text     { font-size: 15px !important; }
-  .other-spec-grid   { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-  .other-spec-card   { height: 240px !important; }
-
-  /* specialist hero → column */
-  .spec-hero-inner   { flex-direction: column !important; gap: 28px !important; }
-  .spec-hero__photo  { width: 100% !important; height: clamp(280px, 85vw, 420px) !important; }
-  .spec-hero__name   { font-size: clamp(32px, 9vw, 56px) !important; }
-  .spec-hero__stats  { gap: 20px !important; flex-wrap: wrap !important; }
-  .spec-stat__num    { font-size: 36px !important; }
-  .spec-hero__bio    { font-size: 15px !important; }
-  .spec-hero__actions{ flex-direction: column !important; align-items: flex-start !important; }
-  .spec-hero         { padding: 48px 0 56px !important; }
-
-  /* specialist booking → column */
-  .spec-booking-inner{ flex-direction: column !important; gap: 32px !important; }
-  .spec-booking-form { flex: none !important; width: 100% !important; padding: 24px 18px !important; }
-  .spec-booking-text h2 { font-size: clamp(24px, 7.5vw, 40px) !important; }
-  .spec-booking-contact a { font-size: 20px !important; }
-  .sec-spec-booking  { padding: 56px 0 !important; }
-  .sec-spec-svcs     { padding: 56px 0 !important; }
-  .sec-spec-reviews  { padding: 56px 0 !important; }
-  .sec-other-spec    { padding: 56px 0 !important; }
-  .sec-video         { padding: 56px 0 !important; }
-  .sec-edu           { padding: 56px 0 !important; }
+  /* specialist detail / hero / booking: dead legacy selectors removed —
+     see the note near line 420. Live .spec-hero* rules now live only
+     in css/pages/specialist-detail.css's own mobile block. */
 
   /* flex → column */
   .desc-inner        { flex-direction: column !important; }
@@ -980,30 +899,9 @@
   .footer-logo img{ height: 52px !important; }
   .site-footer    { padding: 48px 0 32px !important; }
 
-  /* ── Video frame: full width on mobile ── */
-  .video-inner  { flex-direction: column !important; gap: 28px !important; }
-  .video-frame  { width: 100% !important; flex-shrink: 1 !important;
-                  height: clamp(190px, 55vw, 310px) !important; }
-
   /* ── Prevent any remaining wide fixed elements ── */
   .wrap, .container { overflow-x: hidden !important; }
   img { max-width: 100% !important; }
-
-  /* ── Specialist detail hero → full column on mobile ── */
-  .spec-hero        { padding: 48px 0 56px !important; }
-  .spec-hero-inner  { flex-direction: column !important; gap: 24px !important; }
-  .spec-hero__photo { width: 100% !important; height: clamp(260px, 80vw, 400px) !important; flex-shrink: 1 !important; }
-  .spec-hero__name  { font-size: clamp(30px, 8.5vw, 52px) !important; }
-  .spec-hero__stats { gap: 20px !important; flex-wrap: wrap !important; }
-  .spec-stat__num   { font-size: 36px !important; }
-  .spec-hero__bio   { font-size: 15px !important; }
-  .spec-hero__actions { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
-
-  /* ── Education timeline → stack year above content ── */
-  .edu-item  { flex-direction: column !important; gap: 4px !important; padding: 20px 0 !important; }
-  .edu-year  { width: auto !important; font-size: 14px !important; }
-  .edu-title { font-size: 16px !important; overflow-wrap: break-word !important; }
-  .edu-desc  { font-size: 14px !important; overflow-wrap: break-word !important; }
 
   /* ── svc-intro layout mobile ── */
   .sec-svc-intro    { padding: 56px 0 !important; }
@@ -2332,16 +2230,6 @@
   }
 }
 
-/* ── FIX 12: Specialist page breadcrumb — wrap on mobile so it doesn't overflow ── */
-@media (max-width: 767px) {
-  .spec-hero__breadcrumb {
-    flex-wrap: wrap !important;
-    font-size: 13px !important;
-    gap: 6px 8px !important;
-    row-gap: 6px !important;
-  }
-}
-
 /* ── FIX 13: Pairs grid — force single column on phones ── */
 /* A "tablet ≤1024px" rule earlier in this file has no min-width floor,
    so it also matches phones and re-overrides the 1-column phone rule. */
@@ -2349,26 +2237,6 @@
   .pairs-grid {
     grid-template-columns: 1fr !important;
     gap: 14px !important;
-  }
-}
-
-/* ── FIX 14: Service page booking form overflowing on mobile ── */
-/* .svc-booking-inner is a row flex (text + 480px-fixed form) with no
-   mobile override anywhere, so the form runs off-screen on phones. */
-@media (max-width: 1024px) {
-  .svc-booking-inner {
-    flex-direction: column !important;
-    gap: 32px !important;
-  }
-  .svc-booking-form {
-    flex: 1 1 auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-}
-@media (max-width: 767px) {
-  .svc-booking-form {
-    padding: 28px 22px !important;
   }
 }
 

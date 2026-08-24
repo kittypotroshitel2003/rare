@@ -67,6 +67,25 @@
   animation: rrImgIn var(--rr-dur, 1s) ${EASE} var(--rr-del, 0s) both;
 }
 
+/* reduced motion: keep the fade (it aids comprehension — content isn't
+   teleporting), drop the movement/scale/blur every [data-rr] variant
+   above adds. This block must win the cascade, so it's repeated per
+   selector rather than relying on a shared class. */
+@media (prefers-reduced-motion: reduce) {
+  [data-rr="up"].rr-in,
+  [data-rr="in"].rr-in,
+  [data-rr="scale"].rr-in,
+  [data-rr="left"].rr-in,
+  [data-rr="right"].rr-in,
+  [data-rr="img"].rr-in {
+    animation: rrFadeIn 0.3s ease var(--rr-del, 0s) both;
+  }
+  [data-rr="reveal"].rr-in {
+    animation: rrFadeIn 0.3s ease var(--rr-del, 0s) both;
+    clip-path: none;
+  }
+}
+
 /* ── TYPEWRITER (mission statement) ──────────────────────────── */
 [data-rr="type"] { position: relative; }
 [data-rr="type"] .tw-ch { opacity: 0; }
