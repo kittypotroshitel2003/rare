@@ -90,12 +90,15 @@ body.page--certificates { --gutter: clamp(20px, 9.375vw, 180px); }
 .cert-cta.wrap { display: flex; flex-direction: column; align-items: center; gap: clamp(20px, 1.67vw, 32px); text-align: center; padding-top: clamp(48px, 4.17vw, 80px) !important; padding-bottom: clamp(72px, 6.25vw, 120px) !important; }
 .cert-cta__heading { font-size: clamp(24px, 1.875vw, 36px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; margin: 0; font-style: normal; }
 .cert-cta__actions { display: flex; align-items: center; gap: clamp(18px, 1.67vw, 32px); flex-wrap: wrap; justify-content: center; }
-.cert-cta__btn { display: inline-flex; align-items: center; justify-content: center; background: var(--c-accent); color: #fff; text-decoration: none; border-radius: 8px; padding: clamp(14px, 1.04vw, 20px) clamp(28px, 2.5vw, 48px); font-size: clamp(17px, 1.25vw, 24px); letter-spacing: -0.04em; transition: background 0.2s, transform 0.16s ease-out; }
+/* color:#fff needs !important: body.page--inner a{color:inherit} (inner-header.css)
+   is (0,0,1,2), which outranks a plain ".cert-cta__btn{color:#fff}" (0,0,1,0)
+   regardless of load order, since this is an <a> tag. */
+.cert-cta__btn { display: inline-flex; align-items: center; justify-content: center; background: var(--c-accent); color: #fff !important; text-decoration: none; border-radius: 8px; padding: clamp(14px, 1.04vw, 20px) clamp(28px, 2.5vw, 48px); font-size: clamp(17px, 1.25vw, 24px); letter-spacing: -0.04em; transition: background 0.2s, transform 0.16s ease-out; }
 @media (hover: hover) and (pointer: fine) {
   .cert-cta__btn:hover { background: #18334E; }
 }
 .cert-cta__btn:active { transform: scale(0.97); }
-.cert-cta__phone { font-size: clamp(17px, 1.15vw, 22px); font-weight: 600; color: var(--c-text); text-decoration: none; letter-spacing: -0.04em; transition: opacity 0.2s; }
+.cert-cta__phone { font-size: clamp(17px, 1.15vw, 22px); font-weight: 500; color: var(--c-text); text-decoration: none; letter-spacing: -0.04em; transition: opacity 0.2s; }
 .cert-cta__phone:hover { opacity: 0.75; }
 
 /* ── MOBILE (≤767px) — Figma node 2361:1402, exact 390px frame values ── */
@@ -130,4 +133,6 @@ body.page--certificates { --gutter: clamp(20px, 9.375vw, 180px); }
   .cert-cta__actions { flex-direction: column; gap: 16px; width: 100%; }
   .cert-cta__btn { width: 100%; padding: 14px 32px; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; border-radius: 8px; }
   .cert-cta__phone { font-size: 24px; font-weight: 500; }
+
+  footer.site-footer { display: none !important; }
 }

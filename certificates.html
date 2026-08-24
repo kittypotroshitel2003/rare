@@ -10,8 +10,9 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <link rel="stylesheet" href="css/components/inner-header.css?v=202608201600"/>
-<link rel="stylesheet" href="css/components/inner-footer.css?v=202608201600"/>
-<link rel="stylesheet" href="css/pages/certificates.css?v=202608241500"/>
+<link rel="stylesheet" href="css/components/footer.css?v=202608211130"/>
+<link rel="stylesheet" href="css/components/mobile-booking.css?v=202608211130"/>
+<link rel="stylesheet" href="css/pages/certificates.css?v=202608241800"/>
 </head>
 <body class="page page--inner page--certificates">
 
@@ -168,37 +169,78 @@
   </div>
 </section>
 
-<footer class="site-footer"><div class="wrap"><div class="footer-grid">
-  <div>
-    <div class="footer-logo"><a href="index.html"><img src="assets/icons/logo-white.svg" alt="RA|RÉ"/></a></div>
-    <p class="footer-tagline">Клиника экспертной косметологии<br/>в Анапе. Доказанный результат.</p>
-    <a href="tel:+79002761116" class="footer-phone">+7 (900) 276-11-16</a>
-    <p class="footer-addr">Анапа, Владимирская 120</p>
-  </div>
-  <div class="footer-col"><h3>Услуги</h3><div class="footer-links">
-    <a href="services/lifts.html">SMAS-лифтинг</a>
-    <a href="services/injections.html">Инъекционная косметология</a>
-    <a href="services/laser.html">Лазерная эпиляция</a>
-    <a href="services/lifts.html">Аппаратные лифтинги</a>
-    <a href="services/skin.html">Уход за кожей</a>
-    <a href="services/spa.html">SPA-программы</a>
-  </div></div>
-  <div class="footer-col"><h3>Клиника</h3><div class="footer-links">
+<footer class="mh-footer">
+  <nav class="mh-footer__links">
+    <a href="index.html">Главная</a>
     <a href="about.html">О клинике</a>
+    <a href="services.html">Услуги</a>
     <a href="specialists/index.html">Специалисты</a>
-    <a href="certificates.html">Сертификаты</a>
-    <a href="reviews/index.html">Отзывы</a>
-    <a href="articles/index.html">Статьи</a>
-    <a href="promos.html">Акции</a>
     <a href="prices.html">Цены</a>
-  </div></div>
-  <div class="footer-col"><h3>Информация</h3><div class="footer-links">
-    <a href="docs/license.pdf" target="_blank" rel="noopener">Выписка из реестра лицензий</a>
-    <a href="docs/processing.docx" target="_blank" rel="noopener">Обработка персональных данных</a>
+    <a href="promos.html">Акции</a>
+    <a href="reviews/index.html">Отзывы</a>
     <a href="index.html#contacts">Контакты</a>
-    <a href="https://app.klinikon.ru/booking/booking?&orgid=5318#/main" target="_blank" rel="noopener">Онлайн-запись</a>
-  </div></div>
-</div><p class="footer-copy">© 2026 RA|RÉ. Все права защищены.</p></div></footer>
+  </nav>
+  <div class="mh-footer__div"></div>
+  <div class="mh-footer__socials">
+    <a href="tel:+79002761116" aria-label="Позвонить"><img src="assets/icons/footer-phone.svg" alt=""/></a>
+    <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" aria-label="VK"><img src="assets/icons/footer-vk.svg" alt=""/></a>
+    <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" aria-label="MAX"><img src="assets/icons/footer-max.svg" alt=""/></a>
+  </div>
+  <div class="mh-footer__brand">
+    <p class="mh-footer__wordmark">RA|RÉ</p>
+    <p class="mh-footer__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+    <a href="index.html#booking" class="mh-footer__pill">Записаться на приём</a>
+  </div>
+  <div class="mh-footer__div"></div>
+  <div class="mh-footer__legal">
+    <p>Copyright © RA|RÉ, 2026</p>
+    <a href="docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+    <a href="docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+  </div>
+</footer>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <nav class="footer-nav">
+      <div class="footer-nav__group">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О клинике</a>
+        <a href="services.html">Услуги</a>
+        <a href="specialists/index.html">Специалисты</a>
+        <a href="prices.html">Цены</a>
+      </div>
+      <div class="footer-nav__group">
+        <a href="promos.html">Акции</a>
+        <a href="reviews/index.html">Отзывы</a>
+        <a href="index.html#contacts">Контакты</a>
+      </div>
+    </nav>
+    <div class="footer-div"></div>
+    <div class="footer-socials">
+      <a href="tel:+79002761116" class="footer-social" aria-label="Позвонить"><img src="assets/icons/footer-phone.svg" alt=""/></a>
+      <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" class="footer-social" aria-label="VK"><img src="assets/icons/footer-vk.svg" alt=""/></a>
+      <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" class="footer-social" aria-label="MAX"><img src="assets/icons/footer-max.svg" alt=""/></a>
+    </div>
+    <div class="footer-brand-row">
+      <p class="footer-wordmark">RA|RÉ</p>
+      <div class="footer-cta">
+        <p class="footer-cta__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+        <a href="index.html#booking" class="footer-cta__btn">Записаться на приём</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright © RA|RÉ, 2026</p>
+      <div class="footer-legal">
+        <a href="docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+        <a href="docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+      </div>
+      <a href="https://podpisait.ru/" target="_blank" rel="noopener noreferrer" class="footer-made">
+        <span>Разработано</span>
+        <img src="assets/icons/podpisait.svg" alt="Подписайт"/>
+      </a>
+    </div>
+  </div>
+</footer>
 
 <script>
 (function(){
