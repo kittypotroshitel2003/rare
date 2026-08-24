@@ -12,9 +12,10 @@
   var css = '#rr-booking-widget{position:fixed;bottom:24px;right:24px;z-index:600;display:flex;align-items:center;gap:8px;' +
     'background:#48627C;color:#fdfcf8;text-decoration:none;padding:14px 22px;border-radius:8px;' +
     'font-family:\'Inter\',sans-serif;font-size:15px;font-weight:400;letter-spacing:-0.01em;' +
-    'box-shadow:0 6px 24px rgba(29,40,51,0.3);transition:background 0.2s ease;}' +
+    'box-shadow:0 6px 24px rgba(29,40,51,0.3);transition:background 0.2s ease, opacity 0.25s ease;}' +
     '#rr-booking-widget:hover{background:#18334E;}' +
     '#rr-booking-widget svg{flex-shrink:0;}' +
+    '#rr-booking-widget.rr-bw-hidden{opacity:0;pointer-events:none;}' +
     '@media (max-width:640px){#rr-booking-widget{right:16px;bottom:16px;padding:12px 18px;font-size:14px;}#rr-booking-widget .rr-bw-label{display:none;}}' +
     /* mobile pages already surface their own persistent "Записаться" CTAs
        (hero button, sticky footer pill) — the floating widget only adds a
@@ -33,48 +34,36 @@
   a.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8.5 14.5l2 2 4.5-4.5"/></svg><span class="rr-bw-label">Онлайн-запись</span>';
   document.body.appendChild(a);
 
-  /* stop the widget at the level of the footer's own "Записаться на приём"
-     button instead of floating over the copyright/podpisait row below it */
+  /* Stays plain position:fixed at all times (so it travels with the
+     viewport through the whole page, not just part of it) and simply
+     fades out — instead of physically docking — once the footer's own
+     "Записаться на приём" button scrolls into view, so the two don't
+     overlap. IntersectionObserver only fires on an actual visibility
+     crossing, so unlike a scroll-position calculation cached from
+     getBoundingClientRect(), it can't go stale if the page's layout
+     shifts afterward (images/fonts loading, scroll-reveal animations) —
+     there's nothing to recompute. */
   function getStopAnchor() {
     var candidates = [document.querySelector('.footer-cta__btn'), document.querySelector('.mh-footer__pill')];
     for (var i = 0; i < candidates.length; i++) {
-      if (candidates[i] && candidates[i].offsetParent !== null) return candidates[i];
+      if (candidates[i]) return candidates[i];
     }
     return null;
   }
 
-  var ticking = false;
-  function reposition() {
-    ticking = false;
-    var margin = window.matchMedia('(max-width:640px)').matches ? 16 : 24;
+  function watchStopAnchor() {
     var stopAnchor = getStopAnchor();
-    if (!stopAnchor) {
-      a.style.position = 'fixed';
-      a.style.top = 'auto';
-      a.style.bottom = margin + 'px';
-      return;
-    }
-    var widgetH = a.offsetHeight;
-    var rect = stopAnchor.getBoundingClientRect();
-    var desiredDocTop = rect.bottom + window.scrollY - widgetH;
-    var fixedDocTopEquivalent = window.scrollY + (window.innerHeight - margin - widgetH);
-    if (desiredDocTop <= fixedDocTopEquivalent) {
-      a.style.position = 'absolute';
-      a.style.top = desiredDocTop + 'px';
-      a.style.bottom = 'auto';
-    } else {
-      a.style.position = 'fixed';
-      a.style.top = 'auto';
-      a.style.bottom = margin + 'px';
-    }
+    if (!stopAnchor || typeof IntersectionObserver === 'undefined') return;
+    var io = new IntersectionObserver(function (entries) {
+      var visible = entries[0].isIntersecting;
+      a.classList.toggle('rr-bw-hidden', visible);
+    }, { rootMargin: '0px 0px -10% 0px' });
+    io.observe(stopAnchor);
   }
-  function onScrollOrResize() {
-    if (!ticking) {
-      ticking = true;
-      window.requestAnimationFrame(reposition);
-    }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', watchStopAnchor);
+  } else {
+    watchStopAnchor();
   }
-  window.addEventListener('scroll', onScrollOrResize, {passive: true});
-  window.addEventListener('resize', onScrollOrResize);
-  reposition();
 })();

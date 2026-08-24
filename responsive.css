@@ -1072,9 +1072,22 @@
 ═══════════════════════════════════════════════════════════════ */
 
 /* ── PAGE LOAD FADE-IN ─────────────────────────────────────── */
+/* opacity-only on purpose — animating transform on body is the one place
+   on this site it's actively dangerous, not just non-performant. ANY
+   non-none computed transform on body creates a new containing block for
+   position:fixed descendants (spec, not a bug), so it silently traps
+   every fixed element on the page — the floating booking widget, popups,
+   etc. — to body's own box instead of the viewport; instead of floating
+   with scroll they end up pinned near the bottom of the full page height.
+   This used to end on transform:translateY(0), and switching that to the
+   seemingly-equivalent transform:none did NOT fix it — verified in
+   isolation that Chrome computes a lingering matrix(1,0,0,1,0,0) after an
+   animation's fill-mode:both settles on a "none" end keyframe, which is
+   still non-none and still triggers the trap. Dropping transform from
+   this keyframe entirely is the only fix that actually holds. */
 @keyframes rr-page-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 @media (max-width: 1024px) {
   body { animation: rr-page-in 0.45s cubic-bezier(0.25,0.46,0.45,0.94) both; }

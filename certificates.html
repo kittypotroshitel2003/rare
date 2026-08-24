@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preload" href="responsive.css?v=202608241200" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202608241200"/></noscript>
+<link rel="preload" href="responsive.css?v=202608241600" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202608241600"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Подарочные сертификаты — RA|RÉ Клиника экспертной косметологии в Анапе</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -11,7 +11,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <link rel="stylesheet" href="css/components/inner-header.css?v=202608201600"/>
 <link rel="stylesheet" href="css/components/inner-footer.css?v=202608201600"/>
-<link rel="stylesheet" href="css/pages/certificates.css?v=202608201600"/>
+<link rel="stylesheet" href="css/pages/certificates.css?v=202608241500"/>
 </head>
 <body class="page page--inner page--certificates">
 
@@ -96,85 +96,75 @@
   </div>
 </header>
 
-<section class="inner-hero">
-  <div class="inner-hero__bg" style="background-image:url('assets/photos/hero-certs-new.webp?v=2');background-position:center 45%;"></div>
-  <div class="inner-hero__overlay"></div>
-  <div class="inner-hero__cnt wrap">
-    <h1 class="inner-hero__title">Подарочные сертификаты</h1>
-  </div>
+<section class="cert-hero wrap">
+  <h1 class="cert-hero__title" data-rr="up">Подарочные сертификаты</h1>
+  <p class="cert-hero__subtitle" data-rr="up" style="--rr-del:0.05s">Подарите близким возможность насладиться профессиональными косметологическими процедурами в клинике RA|RÉ.</p>
 </section>
 
-
-<section class="sec-gift">
-  <div class="wrap">
-    <h2 class="sec-h" style="color:var(--c-text);margin-bottom:32px;">Подарочные сертификаты</h2>
-    <p>Подарите близким возможность насладиться профессиональными косметологическими процедурами в клинике RA|RÉ</p>
-    <div class="gift-cards">
-      <div class="gift-card">
-        <div class="gift-card__stripe"></div>
-        <div class="gift-card__body">
-          <div class="gift-amount">5 000<span>₽</span></div>
-          <p class="gift-label">Сертификат на процедуры</p>
-          <div class="gift-card__divider"></div>
-          <button onclick="openGiftCertPopup()" class="gift-btn">Купить</button>
-        </div>
+<section class="cert-grid-sec wrap">
+  <div class="cert-grid">
+    <div class="cert-card" data-rr="up">
+      <div class="cert-card__info">
+        <p class="cert-card__amount">5 000 ₽</p>
+        <p class="cert-card__label">Сертификат на процедуры</p>
       </div>
-      <div class="gift-card">
-        <div class="gift-card__stripe"></div>
-        <div class="gift-card__body">
-          <div class="gift-amount">10 000<span>₽</span></div>
-          <p class="gift-label">Сертификат на процедуры</p>
-          <div class="gift-card__divider"></div>
-          <button onclick="openGiftCertPopup()" class="gift-btn">Купить</button>
-        </div>
-      </div>
-      <div class="gift-card">
-        <div class="gift-card__stripe"></div>
-        <div class="gift-card__body">
-          <div class="gift-amount">15 000<span>₽</span></div>
-          <p class="gift-label">Сертификат на процедуры</p>
-          <div class="gift-card__divider"></div>
-          <button onclick="openGiftCertPopup()" class="gift-btn">Купить</button>
-        </div>
-      </div>
+      <button type="button" onclick="openGiftCertPopup()" class="cert-card__btn">Купить <span aria-hidden="true">→</span></button>
     </div>
-    <p style="margin-top:32px;font-size:18px;font-weight:400;color:var(--c-w50);letter-spacing:-0.02em;">Сертификат на любую сумму. Свяжитесь с нами для оформления.</p>
+    <div class="cert-card" data-rr="up" style="--rr-del:0.06s">
+      <div class="cert-card__info">
+        <p class="cert-card__amount">10 000 ₽</p>
+        <p class="cert-card__label">Сертификат на процедуры</p>
+      </div>
+      <button type="button" onclick="openGiftCertPopup()" class="cert-card__btn">Купить <span aria-hidden="true">→</span></button>
+    </div>
+    <div class="cert-card" data-rr="up" style="--rr-del:0.12s">
+      <div class="cert-card__info">
+        <p class="cert-card__amount">15 000 ₽</p>
+        <p class="cert-card__label">Сертификат на процедуры</p>
+      </div>
+      <button type="button" onclick="openGiftCertPopup()" class="cert-card__btn">Купить <span aria-hidden="true">→</span></button>
+    </div>
   </div>
+  <p class="cert-note">* Сертификат возможен на любую сумму. Свяжитесь с нами для индивидуального оформления.</p>
 </section>
 
-<section class="sec-faq">
-  <div class="wrap">
-    <h2 class="faq-heading">Частые вопросы</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Как можно купить подарочный сертификат в косметологию?
-          <span class="faq-icon">+</span>
+<section class="cert-faq wrap">
+  <h2 class="cert-faq__heading" data-rr="up">Частые вопросы</h2>
+  <div class="cert-faq__list">
+    <div class="cert-faq__card" data-rr="up">
+      <div class="cert-faq__accent" aria-hidden="true"></div>
+      <div class="cert-faq__body">
+        <button type="button" class="cert-faq__q" aria-expanded="true">
+          <span class="cert-faq__q-text">Как можно купить подарочный сертификат в косметологию?</span>
+          <span class="cert-faq__toggle">
+            <svg class="cert-faq__icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            <svg class="cert-faq__icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
         </button>
-        <div class="faq-a">
-          <p>Вы можете приобрести подарочный сертификат в клинике RA|RÉ. Если Вас интересует удалённое приобретение, напишите нам в МАКС.</p>
-        </div>
+        <p class="cert-faq__a">Вы можете приобрести подарочный сертификат в клинике RA|RÉ. Если Вас интересует удалённое приобретение, напишите нам в мессенджеры или оставьте заявку.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          На какие процедуры распространяется подарочный сертификат?
-          <span class="faq-icon">+</span>
+    </div>
+    <div class="cert-faq__card" data-rr="up" style="--rr-del:0.06s">
+      <div class="cert-faq__accent" aria-hidden="true"></div>
+      <div class="cert-faq__body">
+        <button type="button" class="cert-faq__q" aria-expanded="false">
+          <span class="cert-faq__q-text">На какие процедуры распространяется подарочный сертификат?</span>
+          <span class="cert-faq__toggle">
+            <svg class="cert-faq__icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            <svg class="cert-faq__icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
         </button>
-        <div class="faq-a">
-          <p>Подарочным сертификатом Вы можете оплатить любые услуги клиники.</p>
-        </div>
+        <p class="cert-faq__a">Подарочным сертификатом Вы можете оплатить любые услуги клиники.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec-cta">
-  <div class="wrap">
-    <h2 class="cta-heading">Уточните детали<br>у нашего администратора</h2>
-    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
-      <a href="index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Оставить заявку</a>
-      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-text);text-decoration:none;letter-spacing:-0.02em;">+7 (900) 276-11-16</a>
-    </div>
+<section class="cert-cta wrap">
+  <h2 class="cert-cta__heading">Уточните детали<br>у нашего администратора</h2>
+  <div class="cert-cta__actions">
+    <a href="index.html#booking" class="cert-cta__btn">Оставить заявку</a>
+    <a href="tel:+79002761116" class="cert-cta__phone">+7 (900) 276-11-16</a>
   </div>
 </section>
 
@@ -212,16 +202,16 @@
 
 <script>
 (function(){
-  document.querySelectorAll('.faq-q').forEach(function(btn){
+  document.querySelectorAll('.cert-faq__q').forEach(function(btn){
+    var answer = btn.parentElement.querySelector('.cert-faq__a');
+    if (btn.getAttribute('aria-expanded') === 'true' && answer) {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
     btn.addEventListener('click', function(){
       var expanded = btn.getAttribute('aria-expanded') === 'true';
-      var answer = btn.nextElementSibling;
       btn.setAttribute('aria-expanded', !expanded);
-      if (!expanded) {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      } else {
-        answer.style.maxHeight = '0';
-      }
+      if (!answer) return;
+      answer.style.maxHeight = expanded ? '0' : answer.scrollHeight + 'px';
     });
   });
 })();
@@ -229,16 +219,6 @@
 <script src="docs-popup.js" defer></script><script src="animations.js?v=202608241200" defer></script>
 <script src="mobile-nav.js?v=202606041800" defer></script>
 <script src="./accessibility.js" defer></script>
-<script>
-(function(){
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting) { e.target.classList.add('g-in'); io.unobserve(e.target); }
-    });
-  },{threshold:0.15});
-  document.querySelectorAll('.gift-card').forEach(function(c){ io.observe(c); });
-})();
-</script>
 
 <!-- Gift popup -->
 <div id="cert-gift-popup" style="position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;pointer-events:none;visibility:hidden">
@@ -279,6 +259,6 @@ function selAmt(btn) {
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeGiftCertPopup();});
 </script>
-<script src="booking-widget.js" defer></script>
+<script src="booking-widget.js?v=202608241600" defer></script>
 </body>
 </html>

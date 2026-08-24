@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preload" href="../responsive.css?v=202608241200" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202608241200"/></noscript>
+<link rel="preload" href="../responsive.css?v=202608241600" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="../responsive.css?v=202608241600"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Отзывы — RA|RÉ Клиника экспертной косметологии в Анапе</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -11,7 +11,8 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript>
 <link rel="stylesheet" href="../css/components/inner-header.css?v=202608201600"/>
 <link rel="stylesheet" href="../css/components/inner-footer.css?v=202608201600"/>
-<link rel="stylesheet" href="../css/pages/reviews.css?v=202608201600"/>
+<link rel="stylesheet" href="../css/components/mobile-booking.css?v=202608211130"/>
+<link rel="stylesheet" href="../css/pages/reviews.css?v=202608241700"/>
 </head>
 <body class="page page--inner page--reviews">
 
@@ -96,159 +97,209 @@
   </div>
 </header>
 
-<section class="inner-hero">
-  <div class="inner-hero__bg" style="background-image:url('../assets/photos/hero-reviews-new.webp');"></div>
-  <div class="inner-hero__overlay"></div>
-  <div class="inner-hero__cnt wrap">
-    <h1 class="inner-hero__title">Отзывы</h1>
-  </div>
-</section>
+<main class="rv-main">
 
-<section class="sec-platforms">
-  <div class="wrap">
-    <div class="platforms-breadcrumb"><a href="../index.html">Главная</a><span>/</span><span>Отзывы</span></div>
-    <h2 class="sec-h">Отзывы наших гостей</h2>
-    <div class="pi-grid">
-      <div class="pi-left">
-        <a href="https://yandex.ru/maps/org/ra_r_/183673265058/?ll=37.331144%2C44.879223&z=17" target="_blank" rel="noopener" class="platform-card platform-card--main">
-          <div class="platform-card__top">
-            <span class="platform-badge platform-badge--yandex">Я</span>
-          </div>
-          <p class="platform-card__title">Хорошее место <span class="stars" id="yandex-stars">★★★★★</span> <span id="yandex-score">4.9</span></p>
-          <p class="platform-card__subtitle">Выбор пользователей Яндекса · <span id="yandex-count">127 отзывов</span></p>
-          <svg class="platform-card__deco" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="100" r="40" stroke="#1D2833" stroke-width="1"/>
-            <circle cx="140" cy="100" r="65" stroke="#1D2833" stroke-width="1"/>
-            <circle cx="140" cy="100" r="90" stroke="#1D2833" stroke-width="1"/>
-          </svg>
-        </a>
-        <div class="pi-left-row">
-          <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="platform-card platform-card--small">
-            <span class="platform-badge platform-badge--gis">2</span>
-            <p class="platform-card__score-sm"><span class="stars" id="gis-stars">★★★★★</span> <span id="gis-score">4.8</span></p>
-            <p class="platform-card__label">Отзывы на 2ГИС</p>
-          </a>
-          <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="platform-card platform-card--small">
-            <span class="platform-badge platform-badge--prodoc">Пр</span>
-            <p class="platform-card__score-sm"><span class="stars" id="prodoc-stars">★★★★★</span> <span id="prodoc-score">5.0</span></p>
-            <p class="platform-card__label">Отзывы на ПроДокторов</p>
-          </a>
+<section class="rv-hero wrap">
+  <div class="rv-hero__left">
+    <h1 class="rv-hero__title" data-rr="up">Отзывы наших гостей</h1>
+    <div class="rv-yandex-card" data-rr="up" style="--rr-del:0.05s">
+      <div class="rv-yandex-card__top">
+        <div class="rv-yandex-card__rating">
+          <p class="rv-yandex-card__title">Хорошее место</p>
+          <div class="rv-yandex-card__score"><span class="rv-stars">★★★★★</span><span id="yandex-score">4.9</span></div>
         </div>
+        <img class="rv-yandex-card__logo" src="../assets/icons/rating-yandex.webp" alt="" width="64" height="64"/>
       </div>
-      <div class="pi-right">
-        <h2 class="inspire-heading">Ваши отзывы нас вдохновляют!</h2>
-        <p class="inspire-lead"><strong>Если хотите нас поблагодарить</strong> — просто оставьте отзыв. Ведь именно от вас зависит впечатление других людей о нашей клинике.</p>
-        <ol class="inspire-steps-simple">
-          <li>Выберите и перейдите на площадку</li>
-          <li>Нажмите на кнопку «Оставить отзыв»</li>
-          <li>Делитесь своими результатами и впечатлениями</li>
-        </ol>
-        <p class="inspire-lead"><strong>Если у вас есть мысли, как мы можем стать лучше</strong> или вы остались не до конца довольны посещением, обязательно напишите обращение основателю клиники — Ануш Арташевне.</p>
-        <div class="inspire-actions">
-          <a href="#guest-reviews" class="pill-btn pill-btn--fill">Смотреть отзывы</a>
-          <a href="#feedback" class="pill-btn pill-btn--ghost">Написать обращение</a>
-        </div>
-      </div>
+      <p class="rv-yandex-card__sub">Выбор пользователей Яндекса · <span id="yandex-count">295 отзывов</span></p>
+    </div>
+    <div class="rv-subratings">
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="rv-subrating">
+        <span class="rv-subrating__row"><span class="rv-stars">★★★★★</span> <span id="gis-score">5.0</span> 2ГИС</span>
+        <span class="rv-subrating__label">Отзывы на 2ГИС</span>
+      </a>
+      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="rv-subrating">
+        <span class="rv-subrating__row"><span class="rv-stars">★★★★★</span> <span id="prodoc-score">5.0</span> ПроДокторов</span>
+        <span class="rv-subrating__label">Отзывы на ПроДокторов</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="rv-hero__right" data-rr="up" style="--rr-del:0.1s">
+    <p class="rv-hero__right-title">Ваши отзывы нас вдохновляют!</p>
+    <p class="rv-hero__right-lead">Если хотите нас поблагодарить — просто оставьте отзыв. Ведь именно от вас зависит впечатление других людей о нашей клинике.</p>
+    <div class="rv-steps">
+      <div class="rv-step"><span class="rv-step__badge">1</span><p>Выберите и перейдите на удобную для вас площадку ниже</p></div>
+      <div class="rv-step"><span class="rv-step__badge">2</span><p>Нажмите на кнопку «Оставить отзыв»</p></div>
+      <div class="rv-step"><span class="rv-step__badge">3</span><p>Делитесь своими результатами и впечатлениями от визита</p></div>
+    </div>
+    <div class="rv-hero__divider"></div>
+    <p class="rv-hero__complaint">Если у вас есть жалоба или предложение, мы попросим вас оставить контактные данные, чтобы связаться и во всём разобраться.</p>
+    <div class="rv-hero__actions">
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/?ll=37.331144%2C44.879223&z=17" target="_blank" rel="noopener" class="rv-btn rv-btn--primary">Написать отзыв
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#feedback" class="rv-btn rv-btn--secondary">Подать обращение</a>
     </div>
   </div>
 </section>
 
-<section class="sec-reviews" id="guest-reviews">
-  <div class="wrap">
-    <span class="sec-eyebrow">Отзывы</span>
-    <h2 class="sec-h">Рады вашим результатам</h2>
-    <div class="reviews-grid">
-      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
-        <p class="review-stars">★★★★★</p>
-        <p class="review-text">Делала SMAS-лифтинг. Результат превзошёл все ожидания! Кожа подтянулась, лицо помолодело минимум на 5 лет. Специалисты очень внимательные и профессиональные.</p>
-        <div class="review-author">
-          <p class="review-name">Елена К.</p>
-          <p class="review-service">SMAS-лифтинг</p>
-          <p class="review-date">Апрель 2026 · Яндекс</p>
-        </div>
+<section class="rv-grid-sec wrap" id="guest-reviews">
+  <h2 class="rv-grid-sec__heading" data-rr="up">Рады вашим результатам</h2>
+  <div class="rv-grid">
+    <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="rv-card" data-rr="up">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">Делала SMAS-лифтинг. Результат превзошёл все ожидания! Кожа подтянулась, лицо помолодело минимум на 5 лет. Специалисты очень внимательные и профессиональные.</p>
+      <div class="rv-card__author"><p class="rv-card__name">Елена К.</p><p class="rv-card__service">SMAS-лифтинг</p><p class="rv-card__date">Апрель 2026 · Яндекс</p></div>
+    </a>
+    <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="rv-card" data-rr="up" style="--rr-del:0.04s">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">Прошла курс лазерной эпиляции на Candela. Потрясающий результат уже после 3 сеансов. Безболезненно, быстро и эффективно. Буду рекомендовать всем подругам!</p>
+      <div class="rv-card__author"><p class="rv-card__name">Мария П.</p><p class="rv-card__service">Лазерная эпиляция</p><p class="rv-card__date">Март 2026 · Яндекс</p></div>
+    </a>
+    <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="rv-card" data-rr="up" style="--rr-del:0.08s">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">Прекрасная клиника! Записалась на биоревитализацию, осталась в полном восторге. Кожа буквально засияла. Атмосфера комфорта и профессионализма чувствуется во всём.</p>
+      <div class="rv-card__author"><p class="rv-card__name">Анна С.</p><p class="rv-card__service">Биоревитализация</p><p class="rv-card__date">Февраль 2026 · 2ГИС</p></div>
+    </a>
+    <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="rv-card" data-rr="up">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">RF-лифтинг Volnewmer — просто чудо! Без реабилитации, без боли, а результат заметен уже на следующий день. Спасибо всей команде RA|RÉ за профессионализм и заботу!</p>
+      <div class="rv-card__author"><p class="rv-card__name">Ирина Д.</p><p class="rv-card__service">RF-лифтинг</p><p class="rv-card__date">Январь 2026 · Яндекс</p></div>
+    </a>
+    <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="rv-card" data-rr="up" style="--rr-del:0.04s">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">SPA-программа «Полное преображение» — лучший подарок себе! 2 часа блаженства, кожа как шёлк, ушла из клиники совершенно другим человеком. Обязательно вернусь!</p>
+      <div class="rv-card__author"><p class="rv-card__name">Светлана В.</p><p class="rv-card__service">SPA-программа</p><p class="rv-card__date">Декабрь 2025 · 2ГИС</p></div>
+    </a>
+    <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="rv-card" data-rr="up" style="--rr-del:0.08s">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">Обратилась с проблемой акне. Специалист подобрала индивидуальный протокол. Результат виден уже после первых процедур. Очень благодарна за профессиональный подход!</p>
+      <div class="rv-card__author"><p class="rv-card__name">Наталья Ж.</p><p class="rv-card__service">Лечение акне</p><p class="rv-card__date">Ноябрь 2025 · ПроДокторов</p></div>
+    </a>
+  </div>
+
+  <!-- mobile-only: collapsed variant of reviews #2/#3, shown instead of the full grid above 767px and up -->
+  <div class="rv-mobile-list">
+    <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="rv-card rv-card--full">
+      <p class="rv-card__stars">★★★★★</p>
+      <p class="rv-card__text">Делала SMAS-лифтинг. Результат превзошёл все ожидания! Кожа подтянулась, лицо помолодело минимум на 5 лет. Специалисты очень внимательные и профессиональные.</p>
+      <div class="rv-card__author"><p class="rv-card__name">Елена К.</p><p class="rv-card__service">SMAS-лифтинг</p><p class="rv-card__date">Апрель 2026 · Яндекс</p></div>
+    </a>
+    <div class="rv-row-list" id="rv-collapsed">
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="rv-row">
+        <div class="rv-row__top"><span class="rv-row__left"><span class="rv-card__stars">★★★★★</span><span class="rv-row__name">Мария П.</span></span><svg class="rv-row__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+        <p class="rv-row__text">Прошла курс лазерной эпиляции на Candela. Потрясающий результат уже после 3 сеансов.</p>
+        <div class="rv-row__bottom"><span>Лазерная эпиляция</span><span>Март 2026 · Яндекс</span></div>
       </a>
-      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
-        <p class="review-stars">★★★★★</p>
-        <p class="review-text">Прошла курс лазерной эпиляции на Candela. Потрясающий результат уже после 3 сеансов. Безболезненно, быстро и эффективно. Буду рекомендовать всем подругам!</p>
-        <div class="review-author">
-          <p class="review-name">Мария П.</p>
-          <p class="review-service">Лазерная эпиляция</p>
-          <p class="review-date">Март 2026 · Яндекс</p>
-        </div>
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="rv-row">
+        <div class="rv-row__top"><span class="rv-row__left"><span class="rv-card__stars">★★★★★</span><span class="rv-row__name">Анна С.</span></span><svg class="rv-row__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+        <p class="rv-row__text">Прекрасная клиника! Записалась на биоревитализацию, осталась в полном восторге.</p>
+        <div class="rv-row__bottom"><span>Биоревитализация</span><span>Февраль 2026 · 2ГИС</span></div>
       </a>
-      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
-        <p class="review-stars">★★★★★</p>
-        <p class="review-text">Прекрасная клиника! Записалась на биоревитализацию, осталась в полном восторге. Кожа буквально засияла. Атмосфера комфорта и профессионализма чувствуется во всём.</p>
-        <div class="review-author">
-          <p class="review-name">Анна С.</p>
-          <p class="review-service">Биоревитализация</p>
-          <p class="review-date">Февраль 2026 · 2ГИС</p>
-        </div>
+      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="rv-row">
+        <div class="rv-row__top"><span class="rv-row__left"><span class="rv-card__stars">★★★★★</span><span class="rv-row__name">Ирина Д.</span></span><svg class="rv-row__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+        <p class="rv-row__text">RF-лифтинг Volnewmer — просто чудо! Без реабилитации, без боли, а результат заметен уже на следующий день.</p>
+        <div class="rv-row__bottom"><span>RF-лифтинг</span><span>Январь 2026 · Яндекс</span></div>
       </a>
-      <a href="https://yandex.ru/maps/org/ra_r_/183673265058/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
-        <p class="review-stars">★★★★★</p>
-        <p class="review-text">RF-лифтинг Volnewmer — просто чудо! Без реабилитации, без боли, а результат заметен уже на следующий день. Спасибо всей команде RA|RÉ за профессионализм и заботу!</p>
-        <div class="review-author">
-          <p class="review-name">Ирина Д.</p>
-          <p class="review-service">RF-лифтинг</p>
-          <p class="review-date">Январь 2026 · Яндекс</p>
-        </div>
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="rv-row">
+        <div class="rv-row__top"><span class="rv-row__left"><span class="rv-card__stars">★★★★★</span><span class="rv-row__name">Светлана В.</span></span><svg class="rv-row__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+        <p class="rv-row__text">SPA-программа «Полное преображение» — лучший подарок себе! 2 часа блаженства.</p>
+        <div class="rv-row__bottom"><span>SPA-программа</span><span>Декабрь 2025 · 2ГИС</span></div>
       </a>
-      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
-        <p class="review-stars">★★★★★</p>
-        <p class="review-text">SPA-программа «Полное преображение» — лучший подарок себе! 2 часа блаженства, кожа как шёлк, ушла из клиники совершенно другим человеком. Обязательно вернусь!</p>
-        <div class="review-author">
-          <p class="review-name">Светлана В.</p>
-          <p class="review-service">SPA-программа</p>
-          <p class="review-date">Декабрь 2025 · 2ГИС</p>
-        </div>
-      </a>
-      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="review-card" style="text-decoration:none;cursor:pointer;">
-        <p class="review-stars">★★★★★</p>
-        <p class="review-text">Обратилась с проблемой акне. Специалист подобрала индивидуальный протокол. Результат виден уже после первых процедур. Очень благодарна за профессиональный подход!</p>
-        <div class="review-author">
-          <p class="review-name">Наталья Ж.</p>
-          <p class="review-service">Лечение акне</p>
-          <p class="review-date">Ноябрь 2025 · ПроДокторов</p>
-        </div>
+      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="rv-row">
+        <div class="rv-row__top"><span class="rv-row__left"><span class="rv-card__stars">★★★★★</span><span class="rv-row__name">Наталья Ж.</span></span><svg class="rv-row__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+        <p class="rv-row__text">Обратилась с проблемой акне. Специалист подобрала индивидуальный протокол.</p>
+        <div class="rv-row__bottom"><span>Лечение акне</span><span>Ноябрь 2025 · ПроДокторов</span></div>
       </a>
     </div>
+    <button type="button" class="rv-show-all" id="rv-show-all">Показать все отзывы
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
   </div>
 </section>
 
-<section class="sec-founder-fb" id="feedback">
-  <div class="wrap founder-fb-inner">
-    <div>
-      <h2 class="founder-fb-heading">Как мы можем стать ещё лучше</h2>
-      <p class="founder-fb-text">Для нас важно, чтобы каждый визит приносил вам удовольствие и оставалось приятное «послевкусие». Если у вас есть мысли, как мы можем стать ещё лучше для вас, или вы остались не до конца довольны посещением — обязательно опишите подробно ситуацию. Я лично рассмотрю ваше обращение и приму меры.</p>
-      <div class="founder-fb-who">
-        <img src="../assets/photos/founder-anush.webp" alt="Ануш Арташевна"/>
-        <div>
-          <p class="founder-fb-who__role">Основатель клиники</p>
-          <p class="founder-fb-who__name">Ануш Арташевна</p>
-        </div>
-      </div>
+<section class="rv-feedback wrap" id="feedback">
+  <div class="rv-feedback__left">
+    <div class="rv-feedback__intro">
+      <p class="rv-feedback__heading">Как мы можем стать ещё лучше</p>
+      <p class="rv-feedback__lead">Для нас важно, чтобы каждый визит приносил вам удовольствие и оставлял приятное «послевкусие». Если у вас есть мысли, как мы можем стать ещё лучше для вас, или вы остались не до конца довольны посещением — опишите ситуацию. Я лично рассмотрю ваше обращение.</p>
     </div>
-    <form class="fb-form" id="fb-form">
-      <input type="text" placeholder="Имя" required/>
-      <input type="tel" placeholder="Телефон" required/>
-      <input type="email" placeholder="Email"/>
-      <textarea placeholder="Кратко, но ёмко опишите ситуацию"></textarea>
-      <p class="fb-form__note">Ануш ответит вам в течение дня.</p>
-      <button type="submit" class="pill-btn">Отправить обращение</button>
-    </form>
+    <div class="rv-founder">
+      <img class="rv-founder__avatar" src="../assets/photos/founder-figma.webp" alt="Ануш Арташевна"/>
+      <div><p class="rv-founder__name">Ануш Арташевна</p><p class="rv-founder__role">Основатель клиники RA|RÉ</p></div>
+    </div>
+  </div>
+  <form class="rv-form" id="fb-form">
+    <div class="rv-field">
+      <label for="fb-name">Ваше имя*</label>
+      <input id="fb-name" type="text" name="name" placeholder="Александра" autocomplete="name" required/>
+    </div>
+    <div class="rv-field">
+      <label for="fb-phone">Телефон*</label>
+      <input id="fb-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required/>
+    </div>
+    <div class="rv-field">
+      <label for="fb-msg">Суть обращения или предложение</label>
+      <input id="fb-msg" type="text" name="message" placeholder="Напишите здесь ваши мысли..."/>
+    </div>
+    <button type="submit" class="rv-btn rv-btn--primary rv-btn--submit"><span class="rv-btn__label">Отправить обращение</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </form>
+</section>
+
+<section class="rv-cta wrap">
+  <h2 class="rv-cta__heading">Станьте нашим следующим довольным гостем</h2>
+  <div class="rv-cta__actions">
+    <a href="../index.html#booking" class="rv-btn rv-btn--primary">Записаться на приём
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="tel:+79002761116" class="rv-cta__phone">+7 (900) 276-11-16</a>
   </div>
 </section>
 
-<section class="sec-cta">
-  <div class="wrap">
-    <h2 class="cta-heading">Станьте нашим<br>следующим довольным гостем</h2>
-    <div style="display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;">
-      <a href="../index.html#booking" class="pill-btn" style="padding:24px 56px;font-size:24px;letter-spacing:-0.02em;">Записаться на приём</a>
-      <a href="tel:+79002761116" style="font-size:24px;font-weight:500;color:var(--c-text);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">+7 (900) 276-11-16</a>
-    </div>
+<section class="rv-contact-map wrap">
+  <div class="contacts-bar">
+    <p>Анапа, ул. Владимирская, 120</p>
+    <a href="tel:+79002761116">+7 (900) 276-11-16</a>
+    <p>Пн-Вс: 9:00 — 20:00</p>
   </div>
+  <a class="rv-map" href="https://yandex.ru/maps/?ll=37.331145,44.879223&z=17&pt=37.331145,44.879223,pm2rdl" target="_blank" rel="noopener noreferrer" aria-label="Открыть карту — Анапа, Владимирская 120">
+    <img src="https://static-maps.yandex.ru/1.x/?ll=37.331145,44.879223&z=16&l=map&pt=37.331145,44.879223,pm2rdl&size=650,450" alt="Клиника RA|RÉ на карте — Анапа, Владимирская 120" loading="lazy"/>
+  </a>
 </section>
+
+</main>
+
+<footer class="mh-footer">
+  <nav class="mh-footer__links">
+    <a href="../index.html">Главная</a>
+    <a href="../about.html">О клинике</a>
+    <a href="../services.html">Услуги</a>
+    <a href="../specialists/index.html">Специалисты</a>
+    <a href="../prices.html">Цены</a>
+    <a href="../promos.html">Акции</a>
+    <a href="../reviews/index.html">Отзывы</a>
+    <a href="../index.html#contacts">Контакты</a>
+  </nav>
+  <div class="mh-footer__div"></div>
+  <div class="mh-footer__socials">
+    <a href="tel:+79002761116" aria-label="Позвонить"><img src="../assets/icons/footer-phone.svg" alt=""/></a>
+    <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" aria-label="VK"><img src="../assets/icons/footer-vk.svg" alt=""/></a>
+    <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" aria-label="MAX"><img src="../assets/icons/footer-max.svg" alt=""/></a>
+  </div>
+  <div class="mh-footer__brand">
+    <p class="mh-footer__wordmark">RA|RÉ</p>
+    <p class="mh-footer__text">Запишитесь на консультацию к нашим специалистам. Мы поможем подобрать оптимальную программу ухода.</p>
+    <a href="../index.html#booking" class="mh-footer__pill">Записаться на приём</a>
+  </div>
+  <div class="mh-footer__div"></div>
+  <div class="mh-footer__legal">
+    <p>Copyright © RA|RÉ, 2026</p>
+    <a href="../docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+    <a href="../docs/license.pdf" target="_blank" rel="noopener noreferrer">Выписка из реестра лицензий</a>
+  </div>
+</footer>
 
 <footer class="site-footer"><div class="wrap"><div class="footer-grid">
   <div>
@@ -294,10 +345,6 @@
     if(r2>=2&&r2<=4)return n+' отзыва';
     return n+' отзывов';
   }
-  function starsFromScore(s){
-    var full=Math.round(s);
-    return '★'.repeat(Math.min(full,5))+'☆'.repeat(Math.max(0,5-full));
-  }
   function setText(id, text){
     var el = document.getElementById(id);
     if(el) el.textContent = text;
@@ -306,18 +353,9 @@
     if(d.yandex){
       if(d.yandex.score) setText('yandex-score', d.yandex.score);
       if(d.yandex.count) setText('yandex-count', pluralReviews(d.yandex.count));
-      if(d.yandex.score) setText('yandex-stars', starsFromScore(parseFloat(d.yandex.score)));
     }
-    if(d.gis){
-      if(d.gis.score) setText('gis-score', d.gis.score);
-      if(d.gis.count) setText('gis-count', pluralReviews(d.gis.count));
-      if(d.gis.score) setText('gis-stars', starsFromScore(parseFloat(d.gis.score)));
-    }
-    if(d.prodoc){
-      if(d.prodoc.score) setText('prodoc-score', d.prodoc.score);
-      if(d.prodoc.count) setText('prodoc-count', pluralReviews(d.prodoc.count));
-      if(d.prodoc.score) setText('prodoc-stars', starsFromScore(parseFloat(d.prodoc.score)));
-    }
+    if(d.gis && d.gis.score) setText('gis-score', d.gis.score);
+    if(d.prodoc && d.prodoc.score) setText('prodoc-score', d.prodoc.score);
   }
   fetch('../ratings.json?_='+Date.now())
     .then(function(r){return r.ok?r.json():Promise.reject();})
@@ -329,13 +367,23 @@
   if(!form) return;
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var btn = form.querySelector('button[type="submit"]');
-    var original = btn.textContent;
-    btn.textContent = 'Спасибо, отправлено!';
+    var label = form.querySelector('.rv-btn__label');
+    var original = label.textContent;
+    label.textContent = 'Спасибо, отправлено!';
     form.reset();
-    setTimeout(function(){ btn.textContent = original; }, 2600);
+    setTimeout(function(){ label.textContent = original; }, 2600);
   });
 })();
-</script><script src="../booking-widget.js" defer></script>
+(function(){
+  var btn = document.getElementById('rv-show-all');
+  var list = document.getElementById('rv-collapsed');
+  if (!btn || !list) return;
+  btn.addEventListener('click', function(){
+    var expanded = list.classList.toggle('is-expanded');
+    btn.classList.toggle('is-expanded', expanded);
+    btn.firstChild.textContent = expanded ? 'Скрыть отзывы' : 'Показать все отзывы';
+  });
+})();
+</script><script src="../booking-widget.js?v=202608241600" defer></script>
 </body>
 </html>
