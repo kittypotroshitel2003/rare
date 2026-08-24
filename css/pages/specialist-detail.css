@@ -244,8 +244,16 @@ body.page--specialist-detail { background: #fff; color: var(--c-text); }
   /* !important needed: .sec-booking is shared with other pages and still
      carries its own !important padding rules in responsive.css (56px/48px)
      for those pages — this page's higher-specificity selector alone isn't
-     enough to beat an !important declaration, regardless of order. */
-  .spec-detail > .sec-booking.wrap { padding-top: 64px !important; padding-bottom: 64px !important; }
+     enough to beat an !important declaration, regardless of order. Those
+     rules use the "Npx 0" shorthand, which also zeroes left/right — so
+     left/right need the same !important treatment as top/bottom, not just
+     inherit the 20px from ".spec-detail > .wrap" above. */
+  .spec-detail > .sec-booking.wrap {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
   /* mh-footer's own top padding is 0 site-wide (mobile-booking.css) — it
      always relied on the previous section supplying the gap. On this page
      that previous section is .sec-booking's padding-bottom above, but
