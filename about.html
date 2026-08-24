@@ -4,10 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>О клинике — RA|RÉ Клиника экспертной косметологии в Анапе</title>
+<link rel="canonical" href="https://rare.a-4-to.ru/about.html"/>
   <meta name="description" content="RA|RÉ — клиника экспертной косметологии в Анапе. Медицинская экспертиза, технологии нового поколения и индивидуальный подход к каждому гостю."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
   <link rel="dns-prefetch" href="https://yandex.ru"/>
   <link rel="stylesheet" href="css/tokens.css?v=202608180930"/>
   <link rel="stylesheet" href="css/base.css?v=202608180930"/>
@@ -20,6 +22,41 @@
   <link rel="stylesheet" href="css/components/booking-popup.css?v=202608180930"/>
   <link rel="stylesheet" href="css/pages/about.css?v=202608180930"/>
   <link rel="stylesheet" href="responsive.css?v=202608241600"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": "https://rare.a-4-to.ru/#organization",
+  "name": "RA|RÉ",
+  "alternateName": "RA|RÉ — Клиника экспертной косметологии",
+  "description": "Клиника экспертной косметологии и лазерной эпиляции в Анапе. Профессиональный уход за собой с доказанным результатом.",
+  "url": "https://rare.a-4-to.ru/",
+  "logo": "https://rare.a-4-to.ru/assets/icons/logo.svg",
+  "telephone": "+7-900-276-11-16",
+  "priceRange": "₽₽",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Владимирская, 120",
+    "addressLocality": "Анапа",
+    "addressRegion": "Краснодарский край",
+    "addressCountry": "RU"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 44.879223, "longitude": 37.331145 },
+  "hasMap": "https://yandex.ru/maps/org/ra_r_/183673265058/",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "sameAs": [
+    "https://vk.com/rareanapa",
+    "https://yandex.ru/maps/org/ra_r_/183673265058/",
+    "https://2gis.ru/anapa/firm/70000001062569003",
+    "https://prodoctorov.ru/anapa/lpu/94048-mindal/"
+  ]
+}
+</script>
 </head>
 <body class="page page--about">
 
@@ -296,9 +333,9 @@
           <a href="tel:+79002761116">+7 (900) 276-11-16</a>
           <p>Пн-Вс: 9:00 — 20:00</p>
         </div>
-        <a class="booking-map" href="https://yandex.ru/maps/?ll=37.331145,44.879223&z=17&pt=37.331145,44.879223,pm2rdl" target="_blank" rel="noopener noreferrer" aria-label="Открыть карту — Анапа, Владимирская 120">
-          <img src="https://static-maps.yandex.ru/1.x/?ll=37.331145,44.879223&z=16&l=map&pt=37.331145,44.879223,pm2rdl&size=650,450" alt="Клиника RA|RÉ на карте — Анапа, Владимирская 120" loading="lazy"/>
-        </a>
+        <div class="booking-map">
+          <iframe src="https://yandex.ru/map-widget/v1/?ll=37.331145,44.879223&z=16&pt=37.331145,44.879223,pm2rdl" width="100%" height="100%" frameborder="0" style="border:0" loading="lazy" allowfullscreen title="Открыть карту — Анапа, ул. Владимирская, 120"></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -337,6 +374,7 @@
       </div>
     </div>
     <div class="footer-bottom">
+      <address class="footer-copy" style="font-style:normal">Анапа, ул. Владимирская, 120</address>
       <p class="footer-copy">Copyright © RA|RÉ, 2026</p>
       <div class="footer-legal">
         <a href="docs/processing.docx" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>

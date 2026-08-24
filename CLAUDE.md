@@ -54,6 +54,37 @@
 - **Spacing:** Use intentional, consistent spacing tokens — not random Tailwind steps.
 - **Depth:** Surfaces should have a layering system (base → elevated → floating), not all sit at the same z-plane.
 
+## SEO Skills (claude-seo)
+- Source: [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) (MIT). Requires one-time setup before these work: `/plugin marketplace add AgriciDaniel/claude-seo`, then `/plugin install claude-seo@agricidaniel-claude-seo`, then `/seo setup`.
+- Entry point: `/seo audit <url>` for a full parallel-subagent site audit; `/seo plan`, `/seo doctor` etc. for other top-level commands. Individual skills below can also be invoked directly when the request matches their trigger.
+- Invoke `seo` first for any general SEO question — it's the umbrella skill (industry detection, routes to the right sub-skill).
+- Sub-skills, invoke by match:
+  - `seo-audit` — full-site crawl + parallel specialist delegation + health score.
+  - `seo-technical` — crawlability, indexability, security, URL structure, mobile, Core Web Vitals, structured data, JS rendering, IndexNow.
+  - `seo-page` — deep single-page analysis (on-page, meta, schema, images, performance).
+  - `seo-content` — E-E-A-T and content-quality analysis, AI citation readiness.
+  - `seo-content-brief` — competitive content briefs with word counts and keyword density.
+  - `seo-schema` — Schema.org / JSON-LD detection, validation, generation.
+  - `seo-local` — Google Business Profile, NAP consistency, citations, local schema, multi-location.
+  - `seo-maps` — geo-grid rank tracking, GBP audit, review intelligence, NAP cross-platform checks.
+  - `seo-images` — alt text, file size/format, responsive images, lazy loading, CLS, image SERP.
+  - `seo-image-gen` — AI-generated OG/hero/schema/product images (needs the `banana` extension).
+  - `seo-sitemap` — XML sitemap analysis and generation.
+  - `seo-hreflang` — hreflang/i18n audit, validation, generation.
+  - `seo-backlinks` — referring domains, anchor text, toxic links, competitor gap (free APIs + optional DataForSEO).
+  - `seo-cluster` — SERP-based topic clustering, hub-and-spoke architecture, internal link matrices.
+  - `seo-competitor-pages` — "X vs Y" / alternatives / comparison pages.
+  - `seo-programmatic` — programmatic/scaled page templates, thin-content and index-bloat safeguards.
+  - `seo-ecommerce` — Google Shopping, marketplace intelligence, product schema, pricing/keyword gaps.
+  - `seo-geo` — GEO for AI Overviews, ChatGPT, Perplexity (brand mentions, AI crawler access).
+  - `seo-sxo` — search-experience optimization: page-type/intent mismatch, persona scoring.
+  - `seo-drift` — baseline/diff/track regressions in on-page SEO over time ("git for SEO").
+  - `seo-plan` — strategic SEO plan/roadmap for new or existing sites, industry templates.
+  - `seo-flow` — FLOW (Find→Leverage→Optimize→Win) framework prompts.
+  - `seo-google` — Search Console, PageSpeed/CrUX, Indexing API, GA4 (needs Google API auth).
+  - `seo-dataforseo` — live SERP/keyword/backlink/competitor data (needs DataForSEO extension + credentials).
+- Paid-API extensions (ahrefs, dataforseo, bing-webmaster, firecrawl, profound, seranking, unlighthouse, banana) are separate opt-in installs, each needing its own credentials — not installed here; only note if the user asks for one specifically.
+
 ## Hard Rules
 - Do not add sections, features, or content not in the reference
 - Do not "improve" a reference design — match it

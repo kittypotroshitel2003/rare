@@ -162,5 +162,5 @@ body.page--services { background: #fff; color: var(--c-text); }
   .mh-services-contact__lines .is-strong { font-weight: 500; color: var(--c-text); }
   .mh-services-contact__lines .is-muted { font-weight: 400; color: #595961; }
   .mh-services-contact__map { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; }
-  .mh-services-contact__map img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mh-services-contact__map iframe { width: 100%; height: 100%; border: none; display: block; }
 }

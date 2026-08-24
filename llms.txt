@@ -1,0 +1,41 @@
+# RA|RÉ
+
+> Клиника экспертной косметологии и лазерной эпиляции в Анапе, Россия. Адрес: Анапа, ул. Владимирская, 120. Телефон: +7 (900) 276-11-16. Часы работы: ежедневно 9:00–20:00. Рейтинг: 4.9/5 (295 отзывов на Яндекс.Картах), 5.0/5 (2ГИС), 5.0/5 (ПроДокторов).
+
+RA|RÉ — клиника эстетической медицины, специализирующаяся на аппаратной и инъекционной косметологии, лазерной эпиляции и уходовых процедурах. В штате — сертифицированные врачи-косметологи и дерматовенерологи.
+
+## Основные страницы
+
+- [Главная](https://rare.a-4-to.ru/): обзор клиники, направления, контакты
+- [О клинике](https://rare.a-4-to.ru/about.html): миссия, оборудование, интерьер
+- [Услуги](https://rare.a-4-to.ru/services.html): все направления процедур
+- [Цены](https://rare.a-4-to.ru/prices.html): полный прайс-лист по всем услугам
+- [Специалисты](https://rare.a-4-to.ru/specialists/index.html): врачи клиники, образование, сертификаты
+- [Отзывы](https://rare.a-4-to.ru/reviews/index.html): рейтинги и отзывы гостей
+- [Акции](https://rare.a-4-to.ru/promos.html): текущие скидки и предложения
+- [Подарочные сертификаты](https://rare.a-4-to.ru/certificates.html)
+
+## Направления услуг
+
+- [Лазерные технологии](https://rare.a-4-to.ru/services/laser.html) — лазерная эпиляция, лазерная шлифовка
+- [Аппаратный лифтинг](https://rare.a-4-to.ru/services/lifts.html) — SMAS-лифтинг, RF-лифтинг Volnewmer, RF-лифтинг Sylfirm X
+- [Инъекционная косметология](https://rare.a-4-to.ru/services/injections.html) — ботулинотерапия, контурная пластика, биоревитализация, PRP-терапия
+- [Световые технологии](https://rare.a-4-to.ru/services/light.html) — фотоомоложение, лечение акне и купероза, ФДТ
+- [Уход за кожей](https://rare.a-4-to.ru/services/skin.html) — пилинги, чистки, гидропилинг
+- [Коррекция тела и SPA](https://rare.a-4-to.ru/services/spa.html) — LPG-массаж, SPA-программы
+- [Диагностика](https://rare.a-4-to.ru/services/diagnostics.html) — УЗИ-диагностика кожи
+- [Консультации](https://rare.a-4-to.ru/services/consultations.html) — приём косметолога, трихолога, нутрициолога
+
+## Подробные разборы процедур
+
+- [Лазерная эпиляция на александритовом лазере](https://rare.a-4-to.ru/services/procedures/laser-epilation.html)
+- [SMAS-лифтинг Ultraformer MPT](https://rare.a-4-to.ru/services/procedures/smas-lifting.html)
+- [Лазерная шлифовка кожи](https://rare.a-4-to.ru/services/procedures/laser-resurfacing.html)
+- [Лечение акне](https://rare.a-4-to.ru/services/procedures/acne-treatment.html)
+- [Лечение купероза и розацеа](https://rare.a-4-to.ru/services/procedures/rosacea-treatment.html)
+- [Фотоомоложение](https://rare.a-4-to.ru/services/procedures/photorejuvenation.html)
+- [Консультация трихолога](https://rare.a-4-to.ru/services/procedures/trichologist-consultation.html)
+
+## Полезно
+
+Полный XML-список страниц: [sitemap.xml](https://rare.a-4-to.ru/sitemap.xml)

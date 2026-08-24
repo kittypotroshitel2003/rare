@@ -48,8 +48,7 @@ body.page--promos { background: #fff; color: var(--c-text); }
 .promo-tile__desc { font-size: clamp(10px, 0.78vw, 15px); font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.7; margin: 0; }
 
 /* Booking + map section reuses the shared .sec-booking/.booking-* component
-   (css/components/forms.css) verbatim — same markup/styles as index.html,
-   including its .booking-map hover-zoom, per explicit request. */
+   (css/components/forms.css) verbatim — same markup/styles as index.html. */
 
 @media (max-width: 767px) { .promos-desktop { display: none; } }
 

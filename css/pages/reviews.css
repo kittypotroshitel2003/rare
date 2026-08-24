@@ -5,18 +5,18 @@
    1920px frame (vw% = px/19.2); the max-width:767px block re-states
    every value as a flat px pulled straight off the 390px mobile
    frame. Same architecture as certificates.css — see that file's
-   header comment for the two systemic gotchas this also had to work
-   around: (1) "inner" template pages never define --header-h, so a
-   plain (non-photo) hero needs its own measured offset; (2) any
-   ".rv-X" selector that also carries the shared ".wrap" class needs
-   !important on padding/margin — body.page--inner .wrap's shorthand
-   outranks a plain/even compound class selector on specificity alone
-   (it counts "body" as a type selector).
+   header comment: the hero's own measured margin-top offset (not
+   var(--header-h)) is kept deliberately, since Figma's spacing
+   includes a gap beyond bare header clearance.
    ============================================================ */
-.site-hd { padding: 24px var(--gutter); }
-body.page--reviews { --gutter: clamp(20px, 9.375vw, 180px); }
 
-.rv-main { display: flex; flex-direction: column; }
+/* NOT display:flex — flex-column made every direct child .wrap section a flex
+   item, and .wrap's margin:0 auto triggers flexbox's auto-margin cross-axis
+   sizing (shrink-to-fit by max-content instead of stretch), which blew each
+   section out to its content's natural width and overflowed mobile viewports.
+   Plain block flow stacks the sections identically since none of them ever
+   used flex/gap/align-items from this rule. */
+.rv-main { display: block; }
 
 /* ── HERO ── */
 .rv-hero.wrap {
@@ -58,10 +58,9 @@ body.page--reviews { --gutter: clamp(20px, 9.375vw, 180px); }
 .rv-hero__complaint { font-size: clamp(14px, 0.78vw, 15px); font-weight: 400; color: var(--c-muted); letter-spacing: -0.04em; line-height: 1.4; margin: 0; }
 .rv-hero__actions { display: flex; gap: clamp(10px, 0.83vw, 16px); align-items: stretch; }
 
-/* color:#fff needs !important: body.page--inner a{color:inherit} (inner-header.css)
-   is (0,0,1,2) — a class selector plus two type selectors (body, a) — which
-   outranks a plain ".rv-btn{color:#fff}" (0,0,1,0) regardless of load order,
-   since .rv-btn is an <a> for three of its four uses on this page. */
+/* color:#fff needs !important: base.css's global a{color:inherit} would
+   otherwise still win the cascade since .rv-btn is an <a> for three of
+   its four uses on this page. */
 .rv-btn { display: inline-flex; align-items: center; justify-content: center; gap: clamp(14px, 1.2vw, 23px); flex: 1 1 0; min-width: 0; background: var(--c-accent); color: #fff !important; text-decoration: none; border: none; border-radius: 12px; padding: clamp(14px, 0.94vw, 18px) clamp(28px, 2.6vw, 50px); font-family: var(--f); font-size: clamp(17px, 1.25vw, 24px); letter-spacing: -0.04em; cursor: pointer; transition: background 0.2s, transform 0.16s ease-out; }
 .rv-btn svg { width: clamp(22px, 1.93vw, 37px); height: clamp(22px, 1.93vw, 37px); flex-shrink: 0; }
 @media (hover: hover) and (pointer: fine) {
@@ -126,17 +125,14 @@ body.page--reviews { --gutter: clamp(20px, 9.375vw, 180px); }
 .rv-contact-map .contacts-bar p, .rv-contact-map .contacts-bar a { margin: 0; font-size: clamp(15px, 0.94vw, 18px); font-weight: 400; color: var(--c-text); text-decoration: none; letter-spacing: -0.02em; }
 .rv-contact-map .contacts-bar a:hover { opacity: 0.7; }
 .rv-map { display: block; height: clamp(280px, 28.2vw, 541px); border-radius: 16px; overflow: hidden; position: relative; }
-.rv-map img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
-.rv-map:hover img { transform: scale(1.04); }
+.rv-map iframe { width: 100%; height: 100%; border: none; display: block; }
 
 /* ── MOBILE (≤767px) — Figma node 2363:1490, exact 390px frame values ── */
 @media (max-width: 767px) {
   /* flat 20px gutter, matching every other mobile-adapted page on the
      site — the desktop --gutter clamp still resolves to ~36.5px at
      390px width, which is a different (wider) inset than what the
-     Figma mobile frame actually uses. !important is enough on its own
-     here since body.page--inner .wrap's own padding rule isn't itself
-     !important — no specificity fight needed to beat it. */
+     Figma mobile frame actually uses. */
   .rv-hero.wrap, .rv-grid-sec.wrap, .rv-feedback.wrap, .rv-cta.wrap, .rv-contact-map.wrap {
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -167,7 +163,7 @@ body.page--reviews { --gutter: clamp(20px, 9.375vw, 180px); }
   .rv-btn svg { width: 20px; height: 20px; }
   .rv-hero__actions .rv-btn--secondary { display: none; }
 
-  .rv-grid-sec.wrap { padding-top: 48px !important; padding-bottom: 0 !important; gap: 28px; }
+  .rv-grid-sec.wrap { padding-top: 48px !important; padding-bottom: 32px !important; gap: 28px; }
   .rv-grid-sec__heading { font-size: 28px; }
   .rv-grid { display: none; }
   .rv-mobile-list { display: flex; flex-direction: column; gap: 16px; }
@@ -185,8 +181,10 @@ body.page--reviews { --gutter: clamp(20px, 9.375vw, 180px); }
   .rv-row__left { display: flex; align-items: center; gap: 12px; min-width: 0; }
   .rv-row__left .rv-card__stars { font-size: 18px; font-weight: 300; letter-spacing: 4px; }
   .rv-row__name { font-size: 22px; font-weight: 600; color: var(--c-text); letter-spacing: -0.04em; }
-  .rv-row__chevron { flex-shrink: 0; color: var(--c-text); }
+  .rv-row__chevron { flex-shrink: 0; color: var(--c-text); transition: transform 0.25s; }
+  .rv-row.is-expanded .rv-row__chevron { transform: rotate(180deg); }
   .rv-row__text { margin: 10px 0 0; font-size: 15px; color: var(--c-muted); letter-spacing: -0.04em; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rv-row.is-expanded .rv-row__text { white-space: normal; overflow: visible; text-overflow: clip; }
   .rv-row__bottom { display: flex; justify-content: space-between; margin-top: 10px; font-size: 15px; }
   .rv-row__bottom span:first-child { font-weight: 500; color: rgba(29,40,51,0.5); letter-spacing: 0.5px; }
   .rv-row__bottom span:last-child { color: rgba(29,40,51,0.3); letter-spacing: -0.04em; }
@@ -213,7 +211,7 @@ body.page--reviews { --gutter: clamp(20px, 9.375vw, 180px); }
   .rv-cta .rv-btn svg { display: none; }
   .rv-cta__phone { font-size: 24px; }
 
-  .rv-contact-map.wrap { padding-top: 16px !important; padding-bottom: 0 !important; gap: 20px; }
+  .rv-contact-map.wrap { padding-top: 16px !important; padding-bottom: 48px !important; gap: 20px; }
   .rv-contact-map .contacts-bar { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 0; border-top: 1px solid rgba(51,36,29,0.1); border-bottom: 1px solid rgba(51,36,29,0.1); }
   .rv-contact-map .contacts-bar p, .rv-contact-map .contacts-bar a { font-size: 14px; }
   .rv-map { height: 220px; border-radius: 12px; }

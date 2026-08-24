@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rare.a-4-to.ru/sitemap.xml

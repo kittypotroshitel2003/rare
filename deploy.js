@@ -367,15 +367,21 @@ async function uploadStatic(creds, domain) {
 
 // ── Configure Caddy ─────────────────────────────────────────────────────
 
-function buildCaddyConfig(domain, type) {
+function buildCaddyConfig(domain, type, redirects = []) {
   const routing =
     type === "static"
       ? "    try_files {path} {path}/ =404"
       : "    try_files {path} /index.html";
 
+  // Optional per-site 301s, set via deploy.config.json's "redirects" array
+  // (e.g. old/duplicate URLs that should point at their canonical page).
+  const redirLines = redirects
+    .map((r) => `    redir ${r.from} ${r.to} ${r.code || 301}`)
+    .join("\n");
+
   return `${domain} {
     root * ${SITES_DIR}/${domain}
-    file_server
+${redirLines ? redirLines + "\n" : ""}    file_server
 ${routing}
     encode gzip zstd
 
@@ -395,15 +401,17 @@ ${routing}
         X-Content-Type-Options "nosniff"
         X-Frame-Options "SAMEORIGIN"
         Referrer-Policy "strict-origin-when-cross-origin"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
         -Server
     }
 }`;
 }
 
-async function configureCaddy(creds, domain, type) {
+async function configureCaddy(creds, domain, type, redirects = []) {
   const configPath = `${CADDY_SITES_DIR}/${domain}`;
 
-  const siteConfig = buildCaddyConfig(domain, type);
+  const siteConfig = buildCaddyConfig(domain, type, redirects);
   const escaped = siteConfig.replace(/'/g, "'\\''");
 
   const checkResult = await sshExec(
@@ -557,7 +565,7 @@ async function main() {
 
   const config = loadConfig();
   const creds = getServerCreds();
-  const { domain, type = "spa" } = config;
+  const { domain, type = "spa", redirects = [] } = config;
 
   if (!isValidDomain(domain)) {
     err(`Invalid domain in ${CONFIG_FILE}: "${domain}"`);
@@ -599,7 +607,7 @@ async function main() {
 
   // Step 5: Caddy
   log("Checking Caddy config...");
-  await configureCaddy(creds, domain, type);
+  await configureCaddy(creds, domain, type, redirects);
 
   console.log(`\n\x1b[32m\x1b[1m✓ Deployed!\x1b[0m https://${domain}\n`);
 }

@@ -15,43 +15,25 @@
    which one is current. Only the card style (2359:5037) is
    implemented here.
    ============================================================ */
-.site-hd { padding: 24px var(--gutter); }
-
-/* This page's "inner" template family (inner-header.css) defines its own
-   isolated token set on body.page--inner and never includes --header-h
-   (its other pages avoid needing it by keeping hero text near the bottom
-   of a tall photo box). Figma's flat text hero needs a real offset instead,
-   measured directly off the rendered .site-hd (80px at 390px viewport,
-   100px at 1920px). Also override --gutter to the wide 180px-max variant
-   ("page--inner-lg" elsewhere) that this Figma spread actually uses — but
-   only the gutter, not the whole -lg token set, since -lg also swaps
-   --r-pill to a fully round 100px shape and this page's header CTA stays
-   the 6px rounded-rect button Figma shows. */
-body.page--certificates { --gutter: clamp(20px, 9.375vw, 180px); }
-
-/* ── HERO ── */
-/* .site-hd is position:fixed (inner-header.css) with an opaque background —
-   the old photo hero never needed its own offset because its text sat near
-   the bottom of a tall image box; this plain hero starts at the very top of
-   the flow, so it needs margin-top:var(--header-h) itself or the title
-   renders hidden underneath the fixed bar. */
+/* This page's hero sits flush at the top of the flow (no photo box for the
+   title to sit near the bottom of), so it needs a real offset to clear the
+   fixed header — clamp(80px mobile, 100px desktop), measured directly off
+   the rendered header rather than var(--header-h) (84px desktop), since
+   Figma's spacing includes a deliberate ~16px gap beyond bare header
+   clearance. */
 /* .cert-hero also carries the shared .wrap class, whose own rule
-   (body.page--inner .wrap { margin: 0 auto; padding: 0 var(--gutter) })
-   is specificity (0,0,2,1) — it counts "body" as a type selector, one
-   tier ".cert-hero.wrap" (0,0,2,0) doesn't have, so the compound
-   selector alone still loses regardless of file order. !important on
-   just the conflicting properties settles it for good instead of
-   another specificity chase. */
+   (.wrap { margin: 0 auto; padding: 0 var(--gutter) }) is specificity
+   (0,0,1,0) — equal to ".cert-hero.wrap" (0,0,2,0) would normally beat it,
+   but !important is kept here for parity with the other !important
+   overrides below that DO need it. */
 .cert-hero.wrap { display: flex; flex-direction: column; gap: clamp(18px, 1.25vw, 24px); margin-top: clamp(80px, 5.21vw, 100px) !important; padding-top: clamp(48px, 4.17vw, 80px) !important; padding-bottom: clamp(28px, 2.08vw, 40px) !important; }
 .cert-hero__title { font-size: clamp(34px, 3.33vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; margin: 0; font-style: normal; max-width: 800px; }
 .cert-hero__subtitle { font-size: clamp(15px, 0.94vw, 18px); font-weight: 300; color: var(--c-text); line-height: 1.6; margin: 0; max-width: 800px; font-style: normal; }
 
 /* ── CERTIFICATE CARDS ── */
-/* every padding-top/bottom below needs !important for the same reason as
-   .cert-hero.wrap above (body.page--inner .wrap outranks any plain
-   ".cert-X" or even ".cert-X.wrap" selector on specificity alone) — in
-   the base rules AND inside the mobile media query alike, since
-   specificity always outranks a later @media block. */
+/* every padding-top/bottom below needs !important so the mobile media
+   query's own padding overrides (further down this file) can still win —
+   specificity always outranks a later @media block otherwise. */
 .cert-grid-sec.wrap { padding-top: clamp(14px, 1.04vw, 20px) !important; padding-bottom: clamp(14px, 1.04vw, 20px) !important; }
 .cert-grid { display: flex; gap: clamp(16px, 1.25vw, 24px); align-items: stretch; }
 .cert-card { flex: 1 1 0; min-width: 0; background: rgba(237,237,237,0.25); border: 1px solid rgba(29,40,51,0.12); border-radius: 16px; padding: clamp(24px, 2.08vw, 40px); display: flex; flex-direction: column; justify-content: space-between; gap: clamp(28px, 2.5vw, 48px); transition: border-color 0.25s, background 0.25s; }
@@ -90,9 +72,9 @@ body.page--certificates { --gutter: clamp(20px, 9.375vw, 180px); }
 .cert-cta.wrap { display: flex; flex-direction: column; align-items: center; gap: clamp(20px, 1.67vw, 32px); text-align: center; padding-top: clamp(48px, 4.17vw, 80px) !important; padding-bottom: clamp(72px, 6.25vw, 120px) !important; }
 .cert-cta__heading { font-size: clamp(24px, 1.875vw, 36px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; margin: 0; font-style: normal; }
 .cert-cta__actions { display: flex; align-items: center; gap: clamp(18px, 1.67vw, 32px); flex-wrap: wrap; justify-content: center; }
-/* color:#fff needs !important: body.page--inner a{color:inherit} (inner-header.css)
-   is (0,0,1,2), which outranks a plain ".cert-cta__btn{color:#fff}" (0,0,1,0)
-   regardless of load order, since this is an <a> tag. */
+/* color:#fff needs !important: base.css's global a{color:inherit} is an
+   element selector, but this is still safer than relying on class
+   specificity alone to win the cascade. */
 .cert-cta__btn { display: inline-flex; align-items: center; justify-content: center; background: var(--c-accent); color: #fff !important; text-decoration: none; border-radius: 8px; padding: clamp(14px, 1.04vw, 20px) clamp(28px, 2.5vw, 48px); font-size: clamp(17px, 1.25vw, 24px); letter-spacing: -0.04em; transition: background 0.2s, transform 0.16s ease-out; }
 @media (hover: hover) and (pointer: fine) {
   .cert-cta__btn:hover { background: #18334E; }
