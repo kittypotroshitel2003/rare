@@ -870,6 +870,20 @@
     .mh-hero__cta span { font-size: 16px; font-weight: 400; letter-spacing: -0.02em; white-space: nowrap; }
     .mh-hero__cta svg { width: 18px; height: 18px; flex-shrink: 0; }
 
+    /* mobile hero entrance sequence: title (up) → subtitle (typed) → photo
+       (right) → cta (up) — driven by the Web Animations API (see the
+       script near the end of the body), same approach as the desktop
+       hero. Plain opacity:0 here is just the pre-JS baseline. */
+    .mh-hero__title, .mh-hero__sub, .mh-hero__photo, .mh-hero__cta { opacity: 0; }
+    .mh-hero__sub .type-cursor {
+      display: inline-block; width: 2px; height: 0.85em; margin-left: 2px; margin-bottom: -0.1em;
+      background: currentColor; opacity: 0.5; vertical-align: middle;
+      animation: heroCursorBlink 0.9s steps(1) infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mh-hero__title, .mh-hero__sub, .mh-hero__photo, .mh-hero__cta { opacity: 1 !important; }
+    }
+
     /* ── PROMO / OFFERS CAROUSEL ───────────────────────
        Figma: laser-banner-frame is w-full inside a 20px-padded parent —
        i.e. exactly one full-bleed card per "page" (350px on a 390px phone),

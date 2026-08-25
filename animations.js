@@ -273,6 +273,77 @@
     ['.footer-cta',                 'up',     0.6,  0.24, 0    ],
     ['.footer-bottom',              'up',     0.5,  0.3,  0    ],
 
+    // ── MOBILE — homepage (index.html .mobile-home) ─────────
+    // The mobile hero (.mh-hero__title/__sub/__photo/__cta) now runs its
+    // own hand-choreographed WAAPI sequence — title → typed subtitle →
+    // photo slides in from the right → cta — defined inline in
+    // index.html right next to the equivalent desktop hero sequence, so
+    // it's intentionally excluded from this generic list.
+    // Durations below run noticeably longer than the desktop equivalents
+    // (and get the same ×1.18 SMOOTH stretch on top) — a slow, unhurried
+    // materialize was specifically asked for on mobile.
+    ['.mh-promo-slide',             'scale',  1.15, 0,    0.14 ],
+    ['.mh-stats__title',            'up',     1.1,  0,    0    ],
+    ['.mh-stats__desc',             'up',     1.0,  0.15, 0    ],
+    ['.mh-stats__btn',              'up',     0.85, 0.3,  0    ],
+    ['.mh-stats__circle',           'img',    1.3,  0.15, 0    ],
+    ['.mh-features__item',          'up',     0.95, 0,    0.12 ],
+    ['.mh-numbers__item',           'scale',  0.95, 0,    0.12 ],
+    // .mh-section-title is the shared mobile section heading, reused
+    // across index.html, services.html and every services/procedures/*
+    // page's mobile booking block — one rule covers all of them.
+    ['.mh-section-title',           'up',     1.05, 0,    0    ],
+    // .mh-service-card is shared between index.html's and services.html's
+    // mobile "Направления услуг" grids.
+    ['.mh-service-card',            'up',     0.95, 0,    0.12 ],
+    ['.mh-services__cta',           'up',     0.85, 0.15, 0    ],
+    ['.mh-why__title',              'up',     1.05, 0,    0    ],
+    // .mh-why-cta (the booking button in the last why-card) is nested
+    // inside a .mh-why-card, so it's covered by that card's own reveal —
+    // giving it a separate rule would double-animate it.
+    ['.mh-why-card',                'up',     0.95, 0,    0.12 ],
+    ['.mh-why-photo',               'img',    1.25, 0,    0.14 ],
+    ['.mh-founder__photo',          'img',    1.25, 0,    0    ],
+    ['.mh-founder__quote p',        'up',     0.95, 0.15, 0.16 ],
+    ['.mh-founder__author-name',    'up',     0.85, 0.3,  0    ],
+    ['.mh-founder__author-role',    'up',     0.8,  0.4,  0    ],
+    ['.mh-spec-card',               'scale',  0.95, 0,    0.1  ],
+    ['.mh-interior-slide',          'img',    1.1,  0,    0.1  ],
+    ['.mh-result-slide',            'img',    1.1,  0,    0.12 ],
+    // .mh-booking__desc / .mh-form are the shared mobile booking block —
+    // reused on index.html, promos.html and every services*/procedures*
+    // page. The form itself reveals as one block (not per-field) so a
+    // stalled observer can never leave an input stuck invisible.
+    ['.mh-booking__desc',           'up',     1.0,  0.15, 0    ],
+    ['.mh-form',                    'up',     1.05, 0.25, 0    ],
+
+    // ── MOBILE — promos.html grid ────────────────────────────
+    // Scoped to .mh-promos-cards because .mh-promo-card is a different,
+    // already-covered element on index.html (the text panel nested
+    // inside .mh-promo-slide, which handles its own reveal above).
+    ['.mh-promos-heading',              'up', 1.05, 0,    0    ],
+    ['.mh-promos-cards .mh-promo-card', 'up', 0.95, 0,    0.12 ],
+
+    // ── MOBILE — prices.html accordions ──────────────────────
+    // Only the (always-visible) accordion row animates — its collapsible
+    // __body is already governed by its own open/close max-height
+    // transition and must not also start from opacity:0.
+    ['.mh-price-hero__title',       'up',     1.1,  0,    0    ],
+    ['.mh-price-hero__sub',         'up',     0.95, 0.15, 0    ],
+    ['.mh-price-accordion',         'up',     0.9,  0,    0.09 ],
+
+    // ── MOBILE — services.html / services/procedures/* contact block ──
+    ['.mh-services-contact__lines', 'left',   1.0,  0,    0    ],
+    ['.mh-services-contact__map',   'right',  1.0,  0.15, 0    ],
+
+    // ── MOBILE — shared footer (.mh-footer, ~30 pages) ───────
+    ['.mh-footer__links',           'up',     0.85, 0,    0    ],
+    ['.mh-footer__socials',         'up',     0.8,  0.15, 0    ],
+    ['.mh-footer__wordmark',        'up',     1.05, 0.25, 0    ],
+    ['.mh-footer__text',            'up',     0.9,  0.35, 0    ],
+    ['.mh-footer__pill',            'up',     0.85, 0.45, 0    ],
+    ['.mh-footer__legal',           'up',     0.8,  0.5,  0    ],
+
     // ── Articles ──────────────────────────────────────────
     ['.article-hero__cnt h1',       'up',     0.85, 0.1,  0    ],
     ['.article-hero__cnt .article-meta', 'up', 0.6, 0.25, 0   ],
@@ -351,9 +422,16 @@
     ['.spec-hero__bio',             'up',     0.65, 0.28, 0    ],
     ['.spec-hero__stats',           'up',     0.65, 0.22, 0    ],
     ['.spec-hero__actions',         'up',     0.65, 0.32, 0    ],
-    ['.spec-rev-card',              'up',     0.55, 0,    0.05 ],
-    ['.other-spec-card',            'scale',  0.6,  0,    0.07 ],
-    ['.edu-item',                   'up',     0.5,  0,    0.04 ],
+    // Selectors below were drifting from the actual markup (spec-rev-card
+    // -> spec-review-card, other-spec-card -> spec-other-card, edu-item ->
+    // spec-edu-item) — silently matching nothing, so these sections never
+    // animated on any of the 7 specialist pages. Corrected to the real
+    // class names.
+    ['.spec-review-card',           'up',     0.55, 0,    0.05 ],
+    ['.spec-other-card',            'scale',  0.6,  0,    0.07 ],
+    ['.spec-edu-item',              'up',     0.5,  0,    0.04 ],
+    ['.spec-cert-card',             'scale',  0.55, 0,    0.06 ],
+    ['.svc-indications__item, .mh-svc-indications__item', 'up', 0.5, 0, 0.05],
     // .spec-proc-card mirrors the homepage "Направления услуг" tiles
     // (.dir-tile, defined earlier in this list) — same scale/blur-in
     // reveal + stagger, so the specialist's procedure cards animate
@@ -550,8 +628,6 @@
      timed just after the block's own fade-up (see .spec-hero__stats in
      RULES) finishes materializing. */
   function initStatCounters() {
-    const groups = document.querySelectorAll('.spec-hero__stats');
-    if (!groups.length) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     function parseTarget(el) {
@@ -573,20 +649,36 @@
       })(start);
     }
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        obs.unobserve(entry.target);
-        setTimeout(() => {
-          entry.target.querySelectorAll('.spec-stat__num').forEach((el) => {
-            const { num, suffix } = parseTarget(el);
-            if (!isNaN(num)) animateCounter(el, num, suffix, 1400);
-          });
-        }, 300);
-      });
-    }, { threshold: 0.4 });
+    // [group selector, number selector, count-up duration ms] — group is
+    // what's observed (so all numbers in a row start together), number
+    // selector is what actually gets counted up.
+    const COUNTER_GROUPS = [
+      ['.spec-hero__stats', '.spec-stat__num',  1400],
+      // Mobile homepage "7+ / 3000+ / 12 / 40+" row — same mechanism,
+      // just a slower count (1900ms) to match the slower mobile reveal
+      // pace asked for elsewhere on this page.
+      ['.mh-numbers',       '.mh-numbers__n',   1900],
+    ];
 
-    groups.forEach((g) => obs.observe(g));
+    COUNTER_GROUPS.forEach(([groupSel, numSel, duration]) => {
+      const groups = document.querySelectorAll(groupSel);
+      if (!groups.length) return;
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.querySelectorAll(numSel).forEach((el) => {
+              const { num, suffix } = parseTarget(el);
+              if (!isNaN(num)) animateCounter(el, num, suffix, duration);
+            });
+          }, 300);
+        });
+      }, { threshold: 0.4 });
+
+      groups.forEach((g) => obs.observe(g));
+    });
   }
 
   /* ── NAVBAR ────────────────────────────────────────
@@ -625,11 +717,34 @@
     }, { passive: true });
   }
 
+  /* Several sections ship a separate mobile-layout and desktop-layout
+     <video autoplay> for the same clip (e.g. index.html's .mh-hero__photo
+     vs .hero__photo, both pointing at hero-clip.mp4), toggled via CSS
+     display at the 767px breakpoint. Both still decode/play even while
+     display:none, doubling CPU/battery cost for a video only one of
+     which is ever visible — pause whichever copy isn't. */
+  function syncOffscreenVideos() {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      if (v.offsetParent === null) {
+        if (!v.paused) v.pause();
+      } else if (v.paused) {
+        v.play().catch(function () {});
+      }
+    });
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setup);
     document.addEventListener('DOMContentLoaded', initSmartNav);
+    document.addEventListener('DOMContentLoaded', syncOffscreenVideos);
   } else {
     setup();
     initSmartNav();
+    syncOffscreenVideos();
   }
+  var offscreenVideoResizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(offscreenVideoResizeTimer);
+    offscreenVideoResizeTimer = setTimeout(syncOffscreenVideos, 200);
+  });
 })();

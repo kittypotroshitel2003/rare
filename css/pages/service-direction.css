@@ -19,11 +19,11 @@ body.page--service-direction { background: #fff; color: var(--c-text); }
 .svcdir-head { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; width: 100%; }
 .svcdir-heading { align-self: flex-start; font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
 
-.svcdir-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; font-weight: 400; letter-spacing: -0.02em; font-style: normal; }
-.svcdir-breadcrumb a { color: #595961; text-decoration: none; transition: color 0.2s; }
-.svcdir-breadcrumb a:hover { color: var(--c-text); }
-.svcdir-breadcrumb__sep { color: rgba(29,40,51, 0.3); }
-.svcdir-breadcrumb__current { color: var(--c-text); font-weight: 500; }
+.svcdir-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: clamp(14px, 0.9vw, 16px); font-weight: 300; color: var(--c-muted); letter-spacing: -0.03em; font-style: normal; }
+.svcdir-breadcrumb a { color: var(--c-muted); text-decoration: none; transition: opacity 0.2s; }
+.svcdir-breadcrumb a:hover { opacity: 0.7; }
+.svcdir-breadcrumb__sep { color: var(--c-muted); }
+.svcdir-breadcrumb__current { color: var(--c-text); font-weight: 600; }
 
 .svcdir-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px, 2.5vw, 48px); width: 100%; }
 
@@ -114,8 +114,8 @@ body.page--service-direction { background: #fff; color: var(--c-text); }
   .mobile-services .mh-footer { margin-top: 0; }
 
   .mh-services__head { display: flex; flex-direction: column; gap: 10px; }
-  .mh-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 400; letter-spacing: -0.02em; font-style: normal; }
-  .mh-breadcrumb a { color: #595961; text-decoration: none; }
-  .mh-breadcrumb__sep { color: rgba(29,40,51, 0.3); }
-  .mh-breadcrumb__current { color: var(--c-text); font-weight: 500; }
+  .mh-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 300; color: var(--c-muted); letter-spacing: -0.03em; font-style: normal; }
+  .mh-breadcrumb a { color: var(--c-muted); text-decoration: none; }
+  .mh-breadcrumb__sep { color: var(--c-muted); }
+  .mh-breadcrumb__current { color: var(--c-text); font-weight: 600; }
 }

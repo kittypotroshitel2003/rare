@@ -1936,7 +1936,19 @@
 /* ── FINAL GUARD v4 (must stay last) ── */
 @media (max-width: 767px) {
   html, body { overflow-x: hidden !important; }
-  .wrap, .container { overflow-x: hidden !important; }
+  /* overflow-y must be set explicitly alongside overflow-x: hidden — per
+     spec, when one axis is non-visible and the other is visible, the
+     visible axis silently computes to auto instead (this happens even
+     when overflow-y:visible is set explicitly, not just by default — the
+     spec only exempts visible/clip pairings from the swap). That turned
+     every .wrap/.container section into its own invisible vertical
+     scroll container the moment its content was even 1px taller than the
+     box (sub-pixel rounding, borders, reveal-animation transforms — all
+     routine), which is what produced the internal scroll inside sections
+     like specialist reviews and "other specialists". overflow-y: clip
+     (not visible) sidesteps the quirk entirely — same visual clipping as
+     hidden, no scroll container ever created. */
+  .wrap, .container { overflow-x: hidden !important; overflow-y: clip !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════

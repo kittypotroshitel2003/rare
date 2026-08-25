@@ -8,8 +8,8 @@
     modal.id = 'doc-modal';
     modal.style.cssText = 'position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;';
     modal.innerHTML =
-      '<div id="doc-overlay" style="position:absolute;inset:0;background:rgba(46,65,40,0.75);backdrop-filter:blur(6px);opacity:0;transition:opacity 0.3s ease"></div>' +
-      '<div id="doc-card" style="position:relative;z-index:1;background:#F3EEE8;border-radius:16px;width:min(900px,calc(100vw - 32px));height:min(82vh,900px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.3);opacity:0;transform:scale(0.96) translateY(12px);transition:opacity 0.35s ease,transform 0.35s cubic-bezier(0.34,1.56,0.64,1)">' +
+      '<div id="doc-overlay" style="position:absolute;inset:0;background:rgba(24,51,78,0.75);backdrop-filter:blur(6px);opacity:0;transition:opacity 0.3s ease"></div>' +
+      '<div id="doc-card" style="position:relative;z-index:1;background:#FFFFFF;border-radius:16px;width:min(900px,calc(100vw - 32px));height:min(82vh,900px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.3);opacity:0;transform:scale(0.96) translateY(12px);transition:opacity 0.35s ease,transform 0.35s cubic-bezier(0.34,1.56,0.64,1)">' +
         '<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(29,40,51,0.12);flex-shrink:0">' +
           '<span id="doc-title" style="font-size:15px;font-weight:500;color:#1D2833;letter-spacing:-0.01em"></span>' +
           '<button id="doc-close" style="width:32px;height:32px;border-radius:50%;border:none;background:rgba(29,40,51,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:#1D2833;transition:background 0.2s" aria-label="Закрыть">✕</button>' +

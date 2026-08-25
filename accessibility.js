@@ -1,12 +1,14 @@
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'rr-a11y';
-  var BTN_ID = 'a11y-toggle';
-
-  /* ── CSS injected into page ─────────────────────────────────────── */
+  /* ── Toggle button(s) ────────────────────────────────────────────
+     The header gets an icon-only button (hidden ≤1024px via CSS below);
+     the mobile slide-out menu gets a second, labeled instance so the
+     control stays reachable once the header icon is hidden on mobile.
+     Both carry the .bvi-open class, which the BVI widget (loaded just
+     before this file — see the script tag order in <head>/<body>) binds
+     its click handler to automatically. */
   var css = `
-/* ── Accessibility toggle button ──────────────────────────────── */
 #a11y-toggle {
   width: 22px;
   height: 22px;
@@ -26,10 +28,7 @@
 #a11y-toggle:hover { opacity: 1; }
 #a11y-toggle svg { width: 20px; height: 20px; display: block; }
 #a11y-toggle .a11y-label { display: none; }
-#a11y-toggle.is-active { color: var(--c-accent, #48627C); opacity: 1; }
 
-/* mobile menu variant — sits as a labeled row inside the slide-out nav,
-   the header's icon-only button is hidden at this breakpoint instead */
 @media (max-width: 1024px) {
   #a11y-toggle { display: none !important; }
 }
@@ -42,7 +41,6 @@
 }
 #a11y-toggle-menu svg { width: 22px; height: 22px; }
 #a11y-toggle-menu .a11y-label { display: inline; }
-#a11y-toggle-menu.is-active { color: var(--c-accent, #48627C); }
 
 /* fixed-position fallback for pages without a header actions row */
 #a11y-toggle.a11y-fixed {
@@ -53,143 +51,25 @@
   opacity: 1;
 }
 #a11y-toggle.a11y-fixed:hover { background: rgba(253,252,248,0.12); }
-#a11y-toggle.a11y-fixed.is-active { background: var(--c-accent, #48627C); border-color: var(--c-accent, #48627C); color: #fff; }
 @media (max-width: 767px) {
   #a11y-toggle.a11y-fixed { top: 12px; right: 60px; width: 24px; height: 24px; }
 }
 
-/* ── Accessibility mode styles ─────────────────────────────────── */
-html.a11y-mode {
-  font-size: 20px !important;
+/* BVI's top panel and our fixed header both pin to top:0 at the same
+   time — push the header down below the panel while it's open (see
+   syncBviHeaderOffset in the script below). animations.js sets the
+   header's own top:0 with !important for its scroll show/hide behavior,
+   so this needs !important too to actually win. */
+body.bvi-active .site-header,
+body.bvi-active .site-hd {
+  top: var(--bvi-panel-h, 0px) !important;
 }
-html.a11y-mode *,
-html.a11y-mode *::before,
-html.a11y-mode *::after {
-  animation-duration: 0.01ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.01ms !important;
-}
-html.a11y-mode body {
-  background: #ffffff !important;
-  color: #111111 !important;
-  font-size: 1.2rem !important;
-  line-height: 1.8 !important;
-}
-html.a11y-mode :root {
-  --c-dark:   #0a1f16 !important;
-  --c-accent: #1a5c42 !important;
-  --c-bg:     #ffffff !important;
-  --c-text:   #111111 !important;
-  --c-muted:  #333333 !important;
-  --c-white:  #ffffff !important;
-}
-html.a11y-mode a {
-  text-decoration: underline !important;
-  text-underline-offset: 3px !important;
-  color: #00529b !important;
-}
-html.a11y-mode a:visited { color: #7a0099 !important; }
-html.a11y-mode button,
-html.a11y-mode .pill-btn {
-  outline: 3px solid #111 !important;
-  outline-offset: 2px;
-}
-html.a11y-mode input,
-html.a11y-mode select,
-html.a11y-mode textarea {
-  border: 2px solid #111 !important;
-  background: #fff !important;
-  color: #111 !important;
-  font-size: 1.1rem !important;
-}
-html.a11y-mode h1,
-html.a11y-mode h2,
-html.a11y-mode h3 {
-  letter-spacing: 0 !important;
-  line-height: 1.3 !important;
-  color: #000 !important;
-}
-html.a11y-mode img {
-  filter: contrast(1.15) !important;
-}
-html.a11y-mode .script {
-  font-family: var(--f) !important;
-  font-style: normal !important;
-  font-size: 1em !important;
-}
-html.a11y-mode .spec-card__view {
-  opacity: 1 !important;
-  transform: none !important;
-  font-family: var(--f) !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  color: #ffffff !important;
-}
-html.a11y-mode .dot {
-  background: #555555 !important;
-}
-html.a11y-mode .dot--active {
-  background: #1a5c42 !important;
-}
-html.a11y-mode .booking-submit,
-html.a11y-mode .interior-arr,
-html.a11y-mode .promo-card,
-html.a11y-mode .result-item .result-photo {
-  outline: 3px solid #111 !important;
-  outline-offset: 2px;
-}
-html.a11y-mode .site-header,
-html.a11y-mode .site-hd,
-html.a11y-mode .sec-dir,
-html.a11y-mode .sec-spec,
-html.a11y-mode .sec-founder,
-html.a11y-mode .sec-contacts,
-html.a11y-mode .site-footer {
-  background: #0a1f16 !important;
-}
-html.a11y-mode .site-header *,
-html.a11y-mode .site-hd *,
-html.a11y-mode .sec-dir *,
-html.a11y-mode .sec-spec *,
-html.a11y-mode .sec-founder *,
-html.a11y-mode .sec-contacts *,
-html.a11y-mode .site-footer * {
-  color: #ffffff !important;
-}
-html.a11y-mode .site-footer a,
-html.a11y-mode .site-header a,
-html.a11y-mode .site-hd a {
-  text-decoration: underline !important;
-  color: #7df5c4 !important;
-}
-html.a11y-mode .pill-btn {
-  background: #1a5c42 !important;
-  color: #fff !important;
-  font-size: 1.1rem !important;
-  padding: 18px 32px !important;
-}
-html.a11y-mode .adv-label,
-html.a11y-mode .svc-card__name,
-html.a11y-mode .svc-card__desc {
-  color: #111 !important;
-}
-html.a11y-mode .svc-card { border: 2px solid #111 !important; }
-html.a11y-mode .booking-field input,
-html.a11y-mode .booking-svc-sel { font-size: 1.1rem !important; }
-html.a11y-mode .cookie-banner { display: none !important; }
 `;
 
-  /* ── Inject styles ──────────────────────────────────────────────── */
   var styleEl = document.createElement('style');
   styleEl.textContent = css;
   document.head.appendChild(styleEl);
 
-  /* ── Create toggle button(s) ───────────────────────────────────────
-     The header gets an icon-only button (hidden ≤1024px via CSS above);
-     the mobile slide-out menu gets a second, labeled instance so the
-     control stays reachable once the header icon is hidden on mobile. */
   var ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
     '<path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
     '<path d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z" stroke="currentColor" stroke-width="1.5"/>' +
@@ -198,9 +78,9 @@ html.a11y-mode .cookie-banner { display: none !important; }
 
   function createBtn() {
     var btn = document.createElement('button');
-    btn.id = BTN_ID;
+    btn.id = 'a11y-toggle';
     btn.type = 'button';
-    btn.classList.add('a11y-toggle-btn');
+    btn.classList.add('bvi-open');
     btn.setAttribute('aria-label', 'Версия для слабовидящих');
     btn.setAttribute('title', 'Версия для слабовидящих');
     btn.innerHTML = ICON_SVG + '<span class="a11y-label">Aa</span>';
@@ -222,7 +102,7 @@ html.a11y-mode .cookie-banner { display: none !important; }
     var btn = document.createElement('button');
     btn.id = 'a11y-toggle-menu';
     btn.type = 'button';
-    btn.classList.add('a11y-toggle-btn');
+    btn.classList.add('bvi-open');
     btn.setAttribute('aria-label', 'Версия для слабовидящих');
     btn.setAttribute('title', 'Версия для слабовидящих');
     btn.innerHTML = ICON_SVG + '<span class="a11y-label">Версия для слабовидящих</span>';
@@ -231,37 +111,58 @@ html.a11y-mode .cookie-banner { display: none !important; }
     return btn;
   }
 
-  /* ── Toggle logic ───────────────────────────────────────────────── */
-  function enable() {
-    document.documentElement.classList.add('a11y-mode');
-    localStorage.setItem(STORAGE_KEY, '1');
-    document.querySelectorAll('.a11y-toggle-btn').forEach(function (btn) {
-      btn.classList.add('is-active');
-    });
-  }
+  /* Our own header (.site-header/.site-hd) is position:fixed;top:0 for its
+     own scroll-pinning behavior — the same spot BVI plants its top panel,
+     at a higher z-index, so the panel simply covers the header while
+     active. Push the header down by the panel's real (and resizable —
+     the user can grow the font, the panel can reflow at narrow widths)
+     height via a CSS var kept in sync with a ResizeObserver. */
+  var bviPanelRO = null;
+  function syncBviHeaderOffset() {
+    var panel = document.querySelector('.bvi-panel');
+    var active = document.body.classList.contains('bvi-active');
+    var h = (panel && active) ? panel.offsetHeight : 0;
+    document.documentElement.style.setProperty('--bvi-panel-h', h + 'px');
 
-  function disable() {
-    document.documentElement.classList.remove('a11y-mode');
-    localStorage.removeItem(STORAGE_KEY);
-    document.querySelectorAll('.a11y-toggle-btn').forEach(function (btn) {
-      btn.classList.remove('is-active');
-    });
-  }
-
-  function toggle() {
-    if (document.documentElement.classList.contains('a11y-mode')) {
-      disable();
-    } else {
-      enable();
+    if (panel && active) {
+      if (!bviPanelRO && 'ResizeObserver' in window) {
+        bviPanelRO = new ResizeObserver(function () {
+          document.documentElement.style.setProperty('--bvi-panel-h', panel.offsetHeight + 'px');
+        });
+        bviPanelRO.observe(panel);
+      }
+    } else if (bviPanelRO) {
+      bviPanelRO.disconnect();
+      bviPanelRO = null;
     }
   }
 
   function init() {
     var btn = createBtn();
     var menuBtn = createMenuBtn();
-    if (localStorage.getItem(STORAGE_KEY)) enable();
-    btn.addEventListener('click', toggle);
-    if (menuBtn) menuBtn.addEventListener('click', toggle);
+
+    /* BVI (https://github.com/veks/button-visually-impaired-javascript)
+       scans for elements matching `target` at construction time, so it
+       must run after the buttons above exist — bvi.min.js itself loads
+       with `defer` right before this script, so `window.isvek` is
+       already available here. */
+    if (window.isvek && typeof window.isvek.Bvi === 'function') {
+      new window.isvek.Bvi({
+        target: '.bvi-open',
+        lang: 'ru-RU',
+        theme: 'white',
+        fontSize: 16,
+      });
+    }
+
+    // Covers the case where the panel is already active from a cookie
+    // set on a previous page (BVI renders it synchronously above).
+    syncBviHeaderOffset();
+    // BVI's own click listener (attached above, runs first) has already
+    // opened/closed the panel by the time this fires.
+    [btn, menuBtn].forEach(function (b) {
+      if (b) b.addEventListener('click', function () { setTimeout(syncBviHeaderOffset, 0); });
+    });
   }
 
   if (document.readyState === 'loading') {

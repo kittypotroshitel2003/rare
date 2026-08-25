@@ -301,7 +301,7 @@ body.page--specialist-detail { background: #fff; color: var(--c-text); }
   .spec-edu-item { padding-bottom: 16px; border-bottom: 1px solid rgba(29,40,51,0.1); }
   .spec-edu-item:last-child { padding-bottom: 0; border-bottom: none; }
 
-  .spec-cert-grid { gap: 12px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+  .spec-cert-grid { gap: 12px; flex-wrap: nowrap; align-items: flex-start; overflow-x: auto; overflow-y: clip; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
   .spec-cert-grid::-webkit-scrollbar { display: none; }
   .spec-cert-card { width: 160px; height: 209px; border-radius: 8px; flex: 0 0 160px; scroll-snap-align: start; }
 
@@ -320,7 +320,7 @@ body.page--specialist-detail { background: #fff; color: var(--c-text); }
   .spec-other-card { aspect-ratio: 350 / 450; border-radius: 16px; padding: 36px 24px; }
   .spec-other-card__name { font-size: 24px; }
   .spec-other-card__role { font-size: 18px; }
-  .spec-others__grid { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 16px; }
+  .spec-others__grid { display: flex; flex-wrap: nowrap; align-items: flex-start; overflow-x: auto; overflow-y: clip; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 16px; }
   .spec-others__grid::-webkit-scrollbar { display: none; }
   .spec-other-card { flex: 0 0 100%; scroll-snap-align: start; }
   .spec-others__dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }

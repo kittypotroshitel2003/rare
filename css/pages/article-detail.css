@@ -12,9 +12,10 @@
 .article-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .article-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,47,39,0.1), rgba(16,47,39,0.65)); }
 .article-hero__cnt { position: relative; z-index: 2; padding-bottom: 60px; width: 100%; }
-.article-breadcrumb { font-size: 16px; font-weight: 500; color: rgba(253,252,248,0.65); margin-bottom: 16px; display: flex; gap: 8px; align-items: center; }
-.article-breadcrumb a { color: rgba(253,252,248,0.65); text-decoration: none; transition: color 0.2s; }
-.article-breadcrumb a:hover { color: #FDFCF8; }
+.article-breadcrumb { font-size: clamp(14px, 0.9vw, 16px); font-weight: 300; color: rgba(253,252,248,0.65); letter-spacing: -0.03em; margin-bottom: 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.article-breadcrumb a { color: rgba(253,252,248,0.65); text-decoration: none; transition: opacity 0.2s; }
+.article-breadcrumb a:hover { opacity: 0.7; }
+.article-breadcrumb > span:last-child { font-weight: 600; color: #FDFCF8; }
 .article-title { font-size: clamp(32px, 3.5vw, 64px); font-weight: 400; color: #FDFCF8; letter-spacing: -0.02em; line-height: 1.05; font-style: normal; max-width: 900px; }
 
 .sec-article { padding: 80px 0 105px; }

@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RA|RÉ — Клиника экспертной косметологии в Анапе</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg"/>
+<link rel="stylesheet" href="assets/vendor/bvi/css/bvi.min.css?v=202608251400"/>
 <link rel="canonical" href="https://rare.a-4-to.ru/"/>
   <meta name="description" content="RA|RÉ — клиника экспертной косметологии и лазерной эпиляции в Анапе. Профессиональный уход за собой с доказанным результатом."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -20,9 +22,9 @@
   <link rel="stylesheet" href="css/components/forms.css?v=202608201600"/>
   <link rel="stylesheet" href="css/components/mobile-booking.css?v=202608211130"/>
   <link rel="stylesheet" href="css/components/dots.css?v=202608180930"/>
-  <link rel="stylesheet" href="css/components/booking-popup.css?v=202608180930"/>
+  <link rel="stylesheet" href="css/components/booking-popup.css?v=202608242100"/>
   <link rel="stylesheet" href="css/pages/home.css?v=202608201600"/>
-  <link rel="stylesheet" href="responsive.css?v=202608241600"/>
+  <link rel="stylesheet" href="responsive.css?v=202608242230"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1122,6 +1124,23 @@
 <script src="js/filmstrip.js?v=202608180930"></script>
 <script>
 (function () {
+  // Incoming links from other pages (e.g. footer "Контакты") point at
+  // #booking, which is the desktop-only form and display:none on mobile —
+  // without this, arriving on mobile silently lands at the top of the page
+  // instead of the form. Redirect to the mobile form when #booking is hidden.
+  if (location.hash === '#booking') {
+    var target = document.getElementById('booking');
+    if (target && getComputedStyle(target).display === 'none') {
+      var mobileTarget = document.getElementById('booking-mobile');
+      if (mobileTarget) {
+        requestAnimationFrame(function () {
+          mobileTarget.scrollIntoView({ block: 'start' });
+        });
+      }
+    }
+  }
+})();
+(function () {
   /* ── HERO (static, slow ambient Ken Burns zoom) ──────────────────── */
   (function () {
     var heroReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1201,6 +1220,67 @@
       await slideIn(cta, '-50px 0', 450);
       await wait(PAUSE);
       await slideIn(ratings, '0 16px', 450);
+    })();
+  })();
+
+  /* ── MOBILE HERO entrance sequence: title → typed subtitle → photo (right) → cta ──
+     Same WAAPI approach as the desktop hero above, just a different order/
+     direction per the mobile design: title settles first, then the
+     subtitle types out, then the photo slides in from the right, then
+     the cta. Deliberately slower than the desktop hero (each step ~1.4x
+     the desktop step) for an unhurried, "slow and smooth" mobile intro. */
+  (function () {
+    var mhTitle = document.querySelector('.mh-hero__title');
+    var mhSub = document.querySelector('.mh-hero__sub');
+    var mhPhoto = document.querySelector('.mh-hero__photo');
+    var mhCta = document.querySelector('.mh-hero__cta');
+    if (!mhTitle || !mhSub || !mhPhoto || !mhCta) return;
+
+    var mhReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var MH_EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+    function mhSettle(el) { el.style.opacity = '1'; el.style.translate = '0 0'; }
+
+    function mhSlideIn(el, from, ms) {
+      if (mhReduceMotion) { mhSettle(el); return Promise.resolve(); }
+      var anim = el.animate(
+        [{ opacity: 0, translate: from }, { opacity: 1, translate: '0 0' }],
+        { duration: ms, easing: MH_EASE, fill: 'forwards' }
+      );
+      return anim.finished.catch(function () {}).then(function () { mhSettle(el); });
+    }
+
+    function mhTypeText(el, raw, speed) {
+      if (mhReduceMotion) { el.style.opacity = '1'; return Promise.resolve(); }
+      return new Promise(function (resolve) {
+        el.style.opacity = '1';
+        var chars = raw.split('');
+        var cursor = document.createElement('span');
+        cursor.className = 'type-cursor';
+        var i = 0;
+        (function step() {
+          el.textContent = chars.slice(0, i).join('');
+          el.appendChild(cursor);
+          if (i >= chars.length) { cursor.remove(); resolve(); return; }
+          i++;
+          setTimeout(step, speed);
+        })();
+      });
+    }
+
+    function mhWait(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
+
+    var MH_PAUSE = 260;
+    var mhSubText = mhSub.textContent;
+
+    (async function run() {
+      await mhSlideIn(mhTitle, '0 26px', 750);
+      await mhWait(MH_PAUSE);
+      await mhTypeText(mhSub, mhSubText, 24);
+      await mhWait(MH_PAUSE);
+      await mhSlideIn(mhPhoto, '56px 0', 850);
+      await mhWait(MH_PAUSE);
+      await mhSlideIn(mhCta, '0 22px', 650);
     })();
   })();
 
@@ -1508,7 +1588,7 @@
   if (connectTrigger && connectPanel) hoverIntent(connectTrigger, connectPanel, 300);
 })();
 </script>
-<script src="docs-popup.js" defer></script><script src="animations.js?v=202608241200" defer></script>
+<script src="docs-popup.js?v=202608242200" defer></script><script src="animations.js?v=202608242130" defer></script>
 <script src="mobile-nav.js?v=202606041800" defer></script>
 
 <!-- ═══ GIFT CERT POPUP ════════════════════════════════════════════ -->
@@ -1726,5 +1806,5 @@ function openBookingPopup() {
   });
 })();
 </script>
-<script src="./accessibility.js" defer></script><script src="./booking-widget.js?v=202608241600" defer></script></body>
+<script src="assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="./accessibility.js?v=202608251200" defer></script><script src="./booking-widget.js?v=202608241600" defer></script></body>
 </html>
