@@ -161,16 +161,6 @@
 
   <!-- Promo detail pages -->
   <url>
-    <loc>https://rare.a-4-to.ru/promos/biorev-meso.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/promos/first-visit.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://rare.a-4-to.ru/promos/laser-new-client.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -182,11 +172,6 @@
   </url>
   <url>
     <loc>https://rare.a-4-to.ru/promos/smas-lifting.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/promos/spa-transformation.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

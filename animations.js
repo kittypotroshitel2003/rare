@@ -442,6 +442,32 @@
 
     // ── Promo card (sticky) ────────────────────────────────
     ['.promo-card.promo-card--sticky', 'right', 0.8, 0.15, 0  ],
+
+    // ── Promo OFFER pages (laser-new-client / smas-lifting / rf-lifting)
+    // desktop — slow, unhurried pacing per the "медленные" request. ──
+    ['.promo-title h1',             'up',     1.1,  0,    0    ],
+    ['.promo-offer__badge',         'up',     0.95, 0,    0    ],
+    ['.promo-offer__desc',          'up',     0.9,  0.15, 0    ],
+    ['.promo-offer__cta',           'up',     0.8,  0.3,  0    ],
+    ['.promo-offer__media',         'img',    1.3,  0.1,  0    ],
+    ['.promo-info__block',          'up',     0.95, 0,    0.15 ],
+    ['.promo-others h2',            'up',     1.05, 0,    0    ],
+    ['.promo-others .promo-tile',   'scale',  1.1,  0,    0.15 ],
+
+    // ── Promo OFFER pages — mobile (.mh-promo-*) ─────────────────
+    ['.mh-promo-hero__img',         'img',    1.2,  0,    0    ],
+    ['.mh-promo-badge',             'up',     0.85, 0.15, 0    ],
+    ['.mh-promo-hero__content h1',  'up',     0.95, 0.25, 0    ],
+    ['.mh-promo-hero__content p',   'up',     0.9,  0.35, 0    ],
+    ['.mh-promo-hero__cta',         'up',     0.8,  0.45, 0    ],
+    ['.mh-promo-details h2',        'up',     1.0,  0,    0    ],
+    ['.mh-promo-details p',         'up',     0.9,  0.15, 0    ],
+    ['.mh-promo-adv h2',            'up',     1.0,  0,    0    ],
+    ['.mh-promo-adv__row',          'up',     0.85, 0,    0.14 ],
+    ['.mh-promo-terms h2',          'up',     0.9,  0,    0    ],
+    ['.mh-promo-terms p',           'up',     0.85, 0.12, 0    ],
+    ['.mh-promo-others h2',         'up',     1.0,  0,    0    ],
+    ['.mh-promo-others__card',      'scale',  1.1,  0,    0.16 ],
   ];
 
   const obs = new IntersectionObserver((entries) => {
