@@ -35,7 +35,7 @@ body.page--service-direction { background: #fff; color: var(--c-text); }
    to); the few that are real <a> links to their own procedure page
    (e.g. laser.html's epilation card) also render .svcdir-card__arrow,
    defined further down. */
-.svcdir-card { position: relative; overflow: hidden; background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; width: 380px; max-width: 100%; aspect-ratio: 380 / 520; text-decoration: none; color: inherit; display: block; }
+.svcdir-card { position: relative; overflow: hidden; background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; width: 380px; max-width: 100%; aspect-ratio: 380 / 520; text-decoration: none; color: inherit; display: block; scroll-margin-top: calc(var(--header-h) + 32px); }
 .svcdir-card__scrim { position: absolute; inset: 0; z-index: 2; background: rgba(0,0,0,0.25); opacity: 0; transition: opacity 0.3s ease; }
 .svcdir-card:hover .svcdir-card__scrim { opacity: 1; transition: opacity 0.35s ease 0.1s; }
 .svcdir-card__photo {
@@ -51,10 +51,10 @@ body.page--service-direction { background: #fff; color: var(--c-text); }
 .svcdir-card:hover .svcdir-card__photo { top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px; }
 .svcdir-card__body { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 64px 32px 32px; text-align: center; height: 100%; transition: opacity 0.2s ease; }
 .svcdir-card:hover .svcdir-card__body { opacity: 0; }
-.svcdir-card__num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 24px; background: #ededed; color: #595961; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.02em; font-style: normal; }
+.svcdir-card__num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 24px; background: #ededed; color: #5B6159; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.02em; font-style: normal; }
 .svcdir-card__photo-spacer { width: 200px; height: 200px; flex-shrink: 0; }
 .svcdir-card__title { font-size: 22px; font-weight: 600; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.25; font-style: normal; margin: 0; }
-.svcdir-card__desc { font-size: 15px; font-weight: 400; color: #595961; letter-spacing: -0.04em; line-height: 1.4; font-style: normal; margin: 0; }
+.svcdir-card__desc { font-size: 15px; font-weight: 400; color: #5B6159; letter-spacing: -0.04em; line-height: 1.4; font-style: normal; margin: 0; }
 .svcdir-card__num-hover {
   position: absolute; z-index: 4; opacity: 0; transform: scale(0.6);
   transition: opacity 0.22s ease, transform 0.22s ease;

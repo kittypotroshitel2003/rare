@@ -42,11 +42,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/articles/index.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <!-- Service category pages -->
   <url>
@@ -178,7 +173,17 @@
 
   <!-- Article detail pages -->
   <url>
-    <loc>https://rare.a-4-to.ru/articles/article-hydra.html</loc>
+    <loc>https://rare.a-4-to.ru/articles/article-office-syndrome.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/articles/article-aging-mask-effect.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/articles/article-hair-loss.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -188,12 +193,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/articles/article-move.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/articles/article-photodynamic.html</loc>
+    <loc>https://rare.a-4-to.ru/articles/article-microcurrent.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

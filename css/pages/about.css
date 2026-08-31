@@ -24,13 +24,13 @@
 }
 .about-hero__card--accent { background: var(--c-accent); }
 .about-hero__card--grey { background: #ededed; }
-.about-hero__number { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(29,40,51,0.6); }
+.about-hero__number { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(48,54,46,0.6); }
 .about-hero__card--accent .about-hero__number { color: #d9d9d9; }
 /* the site-wide hover tint (animations.js) reads oddly on the olive card — keep its number steady */
 .about-hero__card--accent:hover .about-hero__number { color: #d9d9d9 !important; }
 .about-hero__card-title { font-size: clamp(13px, 0.83vw, 16px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.25; color: var(--c-text); }
 .about-hero__card--accent .about-hero__card-title { color: #fff; }
-.about-hero__card-text { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(29,40,51,0.6); opacity: 0.7; }
+.about-hero__card-text { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(48,54,46,0.6); opacity: 0.7; }
 .about-hero__card--accent .about-hero__card-text { color: #fff; opacity: 0.7; }
 .about-hero__team-photo { width: 100%; border-radius: clamp(12px, 1.04vw, 20px); overflow: hidden; aspect-ratio: 768 / 769; }
 .about-hero__team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 49% 100%; display: block; }
@@ -83,7 +83,7 @@
   font-size: clamp(22px, 2.5vw, 48px); font-weight: 400; line-height: 1.2;
   letter-spacing: normal; color: var(--c-text); font-style: normal;
 }
-.about-mission__dim { color: rgba(29,40,51,0.4); }
+.about-mission__dim { color: rgba(48,54,46,0.4); }
 .about-mission__br { display: none; }
 /* Figma mobile (node 2250:865): full-width text block, 20px section padding,
    350px effective content width, text-[24px], leading-[1.2], no letter-spacing */
@@ -107,6 +107,16 @@
 .about-interior__nav { display: flex; align-items: center; justify-content: center; padding: 0 var(--gutter); margin-top: 32px; }
 .about-interior__dots { display: flex; gap: 10px; }
 
+/* ── 3D-ТУР ────────────────────────────────────────────────── */
+/* margin-top fixed at 160px (not the fluid section+section clamp) and
+   heading-to-content gap matched to .about-interior__h, both per explicit
+   request rather than the page's usual fluid clamp() pattern. */
+.about-3dtour { margin-top: 160px; }
+.about-3dtour__h { margin-bottom: clamp(40px, 6.56vw, 126px); text-align: left; }
+.about-3dtour__frame { width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: var(--c-muted); box-shadow: 0 24px 64px rgba(16,47,39,0.12); }
+.about-3dtour__frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+@media (max-width: 767px) { .about-3dtour__frame { aspect-ratio: 4 / 5; border-radius: 12px; } }
+
 /* ── СТАТЬИ И НОВОСТИ ─────────────────────────────────────── */
 /* Figma: feature card size-[719.026px] (square), Stats_Grid gap-[33px] row / ~24px
    column, small cards w-[372px] h-[339px] (Stats_Grid h-711 minus 33 gap, /2 rows). */
@@ -117,7 +127,7 @@
   text-decoration: none; background: #ededed;
   transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
 }
-.about-articles__card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(29,40,51,0.18), 0 4px 12px rgba(29,40,51,0.08); }
+.about-articles__card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(48,54,46,0.18), 0 4px 12px rgba(48,54,46,0.08); }
 .about-articles__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
 .about-articles__card:hover .about-articles__bg { transform: scale(1.05); }
 video.about-articles__bg { background: #23241d; }
@@ -149,7 +159,7 @@ video.about-articles__bg { background: #23241d; }
 }
 .about-articles__grid .about-articles__title { width: 100%; font-size: clamp(13px, 0.83vw, 16px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.25; color: var(--c-text); }
 .about-articles__title--narrow { max-width: 70%; }
-.about-articles__grid .about-articles__excerpt { width: 100%; font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(29,40,51,0.6); opacity: 0.7; }
+.about-articles__grid .about-articles__excerpt { width: 100%; font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(48,54,46,0.6); opacity: 0.7; }
 
 @media (max-width: 900px) and (min-width: 768px) {
   .about-articles__row { flex-direction: column; }

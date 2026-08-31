@@ -35,7 +35,7 @@
 #a11y-toggle-menu {
   width: auto; height: auto; border-radius: 0;
   display: flex; align-items: center; gap: 12px;
-  padding: 0; opacity: 1; color: #1D2833;
+  padding: 0; opacity: 1; color: #30362E;
   font-size: 18px; font-weight: 500; letter-spacing: -0.02em;
   font-family: inherit;
 }

@@ -4,12 +4,12 @@
 
    Found inconsistency during the reorg audit: index.html's dots
    currently render at 7px/#cfcfcf/no active-scale, about.html's at
-   8px/rgba(29,40,51,.2)/active scale 1.3 — same component, two
+   8px/rgba(48,54,46,.2)/active scale 1.3 — same component, two
    looks, because each page's own inline <style> used to define it
    separately. Not unifying the visuals in this pass (scope was
    "reorganize, don't redesign") — about.html's version becomes the
    canonical one here, and css/pages/home.css adds a `.page--home`
    override so index.html keeps rendering exactly as it does today.
    ============================================================ */
-.dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(29,40,51,0.2); cursor: pointer; padding: 0; transition: background 0.25s, transform 0.25s; }
+.dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(48,54,46,0.2); cursor: pointer; padding: 0; transition: background 0.25s, transform 0.25s; }
 .dot--active { background: var(--c-accent); transform: scale(1.3); }

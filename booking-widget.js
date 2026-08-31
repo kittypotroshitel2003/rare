@@ -10,10 +10,10 @@
   var href = isHome ? '#booking' : prefix + 'index.html#booking';
 
   var css = '#rr-booking-widget{position:fixed;bottom:24px;right:24px;z-index:600;display:flex;align-items:center;gap:8px;' +
-    'background:#48627C;color:#fdfcf8;text-decoration:none;padding:14px 22px;border-radius:8px;' +
+    'background:#8DA585;color:#fdfcf8;text-decoration:none;padding:14px 22px;border-radius:8px;' +
     'font-family:\'Inter\',sans-serif;font-size:15px;font-weight:400;letter-spacing:-0.01em;' +
-    'box-shadow:0 6px 24px rgba(29,40,51,0.3);transition:background 0.2s ease, opacity 0.25s ease;}' +
-    '#rr-booking-widget:hover{background:#18334E;}' +
+    'box-shadow:0 6px 24px rgba(48,54,46,0.3);transition:background 0.2s ease, opacity 0.25s ease;}' +
+    '#rr-booking-widget:hover{background:#6A7C64;}' +
     '#rr-booking-widget svg{flex-shrink:0;}' +
     '#rr-booking-widget.rr-bw-hidden{opacity:0;pointer-events:none;}' +
     '@media (max-width:640px){#rr-booking-widget{right:16px;bottom:16px;padding:12px 18px;font-size:14px;}#rr-booking-widget .rr-bw-label{display:none;}}' +

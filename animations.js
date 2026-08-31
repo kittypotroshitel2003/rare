@@ -92,7 +92,7 @@
 [data-rr="type"] .tw-ch.is-in { opacity: 1; }
 [data-rr="type"] .tw-caret {
   position: absolute; top: 0; left: 0; width: 2px;
-  background: var(--c-accent, #48627C); opacity: 0; pointer-events: none;
+  background: var(--c-accent, #8DA585); opacity: 0; pointer-events: none;
 }
 @keyframes twBlink { 50% { opacity: 0; } }
 [data-rr="type"] .tw-caret.is-active { opacity: 1; animation: twBlink 0.9s steps(1) infinite; }
@@ -125,7 +125,7 @@
 .site-header.rr-nav-solid .site-header__nav a,
 .site-header.rr-nav-solid .site-header__social a,
 .site-header.rr-nav-solid .site-header__phone {
-  color: #1D2833 !important;
+  color: #30362E !important;
 }
 /* phone icon + logo are flat <img>s, so they can't inherit color — the
    files themselves are dark ink (correct once solid); invert them back
@@ -172,7 +172,7 @@
 
 /* stat glow */
 .about-stat__n { display: inline-block; transition: color 0.3s ease; }
-.about-stat:hover .about-stat__n { color: #48627C; }
+.about-stat:hover .about-stat__n { color: #8DA585; }
 
 /* proc-row hover */
 .proc-row {
@@ -231,6 +231,8 @@
     ['.dir-heading',                'left',   0.85, 0,    0    ],
     ['.dir-all',                    'right',  0.7,  0.1,  0    ],
     ['.dir-tile',                   'scale',  1.0,  0,    0.12 ],
+    ['.promos-active__heading',     'left',   0.85, 0,    0    ],
+    ['.promos-grid .promo-tile',    'scale',  1.1,  0,    0.15 ],
     ['.cta-heading',                'up',     0.85, 0,    0    ],
     ['.cta-sub',                    'up',     0.7,  0.12, 0    ],
     ['.gallery-heading',            'up',     0.8,  0,    0    ],
@@ -329,7 +331,9 @@
     // __body is already governed by its own open/close max-height
     // transition and must not also start from opacity:0.
     ['.mh-price-hero__title',       'up',     1.1,  0,    0    ],
-    ['.mh-price-hero__sub',         'up',     0.95, 0.15, 0    ],
+    // .mh-price-hero__sub is excluded here on purpose — it uses the
+    // [data-typewriter] effect instead (see initSubtitleTypewriters),
+    // which owns its own opacity/reveal, so a RULES entry would fight it.
     ['.mh-price-accordion',         'up',     0.9,  0,    0.09 ],
 
     // ── MOBILE — services.html / services/procedures/* contact block ──
@@ -509,6 +513,7 @@
     initInnerHeroParallax();
     initHoverTilt();
     initMissionTypewriter();
+    initSubtitleTypewriters();
     initStatCounters();
   }
 
@@ -629,6 +634,46 @@
       });
     }, { threshold: 0.5 });
     typeObs.observe(el);
+  }
+
+  /* ── SUBTITLE TYPEWRITER: [data-typewriter] ─────────────
+     Simpler sibling of initMissionTypewriter() — types the element's own
+     text char-by-char with a blinking cursor once it scrolls into view.
+     Used for page-hero subtitles (prices, certificates) rather than the
+     wrapped-span/caret approach above. Speed in ms/char via the attribute
+     value, e.g. data-typewriter="16" (falls back to 16). */
+  function initSubtitleTypewriters() {
+    const els = document.querySelectorAll('[data-typewriter]');
+    if (!els.length) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function typeOut(el) {
+      const raw = el.textContent;
+      const speed = parseInt(el.dataset.typewriter, 10) || 16;
+      el.textContent = '';
+      el.style.opacity = '1';
+      const cursor = document.createElement('span');
+      cursor.className = 'type-cursor';
+      let i = 0;
+      (function step() {
+        el.textContent = raw.slice(0, i);
+        el.appendChild(cursor);
+        if (i >= raw.length) { cursor.remove(); return; }
+        i++;
+        setTimeout(step, speed);
+      })();
+    }
+
+    if (reduceMotion) return; // CSS already forces opacity:1, text stays as authored
+
+    const tObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        tObs.unobserve(entry.target);
+        typeOut(entry.target);
+      });
+    }, { threshold: 0.4 });
+    els.forEach(el => tObs.observe(el));
   }
 
   /* ── CARD 3D TILT ────────────────────────────────────── */

@@ -21,7 +21,7 @@ body.page--specialists-listing { background: #fff; color: var(--c-text); }
   gap: 12px; text-decoration: none; background: #ccc4b3;
   transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
 }
-.spec-card:hover, .spec-card:focus-visible { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(29,40,51,0.22); }
+.spec-card:hover, .spec-card:focus-visible { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(48,54,46,0.22); }
 .spec-card:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .spec-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
 .spec-card:hover img { transform: scale(1.05); }

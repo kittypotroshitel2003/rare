@@ -8,16 +8,16 @@
 @media (max-width: 767px) {
   .mh-section-title { font-size: 28px; font-weight: 400; line-height: 1; letter-spacing: -0.04em; color: var(--c-text); font-style: normal; }
 
-  .mh-booking { padding: 40px 20px 0; border-top: 1px solid rgba(29,40,51,0.1); display: flex; flex-direction: column; gap: 32px; }
-  .mh-booking__desc { font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #595961; margin-top: 23px; }
+  .mh-booking { padding: 40px 20px 0; border-top: 1px solid rgba(48,54,46,0.1); display: flex; flex-direction: column; gap: 32px; }
+  .mh-booking__desc { font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #5B6159; margin-top: 23px; }
   .mh-form { display: flex; flex-direction: column; gap: 24px; }
   .mh-field { display: flex; flex-direction: column; gap: 8px; }
-  .mh-field label { font-size: 14px; font-weight: 500; letter-spacing: -0.04em; color: #595961; }
-  .mh-field input, .mh-field select { border: none; border-bottom: 1px solid var(--c-text); padding: 24px 10px 24px 18px; font-size: 20px; font-family: var(--f); font-weight: 400; letter-spacing: -0.04em; color: #595961; background: none; width: 100%; outline: none; appearance: none; -webkit-appearance: none; border-radius: 0; transition: border-color 0.2s; }
+  .mh-field label { font-size: 14px; font-weight: 500; letter-spacing: -0.04em; color: #5B6159; }
+  .mh-field input, .mh-field select { border: none; border-bottom: 1px solid var(--c-text); padding: 24px 10px 24px 18px; font-size: 20px; font-family: var(--f); font-weight: 400; letter-spacing: -0.04em; color: #5B6159; background: none; width: 100%; outline: none; appearance: none; -webkit-appearance: none; border-radius: 0; transition: border-color 0.2s; }
   .mh-field input:focus, .mh-field select:focus { border-bottom-color: var(--c-accent); }
   .mh-field-select { position: relative; }
   .mh-field-select svg { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
-  .mh-field input::placeholder { color: #595961; opacity: 1; }
+  .mh-field input::placeholder { color: #5B6159; opacity: 1; }
   .mh-field.has-error input, .mh-field.has-error select { border-bottom-color: #c94444; }
   .mh-field__err { font-size: 13px; color: #c94444; display: none; margin-top: 4px; }
   .mh-field.has-error .mh-field__err { display: block; }
@@ -28,7 +28,7 @@
   .mh-footer { background: #fff; padding: 0 20px 40px; display: flex; flex-direction: column; gap: 32px; }
   .mh-footer__links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 16px; font-weight: 500; letter-spacing: -0.04em; color: var(--c-text); }
   .mh-footer__links a { text-decoration: none; color: inherit; }
-  .mh-footer__div { height: 1px; background: rgba(29,40,51,0.12); width: 100%; }
+  .mh-footer__div { height: 1px; background: rgba(48,54,46,0.12); width: 100%; }
   .mh-footer__socials { display: flex; gap: 12px; }
   .mh-footer__socials a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
   .mh-footer__socials a.is-plain img { width: 40px; height: 40px; }
@@ -36,9 +36,9 @@
   .mh-footer__socials a:not(.is-plain) img { width: 22px; height: 18px; }
   .mh-footer__brand { display: flex; flex-direction: column; gap: 24px; }
   .mh-footer__wordmark { font-size: 64px; font-weight: 300; line-height: 0.8; color: var(--c-text); }
-  .mh-footer__text { font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #595961; }
+  .mh-footer__text { font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: #5B6159; }
   .mh-footer__pill { display: flex; align-items: center; justify-content: center; background: var(--c-accent); color: #fff; border-radius: 8px; padding: 12px 24px; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; width: 100%; }
-  .mh-footer__legal { display: flex; flex-direction: column; gap: 16px; font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: rgba(29,40,51,0.6); }
+  .mh-footer__legal { display: flex; flex-direction: column; gap: 16px; font-size: 15px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; color: rgba(48,54,46,0.6); }
 
   .mh-booking, .mh-footer { display: flex; }
 }

@@ -31,7 +31,7 @@
 .site-header__connect.is-open .site-header__contact svg { transform: rotate(180deg); }
 .site-header__connect-panel {
   position: absolute; top: calc(100% + 18px); right: 0;
-  background: var(--c-bg); border: 1px solid rgba(29,40,51,0.1);
+  background: var(--c-bg); border: 1px solid rgba(48,54,46,0.1);
   border-radius: 14px; box-shadow: 0 24px 64px rgba(16,47,39,0.18);
   padding: 12px; min-width: 240px; display: flex; flex-direction: column; gap: 2px;
   opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px);
@@ -65,5 +65,5 @@
    ("premium button shape") that site-header__cta must keep overriding. */
 .site-header__cta:hover,
 .site-header .site-header__cta.site-header__cta:hover {
-  background: #18334E !important; border-color: #18334E !important; color: #fff !important; box-shadow: none;
+  background: #6A7C64 !important; border-color: #6A7C64 !important; color: #fff !important; box-shadow: none;
 }

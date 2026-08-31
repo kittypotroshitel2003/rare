@@ -23,8 +23,8 @@
    not tokens.css.
    ============================================================ */
 body.page--inner {
-  --c-dark: #FFFFFF; --c-accent: #48627C; --c-bg: #FFFFFF; --c-text: #1D2833;
-  --c-muted: #595961; --c-white: #FFFFFF; --c-w50: rgba(29,40,51,0.5);
+  --c-dark: #FFFFFF; --c-accent: #8DA585; --c-accent-hover: #6A7C64; --c-bg: #FFFFFF; --c-text: #30362E;
+  --c-muted: #5B6159; --c-white: #FFFFFF; --c-w50: rgba(48,54,46,0.5);
   --f: 'Inter', 'Involve', sans-serif;
   --r-card: 10px; --r-pill: 6px; --gutter: clamp(20px, 4.5vw, 72px);
 }
@@ -42,11 +42,11 @@ body.page--inner .pill-btn {
   display: inline-flex; align-items: center; justify-content: center;
   background: transparent; color: var(--c-text); border-radius: var(--r-pill);
   font-family: var(--f); font-weight: 500; font-style: normal;
-  text-decoration: none; border: 1.5px solid rgba(29,40,51,0.25); cursor: pointer;
+  text-decoration: none; border: 1.5px solid rgba(48,54,46,0.25); cursor: pointer;
   transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
   line-height: 1;
 }
-body.page--inner .pill-btn:hover { background: #18334E; border-color: #18334E; color: #fdfcf8; transform: translateY(-1px); }
+body.page--inner .pill-btn:hover { background: #6A7C64; border-color: #6A7C64; color: #fdfcf8; transform: translateY(-1px); }
 
 /* padding is intentionally NOT set here — it varies per page in ways that
    don't cleanly map to the compact/large split (e.g. services/smas.html
@@ -65,7 +65,7 @@ body.page--inner .pill-btn:hover { background: #18334E; border-color: #18334E; c
 .site-hd__contact:hover { opacity: 0.7; }
 .site-hd__contact svg { width: 8px; height: 5px; flex-shrink: 0; transition: transform 0.25s ease; }
 .site-hd__connect:hover .site-hd__contact svg, .site-hd__connect:focus-within .site-hd__contact svg { transform: rotate(180deg); }
-.site-hd__connect-panel { position: absolute; top: calc(100% + 18px); right: 0; background: var(--c-bg); border: 1px solid rgba(29,40,51,0.1); border-radius: 14px; box-shadow: 0 24px 64px rgba(16,47,39,0.18); padding: 12px; min-width: 240px; display: flex; flex-direction: column; gap: 2px; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s; z-index: 400; }
+.site-hd__connect-panel { position: absolute; top: calc(100% + 18px); right: 0; background: var(--c-bg); border: 1px solid rgba(48,54,46,0.1); border-radius: 14px; box-shadow: 0 24px 64px rgba(16,47,39,0.18); padding: 12px; min-width: 240px; display: flex; flex-direction: column; gap: 2px; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s; z-index: 400; }
 .site-hd__connect:hover .site-hd__connect-panel, .site-hd__connect:focus-within .site-hd__connect-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
 .site-hd__connect-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; font-size: 14.5px; font-weight: 500; color: var(--c-text); text-decoration: none; transition: background 0.15s ease; }
 .site-hd__connect-item:hover { background: rgba(119,114,71,0.08); color: var(--c-accent); }
