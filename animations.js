@@ -143,8 +143,10 @@
   will-change: transform;
   background: transparent !important;
   box-shadow: none !important;
-  padding-left: var(--gutter, clamp(20px, 4.5vw, 72px)) !important;
-  padding-right: var(--gutter, clamp(20px, 4.5vw, 72px)) !important;
+  /* --header-pad задаёт header.css: обычно это общие поля страницы,
+     но на средних ширинах шапке нужны свои, более узкие */
+  padding-left: var(--header-pad, var(--gutter, clamp(20px, 4.5vw, 72px))) !important;
+  padding-right: var(--header-pad, var(--gutter, clamp(20px, 4.5vw, 72px))) !important;
   transition: transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94),
               background 0.4s ease,
               box-shadow 0.4s ease !important;
