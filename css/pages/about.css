@@ -85,6 +85,10 @@
 }
 .about-mission__dim { color: rgba(48,54,46,0.4); }
 .about-mission__br { display: none; }
+/* Closing beat of the mission sequence: the badges fade up one after the
+   other once the sentence has finished typing (animations.js drives the
+   reveal, which is why they carry no inline --rr-del here). */
+.about-mission__ratings { margin-top: clamp(28px, 2.6vw, 48px); }
 /* Figma mobile (node 2250:865): full-width text block, 20px section padding,
    350px effective content width, text-[24px], leading-[1.2], no letter-spacing */
 @media (max-width: 767px) {
@@ -92,6 +96,9 @@
   .about-mission .wrap { padding: 0 20px; }
   .about-mission__text { max-width: none; font-size: 24px; line-height: 1.2; letter-spacing: normal; }
   .about-mission__br { display: block; }
+  .about-mission__ratings { margin-top: 24px; gap: 14px 20px; }
+  .about-mission__ratings .price-rating { font-size: 12.5px; }
+  .about-mission__ratings .price-rating img { width: 20px; height: 20px; }
 }
 
 /* ── ВНУТРИ КЛИНИКИ ────────────────────────────────────────── */
@@ -127,9 +134,13 @@
   text-decoration: none; background: #ededed;
   transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
 }
-.about-articles__card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(48,54,46,0.18), 0 4px 12px rgba(48,54,46,0.08); }
 .about-articles__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
-.about-articles__card:hover .about-articles__bg { transform: scale(1.05); }
+/* только для мыши: в мобильной карусели подъём карточки обрезался
+   лентой с overflow-x, а на тач-экране ховер залипал после тапа */
+@media (hover: hover) and (pointer: fine) {
+  .about-articles__card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(48,54,46,0.18), 0 4px 12px rgba(48,54,46,0.08); }
+  .about-articles__card:hover .about-articles__bg { transform: scale(1.05); }
+}
 video.about-articles__bg { background: #23241d; }
 
 /* Feature card — dark video, white text, absolute-positioned exactly per Figma.
@@ -138,7 +149,11 @@ video.about-articles__bg { background: #23241d; }
 .about-articles__featured { flex: 0 0 clamp(280px, 40.05vw, 769px); aspect-ratio: 769 / 719; }
 .about-articles__overlay--featured {
   position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 6.71%, rgba(102,102,102,0) 99.96%);
+  /* подложка с обеих сторон: заголовок сверху и врезка снизу лежат на
+     светлых кадрах, одного верхнего градиента для них не хватало */
+  background:
+    linear-gradient(180deg, rgba(20,22,19,0.55) 0%, rgba(20,22,19,0.12) 32%, rgba(20,22,19,0) 52%),
+    linear-gradient(0deg, rgba(20,22,19,0.62) 0%, rgba(20,22,19,0.16) 26%, rgba(20,22,19,0) 46%);
 }
 .about-articles__title--featured {
   position: absolute; z-index: 2; left: 6.24%; top: 6.68%; width: 85.6%;
@@ -151,19 +166,42 @@ video.about-articles__bg { background: #23241d; }
 
 /* Small cards — light photo, no overlay, dark text (Figma Stat_01…04 pattern) */
 .about-articles__grid { flex: 1; min-width: 0; display: grid; grid-template-columns: 376fr 372fr; column-gap: clamp(10px, 1.04vw, 20px); row-gap: clamp(16px, 1.72vw, 33px); }
-.about-articles__grid .about-articles__card { aspect-ratio: 372 / 339; border: 1px solid #ededed; background: #fff; }
-.about-articles__grid .about-articles__bg { object-position: center top; }
-.about-articles__frame {
-  position: relative; z-index: 2; height: 100%; width: 100%; padding: clamp(16px, 1.67vw, 32px);
-  display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; box-sizing: border-box;
+/* Фото занимает верх карточки, подпись — белую плашку под ним: тёмный
+   текст поверх светлого снимка почти не читался. Доля фото фиксирована,
+   поэтому все четыре карточки в сетке совпадают по разбивке. */
+.about-articles__grid .about-articles__card {
+  aspect-ratio: 372 / 339; border: 1px solid #ededed; background: #fff;
+  display: flex; flex-direction: column;
 }
-.about-articles__grid .about-articles__title { width: 100%; font-size: clamp(13px, 0.83vw, 16px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.25; color: var(--c-text); }
-.about-articles__title--narrow { max-width: 70%; }
-.about-articles__grid .about-articles__excerpt { width: 100%; font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(48,54,46,0.6); opacity: 0.7; }
+.about-articles__grid .about-articles__bg {
+  /* фото забирает всё, что осталось от подписи: при фиксированной доле
+     на широких карточках под текстом оставалась пустая белая полоса */
+  position: relative; inset: auto; flex: 1 1 auto; min-height: 0;
+  width: 100%; height: auto; object-position: center 30%;
+}
+.about-articles__frame {
+  position: relative; z-index: 2; flex: 0 0 auto; height: auto; width: 100%;
+  padding: clamp(12px, 1vw, 18px) clamp(14px, 1.35vw, 26px) clamp(14px, 1.15vw, 22px);
+  display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+  gap: clamp(4px, 0.42vw, 8px); background: #fff; box-sizing: border-box; overflow: hidden;
+}
+.about-articles__grid .about-articles__title {
+  width: 100%; font-size: clamp(13px, 0.94vw, 18px); font-weight: 500; letter-spacing: -0.03em;
+  line-height: 1.25; color: var(--c-text);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+.about-articles__title--narrow { max-width: 100%; }
+.about-articles__grid .about-articles__excerpt {
+  width: 100%; font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.03em;
+  line-height: 1.4; color: #5B6159; opacity: 1;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
 
-@media (max-width: 900px) and (min-width: 768px) {
+/* ниже 1200px четыре карточки рядом с большой ужимались до ~230px и
+   подпись переставала помещаться — раскладываем в столбец раньше */
+@media (max-width: 1200px) and (min-width: 768px) {
   .about-articles__row { flex-direction: column; }
-  .about-articles__featured { flex: none; width: 100%; aspect-ratio: 4/3; }
+  .about-articles__featured { flex: none; width: 100%; aspect-ratio: 16/9; }
 }
 .about-articles__dots { display: none; }
 @media (max-width: 767px) {
@@ -176,10 +214,19 @@ video.about-articles__bg { background: #23241d; }
   .about-articles__grid { display: contents; }
   .about-articles__card, .about-articles__featured { flex: 0 0 100%; width: 100%; scroll-snap-align: start; aspect-ratio: 350 / 462; border-radius: 16px; }
   .about-articles__grid .about-articles__card { aspect-ratio: 350 / 462; }
-  .about-articles__frame { padding: 32px; }
-  .about-articles__grid .about-articles__title { font-size: 22px; font-weight: 500; line-height: 1.1; }
+  /* в карусели карточка во весь экран — фото снова становится фоном,
+     а подпись садится на затемнение снизу */
+  .about-articles__grid .about-articles__bg { position: absolute; inset: 0; flex: none; height: 100%; object-position: center 30%; }
+  .about-articles__grid .about-articles__card::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(0deg, rgba(20,22,19,0.72) 0%, rgba(20,22,19,0.2) 34%, rgba(20,22,19,0) 60%);
+  }
+  .about-articles__frame { flex: none; height: 100%; padding: 32px; justify-content: flex-end; gap: 10px; background: none; }
+  .about-articles__grid .about-articles__title { color: #fff; -webkit-line-clamp: 3; }
+  .about-articles__grid .about-articles__excerpt { color: rgba(255,255,255,0.85); -webkit-line-clamp: 3; }
+  .about-articles__grid .about-articles__title { font-size: 22px; font-weight: 500; line-height: 1.15; }
   .about-articles__title--narrow { max-width: 100%; }
-  .about-articles__grid .about-articles__excerpt { font-size: 14px; opacity: 0.6; }
+  .about-articles__grid .about-articles__excerpt { font-size: 14px; opacity: 1; }
   .about-articles__dots { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
 }
 

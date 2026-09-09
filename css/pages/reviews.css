@@ -39,15 +39,17 @@
 .rv-yandex-card__sub { font-size: clamp(14px, 0.78vw, 15px); font-weight: 400; color: var(--c-muted); letter-spacing: -0.04em; margin: 0; }
 
 .rv-subratings { display: flex; gap: clamp(16px, 1.25vw, 24px); }
-.rv-subrating { flex: 1 1 0; min-width: 0; background: rgba(237,237,237,0.14); border: 1px solid rgba(48,54,46,0.08); border-radius: 16px; padding: clamp(16px, 1.25vw, 24px); display: flex; flex-direction: column; gap: clamp(8px, 0.625vw, 12px); text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+.rv-subrating { flex: 1 1 0; min-width: 0; background: rgba(237,237,237,0.14); border: 1px solid rgba(48,54,46,0.08); border-radius: 16px; padding: clamp(16px, 1.25vw, 24px); display: flex; align-items: center; gap: clamp(10px, 0.83vw, 16px); text-decoration: none; transition: border-color 0.2s, background 0.2s; }
 @media (hover: hover) and (pointer: fine) {
-  .rv-subrating:hover { border-color: rgba(72,98,124,0.3); background: rgba(72,98,124,0.08); }
+  .rv-subrating:hover { border-color: rgba(141,165,133,0.3); background: rgba(141,165,133,0.08); }
 }
+.rv-subrating__logo { width: clamp(32px, 2.22vw, 40px); height: clamp(32px, 2.22vw, 40px); border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.rv-subrating__text { display: flex; flex-direction: column; gap: clamp(4px, 0.3vw, 6px); min-width: 0; }
 .rv-subrating__row { font-size: clamp(16px, 1.04vw, 20px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .rv-subrating__row .rv-stars { font-size: 0.7em; }
 .rv-subrating__label { font-size: clamp(14px, 0.78vw, 15px); font-weight: 400; color: rgba(48,54,46,0.4); letter-spacing: -0.04em; }
 
-.rv-hero__right { flex: 1 1 0; min-width: 0; background: rgba(72,98,124,0.04); border-radius: 24px; padding: clamp(24px, 2.5vw, 48px); display: flex; flex-direction: column; gap: clamp(18px, 1.67vw, 32px); }
+.rv-hero__right { flex: 1 1 0; min-width: 0; background: rgba(141,165,133,0.04); border-radius: 24px; padding: clamp(24px, 2.5vw, 48px); display: flex; flex-direction: column; gap: clamp(18px, 1.67vw, 32px); }
 .rv-hero__right-title { font-size: clamp(28px, 2.5vw, 48px); font-weight: 400; color: var(--c-text); line-height: 1.2; margin: 0; font-style: normal; }
 .rv-hero__right-lead { font-size: clamp(15px, 0.94vw, 18px); font-weight: 300; color: var(--c-muted); line-height: 1.6; margin: 0; }
 .rv-steps { display: flex; flex-direction: column; gap: clamp(12px, 1.04vw, 20px); }
@@ -75,7 +77,7 @@
 .rv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 1.25vw, 24px); }
 .rv-card { display: flex; flex-direction: column; gap: clamp(10px, 0.83vw, 16px); background: #fff; border: 1px solid rgba(48,54,46,0.1); border-radius: 16px; padding: clamp(20px, 1.67vw, 32px); text-decoration: none; min-height: clamp(260px, 16.5vw, 317px); transition: border-color 0.25s, box-shadow 0.25s, transform 0.3s cubic-bezier(0.22,1,0.36,1); }
 @media (hover: hover) and (pointer: fine) {
-  .rv-card:hover { border-color: rgba(72,98,124,0.3); box-shadow: 0 16px 40px rgba(48,54,46,0.08); transform: translateY(-4px); }
+  .rv-card:hover { border-color: rgba(141,165,133,0.3); box-shadow: 0 16px 40px rgba(48,54,46,0.08); transform: translateY(-4px); }
 }
 .rv-card__stars { color: #d4a017; font-weight: 600; font-size: clamp(17px, 1.04vw, 20px); margin: 0; }
 .rv-card__text { flex: 1 1 0; font-size: clamp(15px, 0.94vw, 18px); font-weight: 300; color: var(--c-muted); line-height: 1.6; margin: 0; }
@@ -147,10 +149,12 @@
   .rv-yandex-card__logo { width: 56px; height: 56px; }
   .rv-subratings { gap: 12px; }
   .rv-subrating { border-radius: 16px; padding: 16px; gap: 8px; }
+  .rv-subrating__logo { width: 28px; height: 28px; }
+  .rv-subrating__text { gap: 4px; }
   .rv-subrating__row { font-size: 16px; }
   .rv-subrating__label { font-size: 12px; }
 
-  .rv-hero__right { background: rgba(72,98,124,0.04); border-radius: 24px; padding: 24px; gap: 24px; margin-top: 24px; }
+  .rv-hero__right { background: rgba(141,165,133,0.04); border-radius: 24px; padding: 24px; gap: 24px; margin-top: 24px; }
   .rv-hero__right-title { font-size: 28px; letter-spacing: -0.04em; }
   .rv-hero__right-lead { font-size: 15px; letter-spacing: -0.04em; }
   .rv-steps { gap: 16px; }

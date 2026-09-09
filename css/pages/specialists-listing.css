@@ -9,7 +9,11 @@ body.page--specialists-listing { background: #fff; color: var(--c-text); }
 
 /* ── TEAM GRID (desktop) ── */
 .spec-team { width: 100%; padding: calc(var(--header-h) + clamp(24px, 3.7vw, 64px)) var(--gutter) 0 var(--gutter); display: flex; flex-direction: column; gap: 64px; }
-.spec-team__heading { font-size: clamp(32px, 3.33vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; margin: 0; font-style: normal; }
+/* Centred title + rating badges, matching prices.html's .price-hero
+   (same clamp, weight, tracking and 20px title→badges gap). The pair is
+   wrapped so the section's own 64px head→grid gap can't split them. */
+.spec-team__head { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+.spec-team__heading { font-size: clamp(40px, 3.6vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; margin: 0; font-style: normal; }
 .spec-team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 73px 24px; }
 @media (max-width: 1400px) { .spec-team__grid { grid-template-columns: repeat(3, 1fr); gap: 48px 24px; } }
 @media (max-width: 1023px) { .spec-team__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
@@ -39,6 +43,7 @@ body.page--specialists-listing { background: #fff; color: var(--c-text); }
      <footer>, not a <section>), so base.css's "section + section, section +
      footer" auto-spacing rule never matches it — set the gap explicitly. */
   .mh-booking { margin-top: 64px; }
+  .mh-spec-team__head { display: flex; flex-direction: column; gap: 10px; }
   .mh-spec-team__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; font-style: normal; }
   .mh-spec-card {
     position: relative; height: 450px; width: 100%; border-radius: 16px; overflow: hidden;

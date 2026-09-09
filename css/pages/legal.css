@@ -10,8 +10,8 @@
 .legal-grid-sec.wrap { padding-top: clamp(14px, 1.04vw, 20px); padding-bottom: clamp(72px, 6.25vw, 120px); }
 .legal-grid { display: flex; flex-direction: column; gap: clamp(14px, 1.04vw, 20px); }
 .legal-card { display: flex; align-items: center; gap: clamp(20px, 1.67vw, 32px); background: rgba(237,237,237,0.25); border: 1px solid rgba(48,54,46,0.12); border-radius: 16px; padding: clamp(20px, 1.67vw, 32px); text-decoration: none; transition: border-color 0.25s, background 0.25s; }
-.legal-card:hover { border-color: rgba(72,98,124,0.35); background: rgba(72,98,124,0.06); }
-.legal-card__icon { width: clamp(48px, 3.75vw, 72px); height: clamp(48px, 3.75vw, 72px); border-radius: 50%; background: rgba(72,98,124,0.1); color: var(--c-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.legal-card:hover { border-color: rgba(141,165,133,0.35); background: rgba(141,165,133,0.06); }
+.legal-card__icon { width: clamp(48px, 3.75vw, 72px); height: clamp(48px, 3.75vw, 72px); border-radius: 50%; background: rgba(141,165,133,0.1); color: var(--c-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .legal-card__icon svg { width: 44%; height: 44%; }
 .legal-card__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 .legal-card__title { font-size: clamp(17px, 1.25vw, 22px); font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; margin: 0; font-style: normal; }

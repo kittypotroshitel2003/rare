@@ -16,8 +16,11 @@ body.page--services { background: #fff; color: var(--c-text); }
    reuse the homepage block instead of the custom grid this page had
    before (which was too large, gapless, and had no real photos). ── */
 .sec-dir { background: var(--c-bg); padding: 0; width: 100%; }
-.dir-head { padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: flex-start; margin-bottom: clamp(40px, 5vw, 72px); }
-.dir-heading { font-size: clamp(28px, 6.4vw, 64px); font-weight: 400; text-align: left; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; }
+/* Centred title + rating badges, matching prices.html's .price-hero
+   (same clamp, weight, tracking and 20px title→badges gap) — this page
+   opens the same way the price list does. */
+.dir-head { padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; margin-bottom: clamp(40px, 5vw, 72px); }
+.dir-heading { font-size: clamp(40px, 3.6vw, 64px); font-weight: 400; text-align: center; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; font-style: normal; margin: 0; }
 .dir-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 0 var(--gutter); }
 .dir-tile { position: relative; overflow: hidden; background: #fff; border: 1px solid #d9d9d9; border-radius: 20px; text-decoration: none; aspect-ratio: 380 / 520; }
 .dir-tile__scrim { position: absolute; inset: 0; z-index: 2; background: rgba(0,0,0,0.25); opacity: 0; transition: opacity 0.3s ease; }
@@ -49,7 +52,9 @@ body.page--services { background: #fff; color: var(--c-text); }
 .dir-tile__arrow { right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 22px; background: var(--c-accent); color: #fff; display: flex; align-items: center; justify-content: center; }
 .dir-tile__arrow svg { width: 18px; height: 18px; }
 .dir-cta-wrap { display: flex; justify-content: center; margin-top: clamp(40px, 4.2vw, 64px); }
-@media (max-width: 1100px) { .dir-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1419px) { .dir-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 979px)  { .dir-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .dir-grid { grid-template-columns: 1fr; } }
 
 /* smaller solid CTA — copied from home.css's .hero__cta (applied on top
    of the shared .pill-btn), per explicit request to shrink this button */
@@ -74,7 +79,9 @@ body.page--services { background: #fff; color: var(--c-text); }
   align-items:center (as the mobile .mh-promo-banner-hero does) collapses it to
   a tiny shrink-to-fit size, since .promo-banner's own content is entirely
   position:absolute and contributes no in-flow intrinsic width */
-  max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; gap: 32px;
+  /* max-width 1320 вместе с собственным var(--gutter) давал двойной
+     отступ — баннер был заметно уже сетки услуг на той же странице */
+  margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; gap: 32px;
 }
 .promo-banner-strip { display: flex; gap: 24px; width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
 .promo-banner-strip::-webkit-scrollbar { display: none; }
@@ -118,8 +125,11 @@ body.page--services { background: #fff; color: var(--c-text); }
   /* copied verbatim from home.css's .mh-services/.mh-service-card
      (index.html mobile #services block), per explicit request */
   .mh-services { display: flex; flex-direction: column; gap: 28px; padding: 0 20px; }
+  /* pull the badge row up against its title — the section's own 28px gap
+     is meant for title→cards, not title→badges */
+  .mh-services > .price-ratings--mobile { margin-top: -18px; }
   .mh-services__stack { display: flex; flex-direction: column; gap: 16px; }
-  .mh-service-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; height: 450px; padding: 32px; border: 1px solid #d9d9d9; border-radius: 20px; text-align: center; text-decoration: none; color: inherit; }
+  .mh-service-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; min-height: 450px; padding: 32px; border: 1px solid #d9d9d9; border-radius: 20px; text-align: center; text-decoration: none; color: inherit; }
   .mh-service-card__badge { width: 48px; height: 48px; border-radius: 24px; background: #ededed; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; letter-spacing: -0.04em; color: #5B6159; flex-shrink: 0; }
   .mh-service-card__photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
   .mh-service-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -164,3 +174,40 @@ body.page--services { background: #fff; color: var(--c-text); }
   .mh-services-contact__map { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; }
   .mh-services-contact__map iframe { width: 100%; height: 100%; border: none; display: block; }
 }
+
+/* ── Масштабируемая плитка ─────────────────────────────────────────
+   Все размеры внутри карточки — доля её собственной ширины (cqw), а не
+   ширины экрана. Поэтому на 254px и на 372px карточка выглядит
+   одинаково, просто меньше, и её пропорция 380×520 не плывёт под
+   длинным заголовком. База пересчёта: 1cqw = 3.8px при эталонных 380px.
+   clamp() снизу не даёт тексту стать нечитаемым, сверху — перерасти
+   эталон. Браузеры без container queries отбросят cqw-строки и
+   останутся на значениях выше по файлу. */
+.dir-tile {
+  container-type: inline-size;
+  --tile-pad-x: clamp(18px, 7.37cqw, 28px);
+  --tile-pad-t: clamp(30px, 12.63cqw, 48px);
+  --tile-pad-b: clamp(20px, 8.42cqw, 32px);
+  --tile-gap:   clamp(12px, 5.26cqw, 20px);
+  --tile-num:   clamp(38px, 12.63cqw, 48px);
+  --tile-photo: clamp(112px, 42.11cqw, 160px);
+  --tile-inset: clamp(14px, 6.32cqw, 24px);
+}
+.dir-tile__photo {
+  top: calc(var(--tile-pad-t) + var(--tile-num) + var(--tile-gap));
+  left: calc(50% - var(--tile-photo) / 2);
+  width: var(--tile-photo); height: var(--tile-photo);
+}
+.dir-tile__photo-spacer { width: var(--tile-photo); height: var(--tile-photo); }
+.dir-tile__body { gap: var(--tile-gap); padding: var(--tile-pad-t) var(--tile-pad-x) var(--tile-pad-b); }
+.dir-tile__num { width: var(--tile-num); height: var(--tile-num); border-radius: 50%; font-size: clamp(13px, 4.21cqw, 16px); }
+.dir-tile__title { font-size: clamp(15px, 5.26cqw, 20px); overflow-wrap: break-word; }
+.dir-tile__desc { font-size: clamp(11.5px, 3.68cqw, 14px); overflow-wrap: break-word; }
+.dir-tile__desc p { font-size: inherit; font-weight: 300; line-height: 1.4; color: #5B6159; }
+/* страховка: сколько бы ни было текста, карточка не растёт — лишние
+   строки описания отсекаются, пропорция остаётся прежней */
+.dir-tile__desc { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.dir-tile__num-hover { left: var(--tile-inset); top: var(--tile-inset); width: var(--tile-num); height: var(--tile-num); border-radius: 50%; font-size: clamp(13px, 4.21cqw, 16px); }
+.dir-tile__arrow { right: var(--tile-inset); bottom: var(--tile-inset); width: clamp(34px, 11.58cqw, 44px); height: clamp(34px, 11.58cqw, 44px); border-radius: 50%; }
+.dir-tile__arrow svg { width: clamp(14px, 4.74cqw, 18px); height: clamp(14px, 4.74cqw, 18px); }
+.dir-tile__title-hover { font-size: clamp(16px, 6.84cqw, 26px); overflow-wrap: break-word; }

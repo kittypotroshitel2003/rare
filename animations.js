@@ -67,6 +67,31 @@
   animation: rrImgIn var(--rr-dur, 1s) ${EASE} var(--rr-del, 0s) both;
 }
 
+/* Цены появляются без размытия: цифры в прайсе считывают, а не
+   «проявляют» — blur на таблице цен мешает читать и выглядит как
+   дефект рендера. Движение и прозрачность остаются те же. */
+@keyframes rrFadeUpSharp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rrFadeInSharp {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.svc-prices [data-rr="up"].rr-in,
+.mh-svc-prices [data-rr="up"].rr-in,
+.svc-prices[data-rr="up"].rr-in,
+.mh-svc-prices[data-rr="up"].rr-in,
+.svc-price-table[data-rr].rr-in,
+.price-item[data-rr].rr-in,
+.price-accordion[data-rr].rr-in {
+  animation-name: rrFadeUpSharp;
+}
+.svc-prices [data-rr="in"].rr-in,
+.mh-svc-prices [data-rr="in"].rr-in {
+  animation-name: rrFadeInSharp;
+}
+
 /* reduced motion: keep the fade (it aids comprehension — content isn't
    teleporting), drop the movement/scale/blur every [data-rr] variant
    above adds. This block must win the cascade, so it's repeated per
@@ -83,6 +108,15 @@
   [data-rr="reveal"].rr-in {
     animation: rrFadeIn 0.3s ease var(--rr-del, 0s) both;
     clip-path: none;
+  }
+  /* ценовые блоки перекрывают animation-name выше по специфичности —
+     возвращаем им безопасное появление и здесь */
+  .svc-prices [data-rr].rr-in,
+  .mh-svc-prices [data-rr].rr-in,
+  .svc-price-table[data-rr].rr-in,
+  .price-item[data-rr].rr-in,
+  .price-accordion[data-rr].rr-in {
+    animation: rrFadeInSharp 0.3s ease var(--rr-del, 0s) both;
   }
 }
 
@@ -502,6 +536,11 @@
       });
     });
 
+    // The mission-statement rating badges are the closing beat of the
+    // typewriter sequence (initMissionTypewriter reveals them), not a
+    // scroll reveal — claim them before the fallback observer below can.
+    document.querySelectorAll('.about-mission__ratings [data-rr]').forEach(el => seen.add(el));
+
     // Fallback: observe any [data-rr] elements in HTML not caught by RULES
     document.querySelectorAll('[data-rr]').forEach(el => {
       if (seen.has(el)) return;
@@ -571,11 +610,23 @@
      its own span, then reveals them one at a time via opacity — an
      absolutely-positioned caret tracks the current character's rect. */
   function initMissionTypewriter() {
+    // Rating badges under the mission statement — they fade up one after
+    // the other once the sentence has finished typing, so the section
+    // reads as a single sequence instead of two competing reveals.
+    const badges = Array.from(document.querySelectorAll('.about-mission__ratings [data-rr]'));
+    function revealBadges(stagger) {
+      badges.forEach((b, i) => {
+        b.style.setProperty('--rr-dur', '0.5s');
+        b.style.setProperty('--rr-del', (i * stagger) + 's');
+        b.classList.add('rr-in');
+      });
+    }
+
     const el = document.querySelector('[data-rr="type"]');
-    if (!el || el.dataset.twDone) return;
+    if (!el || el.dataset.twDone) { revealBadges(0); return; }
     el.dataset.twDone = '1';
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { revealBadges(0); return; }
 
     function wrapChars(node) {
       const spans = [];
@@ -598,7 +649,7 @@
     }
 
     const chars = wrapChars(el);
-    if (!chars.length) return;
+    if (!chars.length) { revealBadges(0); return; }
 
     const caret = document.createElement('span');
     caret.className = 'tw-caret';
@@ -621,6 +672,7 @@
         let i = 0;
         (function step() {
           if (i >= chars.length) {
+            revealBadges(0.08);
             setTimeout(() => caret.classList.add('tw-done'), 600);
             return;
           }
@@ -629,7 +681,10 @@
           positionCaret(span);
           const isSpace = span.textContent === ' ';
           i++;
-          setTimeout(step, isSpace ? 26 : 14 + Math.random() * 24);
+          // ~1.7x quicker than the original 26/14+24ms cadence — the jitter
+          // is kept (a fixed interval reads as a machine, not typing), just
+          // narrowed so the sentence lands in ~3.1s instead of ~4.9s.
+          setTimeout(step, isSpace ? 15 : 8 + Math.random() * 14);
         })();
       });
     }, { threshold: 0.5 });

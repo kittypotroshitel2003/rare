@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preload" href="responsive.css?v=202608311600" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202608311600"/></noscript>
+<link rel="preload" href="responsive.css?v=202609092100" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="responsive.css?v=202609092100"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Подарочные сертификаты — RA|RÉ Клиника экспертной косметологии в Анапе</title>
 <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg"/>
@@ -13,13 +13,14 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/></noscript></noscript>
-<link rel="stylesheet" href="css/tokens.css?v=202608311600"/>
+<link rel="stylesheet" href="css/tokens.css?v=202609092100"/>
 <link rel="stylesheet" href="css/base.css?v=202608311600"/>
 <link rel="stylesheet" href="css/components/header.css?v=202608311600"/>
 <link rel="stylesheet" href="css/components/footer.css?v=202608311600"/>
-<link rel="stylesheet" href="css/components/buttons.css?v=202608311600"/>
+<link rel="stylesheet" href="css/components/buttons.css?v=202609092100"/>
 <link rel="stylesheet" href="css/components/mobile-booking.css?v=202608311600"/>
-<link rel="stylesheet" href="css/pages/certificates.css?v=202608311600"/>
+<link rel="stylesheet" href="css/pages/certificates.css?v=202609100600"/>
+  <link rel="stylesheet" href="css/components/booking-modal.css?v=202609092100"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,19 +70,19 @@
     <a href="about.html">О клинике</a>
     <a href="promos.html">Акции</a>
     <div class="nav-services">
-      <a href="services/services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="services.html" class="nav-services__trigger">Услуги <svg viewBox="0 0 9 5" fill="none" stroke="currentColor" stroke-width="1"><path d="M0.5 0.5L3.79289 3.79289C4.12623 4.12623 4.29289 4.29289 4.5 4.29289C4.70711 4.29289 4.87377 4.12623 5.20711 3.79289L8.5 0.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="svc-mega">
         <div class="svc-mega__col">
           <a href="services/procedures/cosmetologist-consultation.html">Приём косметолога</a>
           <a href="services/procedures/trichologist-consultation.html">Приём трихолога</a>
           <a href="services/procedures/nutritionist-consultation.html">Приём нутрициолога</a>
-          <a href="services/diagnostics.html">Ультразвуковая диагностика в косметологии</a>
+          <a href="services/procedures/ultrasound-diagnostics.html">Ультразвуковая диагностика в косметологии</a>
           <a href="services/procedures/smas-lifting.html">SMAS лифтинг</a>
           <a href="services/procedures/rf-volnewmer.html">Монополярный RF-лифтинг Volnewmer</a>
           <a href="services/procedures/rf-sylfirm.html">Микроигольчатый RF-лифтинг Sylfirm X</a>
         </div>
         <div class="svc-mega__col">
-          <a href="services/light.html" class="svc-mega__h">Фотосистема IPL Nordlys</a>
+          <a href="services/procedures/nordlys.html" class="svc-mega__h">Фотосистема IPL Nordlys</a>
           <a href="services/procedures/photorejuvenation.html">Фотоомоложение</a>
           <a href="services/procedures/acne-treatment.html">Лечение акне</a>
           <a href="services/procedures/rosacea-treatment.html">Лечение купероза и розацеа</a>
@@ -92,7 +93,7 @@
         <div class="svc-mega__col">
           <a href="services/procedures/photodynamic-therapy.html">ФДТ Revixan</a>
           <a href="services/procedures/microcurrent-therapy.html">Микротоковая терапия</a>
-          <a href="services/injections.html" class="svc-mega__h">Инъекционная косметология</a>
+          <a href="services/procedures/injection-cosmetology.html" class="svc-mega__h">Инъекционная косметология</a>
           <a href="services/procedures/prp-therapy.html">PRP-терапия</a>
           <a href="services/procedures/contour-plastic.html">Контурная пластика</a>
           <a href="services/procedures/botulinoterapiya.html">Ботулинотерапия</a>
@@ -106,7 +107,7 @@
           <a href="services/procedures/hydra-touch.html">Гидропилинг Hydra Touch H2</a>
           <a href="services/procedures/lpg-massage.html">LPG массаж</a>
           <a href="services/procedures/exosomes.html">Экзосомы</a>
-          <a href="services/skin.html" class="svc-mega__h">Эстетическая косметология</a>
+          <a href="services/procedures/aesthetic-cosmetology.html" class="svc-mega__h">Эстетическая косметология</a>
           <a href="services/procedures/peeling.html">Пилинг</a>
           <a href="services/procedures/cleansing.html">Чистки</a>
           <a href="services/procedures/spa-care.html">Спа процедуры для лица и тела</a>
@@ -167,13 +168,27 @@
 </header>
 
 <section class="cert-hero wrap">
-  <h1 class="cert-hero__title" data-rr="up">Подарочные сертификаты</h1>
-  <p class="cert-hero__subtitle" data-typewriter="14">Подарите близким возможность насладиться профессиональными косметологическими процедурами в клинике RA|RÉ.</p>
+  <div class="cert-hero__col">
+    <h1 class="cert-hero__title" data-rr="up">Подарочные сертификаты</h1>
+    <p class="cert-hero__subtitle" data-rr="up" style="--rr-del:0.08s">Подарите близким возможность насладиться профессиональными косметологическими процедурами в клинике RA|RÉ.</p>
+    <ul class="cert-hero__bullets" data-rr="up" style="--rr-del:0.14s">
+      <li>Действует на все процедуры клиники</li>
+      <li>Любой номинал по запросу</li>
+      <li>Оформим за один визит или удалённо</li>
+    </ul>
+    <a href="#booking" class="pill-btn cert-hero__cta" data-rr="up" style="--rr-del:0.2s">Заказать сертификат
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="cert-hero__stack" data-rr="img">
+    <img src="assets/photos/cert-hero-photo.webp" alt="Подарочные сертификаты RA|RÉ номиналом 5 000, 10 000 и 15 000 ₽" loading="eager"/>
+  </div>
 </section>
 
 <section class="cert-grid-sec wrap">
   <div class="cert-grid">
     <div class="cert-card" data-rr="up">
+      <div class="cert-card__mock"><img src="assets/photos/cert-mock-5000.webp" alt="Подарочный сертификат RA|RÉ на 5 000 ₽" loading="lazy"/></div>
       <div class="cert-card__info">
         <div class="cert-card__top">
           <span class="cert-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M3 12h18"/><path d="M12 8v13"/><path d="M12 8c-1.2-2.6-3-3.6-4.3-2.8-1.3.8-.8 2.4.9 2.8Z"/><path d="M12 8c1.2-2.6 3-3.6 4.3-2.8 1.3.8.8 2.4-.9 2.8Z"/></svg></span>
@@ -185,6 +200,7 @@
       <button type="button" onclick="openGiftCertPopup()" class="cert-card__btn">Купить <span aria-hidden="true">→</span></button>
     </div>
     <div class="cert-card cert-card--featured" data-rr="up" style="--rr-del:0.06s">
+      <div class="cert-card__mock"><img src="assets/photos/cert-mock-10000.webp" alt="Подарочный сертификат RA|RÉ на 10 000 ₽" loading="lazy"/></div>
       <div class="cert-card__info">
         <div class="cert-card__top">
           <span class="cert-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M3 12h18"/><path d="M12 8v13"/><path d="M12 8c-1.2-2.6-3-3.6-4.3-2.8-1.3.8-.8 2.4.9 2.8Z"/><path d="M12 8c1.2-2.6 3-3.6 4.3-2.8 1.3.8.8 2.4-.9 2.8Z"/></svg></span>
@@ -196,6 +212,7 @@
       <button type="button" onclick="openGiftCertPopup()" class="cert-card__btn">Купить <span aria-hidden="true">→</span></button>
     </div>
     <div class="cert-card" data-rr="up" style="--rr-del:0.12s">
+      <div class="cert-card__mock"><img src="assets/photos/cert-mock-15000.webp" alt="Подарочный сертификат RA|RÉ на 15 000 ₽" loading="lazy"/></div>
       <div class="cert-card__info">
         <div class="cert-card__top">
           <span class="cert-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M3 12h18"/><path d="M12 8v13"/><path d="M12 8c-1.2-2.6-3-3.6-4.3-2.8-1.3.8-.8 2.4.9 2.8Z"/><path d="M12 8c1.2-2.6 3-3.6 4.3-2.8 1.3.8.8 2.4-.9 2.8Z"/></svg></span>
@@ -208,6 +225,42 @@
     </div>
   </div>
   <p class="cert-note">* Сертификат возможен на любую сумму. Свяжитесь с нами для индивидуального оформления.</p>
+</section>
+
+<section class="cert-steps wrap">
+  <h2 class="cert-sec-title" data-rr="up">Как оформить</h2>
+  <div class="cert-steps__grid">
+    <div class="cert-step" data-rr="up"><span class="cert-step__num">01</span>
+      <p class="cert-step__title">Выбираете номинал</p>
+      <p class="cert-step__desc">5 000, 10 000, 15 000 ₽ или любая другая сумма — по вашему запросу.</p></div>
+    <div class="cert-step" data-rr="up" style="--rr-del:0.06s"><span class="cert-step__num">02</span>
+      <p class="cert-step__title">Оформляем сертификат</p>
+      <p class="cert-step__desc">В клинике или удалённо: напишите нам в мессенджеры либо оставьте заявку на сайте.</p></div>
+    <div class="cert-step" data-rr="up" style="--rr-del:0.12s"><span class="cert-step__num">03</span>
+      <p class="cert-step__title">Дарите</p>
+      <p class="cert-step__desc">Получатель записывается на любую процедуру и оплачивает её сертификатом.</p></div>
+  </div>
+</section>
+
+<section class="cert-scope wrap">
+  <div class="cert-scope__media" data-rr="img">
+    <img src="assets/photos/gallery-reception-counter.webp" alt="Ресепшн клиники RA|RÉ" loading="lazy"/>
+  </div>
+  <div class="cert-scope__col">
+    <h2 class="cert-sec-title" data-rr="up">На что действует</h2>
+    <p class="cert-scope__lead" data-rr="up" style="--rr-del:0.08s">Сертификатом можно оплатить любую услугу клиники — от консультации косметолога до курса аппаратных процедур.</p>
+    <ul class="cert-scope__list" data-rr="up" style="--rr-del:0.14s">
+      <li><a href="services/procedures/cosmetologist-consultation.html">Приём косметолога</a></li>
+      <li><a href="services/procedures/smas-lifting.html">SMAS-лифтинг</a></li>
+      <li><a href="services/procedures/nordlys.html">Фотосистема IPL Nordlys</a></li>
+      <li><a href="services/procedures/laser-epilation.html">Лазерная эпиляция</a></li>
+      <li><a href="services/procedures/injection-cosmetology.html">Инъекционная косметология</a></li>
+      <li><a href="services/procedures/spa-care.html">Спа процедуры для лица и тела</a></li>
+    </ul>
+    <a href="services.html" class="cert-scope__all" data-rr="up" style="--rr-del:0.2s">Все услуги
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
 </section>
 
 <section class="cert-faq wrap">
@@ -342,7 +395,7 @@
   });
 })();
 </script>
-<script src="docs-popup.js?v=202609021900" defer></script><script src="animations.js?v=202608311610" defer></script>
+<script src="docs-popup.js?v=202609021900" defer></script><script src="animations.js?v=202609092100" defer></script>
 <script src="mobile-nav.js?v=202608311610" defer></script>
 <script src="assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="./accessibility.js?v=202608311610" defer></script>
 
@@ -386,5 +439,29 @@ function selAmt(btn) {
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeGiftCertPopup();});
 </script>
 <script src="booking-widget.js?v=202608311610" defer></script>
+<script src="js/booking-modal.js?v=202609092100" defer></script>
+<script>
+(function () {
+  function hoverIntent(trigger, panel, closeDelay) {
+    var closeTimer = null;
+    function open() { clearTimeout(closeTimer); trigger.classList.add('is-open'); }
+    function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(function () { trigger.classList.remove('is-open'); }, closeDelay); }
+    trigger.addEventListener('mouseenter', open);
+    trigger.addEventListener('mouseleave', scheduleClose);
+    panel.addEventListener('mouseenter', open);
+    panel.addEventListener('mouseleave', scheduleClose);
+  }
+  var servicesTrigger = document.querySelector('.nav-services');
+  var servicesPanel = document.querySelector('.svc-mega');
+  if (servicesTrigger && servicesPanel) hoverIntent(servicesTrigger, servicesPanel, 300);
+
+  var pricesTrigger = document.querySelector('.nav-prices');
+  var pricesPanel = document.querySelector('.price-mega');
+  if (pricesTrigger && pricesPanel) hoverIntent(pricesTrigger, pricesPanel, 300);
+  var connectTrigger = document.querySelector('.site-header__connect');
+  var connectPanel = document.querySelector('.site-header__connect-panel');
+  if (connectTrigger && connectPanel) hoverIntent(connectTrigger, connectPanel, 300);
+})();
+</script>
 </body>
 </html>

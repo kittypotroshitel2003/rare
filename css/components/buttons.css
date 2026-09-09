@@ -36,7 +36,10 @@
 }
 
 /* mobile-only primary CTA (booking forms, footer, mobile-home sections) */
-.mh-btn-primary { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--c-accent); color: #fff; border-radius: 12px; padding: 18px 48px; text-decoration: none; width: 280px; transition: background 0.2s, transform 0.16s ease-out; border: none; cursor: pointer; }
+/* ширина по содержимому с прежними 280px как минимумом: при жёстких
+   280px и padding 48px подпись «Записаться на приём» не помещалась
+   на экранах 360px и обрезалась */
+.mh-btn-primary { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--c-accent); color: #fff; border-radius: 12px; padding: 18px clamp(24px, 5vw, 48px); text-decoration: none; width: auto; min-width: 280px; max-width: 100%; transition: background 0.2s, transform 0.16s ease-out; border: none; cursor: pointer; }
 @media (hover: hover) and (pointer: fine) {
   .mh-btn-primary:hover { background: #6A7C64; }
 }

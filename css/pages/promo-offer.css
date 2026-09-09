@@ -70,6 +70,9 @@ body.page--promo-offer { background: #fff; color: var(--c-text); }
   color: var(--c-text); margin: 0; font-style: normal;
 }
 .promo-others__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1582px; width: 100%; }
+/* панель внутри плитки задана в процентах от её ширины: в две колонки
+   ниже ~1000px она становится уже одного слова заголовка */
+@media (max-width: 1000px) { .promo-others__grid { grid-template-columns: 1fr; gap: 24px; } }
 
 /* .promo-tile* — identical component to promos.html's grid, copied here
    rather than pulling in the rest of promos.css. */
@@ -151,4 +154,13 @@ body.page--promo-offer { background: #fff; color: var(--c-text); }
   .mh-promo-others__body { display: flex; flex-direction: column; gap: 6px; color: var(--c-accent); }
   .mh-promo-others__num { font-size: 52px; font-weight: 500; line-height: 1; margin: 0; }
   .mh-promo-others__desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.8; margin: 0; }
+}
+
+/* та же логика для блока «другие акции» на странице акции */
+.promo-others__grid > *:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 1560 / 485; }
+.promo-others__grid > *:last-child:nth-child(odd) .promo-tile__panel { left: clamp(14px, 2.05%, 28px); width: clamp(180px, 18%, 290px); }
+.promo-others__grid > *:last-child:nth-child(odd) .promo-tile__img { object-position: center 78%; }
+@media (max-width: 1000px) {
+  .promo-others__grid > *:last-child:nth-child(odd) { aspect-ratio: 767 / 485; }
+  .promo-others__grid > *:last-child:nth-child(odd) .promo-tile__panel { left: 4.173%; width: 36.767%; }
 }

@@ -13,17 +13,19 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
   <link rel="dns-prefetch" href="https://yandex.ru"/>
-  <link rel="stylesheet" href="css/tokens.css?v=202608311600"/>
+  <link rel="stylesheet" href="css/tokens.css?v=202609092100"/>
   <link rel="stylesheet" href="css/base.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/header.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/footer.css?v=202608311600"/>
-  <link rel="stylesheet" href="css/components/buttons.css?v=202608311600"/>
-  <link rel="stylesheet" href="css/components/forms.css?v=202608311600"/>
+  <link rel="stylesheet" href="css/components/buttons.css?v=202609092100"/>
+  <link rel="stylesheet" href="css/components/forms.css?v=202609092100"/>
   <link rel="stylesheet" href="css/components/mobile-booking.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/dots.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/booking-popup.css?v=202608311700"/>
-  <link rel="stylesheet" href="css/pages/about.css?v=202608311600"/>
-  <link rel="stylesheet" href="responsive.css?v=202608311600"/>
+  <link rel="stylesheet" href="css/components/booking-modal.css?v=202609092100"/>
+  <link rel="stylesheet" href="css/components/ratings.css?v=202609041000"/>
+  <link rel="stylesheet" href="css/pages/about.css?v=202609100100"/>
+  <link rel="stylesheet" href="responsive.css?v=202609092100"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,13 +81,13 @@
           <a href="services/procedures/cosmetologist-consultation.html">Приём косметолога</a>
           <a href="services/procedures/trichologist-consultation.html">Приём трихолога</a>
           <a href="services/procedures/nutritionist-consultation.html">Приём нутрициолога</a>
-          <a href="services/diagnostics.html">Ультразвуковая диагностика в косметологии</a>
+          <a href="services/procedures/ultrasound-diagnostics.html">Ультразвуковая диагностика в косметологии</a>
           <a href="services/procedures/smas-lifting.html">SMAS лифтинг</a>
           <a href="services/procedures/rf-volnewmer.html">Монополярный RF-лифтинг Volnewmer</a>
           <a href="services/procedures/rf-sylfirm.html">Микроигольчатый RF-лифтинг Sylfirm X</a>
         </div>
         <div class="svc-mega__col">
-          <a href="services/light.html" class="svc-mega__h">Фотосистема IPL Nordlys</a>
+          <a href="services/procedures/nordlys.html" class="svc-mega__h">Фотосистема IPL Nordlys</a>
           <a href="services/procedures/photorejuvenation.html">Фотоомоложение</a>
           <a href="services/procedures/acne-treatment.html">Лечение акне</a>
           <a href="services/procedures/rosacea-treatment.html">Лечение купероза и розацеа</a>
@@ -96,7 +98,7 @@
         <div class="svc-mega__col">
           <a href="services/procedures/photodynamic-therapy.html">ФДТ Revixan</a>
           <a href="services/procedures/microcurrent-therapy.html">Микротоковая терапия</a>
-          <a href="services/injections.html" class="svc-mega__h">Инъекционная косметология</a>
+          <a href="services/procedures/injection-cosmetology.html" class="svc-mega__h">Инъекционная косметология</a>
           <a href="services/procedures/prp-therapy.html">PRP-терапия</a>
           <a href="services/procedures/contour-plastic.html">Контурная пластика</a>
           <a href="services/procedures/botulinoterapiya.html">Ботулинотерапия</a>
@@ -110,7 +112,7 @@
           <a href="services/procedures/hydra-touch.html">Гидропилинг Hydra Touch H2</a>
           <a href="services/procedures/lpg-massage.html">LPG массаж</a>
           <a href="services/procedures/exosomes.html">Экзосомы</a>
-          <a href="services/skin.html" class="svc-mega__h">Эстетическая косметология</a>
+          <a href="services/procedures/aesthetic-cosmetology.html" class="svc-mega__h">Эстетическая косметология</a>
           <a href="services/procedures/peeling.html">Пилинг</a>
           <a href="services/procedures/cleansing.html">Чистки</a>
           <a href="services/procedures/spa-care.html">Спа процедуры для лица и тела</a>
@@ -217,6 +219,26 @@
 <section class="about-mission">
   <div class="wrap">
     <p class="about-mission__text" data-rr="type">Миссия RA|RÉ — объединять <span class="about-mission__dim">медицинскую экспертизу, современные технологии</span><br class="about-mission__br"> и <span class="about-mission__dim">индивидуальный подход</span>, чтобы помогать каждому гостю сохранять здоровье, естественную красоту<br class="about-mission__br"> и уверенность в себе.</p>
+    <div class="price-ratings about-mission__ratings">
+      <a href="reviews/index.html" class="price-rating" data-rr="up">
+        <img src="assets/icons/rating-yandex.webp" alt="" width="26" height="26"/>
+        <span class="price-rating__stars">★★★★★</span>
+        <span class="price-rating__score" data-rating="yandex">4.9</span>
+        <span class="price-rating__name">Яндекс</span>
+      </a>
+      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="price-rating" data-rr="up">
+        <img src="assets/icons/rating-2gis.webp?v=2" alt="" width="26" height="26"/>
+        <span class="price-rating__stars">★★★★★</span>
+        <span class="price-rating__score" data-rating="gis">5.0</span>
+        <span class="price-rating__name">2ГИС</span>
+      </a>
+      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="price-rating" data-rr="up">
+        <img src="assets/icons/rating-prodoktorov.webp" alt="" width="26" height="26"/>
+        <span class="price-rating__stars">★★★★★</span>
+        <span class="price-rating__score" data-rating="prodoc">5.0</span>
+        <span class="price-rating__name">ПроДокторов</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -256,7 +278,7 @@
   <div class="wrap">
     <div class="about-articles__row" id="about-articles__row">
       <a href="articles/article-office-syndrome.html" class="about-articles__card about-articles__featured">
-        <video class="about-articles__bg" src="assets/video/about-office-relax.mp4" poster="assets/video/about-office-relax-poster.webp" autoplay muted loop playsinline></video>
+        <video class="about-articles__bg" src="assets/video/about-neck-relief.mp4" poster="assets/photos/about-neck-relief-poster.webp" autoplay muted loop playsinline></video>
         <div class="about-articles__overlay--featured"></div>
         <p class="about-articles__title--featured">Офисная болезнь: как избавиться от боли в шее и спине без таблеток</p>
         <p class="about-articles__excerpt--featured">Почему болит спина у тех, кто работает сидя?<br>Остеохондроз, мышечные зажимы, «холка» в шейном отделе, головные боли — классический букет офисного сотрудника.</p>
@@ -279,15 +301,15 @@
         <a href="articles/article-men-epilation.html" class="about-articles__card">
           <img class="about-articles__bg" src="assets/photos/about-epilation-figma.webp" alt="" loading="lazy"/>
           <div class="about-articles__frame">
-            <p class="about-articles__title">Мужская эпиляция: почему ухоженное тело — новый тренд успешного мужчины</p>
-            <p class="about-articles__excerpt">Мужская эпиляция давно перестала быть нишевой процедурой и превратилась в мощный тренд.</p>
+            <p class="about-articles__title">Мужская эпиляция: новый тренд успешного мужчины</p>
+            <p class="about-articles__excerpt">Почему ухоженное тело перестало быть нишевой историей.</p>
           </div>
         </a>
         <a href="articles/article-microcurrent.html" class="about-articles__card">
           <img class="about-articles__bg" src="assets/photos/about-microcurrent-figma.webp" alt="" loading="lazy"/>
           <div class="about-articles__frame">
             <p class="about-articles__title">Микротоки после пластических операций</p>
-            <p class="about-articles__excerpt">Микротоковая терапия стала неотъемлемым этапом реабилитации после пластических операций.</p>
+            <p class="about-articles__excerpt">Обязательный этап реабилитации после пластики.</p>
           </div>
         </a>
       </div>
@@ -325,31 +347,39 @@
             <div class="booking-svc-wrap">
               <select class="booking-svc-sel" name="service">
                 <option value="" disabled selected>Выбрать услугу</option>
-                <optgroup label="Лицо">
-                  <option value="smas">SMAS-лифтинг</option>
-                  <option value="rf-lifting">РФ-лифтинг (монополярный)</option>
-                  <option value="injections">Инъекционная косметология</option>
-                  <option value="biorev">Биоревитализация</option>
-                  <option value="peeling">Химический пилинг</option>
-                  <option value="care">Уходовые программы</option>
-                </optgroup>
-                <optgroup label="Тело">
-                  <option value="laser">Лазерная эпиляция</option>
-                  <option value="cryo">Криолиполиз</option>
-                  <option value="rf-body">RF-лифтинг тела</option>
-                  <option value="lpg">LPG-массаж</option>
-                  <option value="press">Прессотерапия</option>
-                </optgroup>
-                <optgroup label="Волосы">
-                  <option value="meso-hair">Мезотерапия волос</option>
-                  <option value="prp">Плазмотерапия (PRP)</option>
-                  <option value="tricho">Трихоскопия</option>
-                </optgroup>
-                <optgroup label="SPA">
-                  <option value="massage">Классический массаж</option>
-                  <option value="stone">Стоун-терапия</option>
-                  <option value="spa">SPA-программы</option>
-                </optgroup>
+                <option value="cosmetologist-consultation">Приём косметолога</option>
+                <option value="trichologist-consultation">Приём трихолога</option>
+                <option value="nutritionist-consultation">Приём нутрициолога</option>
+                <option value="ultrasound-diagnostics">Ультразвуковая диагностика</option>
+                <option value="smas-lifting">SMAS лифтинг</option>
+                <option value="rf-volnewmer">Монополярный RF-лифтинг Volnewmer</option>
+                <option value="rf-sylfirm">Микроигольчатый RF-лифтинг Sylfirm X</option>
+                <option value="nordlys">Фотосистема IPL Nordlys</option>
+                <option value="photorejuvenation">Фотоомоложение</option>
+                <option value="acne-treatment">Лечение акне</option>
+                <option value="rosacea-treatment">Лечение купероза и розацеа</option>
+                <option value="pigmentation-removal">Устранение пигментации</option>
+                <option value="laser-resurfacing">Лазерная шлифовка</option>
+                <option value="laser-epilation">Лазерная эпиляция</option>
+                <option value="photodynamic-therapy">Фотодинамическая терапия Revixan</option>
+                <option value="microcurrent-therapy">Микротоковая терапия</option>
+                <option value="injection-cosmetology">Инъекционная косметология</option>
+                <option value="prp-therapy">PRP-терапия</option>
+                <option value="contour-plastic">Контурная пластика</option>
+                <option value="botulinoterapiya">Ботулинотерапия</option>
+                <option value="kollagenoterapiya">Коллагенотерапия</option>
+                <option value="carboxy">Карбокситерапия</option>
+                <option value="biorevitalization">Биоревитализация</option>
+                <option value="mesotherapy">Мезотерапия</option>
+                <option value="fat-reduction">Устранение локальных жировых отложений</option>
+                <option value="hydra-touch">Гидропилинг Hydra Touch H2</option>
+                <option value="lpg-massage">LPG массаж</option>
+                <option value="exosomes">Экзосомы</option>
+                <option value="aesthetic-cosmetology">Эстетическая косметология</option>
+                <option value="peeling">Пилинг</option>
+                <option value="cleansing">Чистки</option>
+                <option value="spa-care">Спа процедуры для лица и тела</option>
+                <option value="rsl-beautylizer">RSL Beautylizer (RSL-скульптурирование)</option>
                 <option value="other">Другое</option>
               </select>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#30362E" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
@@ -446,12 +476,40 @@
       <label for="mh-b-service">Услуга</label>
       <div class="mh-field-select">
         <select id="mh-b-service" name="service">
-          <option value="" disabled selected>Выбрать направление</option>
-          <option value="laser">Лазерные технологии</option>
-          <option value="light">Световые технологии</option>
-          <option value="lift">Аппаратный лифтинг</option>
-          <option value="injections">Инъекционная косметология</option>
-          <option value="care">Уходовые программы</option>
+          <option value="" disabled selected>Выбрать услугу</option>
+          <option value="cosmetologist-consultation">Приём косметолога</option>
+          <option value="trichologist-consultation">Приём трихолога</option>
+          <option value="nutritionist-consultation">Приём нутрициолога</option>
+          <option value="ultrasound-diagnostics">Ультразвуковая диагностика</option>
+          <option value="smas-lifting">SMAS лифтинг</option>
+          <option value="rf-volnewmer">Монополярный RF-лифтинг Volnewmer</option>
+          <option value="rf-sylfirm">Микроигольчатый RF-лифтинг Sylfirm X</option>
+          <option value="nordlys">Фотосистема IPL Nordlys</option>
+          <option value="photorejuvenation">Фотоомоложение</option>
+          <option value="acne-treatment">Лечение акне</option>
+          <option value="rosacea-treatment">Лечение купероза и розацеа</option>
+          <option value="pigmentation-removal">Устранение пигментации</option>
+          <option value="laser-resurfacing">Лазерная шлифовка</option>
+          <option value="laser-epilation">Лазерная эпиляция</option>
+          <option value="photodynamic-therapy">Фотодинамическая терапия Revixan</option>
+          <option value="microcurrent-therapy">Микротоковая терапия</option>
+          <option value="injection-cosmetology">Инъекционная косметология</option>
+          <option value="prp-therapy">PRP-терапия</option>
+          <option value="contour-plastic">Контурная пластика</option>
+          <option value="botulinoterapiya">Ботулинотерапия</option>
+          <option value="kollagenoterapiya">Коллагенотерапия</option>
+          <option value="carboxy">Карбокситерапия</option>
+          <option value="biorevitalization">Биоревитализация</option>
+          <option value="mesotherapy">Мезотерапия</option>
+          <option value="fat-reduction">Устранение локальных жировых отложений</option>
+          <option value="hydra-touch">Гидропилинг Hydra Touch H2</option>
+          <option value="lpg-massage">LPG массаж</option>
+          <option value="exosomes">Экзосомы</option>
+          <option value="aesthetic-cosmetology">Эстетическая косметология</option>
+          <option value="peeling">Пилинг</option>
+          <option value="cleansing">Чистки</option>
+          <option value="spa-care">Спа процедуры для лица и тела</option>
+          <option value="rsl-beautylizer">RSL Beautylizer (RSL-скульптурирование)</option>
           <option value="other">Другое</option>
         </select>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6159" stroke-width="1.5" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
@@ -734,10 +792,26 @@ function openBookingPopup() {
 })();
 </script>
 <script src="docs-popup.js?v=202609021900" defer></script>
-<script src="animations.js?v=202608311610" defer></script>
+<script src="animations.js?v=202609092100" defer></script>
 <script src="mobile-nav.js?v=202608311610" defer></script>
 <script src="assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="./accessibility.js?v=202608311610" defer></script>
 <script src="./booking-widget.js?v=202608311610" defer></script>
+<script src="js/booking-modal.js?v=202609092100" defer></script>
 <script src="./map-widget.js?v=202608271800" defer></script>
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-rating]');
+  if (!els.length) return;
+  fetch('ratings.json?_=' + Date.now())
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (d) {
+      els.forEach(function (el) {
+        var key = el.getAttribute('data-rating');
+        if (d[key] && d[key].score) el.textContent = d[key].score;
+      });
+    })
+    .catch(function () {});
+})();
+</script>
 </body>
 </html>

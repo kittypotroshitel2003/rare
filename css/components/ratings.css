@@ -1,0 +1,21 @@
+/* ============================================================
+   RATING BADGES — the Яндекс / 2ГИС / ПроДокторов row shown under
+   a page title (prices.html, services.html, specialists/index.html)
+   and under the mission statement on about.html. Lived inside
+   css/pages/prices.css until more than one page needed it; the
+   class names are kept so prices.html markup is untouched.
+   ============================================================ */
+.price-ratings { display: flex; align-items: center; justify-content: center; gap: clamp(20px, 2.2vw, 36px); flex-wrap: wrap; }
+.price-rating { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--f); font-size: 15px; transition: opacity 0.2s ease; }
+.price-rating:hover { opacity: 0.7; }
+.price-rating:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; border-radius: 8px; }
+.price-rating img { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; display: block; }
+.price-rating__stars { color: #d4a017; font-size: 0.9em; letter-spacing: 1px; }
+.price-rating__score { font-weight: 600; color: var(--c-text); }
+.price-rating__name { font-weight: 400; color: var(--c-text); }
+
+@media (max-width: 767px) {
+  .price-ratings--mobile { justify-content: flex-start; gap: 14px 20px; }
+  .price-ratings--mobile .price-rating { font-size: 12.5px; }
+  .price-ratings--mobile .price-rating img { width: 20px; height: 20px; }
+}

@@ -43,56 +43,24 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Service category pages -->
+  <!-- Service pages -->
   <url>
-    <loc>https://rare.a-4-to.ru/services/consultations.html</loc>
+    <loc>https://rare.a-4-to.ru/services/procedures/cosmetologist-consultation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/services/diagnostics.html</loc>
+    <loc>https://rare.a-4-to.ru/services/procedures/trichologist-consultation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/services/injections.html</loc>
+    <loc>https://rare.a-4-to.ru/services/procedures/nutritionist-consultation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/services/laser.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/services/lifts.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/services/light.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/services/skin.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/services/spa.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Procedure detail pages -->
-  <url>
-    <loc>https://rare.a-4-to.ru/services/procedures/acne-treatment.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rare.a-4-to.ru/services/procedures/laser-epilation.html</loc>
+    <loc>https://rare.a-4-to.ru/services/procedures/ultrasound-diagnostics.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -102,24 +70,146 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/rf-volnewmer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/rf-sylfirm.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/nordlys.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rare.a-4-to.ru/services/procedures/laser-resurfacing.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/services/procedures/photorejuvenation.html</loc>
+    <loc>https://rare.a-4-to.ru/services/procedures/laser-epilation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/photodynamic-therapy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/microcurrent-therapy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/injection-cosmetology.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/hydra-touch.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/lpg-massage.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/exosomes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/aesthetic-cosmetology.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/spa-care.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/rsl-beautylizer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Procedures inside a service -->
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/photorejuvenation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/acne-treatment.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rare.a-4-to.ru/services/procedures/rosacea-treatment.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/services/procedures/trichologist-consultation.html</loc>
+    <loc>https://rare.a-4-to.ru/services/procedures/pigmentation-removal.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/prp-therapy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/contour-plastic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/botulinoterapiya.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/kollagenoterapiya.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/carboxy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/biorevitalization.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/mesotherapy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/fat-reduction.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/peeling.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/services/procedures/cleansing.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Specialist detail pages -->
@@ -130,6 +220,11 @@
   </url>
   <url>
     <loc>https://rare.a-4-to.ru/specialists/elena-tigranovna.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/specialists/ekaterina-evgenevna.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

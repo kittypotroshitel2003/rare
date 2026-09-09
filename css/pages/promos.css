@@ -16,6 +16,9 @@ body.page--promos { background: #fff; color: var(--c-text); }
   color: var(--c-text); margin: 0 0 48px;
 }
 .promos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+/* та же причина, что и в promo-offer.css: панель внутри плитки — доля
+   её ширины, и в две колонки ниже ~1000px в заголовок не влезает слово */
+@media (max-width: 1000px) { .promos-grid { grid-template-columns: 1fr; gap: 20px; } }
 .promo-tile {
   position: relative; overflow: hidden; border-radius: 16px;
   aspect-ratio: 767 / 485; display: block; text-decoration: none;
@@ -81,4 +84,20 @@ body.page--promos { background: #fff; color: var(--c-text); }
   .mh-promo-card__body { display: flex; flex-direction: column; gap: 6px; color: rgba(48,54,46,0.6); }
   .mh-promo-card__pct { font-size: 52px; font-weight: 500; line-height: 1; margin: 0; }
   .mh-promo-card__desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.8; margin: 0; }
+}
+
+/* ── Нечётное количество акций ─────────────────────────────────────
+   При трёх акциях в двухколоночной сетке справа оставалась пустая
+   ячейка. Последняя непарная плитка занимает всю строку и получает
+   вытянутую пропорцию, чтобы по высоте совпадать с обычным рядом. */
+.promos-grid > .promo-tile:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 1560 / 485; }
+.promos-grid > .promo-tile:last-child:nth-child(odd) .promo-tile__panel { left: clamp(14px, 2.05%, 28px); width: clamp(180px, 18%, 290px); }
+/* широкая плитка режет исходный кадр по вертикали втрое сильнее обычной:
+   при центрированном кропе от клиента остаётся половина лица, поэтому
+   окно кропа сдвинуто вниз — к лицу клиента */
+.promos-grid > .promo-tile:last-child:nth-child(odd) .promo-tile__img { object-position: center 78%; }
+@media (max-width: 1000px) {
+  /* в одну колонку растягивать уже нечего — пропорция обычная */
+  .promos-grid > .promo-tile:last-child:nth-child(odd) { aspect-ratio: 767 / 485; }
+  .promos-grid > .promo-tile:last-child:nth-child(odd) .promo-tile__panel { left: 4.173%; width: 36.767%; }
 }

@@ -126,7 +126,7 @@
   text-decoration: none; line-height: 1.4; padding: 8px 10px; border-radius: 8px; display: block;
   transition: background 0.15s ease, color 0.15s ease; letter-spacing: -0.01em; white-space: normal;
 }
-.nav-prices .price-mega a:hover { background: rgba(72,98,124,0.08); color: var(--c-accent, #8DA585) !important; }
+.nav-prices .price-mega a:hover { background: rgba(141,165,133,0.08); color: var(--c-accent, #8DA585) !important; }
 .price-mega__all { border-top: 1px solid rgba(48,54,46,0.1); margin-top: 8px; padding-top: 14px; display: flex; justify-content: flex-end; }
 .nav-prices .price-mega__all .pill-btn { background: var(--c-dark, #F3EEE8) !important; color: #fdfcf8 !important; border: none !important; box-shadow: none !important; padding: 10px 20px; font-size: 14px; }
 @media (max-width: 1024px) { .nav-prices__trigger svg { display: none; } .price-mega { display: none !important; } }
@@ -162,7 +162,7 @@
   position: absolute; left: clamp(20px, 6vw, 60px); bottom: -0.1em;
   font-family: var(--f, 'Inter', sans-serif); font-weight: 300;
   font-size: 26vw; line-height: 0.8; letter-spacing: -0.01em;
-  color: rgba(72,98,124,0.08); pointer-events: none; white-space: nowrap; z-index: 0;
+  color: rgba(141,165,133,0.08); pointer-events: none; white-space: nowrap; z-index: 0;
 }
 .mobile-nav-overlay.is-open { transform: translateX(0); }
 
@@ -434,7 +434,7 @@
   .result-lbl { font-size: 18px; }
 
   /* ── Booking ── */
-  .booking-inner { flex-direction: column; gap: 40px; }
+  .booking-inner { flex-direction: column; align-items: stretch; gap: 40px; }
   .booking-text { flex: none; width: 100%; }
   .booking-heading { font-size: clamp(26px, 7.5vw, 48px); margin-bottom: 16px; }
   .booking-desc { font-size: 17px; }
@@ -831,7 +831,7 @@
 
   /* service booking form */
   .sec-booking { padding: 56px 0 !important; }
-  .booking-inner { flex-direction: column !important; gap: 32px !important; }
+  .booking-inner { flex-direction: column !important; align-items: stretch !important; gap: 32px !important; }
   .booking-form { flex: none !important; width: 100% !important; padding: 24px 18px !important; }
   .booking-text h2 { font-size: clamp(24px, 7.5vw, 40px) !important; }
   .booking-text p { font-size: 15px !important; }
@@ -878,7 +878,9 @@
   .svc-reviews-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
   .svc-spec-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; }
   .pairs-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
-  .booking-inner { flex-direction: column !important; gap: 40px !important; }
+  /* align-items:flex-end из десктопной раскладки в колонке прижимал
+     форму и карту к правому краю — в столбце тянем на всю ширину */
+  .booking-inner { flex-direction: column !important; align-items: stretch !important; gap: 40px !important; }
   .booking-form { flex: none !important; width: 100% !important; max-width: 600px !important; }
 
   /* ── Promo detail pages (tablet) ── */
@@ -930,7 +932,7 @@
   .desc-inner        { flex-direction: column !important; }
   .desc-photo        { width: 100% !important; height: clamp(240px, 68vw, 360px) !important; }
   .promo-inner       { flex-direction: column !important; }
-  .booking-inner     { flex-direction: column !important; }
+  .booking-inner     { flex-direction: column !important; align-items: stretch !important; }
   .booking-form      { width: 100% !important; max-width: 100% !important; }
   .gift-amount       { font-size: clamp(44px, 13vw, 64px) !important; }
 
@@ -2385,3 +2387,10 @@
   .start-contact__arr { width: 30px !important; height: 30px !important; }
   .start-contact__arr svg { width: 13px !important; height: 13px !important; }
 }
+
+/* ─── Горизонтальные поля секции записи ────────────────────────────
+   Правила выше задают .sec-booking только вертикальные отступы
+   («padding: 56px 0»), попутно обнуляя горизонтальные. Там, где .wrap
+   висит на самой секции, это прижимало форму к краям экрана —
+   возвращаем поля здесь, ниже всех переопределений. */
+.sec-booking.wrap { padding-left: var(--gutter) !important; padding-right: var(--gutter) !important; }

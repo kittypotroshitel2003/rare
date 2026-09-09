@@ -13,6 +13,19 @@
    ============================================================ */
 body.page--service-procedure { background: #fff; color: var(--c-text); }
 .svc-desktop { display: flex; flex-direction: column; align-items: center; gap: 160px; margin-top: var(--header-h); padding-bottom: 160px; }
+/* ── Подуслуги направления ──────────────────────────────────────────
+   Направления вроде Nordlys, инъекционной и эстетической косметологии
+   больше не ведут на промежуточную страницу-заглушку: это обычная
+   страница услуги, внутри которой лежит сетка входящих процедур.
+   Плитка — та же .dir-tile из services.css, что на главной и в
+   /services.html, чтобы карточка услуги выглядела одинаково везде. */
+.svc-subservices { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(40px, 5vw, 80px); }
+.svc-subservices__heading { padding: 0 var(--gutter); font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
+.svc-subservices .dir-grid { width: 100%; }
+/* два элемента в ряду из четырёх колонок растянулись бы вдвое —
+   вместо этого держим плитку в её собственной ширине и центрируем */
+.svc-subservices .dir-grid--narrow { grid-template-columns: repeat(2, minmax(0, 380px)); justify-content: center; }
+
 @media (max-width: 767px) { .svc-desktop { display: none; } }
 
 /* Breadcrumb + hero share one flex child of .svc-desktop (like
@@ -108,12 +121,16 @@ body.page--service-procedure { background: #fff; color: var(--c-text); }
 .svc-results__dots { display: flex; align-items: center; gap: 10px; }
 .svc-results__dots .dot { background: rgba(255,255,255,0.35); }
 .svc-results__dots .dot--active { background: #fff; }
-.svc-results__header { display: flex; flex-direction: column; gap: 24px; width: 100%; max-width: 1320px; }
+/* без max-width: заголовок центрировался внутри контентной полосы и на
+   широких экранах начинался правее всех остальных заголовков страницы */
+.svc-results__header { display: flex; flex-direction: column; gap: 24px; width: 100%; }
 .svc-results__heading { font-size: clamp(32px, 4.4vw, 64px); font-weight: 400; color: #fff; letter-spacing: -0.04em; line-height: 1.1; font-style: normal; margin: 0; }
 .svc-results__subheading { font-size: clamp(15px, 1.25vw, 22px); font-weight: 300; color: rgba(255,255,255,0.9); letter-spacing: -0.03em; line-height: 1.4; margin: 0; }
 
-/* slightly smaller than Figma's literal 1320px per explicit request */
-.svc-compare { --pos: 50%; position: relative; width: 100%; max-width: 1140px; aspect-ratio: 1320 / 740; border-radius: 24px; border: 1px solid rgba(255,255,255,0.25); overflow: hidden; touch-action: pan-y; cursor: ew-resize; user-select: none; background: #ccc4b3; }
+/* Меньше макетных 1320px и дополнительно ограничен высотой экрана:
+   на ноутбуке слайдер занимал весь вьюпорт и заголовок блока уезжал
+   за верхний край. 58vh по высоте оставляют место заголовку и точкам. */
+.svc-compare { --pos: 50%; position: relative; width: 100%; max-width: min(820px, calc(58vh * 1320 / 740)); aspect-ratio: 1320 / 740; border-radius: 24px; border: 1px solid rgba(255,255,255,0.25); overflow: hidden; touch-action: pan-y; cursor: ew-resize; user-select: none; background: #ccc4b3; }
 .svc-compare__after, .svc-compare__before { position: absolute; inset: 0; width: 100%; height: 100%; }
 .svc-compare__after img, .svc-compare__before img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; -webkit-user-drag: none; }
 .svc-compare__before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); box-shadow: 2px 0 0 0 #fff; }
@@ -183,7 +200,9 @@ body.page--service-procedure { background: #fff; color: var(--c-text); }
   footer.site-footer { display: none !important; }
   .svc-mobile { display: flex; flex-direction: column; gap: 56px; padding-top: 84px; }
   .svc-mobile .mh-footer { margin-top: 0; }
-  .svc-mobile .mh-promos-heading { text-align: left; }
+  /* align-items:center у .mh-promos-hero сжимал заголовок по тексту, и
+     его левый край не совпадал с остальными блоками мобильной верстки */
+  .svc-mobile .mh-promos-heading { text-align: left; width: 100%; }
 
   .mh-svc-hero { display: flex; flex-direction: column; gap: 24px; padding: 0 20px; }
   .mh-svc-breadcrumb { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; font-weight: 300; color: var(--c-muted); letter-spacing: -0.03em; }
@@ -243,4 +262,12 @@ body.page--service-procedure { background: #fff; color: var(--c-text); }
   .mh-svc-faq { padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
   .mh-svc-faq__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; }
   .mh-svc-faq .svc-faq__stack { gap: 16px; }
+
+  .mh-svc-subservices { padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
+  .mh-svc-subservices__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; }
 }
+
+/* длинные названия («RSL Beautylizer (RSL-скульптурирование)») шире
+   колонки на 768px — переносим по слогам, а не срезаем по краю */
+.svc-hero__title,
+.mh-svc-hero__title { overflow-wrap: break-word; hyphens: auto; }

@@ -15,26 +15,44 @@ RA|RÉ — клиника эстетической медицины, специ�
 - [Акции](https://rare.a-4-to.ru/promos.html): текущие скидки и предложения
 - [Подарочные сертификаты](https://rare.a-4-to.ru/certificates.html)
 
-## Направления услуг
+## Услуги
 
-- [Лазерные технологии](https://rare.a-4-to.ru/services/laser.html) — лазерная эпиляция, лазерная шлифовка
-- [Аппаратный лифтинг](https://rare.a-4-to.ru/services/lifts.html) — SMAS-лифтинг, RF-лифтинг Volnewmer, RF-лифтинг Sylfirm X
-- [Инъекционная косметология](https://rare.a-4-to.ru/services/injections.html) — ботулинотерапия, контурная пластика, биоревитализация, PRP-терапия
-- [Световые технологии](https://rare.a-4-to.ru/services/light.html) — фотоомоложение, лечение акне и купероза, ФДТ
-- [Уход за кожей](https://rare.a-4-to.ru/services/skin.html) — пилинги, чистки, гидропилинг
-- [Коррекция тела и SPA](https://rare.a-4-to.ru/services/spa.html) — LPG-массаж, SPA-программы
-- [Диагностика](https://rare.a-4-to.ru/services/diagnostics.html) — УЗИ-диагностика кожи
-- [Консультации](https://rare.a-4-to.ru/services/consultations.html) — приём косметолога, трихолога, нутрициолога
+- [Приём косметолога](https://rare.a-4-to.ru/services/procedures/cosmetologist-consultation.html) — консультация, план лечения, подбор домашнего ухода
+- [Приём трихолога](https://rare.a-4-to.ru/services/procedures/trichologist-consultation.html) — диагностика и лечение волос и кожи головы
+- [Приём нутрициолога](https://rare.a-4-to.ru/services/procedures/nutritionist-consultation.html) — коррекция питания и образа жизни
+- [Ультразвуковая диагностика в косметологии](https://rare.a-4-to.ru/services/procedures/ultrasound-diagnostics.html) — УЗИ кожи, датчики 18 и 22 МГц
+- [SMAS лифтинг](https://rare.a-4-to.ru/services/procedures/smas-lifting.html) — Ultraformer MPT, подтяжка лица без операции
+- [Монополярный RF-лифтинг Volnewmer](https://rare.a-4-to.ru/services/procedures/rf-volnewmer.html) — глубокий прогрев тканей без повреждения кожи
+- [Микроигольчатый RF-лифтинг Sylfirm X](https://rare.a-4-to.ru/services/procedures/rf-sylfirm.html) — лифтинг лица, шеи, декольте и тела
+- [Фотосистема IPL Nordlys](https://rare.a-4-to.ru/services/procedures/nordlys.html) — фотоомоложение, акне, купероз и розацеа, пигментация
+- [Лазерная шлифовка](https://rare.a-4-to.ru/services/procedures/laser-resurfacing.html) — рубцы, постакне, морщины, пигментация
+- [Лазерная эпиляция](https://rare.a-4-to.ru/services/procedures/laser-epilation.html) — александритовый Candela, все зоны
+- [Фотодинамическая терапия Revixan](https://rare.a-4-to.ru/services/procedures/photodynamic-therapy.html) — лечение акне и профилактика старения кожи
+- [Микротоковая терапия](https://rare.a-4-to.ru/services/procedures/microcurrent-therapy.html) — тонус, лимфодренаж, обновление клеток
+- [Инъекционная косметология](https://rare.a-4-to.ru/services/procedures/injection-cosmetology.html) — ботулинотерапия, филлеры, биоревитализация, PRP, липолитики
+- [Гидропилинг Hydra Touch H2](https://rare.a-4-to.ru/services/procedures/hydra-touch.html) — вакуумный гидропилинг с водородной водой
+- [LPG массаж](https://rare.a-4-to.ru/services/procedures/lpg-massage.html) — аппаратный вакуумный массаж тела и лица
+- [Экзосомы](https://rare.a-4-to.ru/services/procedures/exosomes.html) — экзосомальная фракционная мезотерапия
+- [Эстетическая косметология](https://rare.a-4-to.ru/services/procedures/aesthetic-cosmetology.html) — чистки, пилинги, уходовые программы
+- [Спа процедуры для лица и тела](https://rare.a-4-to.ru/services/procedures/spa-care.html) — массажи и SPA-уходы
+- [RSL Beautylizer (RSL-скульптурирование)](https://rare.a-4-to.ru/services/procedures/rsl-beautylizer.html) — аппаратное моделирование контуров тела
 
-## Подробные разборы процедур
+## Процедуры внутри направлений
 
-- [Лазерная эпиляция на александритовом лазере](https://rare.a-4-to.ru/services/procedures/laser-epilation.html)
-- [SMAS-лифтинг Ultraformer MPT](https://rare.a-4-to.ru/services/procedures/smas-lifting.html)
-- [Лазерная шлифовка кожи](https://rare.a-4-to.ru/services/procedures/laser-resurfacing.html)
+- [Фотоомоложение](https://rare.a-4-to.ru/services/procedures/photorejuvenation.html)
 - [Лечение акне](https://rare.a-4-to.ru/services/procedures/acne-treatment.html)
 - [Лечение купероза и розацеа](https://rare.a-4-to.ru/services/procedures/rosacea-treatment.html)
-- [Фотоомоложение](https://rare.a-4-to.ru/services/procedures/photorejuvenation.html)
-- [Консультация трихолога](https://rare.a-4-to.ru/services/procedures/trichologist-consultation.html)
+- [Устранение пигментации](https://rare.a-4-to.ru/services/procedures/pigmentation-removal.html)
+- [PRP-терапия](https://rare.a-4-to.ru/services/procedures/prp-therapy.html)
+- [Контурная пластика](https://rare.a-4-to.ru/services/procedures/contour-plastic.html)
+- [Ботулинотерапия](https://rare.a-4-to.ru/services/procedures/botulinoterapiya.html)
+- [Коллагенотерапия](https://rare.a-4-to.ru/services/procedures/kollagenoterapiya.html)
+- [Карбокситерапия](https://rare.a-4-to.ru/services/procedures/carboxy.html)
+- [Биоревитализация](https://rare.a-4-to.ru/services/procedures/biorevitalization.html)
+- [Мезотерапия](https://rare.a-4-to.ru/services/procedures/mesotherapy.html)
+- [Устранение локальных жировых отложений](https://rare.a-4-to.ru/services/procedures/fat-reduction.html)
+- [Пилинг](https://rare.a-4-to.ru/services/procedures/peeling.html)
+- [Чистки](https://rare.a-4-to.ru/services/procedures/cleansing.html)
 
 ## Полезно
 

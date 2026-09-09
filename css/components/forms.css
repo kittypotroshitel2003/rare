@@ -3,7 +3,13 @@
    index.html and about.html verbatim. Responsive behavior lives
    here too since it doesn't diverge between the two pages.
    ============================================================ */
-.sec-booking { padding: 0; background: var(--c-bg); }
+/* width:100% нужен из-за align-items:center у колонки-обёртки страницы —
+   без него секция сжималась по содержимому и «плавала» по ширине */
+.sec-booking { padding: 0; width: 100%; background: var(--c-bg); }
+/* когда .wrap висит на самой секции, горизонтальные поля страницы даёт
+   она сама; на главной и в статьях .wrap лежит внутри — там дублировать
+   отступ нельзя, поэтому правило привязано к сочетанию классов */
+.sec-booking.wrap { padding-left: var(--gutter); padding-right: var(--gutter); }
 .booking-inner { display: flex; gap: clamp(48px, 8vw, 156px); align-items: flex-end; }
 .booking-col--form { flex: 1 1 0; min-width: 0; max-width: 768px; display: flex; flex-direction: column; gap: clamp(40px, 4vw, 64px); }
 .booking-col--map { flex: 0 0 clamp(320px, 33vw, 636px); display: flex; flex-direction: column; gap: 24px; }
