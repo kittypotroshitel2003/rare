@@ -19,10 +19,13 @@
      +7 (XXX) XXX-XX-XX. Ведущие 7/8 съедаются, вставка из буфера
      чистится, курсор при обычном наборе остаётся в конце. */
   function formatPhone(raw) {
-    var d = (raw || '').replace(/\D/g, '');
+    var all = (raw || '').replace(/\D/g, '');
+    var d = all;
     if (d[0] === '8' || d[0] === '7') d = d.slice(1);
     d = d.slice(0, 10);
-    if (!d) return '';
+    /* если цифра была, но её съел код города — всё равно показываем
+       префикс, иначе поле выглядит нерабочим */
+    if (!d) return all ? '+7 (' : '';
     var out = '+7 (' + d.slice(0, 3);
     if (d.length >= 3) out += ')';
     if (d.length > 3) out += ' ' + d.slice(3, 6);
@@ -217,7 +220,147 @@
 
     bindPhoneMask(modal.querySelector('#bkm-phone'));
     document.querySelectorAll('input[type="tel"]').forEach(bindPhoneMask);
+    document.querySelectorAll('select[name="service"]').forEach(enhanceSelect);
     wire();
+  }
+
+
+  /* ── Свой выпадающий список услуг ────────────────────────────────
+     Родной <select> с 34 пунктами ОС рисует по-своему: без отступов,
+     с жёсткой подсветкой и длинным скроллом поверх модалки. Прячем
+     его и рисуем список сами; сам select остаётся в форме — значение
+     и валидация не меняются. Попап живёт в body с position:fixed,
+     иначе его срезает overflow модального окна. */
+  var pop = null, popOwner = null;
+
+  function ensurePop() {
+    if (pop) return pop;
+    pop = document.createElement('div');
+    pop.className = 'rr-sel__pop';
+    pop.setAttribute('role', 'listbox');
+    document.body.appendChild(pop);
+    document.addEventListener('mousedown', function (e) {
+      if (!popOwner) return;
+      if (pop.contains(e.target) || popOwner.wrap.contains(e.target)) return;
+      closePop();
+    });
+    window.addEventListener('resize', closePop);
+    window.addEventListener('scroll', function () { if (popOwner) placePop(); }, true);
+    return pop;
+  }
+
+  function placePop() {
+    var r = popOwner.btn.getBoundingClientRect();
+    var below = window.innerHeight - r.bottom - 12;
+    var above = r.top - 12;
+    var drop = below >= 220 || below >= above;
+    var max = Math.max(160, Math.min(320, drop ? below : above));
+    pop.style.left = r.left + 'px';
+    pop.style.width = r.width + 'px';
+    pop.style.maxHeight = max + 'px';
+    if (drop) { pop.style.top = (r.bottom + 6) + 'px'; pop.style.bottom = 'auto'; }
+    else { pop.style.top = 'auto'; pop.style.bottom = (window.innerHeight - r.top + 6) + 'px'; }
+  }
+
+  function closePop() {
+    if (!popOwner) return;
+    pop.classList.remove('is-open');
+    popOwner.btn.setAttribute('aria-expanded', 'false');
+    popOwner = null;
+  }
+
+  function openPop(o) {
+    ensurePop();
+    popOwner = o;
+    pop.innerHTML = '';
+    [].forEach.call(o.select.options, function (opt, i) {
+      if (!opt.value && opt.disabled) return;          /* «Выбрать услугу» — плейсхолдер, не пункт */
+      var el = document.createElement('div');
+      el.className = 'rr-sel__opt' + (i === o.select.selectedIndex ? ' is-active' : '');
+      el.setAttribute('role', 'option');
+      el.setAttribute('tabindex', '-1');
+      el.setAttribute('aria-selected', i === o.select.selectedIndex ? 'true' : 'false');
+      el.textContent = opt.text;
+      el.addEventListener('click', function () { pick(o, i); });
+      pop.appendChild(el);
+    });
+    pop.classList.add('is-open');
+    o.btn.setAttribute('aria-expanded', 'true');
+    placePop();
+    var active = pop.querySelector('.is-active');
+    if (active) active.scrollIntoView({ block: 'nearest' });
+  }
+
+  function pick(o, index) {
+    o.select.selectedIndex = index;
+    o.select.dispatchEvent(new Event('change', { bubbles: true }));
+    syncLabel(o);
+    closePop();
+    o.btn.focus();
+  }
+
+  function syncLabel(o) {
+    var opt = o.select.options[o.select.selectedIndex];
+    var placeholder = !opt || (!opt.value && opt.disabled);
+    o.label.textContent = opt ? opt.text : 'Выбрать услугу';
+    o.btn.classList.toggle('is-placeholder', placeholder);
+  }
+
+  function enhanceSelect(select) {
+    if (select.dataset.rrSel) return;
+    select.dataset.rrSel = '1';
+    var wrap = select.parentNode;
+    wrap.classList.add('rr-sel');
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rr-sel__btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    var label = document.createElement('span');
+    label.className = 'rr-sel__value';
+    btn.appendChild(label);
+    wrap.insertBefore(btn, select);
+
+    var o = { select: select, wrap: wrap, btn: btn, label: label };
+    syncLabel(o);
+
+    btn.addEventListener('click', function () {
+      if (popOwner === o) closePop(); else openPop(o);
+    });
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (popOwner !== o) openPop(o);
+        else moveActive(e.key === 'ArrowUp' ? -1 : 1);
+      } else if (e.key === 'Escape') closePop();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (popOwner !== o) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePop(); btn.focus(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); moveActive(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); moveActive(-1); }
+      else if (e.key === 'Enter') {
+        var cur = pop.querySelector('.is-active');
+        if (cur) { e.preventDefault(); pick(o, [].indexOf.call(o.select.options, findOption(o, cur.textContent))); }
+      }
+    });
+    /* select мог получить значение извне (страница услуги подставляет свою) */
+    select.addEventListener('change', function () { syncLabel(o); });
+  }
+
+  function findOption(o, text) {
+    return [].filter.call(o.select.options, function (op) { return op.text === text; })[0];
+  }
+
+  function moveActive(dir) {
+    var items = [].slice.call(pop.children);
+    if (!items.length) return;
+    var i = items.findIndex(function (el) { return el.classList.contains('is-active'); });
+    var next = Math.max(0, Math.min(items.length - 1, (i < 0 ? 0 : i + dir)));
+    items.forEach(function (el) { el.classList.remove('is-active'); });
+    items[next].classList.add('is-active');
+    items[next].scrollIntoView({ block: 'nearest' });
   }
 
   /* ── Открытие/закрытие ─────────────────────────────────────── */

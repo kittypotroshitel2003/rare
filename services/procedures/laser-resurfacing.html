@@ -15,12 +15,12 @@
   <link rel="dns-prefetch" href="https://yandex.ru"/>
   <link rel="stylesheet" href="../../css/tokens.css?v=202609092100"/>
   <link rel="stylesheet" href="../../css/base.css?v=202608311600"/>
-  <link rel="stylesheet" href="../../css/components/header.css?v=202608311600"/>
+  <link rel="stylesheet" href="../../css/components/header.css?v=202609110100"/>
   <link rel="stylesheet" href="../../css/components/footer.css?v=202608311600"/>
   <link rel="stylesheet" href="../../css/components/buttons.css?v=202609092100"/>
   <link rel="stylesheet" href="../../css/components/mobile-booking.css?v=202608311600"/>
   <link rel="stylesheet" href="../../css/components/booking-popup.css?v=202608311700"/>
-  <link rel="stylesheet" href="../../css/components/booking-modal.css?v=202609092100"/>
+  <link rel="stylesheet" href="../../css/components/booking-modal.css?v=202609110300"/>
   <link rel="stylesheet" href="../../css/components/forms.css?v=202609092100"/>
   <link rel="stylesheet" href="../../css/components/dots.css?v=202608311600"/>
   <link rel="stylesheet" href="../../css/pages/services.css?v=202609092100"/>
@@ -497,7 +497,7 @@
         </form>
       </div>
       <div class="booking-col booking-col--map">
-        <div class="contacts-bar">
+        <div class="contacts-bar" id="contacts">
           <p>Анапа, ул. Владимирская, 120</p>
           <a href="tel:+79002761116">+7 (900) 276-11-16</a>
           <p>Пн-Вс: 9:00 — 20:00</p>
@@ -869,10 +869,10 @@
       <a href="../../prices.html">Цены</a>
       <a href="../../promos.html">Акции</a>
       <a href="../../reviews/index.html">Отзывы</a>
-      <a href="#booking-mobile">Контакты</a>
+      <a href="../../index.html#contacts-mobile">Контакты</a>
     </nav>
     <div class="mh-footer__div"></div>
-    <div class="mh-footer__socials">
+    <div class="mh-footer__socials" id="contacts-mobile">
       <a href="tel:+79002761116" aria-label="Позвонить"><img src="../../assets/icons/footer-phone.svg" alt=""/></a>
       <a href="https://vk.com/rareanapa" target="_blank" rel="noopener" aria-label="VK"><img src="../../assets/icons/footer-vk.svg" alt=""/></a>
       <a href="https://max.ru/u/f9LHodD0cOLLxxPenSa97cz7CKrZVx_h83wetkwNaSmxVjXBtYN89JTNV1c" target="_blank" rel="noopener" aria-label="MAX"><img src="../../assets/icons/footer-max.svg" alt=""/></a>
@@ -908,7 +908,7 @@
       <div class="footer-nav__group">
         <a href="../../promos.html">Акции</a>
         <a href="../../reviews/index.html">Отзывы</a>
-        <a href="#booking">Контакты</a>
+        <a href="../../index.html#contacts">Контакты</a>
       </div>
     </nav>
     <div class="footer-div"></div>
@@ -1098,7 +1098,7 @@ function openBookingPopup() {
 <script src="../../mobile-nav.js?v=202608311610" defer></script>
 <script src="../../assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="../../accessibility.js?v=202608311610" defer></script>
 <script src="../../booking-widget.js?v=202608311610" defer></script>
-<script src="../../js/booking-modal.js?v=202609092100" defer></script>
+<script src="../../js/booking-modal.js?v=202609110300" defer></script>
 <script src="../../map-widget.js?v=202608271800" defer></script>
 </body>
 </html>

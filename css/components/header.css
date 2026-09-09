@@ -6,6 +6,10 @@
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between;
+  /* gap задаёт минимальный зазор: со space-between меню и блок действий
+     на широких экранах сходились вплотную, и кнопка версии для
+     слабовидящих прилипала к пункту «Отзывы» */
+  gap: clamp(20px, 2vw, 44px);
   padding: 24px var(--gutter); flex-shrink: 0;
 }
 .site-header__logo img { height: clamp(24px, 1.875vw, 36px); width: auto; }

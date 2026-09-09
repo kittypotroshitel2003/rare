@@ -20,7 +20,10 @@
 .about-hero__card {
   border: 1px solid #f0f0f0; border-radius: clamp(12px, 1.04vw, 20px); padding: clamp(16px, 1.67vw, 32px);
   display: flex; flex-direction: column; gap: clamp(6px, 0.625vw, 12px);
-  aspect-ratio: 372 / 305; background: #fff;
+  /* высота по содержимому с запасом вместо жёсткой пропорции: с ней
+     первый экран вырастал до ~770px и нижний ряд карточек обрезался
+     краем окна на ноутбуке */
+  min-height: clamp(150px, 12.5vw, 240px); background: #fff;
 }
 .about-hero__card--accent { background: var(--c-accent); }
 .about-hero__card--grey { background: #ededed; }
@@ -32,8 +35,11 @@
 .about-hero__card--accent .about-hero__card-title { color: #fff; }
 .about-hero__card-text { font-size: clamp(11px, 0.78vw, 15px); font-weight: 400; letter-spacing: -0.04em; line-height: 1.4; color: rgba(48,54,46,0.6); opacity: 0.7; }
 .about-hero__card--accent .about-hero__card-text { color: #fff; opacity: 0.7; }
-.about-hero__team-photo { width: 100%; border-radius: clamp(12px, 1.04vw, 20px); overflow: hidden; aspect-ratio: 768 / 769; }
-.about-hero__team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 49% 100%; display: block; }
+/* высоту первого экрана задаёт колонка с карточками: снимок вложен
+   абсолютно, поэтому его собственная пропорция 768×769 больше не тянет
+   блок вниз и нижний ряд карточек не срезается краем окна */
+.about-hero__team-photo { position: relative; width: 100%; height: 100%; min-height: clamp(280px, 26vw, 520px); border-radius: clamp(12px, 1.04vw, 20px); overflow: hidden; }
+.about-hero__team-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 49% 100%; display: block; }
 
 @media (max-width: 900px) {
   .about-hero__row { grid-template-columns: 1fr; }
