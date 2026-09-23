@@ -16,15 +16,15 @@
   <link rel="stylesheet" href="css/tokens.css?v=202609092100"/>
   <link rel="stylesheet" href="css/base.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/header.css?v=202609120600"/>
-  <link rel="stylesheet" href="css/components/footer.css?v=202608311600"/>
+  <link rel="stylesheet" href="css/components/footer.css?v=202609232000"/>
   <link rel="stylesheet" href="css/components/buttons.css?v=202609092100"/>
-  <link rel="stylesheet" href="css/components/mobile-booking.css?v=202608311600"/>
+  <link rel="stylesheet" href="css/components/mobile-booking.css?v=202609232000"/>
   <link rel="stylesheet" href="css/components/booking-popup.css?v=202608311700"/>
   <link rel="stylesheet" href="css/components/booking-modal.css?v=202609110300"/>
   <link rel="stylesheet" href="css/components/forms.css?v=202609092100"/>
   <link rel="stylesheet" href="css/components/dots.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/ratings.css?v=202609041000"/>
-  <link rel="stylesheet" href="css/pages/services.css?v=202609092100"/>
+  <link rel="stylesheet" href="css/pages/services.css?v=202609232100"/>
   <link rel="stylesheet" href="responsive.css?v=202609092100"/>
 <script type="application/ld+json">
 {
@@ -523,6 +523,167 @@
         </a>
 
       </div>
+
+      <section class="svc-nav" id="svc-nav" aria-label="Навигация по услугам">
+        <div class="svc-search">
+          <label class="svc-search__field">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input type="search" id="svc-search-input" class="svc-search__input" placeholder="Найти услугу или процедуру" autocomplete="off" enterkeyhint="search"/>
+            <button type="button" class="svc-search__clear" id="svc-search-clear" aria-label="Очистить поиск" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+          </label>
+          <p class="svc-search__hint" id="svc-search-hint" role="status"></p>
+        </div>
+        <div class="svc-problems">
+          <p class="svc-problems__label">Подобрать по проблеме</p>
+          <div class="svc-problems__row">
+            <button type="button" class="svc-problem" data-problem="wrinkles" data-procs="smas-lifting rf-volnewmer rf-sylfirm microcurrent-therapy botulinoterapiya contour-plastic kollagenoterapiya biorevitalization" aria-pressed="false">Морщины и птоз</button>
+            <button type="button" class="svc-problem" data-problem="acne" data-procs="acne-treatment photodynamic-therapy cleansing peeling nordlys" aria-pressed="false">Акне и высыпания</button>
+            <button type="button" class="svc-problem" data-problem="pigment" data-procs="pigmentation-removal photorejuvenation laser-resurfacing peeling" aria-pressed="false">Пигментация</button>
+            <button type="button" class="svc-problem" data-problem="rosacea" data-procs="rosacea-treatment nordlys" aria-pressed="false">Купероз и розацеа</button>
+            <button type="button" class="svc-problem" data-problem="hairloss" data-procs="trichologist-consultation prp-therapy mesotherapy" aria-pressed="false">Выпадение волос</button>
+            <button type="button" class="svc-problem" data-problem="hair" data-procs="laser-epilation" aria-pressed="false">Нежелательные волосы</button>
+            <button type="button" class="svc-problem" data-problem="dull" data-procs="hydra-touch biorevitalization mesotherapy exosomes" aria-pressed="false">Тусклая и сухая кожа</button>
+            <button type="button" class="svc-problem" data-problem="shape" data-procs="fat-reduction lpg-massage rsl-beautylizer carboxy" aria-pressed="false">Фигура и локальный жир</button>
+          </div>
+        </div>
+        <ul class="svc-acc">
+          <li class="svc-acc__item" data-dir="consult">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-consult">
+                <span class="svc-acc__name">Консультации и диагностика</span>
+                <span class="svc-acc__count">4</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-consult" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="cosmetologist-consultation"><a href="services/procedures/cosmetologist-consultation.html">Приём косметолога</a></li>
+                <li class="svc-acc__row" data-proc="trichologist-consultation"><a href="services/procedures/trichologist-consultation.html">Приём трихолога</a></li>
+                <li class="svc-acc__row" data-proc="nutritionist-consultation"><a href="services/procedures/nutritionist-consultation.html">Приём нутрициолога</a></li>
+                <li class="svc-acc__row" data-proc="ultrasound-diagnostics"><a href="services/procedures/ultrasound-diagnostics.html">Ультразвуковая диагностика</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-consult">Цены на направление</a>
+            </div>
+          </li>
+          <li class="svc-acc__item" data-dir="lifting">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-lifting">
+                <span class="svc-acc__name">Аппаратный лифтинг</span>
+                <span class="svc-acc__count">4</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-lifting" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="smas-lifting"><a href="services/procedures/smas-lifting.html">SMAS-лифтинг Ultraformer MPT</a></li>
+                <li class="svc-acc__row" data-proc="rf-volnewmer"><a href="services/procedures/rf-volnewmer.html">Монополярный RF-лифтинг Volnewmer</a></li>
+                <li class="svc-acc__row" data-proc="rf-sylfirm"><a href="services/procedures/rf-sylfirm.html">Микроигольчатый RF-лифтинг Sylfirm X</a></li>
+                <li class="svc-acc__row" data-proc="microcurrent-therapy"><a href="services/procedures/microcurrent-therapy.html">Микротоковая терапия</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-smas">Цены на направление</a>
+            </div>
+          </li>
+          <li class="svc-acc__item" data-dir="light">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-light">
+                <span class="svc-acc__name">Свет и лазер</span>
+                <span class="svc-acc__count">7</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-light" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="nordlys"><a href="services/procedures/nordlys.html">Фотосистема IPL Nordlys</a></li>
+                <li class="svc-acc__row" data-proc="photorejuvenation"><a href="services/procedures/photorejuvenation.html">Фотоомоложение</a></li>
+                <li class="svc-acc__row" data-proc="acne-treatment"><a href="services/procedures/acne-treatment.html">Лечение акне</a></li>
+                <li class="svc-acc__row" data-proc="rosacea-treatment"><a href="services/procedures/rosacea-treatment.html">Лечение купероза и розацеа</a></li>
+                <li class="svc-acc__row" data-proc="pigmentation-removal"><a href="services/procedures/pigmentation-removal.html">Устранение пигментации</a></li>
+                <li class="svc-acc__row" data-proc="laser-resurfacing"><a href="services/procedures/laser-resurfacing.html">Лазерная шлифовка</a></li>
+                <li class="svc-acc__row" data-proc="photodynamic-therapy"><a href="services/procedures/photodynamic-therapy.html">Фотодинамическая терапия Revixan</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-nordlys">Цены на направление</a>
+            </div>
+          </li>
+          <li class="svc-acc__item" data-dir="epil">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-epil">
+                <span class="svc-acc__name">Лазерная эпиляция</span>
+                <span class="svc-acc__count">1</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-epil" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="laser-epilation"><a href="services/procedures/laser-epilation.html">Лазерная эпиляция Candela</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-epil-women">Цены на направление</a>
+            </div>
+          </li>
+          <li class="svc-acc__item" data-dir="inject">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-inject">
+                <span class="svc-acc__name">Инъекционная косметология</span>
+                <span class="svc-acc__count">10</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-inject" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="injection-cosmetology"><a href="services/procedures/injection-cosmetology.html">Инъекционная косметология</a></li>
+                <li class="svc-acc__row" data-proc="biorevitalization"><a href="services/procedures/biorevitalization.html">Биоревитализация</a></li>
+                <li class="svc-acc__row" data-proc="mesotherapy"><a href="services/procedures/mesotherapy.html">Мезотерапия</a></li>
+                <li class="svc-acc__row" data-proc="botulinoterapiya"><a href="services/procedures/botulinoterapiya.html">Ботулинотерапия</a></li>
+                <li class="svc-acc__row" data-proc="contour-plastic"><a href="services/procedures/contour-plastic.html">Контурная пластика</a></li>
+                <li class="svc-acc__row" data-proc="kollagenoterapiya"><a href="services/procedures/kollagenoterapiya.html">Коллагенотерапия</a></li>
+                <li class="svc-acc__row" data-proc="prp-therapy"><a href="services/procedures/prp-therapy.html">PRP-терапия</a></li>
+                <li class="svc-acc__row" data-proc="carboxy"><a href="services/procedures/carboxy.html">Карбокситерапия</a></li>
+                <li class="svc-acc__row" data-proc="exosomes"><a href="services/procedures/exosomes.html">Экзосомы</a></li>
+                <li class="svc-acc__row" data-proc="fat-reduction"><a href="services/procedures/fat-reduction.html">Устранение локальных жировых отложений</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-injections">Цены на направление</a>
+            </div>
+          </li>
+          <li class="svc-acc__item" data-dir="care">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-care">
+                <span class="svc-acc__name">Уход и чистки</span>
+                <span class="svc-acc__count">5</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-care" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="hydra-touch"><a href="services/procedures/hydra-touch.html">Гидропилинг Hydra Touch H2</a></li>
+                <li class="svc-acc__row" data-proc="aesthetic-cosmetology"><a href="services/procedures/aesthetic-cosmetology.html">Эстетическая косметология</a></li>
+                <li class="svc-acc__row" data-proc="cleansing"><a href="services/procedures/cleansing.html">Чистки</a></li>
+                <li class="svc-acc__row" data-proc="peeling"><a href="services/procedures/peeling.html">Пилинг</a></li>
+                <li class="svc-acc__row" data-proc="spa-care"><a href="services/procedures/spa-care.html">Спа-процедуры для лица и тела</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-aesthetic">Цены на направление</a>
+            </div>
+          </li>
+          <li class="svc-acc__item" data-dir="body">
+            <h3 class="svc-acc__head">
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-body">
+                <span class="svc-acc__name">Тело и фигура</span>
+                <span class="svc-acc__count">2</span>
+                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="svc-acc__panel" id="svc-dir-body" hidden>
+              <ul class="svc-acc__list">
+                <li class="svc-acc__row" data-proc="lpg-massage"><a href="services/procedures/lpg-massage.html">LPG-массаж</a></li>
+                <li class="svc-acc__row" data-proc="rsl-beautylizer"><a href="services/procedures/rsl-beautylizer.html">RSL Beautylizer</a></li>
+              </ul>
+              <a class="svc-acc__price" href="prices.html#cat-lpg">Цены на направление</a>
+            </div>
+          </li>
+        </ul>
+        <p class="svc-nav__empty" id="svc-nav-empty" hidden>Ничего не нашлось. Попробуйте другое слово или позвоните — подберём вместе.</p>
+      </section>
+
       <div class="dir-cta-wrap">
         <a href="#booking" class="pill-btn hero__cta">Записаться на приём <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -673,150 +834,7 @@
 <div class="mobile-services">
   <!-- copied verbatim from home.css's .mh-services block (index.html
        mobile #services), extended to all 8 cards for this full page ── -->
-  <section class="mh-services">
-    <h2 class="mh-section-title">Услуги</h2>
-    <div class="price-ratings price-ratings--mobile">
-      <a href="reviews/index.html" class="price-rating" data-rr="up" style="--rr-dur:0.5s;--rr-del:0.0s">
-        <img src="assets/icons/rating-yandex.webp" alt="" width="20" height="20"/>
-        <span class="price-rating__stars">★★★★★</span>
-        <span class="price-rating__score" data-rating="yandex">4.9</span>
-        <span class="price-rating__name">Яндекс</span>
-      </a>
-      <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="price-rating" data-rr="up" style="--rr-dur:0.5s;--rr-del:0.08s">
-        <img src="assets/icons/rating-2gis.webp?v=2" alt="" width="20" height="20"/>
-        <span class="price-rating__stars">★★★★★</span>
-        <span class="price-rating__score" data-rating="gis">5.0</span>
-        <span class="price-rating__name">2ГИС</span>
-      </a>
-      <a href="https://prodoctorov.ru/anapa/lpu/94048-mindal/" target="_blank" rel="noopener" class="price-rating" data-rr="up" style="--rr-dur:0.5s;--rr-del:0.16s">
-        <img src="assets/icons/rating-prodoktorov.webp" alt="" width="20" height="20"/>
-        <span class="price-rating__stars">★★★★★</span>
-        <span class="price-rating__score" data-rating="prodoc">5.0</span>
-        <span class="price-rating__name">ПроДокторов</span>
-      </a>
-    </div>
-    <div class="mh-services__stack">
-      <a href="services/procedures/cosmetologist-consultation.html" class="mh-service-card">
-        <span class="mh-service-card__badge">01</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-08-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Приём косметолога</p>
-        <p class="mh-service-card__desc">Индивидуальная консультация и подбор программы ухода.</p>
-      </a>
-      <a href="services/procedures/trichologist-consultation.html" class="mh-service-card">
-        <span class="mh-service-card__badge">02</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-08-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Приём трихолога</p>
-        <p class="mh-service-card__desc">Диагностика и лечение выпадения волос.</p>
-      </a>
-      <a href="services/procedures/nutritionist-consultation.html" class="mh-service-card">
-        <span class="mh-service-card__badge">03</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-08-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Приём нутрициолога</p>
-        <p class="mh-service-card__desc">Коррекция питания для здоровья кожи и волос.</p>
-      </a>
-      <a href="services/procedures/ultrasound-diagnostics.html" class="mh-service-card">
-        <span class="mh-service-card__badge">04</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-07-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Ультразвуковая диагностика в косметологии</p>
-        <p class="mh-service-card__desc">Точная диагностика состояния кожи перед процедурами.</p>
-      </a>
-      <a href="services/procedures/smas-lifting.html" class="mh-service-card">
-        <span class="mh-service-card__badge">05</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-03-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">SMAS лифтинг</p>
-        <p class="mh-service-card__desc">SMAS-лифтинг Ultraformer MPT — подтяжка без операции.</p>
-      </a>
-      <a href="services/procedures/rf-volnewmer.html" class="mh-service-card">
-        <span class="mh-service-card__badge">06</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-03-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Монополярный RF-лифтинг Volnewmer</p>
-        <p class="mh-service-card__desc">Глубокий прогрев тканей для лифтинг-эффекта.</p>
-      </a>
-      <a href="services/procedures/rf-sylfirm.html" class="mh-service-card">
-        <span class="mh-service-card__badge">07</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-03-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Микроигольчатый RF-лифтинг Sylfirm X</p>
-        <p class="mh-service-card__desc">Микроигольчатый RF для упругости и текстуры кожи.</p>
-      </a>
-      <a href="services/procedures/nordlys.html" class="mh-service-card">
-        <span class="mh-service-card__badge">08</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-02-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Фотосистема IPL Nordlys</p>
-        <p class="mh-service-card__desc">Фотоомоложение, лечение акне, купероза и пигментации.</p>
-      </a>
-      <a href="services/procedures/laser-resurfacing.html" class="mh-service-card">
-        <span class="mh-service-card__badge">09</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-01-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Лазерная шлифовка</p>
-        <p class="mh-service-card__desc">Обновление текстуры и рельефа кожи лазером.</p>
-      </a>
-      <a href="services/procedures/laser-epilation.html" class="mh-service-card">
-        <span class="mh-service-card__badge">10</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-01-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Лазерная эпиляция</p>
-        <p class="mh-service-card__desc">Лазерная эпиляция на александритовом лазере.</p>
-      </a>
-      <a href="services/procedures/photodynamic-therapy.html" class="mh-service-card">
-        <span class="mh-service-card__badge">11</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-02-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">ФДТ Revixan</p>
-        <p class="mh-service-card__desc">Фотодинамическая терапия для лечения акне и воспалений.</p>
-      </a>
-      <a href="services/procedures/microcurrent-therapy.html" class="mh-service-card">
-        <span class="mh-service-card__badge">12</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-02-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Микротоковая терапия</p>
-        <p class="mh-service-card__desc">Стимуляция мышц лица для тонуса и лифтинг-эффекта.</p>
-      </a>
-      <a href="services/procedures/injection-cosmetology.html" class="mh-service-card">
-        <span class="mh-service-card__badge">13</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-05-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Инъекционная косметология</p>
-        <p class="mh-service-card__desc">PRP, ботулинотерапия, биоревитализация и другие процедуры.</p>
-      </a>
-      <a href="services/procedures/hydra-touch.html" class="mh-service-card">
-        <span class="mh-service-card__badge">14</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-04-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Гидропилинг Hydra Touch H2</p>
-        <p class="mh-service-card__desc">Глубокое очищение и кислородное насыщение кожи.</p>
-      </a>
-      <a href="services/procedures/lpg-massage.html" class="mh-service-card">
-        <span class="mh-service-card__badge">15</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-06-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">LPG массаж</p>
-        <p class="mh-service-card__desc">LPG-массаж на аппарате Cellu M6 Integral.</p>
-      </a>
-      <a href="services/procedures/exosomes.html" class="mh-service-card">
-        <span class="mh-service-card__badge">16</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-05-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Экзосомы</p>
-        <p class="mh-service-card__desc">Клеточные технологии для восстановления кожи.</p>
-      </a>
-      <a href="services/procedures/aesthetic-cosmetology.html" class="mh-service-card">
-        <span class="mh-service-card__badge">17</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-04-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Эстетическая косметология</p>
-        <p class="mh-service-card__desc">Профессиональные чистки и пилинги.</p>
-      </a>
-      <a href="services/procedures/spa-care.html" class="mh-service-card">
-        <span class="mh-service-card__badge">18</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-06-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">Спа процедуры для лица и тела</p>
-        <p class="mh-service-card__desc">Массажи и SPA-уходы для лица и тела.</p>
-      </a>
-      <a href="services/procedures/rsl-beautylizer.html" class="mh-service-card">
-        <span class="mh-service-card__badge">19</span>
-        <span class="mh-service-card__photo"><img src="assets/photos/dir-03-figma.webp" alt="" loading="lazy"/></span>
-        <p class="mh-service-card__title">RSL Beautylizer (RSL-скульптурирование)</p>
-        <p class="mh-service-card__desc">RSL-скульптурирование тела аппаратом Beautylizer.</p>
-      </a>
-    </div>
-    <div class="mh-services__cta">
-      <a href="#booking-mobile" class="mh-btn-primary"><span>Записаться</span>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </section>
+  <!-- .mh-services убран: заголовок, рейтинги и навигация переехали в .sec-dir/.svc-nav, общие для мобильного и планшета -->
 
   <!-- .mh-promo-card visuals copied from promos.html, but shown one at a
        time as a swipeable carousel with dot pagination here, per explicit
@@ -1182,6 +1200,7 @@ function openBookingPopup() {
 })();
 </script>
 <script src="docs-popup.js?v=202609021900" defer></script>
+<script src="js/services-nav.js?v=202609232100" defer></script>
 <script src="animations.js?v=202609120400" defer></script>
 <script src="mobile-nav.js?v=202608311610" defer></script>
 <script src="assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="./accessibility.js?v=202608311610" defer></script>

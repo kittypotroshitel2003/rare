@@ -5,6 +5,15 @@
    2-col grid, index.html stacks — intentional divergence, not a bug).
    ============================================================ */
 .site-footer { background: var(--c-bg); padding: clamp(36px, 4.5vw, 88px) 0 clamp(24px, 3.3vw, 64px); }
+
+/* На планшете подвал часто идёт сразу за контентом: `section + footer` из
+   base.css не срабатывает, когда перед ним <main> или <div>, и остаётся
+   только собственный верхний отступ подвала — для цветной секции, которая
+   упирается в него, этого мало. На десктопе правило не трогаем. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .site-footer { padding-top: clamp(64px, 8vw, 88px); }
+  section + .site-footer { padding-top: clamp(36px, 4.5vw, 88px); }
+}
 /* Hardcoded clamp (not var(--gutter)) on purpose: footer.css is shared by
    pages on tokens.css (--gutter caps at 180px), inner-header.css
    (--gutter caps at 72px, or 180px only with body.page--inner-lg), and

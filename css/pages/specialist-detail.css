@@ -277,7 +277,7 @@ body.page--specialist-detail { background: #fff; color: var(--c-text); }
      that previous section is .sec-booking's padding-bottom above, but
      giving the footer its own explicit top gap too makes the separation
      robust regardless of what precedes it. */
-  main.spec-detail + footer.mh-footer { padding-top: 32px !important; }
+  /* отступ перед подвалом теперь общий — mobile-booking.css */
 
   /* visually reorders "Другие специалисты" ahead of "Форма записи",
      matching the Figma flow, without touching DOM order (the booking

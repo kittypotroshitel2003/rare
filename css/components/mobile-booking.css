@@ -26,6 +26,13 @@
   .mh-form .mh-btn-primary svg { width: 24px; height: 24px; }
 
   .mh-footer { background: #fff; padding: 0 20px 40px; display: flex; flex-direction: column; gap: 32px; }
+  /* Разрыв перед подвалом задаёт base.css правилом `section + footer`.
+     Там, где перед подвалом стоит не секция — <main>, <div>, скрытый
+     оверлей формы, — правило не срабатывает, и подвал прилипает к
+     контенту вплотную. Добираем тот же отступ изнутри, а где правило
+     сработало, гасим, чтобы не сложилось вдвое. */
+  .mh-footer { padding-top: 64px; }
+  section + .mh-footer { padding-top: 0; }
   .mh-footer__links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 16px; font-weight: 500; letter-spacing: -0.04em; color: var(--c-text); }
   .mh-footer__links a { text-decoration: none; color: inherit; }
   .mh-footer__div { height: 1px; background: rgba(48,54,46,0.12); width: 100%; }

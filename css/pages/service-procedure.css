@@ -199,7 +199,8 @@ body.page--service-procedure { background: #fff; color: var(--c-text); }
 @media (max-width: 767px) {
   footer.site-footer { display: none !important; }
   .svc-mobile { display: flex; flex-direction: column; gap: 56px; padding-top: 84px; }
-  .svc-mobile .mh-footer { margin-top: 0; }
+  /* см. services.css: свой gap 56px, лишние отступы гасим */
+  .svc-mobile .mh-footer { margin-top: 0; padding-top: 0; }
   /* align-items:center у .mh-promos-hero сжимал заголовок по тексту, и
      его левый край не совпадал с остальными блоками мобильной верстки */
   .svc-mobile .mh-promos-heading { text-align: left; width: 100%; }
