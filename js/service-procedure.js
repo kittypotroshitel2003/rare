@@ -114,7 +114,9 @@
 
       media.addEventListener('click', function (e) {
         if (e.target.closest('.svc-sound-btn') || e.target.closest('.svc-video-bar')) return;
-        if (video.paused) video.play(); else video.pause();
+        // src проставляется лениво (video-loading.js) — до первого запуска его может не быть
+        if (video.paused) { if (window.rareVideo) window.rareVideo.start(video); else video.play(); }
+        else video.pause();
       });
 
       var seeking = false;
@@ -163,7 +165,7 @@
         btn.classList.toggle('is-on', on);
         btn.setAttribute('aria-pressed', String(on));
         btn.setAttribute('aria-label', on ? 'Выключить звук' : 'Включить звук');
-        if (on) video.play().catch(function () {});
+        if (on) { if (window.rareVideo) window.rareVideo.start(video); else video.play().catch(function () {}); }
       });
     });
   }

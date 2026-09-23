@@ -3,7 +3,12 @@
    a JS API–rendered map so the placemark can be branded instead of a
    stock Yandex pin. Targets every `.rr-map` element on the page (each
    carries its own lat/lng/zoom via data attributes, so this same
-   script works unmodified everywhere the map is embedded). */
+   script works unmodified everywhere the map is embedded).
+
+   Карта всегда стоит в самом низу страницы, но её API и тайлы тянулись
+   сразу при открытии — около 200 КБ трафика до того, как человек вообще
+   доскроллит. Теперь инициализация ждёт, пока карта не окажется рядом с
+   экраном. */
 (function () {
   var maps = document.querySelectorAll('.rr-map');
   if (!maps.length) return;
@@ -28,7 +33,7 @@
     return '../'.repeat(depth) + 'assets/icons/logo.svg';
   }
 
-  whenReady(function () {
+  function build() {
     var ymaps = window.ymaps;
     var PlacemarkLayout = ymaps.templateLayoutFactory.createClass(
       '<div class="rr-map-pin">' +
@@ -57,5 +62,23 @@
       });
       map.geoObjects.add(placemark);
     });
-  });
+  }
+
+  var started = false;
+  function startOnce() {
+    if (started) return;
+    started = true;
+    whenReady(build);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) { io.disconnect(); startOnce(); return; }
+      }
+    }, { rootMargin: '400px 0px' });
+    Array.prototype.forEach.call(maps, function (el) { io.observe(el); });
+  } else {
+    startOnce();
+  }
 })();

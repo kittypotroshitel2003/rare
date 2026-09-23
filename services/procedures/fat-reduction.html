@@ -197,7 +197,7 @@
       <a href="#booking" class="pill-btn hero__cta" data-rr="up" style="--rr-del:0.24s">Записаться на приём <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="svc-hero__media" data-rr="img">
-      <video src="../../assets/video/fat-reduction.mp4" poster="../../assets/photos/fat-reduction-poster.webp" autoplay muted loop playsinline></video>
+      <video poster="../../assets/photos/fat-reduction-poster.webp" muted loop playsinline data-src="../../assets/video/fat-reduction.mp4" preload="none"></video>
       <button type="button" class="svc-sound-btn" aria-label="Включить звук" aria-pressed="false">
         <svg class="icon-muted" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M17 8.5c1 1 1 6 0 7M19.5 6c2 2.5 2 9.5 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 4l16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg class="icon-on" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M17 8.5c1 1 1 6 0 7M19.5 6c2 2.5 2 9.5 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -474,7 +474,7 @@
       <li>Курс из нескольких процедур для стойкого результата</li>
     </ul>
     <div class="mh-svc-hero__media" data-rr="img">
-    <video src="../../assets/video/fat-reduction.mp4" poster="../../assets/photos/fat-reduction-poster.webp" autoplay muted loop playsinline></video>
+    <video poster="../../assets/photos/fat-reduction-poster.webp" muted loop playsinline data-src="../../assets/video/fat-reduction.mp4" preload="none"></video>
       <button type="button" class="svc-sound-btn" aria-label="Включить звук" aria-pressed="false">
         <svg class="icon-muted" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M17 8.5c1 1 1 6 0 7M19.5 6c2 2.5 2 9.5 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 4l16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg class="icon-on" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M17 8.5c1 1 1 6 0 7M19.5 6c2 2.5 2 9.5 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -810,7 +810,8 @@
 </div>
 
 <script src="../../js/filmstrip.js?v=202608180930"></script>
-<script src="../../js/service-procedure.js?v=202608181600"></script>
+<script src="../../js/video-loading.js?v=202609231400" defer></script>
+<script src="../../js/service-procedure.js?v=202609231400"></script>
 <script>
 (function () {
   function hoverIntent(trigger, panel, closeDelay) {
@@ -956,6 +957,6 @@ function openBookingPopup() {
 <script src="../../assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="../../accessibility.js?v=202608311610" defer></script>
 <script src="../../booking-widget.js?v=202608311610" defer></script>
 <script src="../../js/booking-modal.js?v=202609110300" defer></script>
-<script src="../../map-widget.js?v=202608271800" defer></script>
+<script src="../../map-widget.js?v=202609231400" defer></script>
 </body>
 </html>
