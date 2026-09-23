@@ -17,3 +17,4 @@ upload-fix.mjs
 # скрипт проверки вёрстки — нужен в репозитории
 !design-check.mjs
 !speed-check.mjs
+!build-responsive-images.mjs

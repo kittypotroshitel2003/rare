@@ -63,7 +63,12 @@
 @media (max-width: 767px) {
   footer.site-footer { display: none !important; }
 
-  .legal-hero.wrap { margin-top: 80px; padding: 32px 20px 24px; gap: 12px; }
+  /* Заголовок страницы и его подзаголовок на узких экранах ставим по
+     центру — так же, как на главной, «О клинике» и «Услугах»: на
+     телефоне короткий заголовок у левого края смотрится обрезком,
+     а содержимое ниже остаётся выключенным влево, как и было. */
+  .legal-hero.wrap { margin-top: 80px; padding: 32px 20px 24px; gap: 12px; align-items: center; text-align: center; }
+  .legal-hero__subtitle { max-width: 34ch; }
   .legal-hero__title { font-size: 28px; letter-spacing: -0.04em; }
   .legal-hero__subtitle { font-size: 16px; min-height: calc(1.4em * 3); }
 

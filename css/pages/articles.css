@@ -87,7 +87,12 @@
 @media (max-width: 767px) {
   footer.site-footer { display: none !important; }
 
-  .art-hero.wrap { margin-top: 80px; padding: 32px 20px 20px; gap: 12px; }
+  /* Заголовок страницы и его подзаголовок на узких экранах ставим по
+     центру — так же, как на главной, «О клинике» и «Услугах»: на
+     телефоне короткий заголовок у левого края смотрится обрезком,
+     а содержимое ниже остаётся выключенным влево, как и было. */
+  .art-hero.wrap { margin-top: 80px; padding: 32px 20px 20px; gap: 12px; align-items: center; text-align: center; }
+  .art-hero__subtitle { max-width: 34ch; }
   .art-hero__title { font-size: 28px; }
   .art-hero__subtitle { font-size: 16px; line-height: 1.45; }
 

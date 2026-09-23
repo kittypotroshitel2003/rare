@@ -43,7 +43,11 @@ body.page--specialists-listing { background: #fff; color: var(--c-text); }
      <footer>, not a <section>), so base.css's "section + section, section +
      footer" auto-spacing rule never matches it — set the gap explicitly. */
   .mh-booking { margin-top: 64px; }
-  .mh-spec-team__head { display: flex; flex-direction: column; gap: 10px; }
+  /* Заголовок страницы и его подзаголовок на узких экранах ставим по
+     центру — так же, как на главной, «О клинике» и «Услугах»: на
+     телефоне короткий заголовок у левого края смотрится обрезком,
+     а содержимое ниже остаётся выключенным влево, как и было. */
+  .mh-spec-team__head { display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; }
   .mh-spec-team__heading { font-size: 28px; font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1.1; margin: 0; font-style: normal; }
   .mh-spec-card {
     position: relative; height: 450px; width: 100%; border-radius: 16px; overflow: hidden;

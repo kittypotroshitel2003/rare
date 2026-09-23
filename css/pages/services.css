@@ -361,9 +361,9 @@ body.page--services { background: #fff; color: var(--c-text); }
   .services-desktop > .sec-promo-banner,
   .services-desktop > .sec-booking { display: none; }
   .sec-dir { padding: 0; }
-  .dir-head { padding: 0 20px; align-items: flex-start; text-align: left; gap: 14px; margin-bottom: 24px; }
-  .dir-heading { font-size: 28px; text-align: left; letter-spacing: -0.04em; }
-  .dir-head .price-ratings { justify-content: flex-start; gap: 12px 18px; }
+  .dir-head { padding: 0 20px; gap: 14px; margin-bottom: 24px; }
+  .dir-heading { font-size: 28px; letter-spacing: -0.04em; }
+  .dir-head .price-ratings { gap: 12px 18px; }
   .dir-head .price-rating { font-size: 12.5px; }
   .dir-head .price-rating img { width: 20px; height: 20px; }
   .svc-nav { padding: 0 20px; gap: 24px; }
