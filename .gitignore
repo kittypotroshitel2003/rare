@@ -13,3 +13,7 @@ patch-*.mjs
 upload-fix.mjs
 .DS_Store
 .claude/
+
+# скрипт проверки вёрстки — нужен в репозитории
+!design-check.mjs
+!speed-check.mjs

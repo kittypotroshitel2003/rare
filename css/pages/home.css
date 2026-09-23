@@ -1025,7 +1025,7 @@
     .mh-carousel { display: flex; flex-direction: column; gap: 20px; }
 
     .mh-spec-card { flex: 0 0 100%; scroll-snap-align: start; position: relative; height: 450px; border-radius: 16px; overflow: hidden; padding: 36px 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; text-decoration: none; color: #fff; }
-    .mh-spec-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .mh-spec-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; z-index: 0; }
     .mh-spec-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.5) 94%); }
     .mh-spec-card__name, .mh-spec-card__role { position: relative; z-index: 1; }
     .mh-spec-card__name { font-size: 24px; font-weight: 500; letter-spacing: -0.04em; }
