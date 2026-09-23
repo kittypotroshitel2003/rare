@@ -25,7 +25,7 @@ const MIN_GAIN = 1.25;                     // меньше — нарезка н
 const PAGES = [
   'index.html', 'about.html', 'services.html', 'prices.html', 'promos.html',
   'certificates.html', 'legal.html', 'specialists/index.html', 'reviews/index.html',
-  'articles/index.html', 'articles/article-hair-loss.html', 'articles/article-men-epilation.html',
+  'articles/index.html', ...fs.readdirSync('articles').filter((f) => f.endsWith('.html')).map((f) => 'articles/' + f),
   'promos/smas-lifting.html', 'services/procedures/smas-lifting.html',
   'services/procedures/laser-epilation.html', 'services/procedures/injection-cosmetology.html',
   ...fs.readdirSync('specialists').filter((f) => f.endsWith('.html')).map((f) => 'specialists/' + f),
@@ -73,8 +73,12 @@ await browser.close();
 const plan = [];
 for (const [file, info] of Object.entries(seen)) {
   if (!fs.existsSync(file) || !info.nat) continue;
-  const maxShown = Math.max(...Object.values(info.by));
-  if (!maxShown || info.nat <= maxShown * RETINA * MIN_GAIN) continue;
+  // Порог считаем по САМОМУ УЗКОМУ экрану, а не по самому широкому:
+  // картинка может быть впору десктопу и при этом втрое тяжелее, чем
+  // нужно телефону — ровно ради этого случая srcset и существует.
+  const shownVals = Object.values(info.by).filter(Boolean);
+  const minShown = Math.min(...shownVals);
+  if (!minShown || info.nat <= minShown * RETINA * MIN_GAIN) continue;
 
   // ширины, которые реально нужны: 1x и 2x каждого брейкпоинта, не больше оригинала
   const wanted = [];
