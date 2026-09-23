@@ -1,16 +1,53 @@
 /* ============================================================
-   LEGAL — legal.html. Document hub for the site's official files
-   (privacy policy, licence excerpt). Styled after certificates.css'
-   hero + card patterns for visual consistency.
+   LEGAL — legal.html. Сведения об организации, лицензия, официальные
+   документы и надзорные органы. Hero + карточки унаследованы от
+   certificates.css ради единой визуальной системы; реквизиты и
+   надзорные органы свёрстаны списками с волосяными разделителями —
+   это данные, а не карточки, и таблица читается быстрее плиток.
    ============================================================ */
 .legal-hero.wrap { display: flex; flex-direction: column; gap: clamp(18px, 1.25vw, 24px); margin-top: clamp(80px, 5.21vw, 100px); padding-top: clamp(48px, 4.17vw, 80px); padding-bottom: clamp(28px, 2.08vw, 40px); }
 .legal-hero__title { font-size: clamp(34px, 3.33vw, 64px); font-weight: 400; color: var(--c-text); letter-spacing: -0.04em; line-height: 1; margin: 0; font-style: normal; }
 .legal-hero__subtitle { font-size: clamp(18px, 1.25vw, 22px); font-weight: 300; color: var(--c-muted); line-height: 1.5; letter-spacing: -0.02em; margin: 0; max-width: 800px; font-style: normal; min-height: calc(1.5em * 2); }
 
-.legal-grid-sec.wrap { padding-top: clamp(14px, 1.04vw, 20px); padding-bottom: clamp(72px, 6.25vw, 120px); }
+.page--legal section + section { margin-top: clamp(40px, 3.33vw, 64px); }
+/* padding-top/bottom, не shorthand: .wrap держит боковые отступы через var(--gutter) */
+.legal-facts-sec.wrap { padding-top: 0; padding-bottom: 0; }
+.legal-grid-sec.wrap { padding-top: 0; padding-bottom: 0; }
+.legal-oversight-sec.wrap { padding-top: 0; padding-bottom: clamp(72px, 6.25vw, 120px); }
+
+.legal-sec-title { font-size: clamp(24px, 1.875vw, 36px); font-weight: 400; color: var(--c-text); letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 clamp(18px, 1.46vw, 28px); font-style: normal; }
+.legal-subtitle { font-size: clamp(17px, 1.15vw, 20px); font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.2; margin: clamp(28px, 2.08vw, 40px) 0 clamp(12px, 0.94vw, 18px); font-style: normal; }
+
+/* ── Реквизиты и лицензия ───────────────────────────────────────
+   Две колонки определений. Значение тяжелее ярлыка по весу, а не по
+   размеру — иерархия строится weight + color, как в остальной системе. */
+.legal-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: clamp(28px, 2.6vw, 48px) clamp(32px, 3.33vw, 64px); align-items: start; }
+.legal-dl { margin: 0; display: flex; flex-direction: column; }
+.legal-dl__row { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(16px, 1.25vw, 28px); padding: clamp(11px, 0.83vw, 15px) 0; border-top: 1px solid rgba(48,54,46,0.12); }
+.legal-dl__row:last-child { border-bottom: 1px solid rgba(48,54,46,0.12); }
+.legal-dl dt { font-size: clamp(14px, 0.89vw, 16px); font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; line-height: 1.45; }
+.legal-dl dd { margin: 0; font-size: clamp(15px, 1vw, 18px); font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.45; }
+.legal-dl dd a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(48,54,46,0.25); transition: color 0.2s ease, border-color 0.2s ease; }
+.legal-dl dd a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+.legal-dl dd a:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 3px; border-radius: 2px; }
+.legal-dl dd a:active { color: var(--c-accent-hover); }
+
+/* ── Надзорные органы ───────────────────────────────────────────── */
+.legal-orgs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.legal-org { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(16px, 1.25vw, 32px); align-items: baseline; padding: clamp(13px, 1.04vw, 18px) 0; border-top: 1px solid rgba(48,54,46,0.12); }
+.legal-org:last-child { border-bottom: 1px solid rgba(48,54,46,0.12); }
+.legal-org__name { margin: 0; font-size: clamp(15px, 1vw, 18px); font-weight: 400; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.45; font-style: normal; }
+.legal-org__contacts { margin: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(12px, 1.04vw, 24px); }
+.legal-org__contacts a { font-size: clamp(14px, 0.89vw, 16px); font-weight: 400; color: var(--c-muted); letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; border-bottom: 1px solid rgba(48,54,46,0.2); transition: color 0.2s ease, border-color 0.2s ease; }
+.legal-org__contacts a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+.legal-org__contacts a:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 3px; border-radius: 2px; }
+.legal-org__contacts a:active { color: var(--c-accent-hover); }
 .legal-grid { display: flex; flex-direction: column; gap: clamp(14px, 1.04vw, 20px); }
-.legal-card { display: flex; align-items: center; gap: clamp(20px, 1.67vw, 32px); background: rgba(237,237,237,0.25); border: 1px solid rgba(48,54,46,0.12); border-radius: 16px; padding: clamp(20px, 1.67vw, 32px); text-decoration: none; transition: border-color 0.25s, background 0.25s; }
+.legal-card { display: flex; align-items: center; gap: clamp(20px, 1.67vw, 32px); background: rgba(237,237,237,0.25); border: 1px solid rgba(48,54,46,0.12); border-radius: 16px; padding: clamp(20px, 1.67vw, 32px); text-decoration: none; transition: border-color 0.25s, background 0.25s, transform 0.16s cubic-bezier(0.23,1,0.32,1); }
 .legal-card:hover { border-color: rgba(141,165,133,0.35); background: rgba(141,165,133,0.06); }
+.legal-card:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 3px; border-color: rgba(141,165,133,0.35); }
+/* строка во всю ширину: 0.99 читается как нажатие, 0.97 от кнопки здесь было бы дёрганьем */
+.legal-card:active { transform: scale(0.99); }
 .legal-card__icon { width: clamp(48px, 3.75vw, 72px); height: clamp(48px, 3.75vw, 72px); border-radius: 50%; background: rgba(141,165,133,0.1); color: var(--c-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .legal-card__icon svg { width: 44%; height: 44%; }
 .legal-card__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
@@ -30,11 +67,31 @@
   .legal-hero__title { font-size: 28px; letter-spacing: -0.04em; }
   .legal-hero__subtitle { font-size: 16px; min-height: calc(1.4em * 3); }
 
-  .legal-grid-sec.wrap { padding: 0 20px 56px; }
+  .page--legal section + section { margin-top: 36px; }
+  .legal-facts-sec.wrap, .legal-grid-sec.wrap { padding: 0 20px; }
+  .legal-oversight-sec.wrap { padding: 0 20px 56px; }
+
+  .legal-sec-title { font-size: 22px; margin-bottom: 14px; }
+  .legal-subtitle { font-size: 16px; margin: 28px 0 10px; }
+
+  .legal-facts { grid-template-columns: 1fr; gap: 32px; }
+  .legal-dl__row { grid-template-columns: 1fr; gap: 3px; padding: 12px 0; }
+  .legal-dl dt { font-size: 13px; }
+  .legal-dl dd { font-size: 15px; }
+
+  .legal-org { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
+  .legal-org__name { font-size: 15px; }
+  .legal-org__contacts { justify-content: flex-start; gap: 16px; }
+  .legal-org__contacts a { font-size: 14px; }
   .legal-card { padding: 18px; gap: 14px; }
   .legal-card__icon { width: 44px; height: 44px; }
   .legal-card__title { font-size: 16px; }
   .legal-card__meta { font-size: 13px; }
   .legal-card__arr { width: 34px; height: 34px; }
   .legal-note { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .legal-card:active { transform: none; }
+  .legal-card:hover .legal-card__arr { transform: none; }
 }
