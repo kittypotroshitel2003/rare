@@ -188,9 +188,7 @@
       <p class="mh-hero__sub">Выбор тех, кто привык к безупречному сервису и медицинской точности.</p>
     </div>
     <div class="mh-hero__photo">
-      <video autoplay muted loop playsinline preload="auto" poster="assets/photos/hero-image174.webp">
-        <source src="assets/video/hero-clip.mp4" type="video/mp4"/>
-      </video>
+      <video muted loop playsinline poster="assets/photos/hero-image174.webp" data-src="assets/video/hero-clip.mp4" preload="none" data-autoplay="always"></video>
       <div class="mh-hero__promo">
         <div class="mh-hero__promo-head">
           <p class="mh-hero__promo-label">Скидка новым гостям!</p>
@@ -344,7 +342,7 @@
         <div class="mh-why-card__head"><p class="mh-why-card__title">Лучшее оборудование с РУ</p><p class="mh-why-card__num">03</p></div>
         <p class="mh-why-card__text">Клиника оснащена только сертифицированными аппаратами с регистрационными удостоверениями. Мы работаем на оборудовании ведущих мировых производителей.</p>
       </div>
-      <div class="mh-why-photo"><video class="mh-why-photo__video" autoplay muted loop playsinline preload="auto" poster="assets/video/bento-cell-poster.webp" aria-hidden="true"><source src="assets/video/bento-cell-clip.mp4" type="video/mp4"/></video></div>
+      <div class="mh-why-photo"><video class="mh-why-photo__video" muted loop playsinline poster="assets/video/bento-cell-poster.webp" aria-hidden="true" data-src="assets/video/bento-cell-clip.mp4" preload="none" data-autoplay="always"></video></div>
       <div class="mh-why-card">
         <div class="mh-why-card__head"><p class="mh-why-card__title">Сертифицированные препараты</p><p class="mh-why-card__num">04</p></div>
         <p class="mh-why-card__text">Все используемые препараты имеют официальную регистрацию и сертификаты качества. Мы гарантируем подлинность каждого средства.</p>
@@ -398,7 +396,7 @@
           <p class="mh-spec-card__role">Косметолог-эстетист, нутрициолог</p>
         </a>
         <a href="specialists/ekaterina-evgenevna.html" class="mh-spec-card">
-          <img src="assets/photos/spec-ekaterina.webp" alt="Колесникова Екатерина Евгеньевна" loading="lazy"/>
+          <img src="assets/photos/spec-ekaterina.webp?v=2" alt="Колесникова Екатерина Евгеньевна" loading="lazy"/>
           <p class="mh-spec-card__name">Колесникова Екатерина Евгеньевна</p>
           <p class="mh-spec-card__role">Косметолог-эстетист</p>
         </a>
@@ -591,9 +589,7 @@
       </div>
     </div>
     <div class="hero__photo">
-      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/photos/hero-image174.webp">
-        <source src="assets/video/hero-clip.mp4" type="video/mp4"/>
-      </video>
+      <video class="hero__video" muted loop playsinline poster="assets/photos/hero-image174.webp" data-src="assets/video/hero-clip.mp4" preload="none" data-autoplay="always"></video>
       <a href="#booking" class="hero__promo">
         <div class="hero__promo-top">
           <p class="hero__promo-label">Скидка новым гостям!</p>
@@ -893,9 +889,7 @@
       </div>
       <div class="adv-row adv-row--2">
         <div class="adv-cell adv-cell--empty adv-cell--video">
-          <video class="adv-cell__video" autoplay muted loop playsinline preload="auto" poster="assets/video/bento-cell-poster.webp" aria-hidden="true">
-            <source src="assets/video/bento-cell-clip.mp4" type="video/mp4"/>
-          </video>
+          <video class="adv-cell__video" muted loop playsinline poster="assets/video/bento-cell-poster.webp" aria-hidden="true" data-src="assets/video/bento-cell-clip.mp4" preload="none" data-autoplay="always"></video>
         </div>
         <div class="adv-cell adv-cell--text adv-cell--02">
           <div class="adv-cell__head">
@@ -990,7 +984,7 @@
       <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </a>
     <a href="specialists/ekaterina-evgenevna.html" class="spec-card">
-      <div class="spec-card__photo"><img src="assets/photos/spec-ekaterina.webp" alt="Колесникова Екатерина Евгеньевна" loading="lazy"/></div>
+      <div class="spec-card__photo"><img src="assets/photos/spec-ekaterina.webp?v=2" alt="Колесникова Екатерина Евгеньевна" loading="lazy"/></div>
       <p class="spec-card__name">Колесникова Екатерина Евгеньевна</p>
       <p class="spec-card__role">Косметолог-эстетист</p>
       <span class="spec-card__view" aria-label="Профиль"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1662,7 +1656,8 @@
   if (connectTrigger && connectPanel) hoverIntent(connectTrigger, connectPanel, 300);
 })();
 </script>
-<script src="docs-popup.js?v=202609021900" defer></script><script src="animations.js?v=202609120400" defer></script>
+<script src="docs-popup.js?v=202609021900" defer></script><script src="js/video-loading.js?v=202609231800" defer></script>
+<script src="animations.js?v=202609120400" defer></script>
 <script src="mobile-nav.js?v=202608311610" defer></script>
 
 <!-- ═══ GIFT CERT POPUP ════════════════════════════════════════════ -->
@@ -1698,7 +1693,7 @@
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Использование cookies" style="display:none">
   <div class="cookie-banner__text">
     <p class="cookie-banner__title">Мы используем cookie</p>
-    <p class="cookie-banner__desc">Для корректной работы сайта и анализа трафика. <a href="docs/processing.pdf" target="_blank" rel="noopener">Подробнее</a></p>
+    <p class="cookie-banner__desc">Для корректной работы сайта и анализа трафика. <a href="docs/cookies.pdf" target="_blank" rel="noopener">Подробнее</a></p>
   </div>
   <div class="cookie-banner__actions">
     <button class="pill-btn cookie-accept" id="cookie-accept">Принять</button>

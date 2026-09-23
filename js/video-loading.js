@@ -24,7 +24,11 @@
   // На мобильных ролик не запускается сам никогда: даже на быстром 4G это
   // 3–12 МБ ради фона, который человек не просил. Постер виден сразу,
   // видео подгружается по тапу. На десктопе поведение прежнее.
-  function mayAutoplay() {
+  //
+  // data-autoplay="always" — исключение для роликов главной: там нужно было
+  // только убрать скрытый дубль, а само поведение оставить как есть.
+  function mayAutoplay(video) {
+    if (video && video.dataset && video.dataset.autoplay === 'always') return true;
     if (isMobile()) return false;
     if (saveData || slow) return false;
     return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -56,14 +60,14 @@
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
           io.unobserve(e.target);
-          if (isRendered(e.target) && mayAutoplay()) start(e.target);
+          if (isRendered(e.target) && mayAutoplay(e.target)) start(e.target);
         });
       }, { rootMargin: '200px 0px' })
     : null;
 
   function init() {
-    var autoplay = mayAutoplay();
     Array.prototype.forEach.call(document.querySelectorAll('video[data-src]'), function (v) {
+      var autoplay = mayAutoplay(v);
       // Пока ролик не играет, на постере должна стоять кнопка воспроизведения:
       // её показывает .is-paused на контейнере (service-procedure.css).
       var media = v.parentElement;
