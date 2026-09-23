@@ -268,6 +268,11 @@
 
   <!-- Article detail pages -->
   <url>
+    <loc>https://rare.a-4-to.ru/articles/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rare.a-4-to.ru/articles/article-office-syndrome.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

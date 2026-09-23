@@ -233,7 +233,7 @@ video.about-articles__bg { background: #23241d; }
   .about-articles__grid .about-articles__title { font-size: 22px; font-weight: 500; line-height: 1.15; }
   .about-articles__title--narrow { max-width: 100%; }
   .about-articles__grid .about-articles__excerpt { font-size: 14px; opacity: 1; }
-  .about-articles__dots { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+  .about-articles__dots { display: flex; gap: 10px; justify-content: center; margin-top: 20px; padding-bottom: 6px; }
 }
 
 /* ── FOOTER — page-specific override only; base rules live in

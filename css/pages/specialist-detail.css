@@ -341,7 +341,7 @@ body.page--specialist-detail { background: #fff; color: var(--c-text); }
   .spec-others__grid { display: flex; flex-wrap: nowrap; align-items: flex-start; overflow-x: auto; overflow-y: clip; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 16px; }
   .spec-others__grid::-webkit-scrollbar { display: none; }
   .spec-other-card { flex: 0 0 100%; scroll-snap-align: start; }
-  .spec-others__dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+  .spec-others__dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; padding-bottom: 6px; }
 
   /* ── BOOKING — Figma has no card around the form: flatten the shared
      .booking-form "premium mobile" treatment for this page only. ── */
