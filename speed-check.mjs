@@ -22,11 +22,15 @@ const VIEWS = [
   { name: 'десктоп', width: 1440, height: 900 },
 ];
 
-const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+const launch = () => puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 const rows = [];
 
 for (const view of VIEWS) {
   for (const p of PAGES) {
+    // Каждая страница меряется в своём браузере: иначе незавершённая
+    // загрузка предыдущей (видео на главной — 15 МБ) занимает канал и
+    // завышает время следующей в несколько раз.
+    const browser = await launch();
     const page = await browser.newPage();
     await page.setViewport({ width: view.width, height: view.height });
     await page.setCacheEnabled(false);
@@ -55,11 +59,9 @@ for (const view of VIEWS) {
       };
     });
     rows.push({ view: view.name, page: p, kb: Math.round(bytes / 1024), ...m, wall: Date.now() - t0 });
-    await page.close();
+    await browser.close();
   }
 }
-await browser.close();
-
 for (const view of VIEWS) {
   const list = rows.filter((r) => r.view === view.name);
   console.log('\n' + view.name.toUpperCase());
