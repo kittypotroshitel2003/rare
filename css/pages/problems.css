@@ -54,3 +54,15 @@
   .prob-procs__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .prob-card__title { font-size: 14px; }
 }
+
+/* ── Центрированная шапка страницы ──────────────────────────────────
+   Заголовок стоял у левого края .wrap, а текст идёт узкой колонкой по
+   центру — композиция разъезжалась. Центрируем крошки, заголовок и
+   вводный абзац; остальной текст остаётся выключенным влево: абзац по
+   центру на всю ширину колонки читается заметно хуже. */
+.page--problem .article-bc.wrap { justify-content: center; text-align: center; }
+.page--problem .article-top.wrap { text-align: center; }
+.page--problem .article-content > .article-section:first-child { text-align: center; }
+.page--problem .prob-procs__heading { text-align: center; }
+.page--problem .prob-procs { text-align: center; }
+.page--problem .prob-procs__grid { text-align: left; }

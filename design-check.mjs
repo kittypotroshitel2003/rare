@@ -22,7 +22,9 @@ const PAGES = [
   'services/procedures/botulinoterapiya', 'services/procedures/cleansing',
   'promos/smas-lifting',
   'articles/index', 'articles/article-hair-loss', 'articles/article-office-syndrome',
-  'problems/ubrat-morshhiny', 'problems/acne',
+  'problems/ubrat-morshhiny', 'problems/gladkoe-telo', 'problems/uprugoe-i-strojnoe-telo',
+  'problems/moshhnyj-lifting-licza', 'problems/izbavitsya-ot-rubczov', 'problems/rozac-kyperoz',
+  'problems/pigment', 'problems/acne',
 ];
 const WIDTHS = [375, 430, 768, 820, 1024, 1100, 1200, 1440];
 /** ниже этой ширины считаем экран сенсорным — там важен размер целей нажатия */
