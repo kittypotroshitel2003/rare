@@ -29,6 +29,7 @@ const PAGES = [
   'promos/smas-lifting.html', 'services/procedures/smas-lifting.html',
   'services/procedures/laser-epilation.html', 'services/procedures/injection-cosmetology.html',
   ...fs.readdirSync('specialists').filter((f) => f.endsWith('.html')).map((f) => 'specialists/' + f),
+  ...fs.readdirSync('problems').filter((f) => f.endsWith('.html')).map((f) => 'problems/' + f),
 ];
 
 /* ── 1. Замер ──────────────────────────────────────────────────────── */

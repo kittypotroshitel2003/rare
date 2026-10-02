@@ -1,0 +1,56 @@
+/* ============================================================
+   PROBLEMS — раздел «Я хочу»: посадочные по причинам обращения.
+   Текстовая часть наследует типографику статьи (article-detail.css),
+   здесь только список-перечисление и сетка процедур под ним.
+   ============================================================ */
+
+.prob-list { margin: 10px 0 0; padding: 0 0 0 1px; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.prob-list li { position: relative; padding-left: 18px; }
+.prob-list li::before {
+  content: ''; position: absolute; left: 0; top: 0.62em;
+  width: 7px; height: 1px; background: var(--c-accent);
+}
+
+.prob-procs.wrap { padding-top: clamp(8px, 1vw, 16px); padding-bottom: clamp(48px, 4.2vw, 80px); }
+.prob-procs__heading { font-size: clamp(24px, 1.875vw, 36px); font-weight: 400; color: var(--c-text); letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 clamp(18px, 1.46vw, 28px); font-style: normal; }
+.prob-procs__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: clamp(16px, 1.25vw, 24px); }
+
+.prob-card { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
+.prob-card__frame {
+  position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: #e7e4dc;
+  box-shadow: 0 1px 2px rgba(48,54,46,0.06), 0 10px 26px -14px rgba(58,84,54,0.2);
+}
+.prob-card__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.prob-card__title { font-size: clamp(14px, 0.94vw, 16px); font-weight: 500; color: var(--c-text); letter-spacing: -0.02em; line-height: 1.3; }
+@media (hover: hover) and (pointer: fine) {
+  .prob-card:hover { transform: translateY(-4px); }
+  .prob-card:hover .prob-card__frame img { transform: scale(1.05); }
+}
+.prob-card:focus-visible { outline: none; }
+.prob-card:focus-visible .prob-card__frame { outline: 2px solid var(--c-accent); outline-offset: 3px; }
+.prob-card:active { transform: scale(0.99); }
+
+.prob-procs__all {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: clamp(20px, 1.67vw, 32px);
+  padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(141,165,133,0.4);
+  font-size: clamp(14px, 0.94vw, 16px); font-weight: 500; color: var(--c-accent-hover);
+  letter-spacing: -0.02em; text-decoration: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.16s cubic-bezier(0.23,1,0.32,1);
+}
+.prob-procs__all::after { content: '→'; font-size: 15px; line-height: 1; }
+@media (hover: hover) and (pointer: fine) { .prob-procs__all:hover { background: rgba(141,165,133,0.1); border-color: var(--c-accent); } }
+.prob-procs__all:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 3px; }
+.prob-procs__all:active { transform: scale(0.97); }
+
+@media (prefers-reduced-motion: reduce) {
+  .prob-card, .prob-card__frame img, .prob-procs__all { transition: none; }
+  .prob-card:hover, .prob-card:active, .prob-procs__all:active { transform: none; }
+  .prob-card:hover .prob-card__frame img { transform: none; }
+}
+
+@media (max-width: 767px) {
+  .prob-procs.wrap { padding: 0 20px 40px; }
+  .prob-procs__heading { font-size: 22px; margin-bottom: 14px; }
+  .prob-procs__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .prob-card__title { font-size: 14px; }
+}

@@ -22,6 +22,7 @@ const PAGES = [
   'services/procedures/botulinoterapiya', 'services/procedures/cleansing',
   'promos/smas-lifting',
   'articles/index', 'articles/article-hair-loss', 'articles/article-office-syndrome',
+  'problems/ubrat-morshhiny', 'problems/acne',
 ];
 const WIDTHS = [375, 430, 768, 820, 1024, 1100, 1200, 1440];
 /** ниже этой ширины считаем экран сенсорным — там важен размер целей нажатия */

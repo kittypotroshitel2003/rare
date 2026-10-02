@@ -266,6 +266,47 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- «Я хочу» — причины обращения -->
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/ubrat-morshhiny.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/gladkoe-telo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/uprugoe-i-strojnoe-telo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/moshhnyj-lifting-licza.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/izbavitsya-ot-rubczov.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/rozac-kyperoz.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/pigment.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/problems/acne.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Article detail pages -->
   <url>
     <loc>https://rare.a-4-to.ru/articles/</loc>
