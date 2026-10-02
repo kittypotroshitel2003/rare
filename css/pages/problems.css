@@ -13,7 +13,20 @@
 
 .prob-procs.wrap { padding-top: clamp(8px, 1vw, 16px); padding-bottom: clamp(48px, 4.2vw, 80px); }
 .prob-procs__heading { font-size: clamp(24px, 1.875vw, 36px); font-weight: 400; color: var(--c-text); letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 clamp(18px, 1.46vw, 28px); font-style: normal; }
-.prob-procs__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: clamp(16px, 1.25vw, 24px); }
+/* Кнопка под сеткой. Отступ крупный: плитка снизу почти пустая
+   (фото и текст сидят в верхней части), и при маленьком отступе
+   кнопка читается прилипшей к карточкам. */
+.prob-procs__all {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: clamp(36px, 3.75vw, 64px);
+  padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(141,165,133,0.4);
+  font-size: clamp(14px, 0.94vw, 16px); font-weight: 500; color: var(--c-accent-hover);
+  letter-spacing: -0.02em; text-decoration: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.16s cubic-bezier(0.23,1,0.32,1);
+}
+.prob-procs__all::after { content: '→'; font-size: 15px; line-height: 1; }
+@media (hover: hover) and (pointer: fine) { .prob-procs__all:hover { background: rgba(141,165,133,0.1); border-color: var(--c-accent); } }
+.prob-procs__all:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 3px; }
+.prob-procs__all:active { transform: scale(0.97); }
 
 @media (prefers-reduced-motion: reduce) {
   .prob-procs__all { transition: none; }
@@ -23,6 +36,7 @@
 @media (max-width: 767px) {
   .prob-procs.wrap { padding: 0 20px 40px; }
   .prob-procs__heading { font-size: 22px; margin-bottom: 14px; }
+  .prob-procs__all { margin-top: 24px; }
 
 }
 
@@ -34,6 +48,10 @@
 .page--problem .article-bc.wrap { justify-content: center; text-align: center; }
 .page--problem .article-top.wrap { text-align: center; }
 .page--problem .article-content > .article-section:first-child { text-align: center; }
+/* Подзаголовки разделов тоже по центру — иначе вверху страницы всё
+   выключено по центру, а дальше резко уходит влево. Сами абзацы и
+   списки остаются слева: их читают, а не рассматривают. */
+.page--problem .article-content h3 { text-align: center; }
 .page--problem .prob-procs__heading { text-align: center; }
 .page--problem .prob-procs { text-align: center; }
 .page--problem .prob-procs__grid { text-align: left; }

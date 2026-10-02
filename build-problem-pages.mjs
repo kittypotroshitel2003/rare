@@ -269,7 +269,7 @@ ${p.procs.map(card).join('\n')}
   html = html.replace(/<link rel="canonical" href="[^"]*"\/>/, `<link rel="canonical" href="https://rare.a-4-to.ru/${OUT}/${p.slug}.html"/>`);
   html = html.replace(/<meta name="description" content="[^"]*"\/>/, `<meta name="description" content="${esc(p.desc)}"/>`);
   html = html.replace(/<link rel="stylesheet" href="\.\.\/css\/pages\/article-detail\.css[^"]*"\/>/,
-    `<link rel="stylesheet" href="../css/pages/article-detail.css?v=202609110100"/>\n<link rel="stylesheet" href="../css/components/dir-tile.css?v=202610021600"/>\n<link rel="stylesheet" href="../css/pages/problems.css?v=202610021600"/>`);
+    `<link rel="stylesheet" href="../css/pages/article-detail.css?v=202609110100"/>\n<link rel="stylesheet" href="../css/components/dir-tile.css?v=202610021600"/>\n<link rel="stylesheet" href="../css/pages/problems.css?v=202610021800"/>`);
   html = html.replace('<body class="page page--article-detail">', '<body class="page page--problem">');
   html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n/g, '');
   html = html.replace(/<!-- schema:auto[\s\S]*?<!-- \/schema:auto -->\n/, '');
