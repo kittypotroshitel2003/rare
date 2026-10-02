@@ -62,6 +62,36 @@ const PHOTO = {
   'photodynamic-therapy': 'dir-revixan', 'cleansing': 'proc-facial-clean', 'peeling': 'dir-aesthetic',
 };
 
+/* Короткое описание под заголовком карточки. Для процедур, у которых
+   есть плитка на странице услуг, формулировки взяты оттуда — чтобы
+   одна и та же услуга не описывалась на сайте двумя разными фразами. */
+const DESC = {
+  'botulinoterapiya': 'Расслабление мимических мышц, разглаживание заломов.',
+  'aesthetic-cosmetology': 'Профессиональные чистки и пилинги.',
+  'prp-therapy': 'Инъекции собственной плазмы для обновления кожи.',
+  'photorejuvenation': 'Фотоомоложение на аппарате Nordlys.',
+  'contour-plastic': 'Филлеры для восполнения объёма и коррекции заломов.',
+  'rf-volnewmer': 'Глубокий прогрев тканей для лифтинг-эффекта.',
+  'rf-sylfirm': 'Микроигольчатый RF для упругости и текстуры кожи.',
+  'laser-resurfacing': 'Обновление текстуры и рельефа кожи лазером.',
+  'smas-lifting': 'SMAS-лифтинг Ultraformer MPT — подтяжка без операции.',
+  'laser-epilation': 'Лазерная эпиляция на александритовом лазере.',
+  'lpg-massage': 'LPG-массаж на аппарате Cellu M6 Integral.',
+  'fat-reduction': 'Работа с локальными жировыми отложениями.',
+  'spa-care': 'Массажи и SPA-уходы для лица и тела.',
+  'rsl-beautylizer': 'RSL-скульптурирование тела аппаратом Beautylizer.',
+  'microcurrent-therapy': 'Стимуляция мышц лица для тонуса и лифтинг-эффекта.',
+  'kollagenoterapiya': 'Стимуляция выработки собственного коллагена.',
+  'rosacea-treatment': 'Работа с сосудистой сеточкой и воспалениями.',
+  'nordlys': 'Фотоомоложение, лечение акне, купероза и пигментации.',
+  'pigmentation-removal': 'Точечное воздействие света на участки с меланином.',
+  'mesotherapy': 'Коктейли витаминов и микроэлементов в кожу.',
+  'acne-treatment': 'Комплексная схема: от причин до аппаратных методик.',
+  'photodynamic-therapy': 'Фотодинамическая терапия для лечения акне и воспалений.',
+  'cleansing': 'Глубокое очищение кожи у косметолога.',
+  'peeling': 'Обновление кожи кислотами, ровный тон и текстура.',
+};
+
 const PAGES = [
   {
     slug: 'ubrat-morshhiny', h1: 'Убрать морщины', btn: 'Убрать морщины',
@@ -179,10 +209,20 @@ const TAIL = skel.slice(footStart);
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function card(slug) {
-  return `      <a href="../services/procedures/${slug}.html" class="prob-card">
-        <span class="prob-card__frame"><img src="../assets/photos/${PHOTO[slug]}.webp" alt="${esc(PROC[slug])} в клинике RA|RÉ" loading="lazy" decoding="async"/></span>
-        <span class="prob-card__title">${esc(PROC[slug])}</span>
+function card(slug, i) {
+  const num = String(i + 1).padStart(2, '0');
+  return `      <a href="../services/procedures/${slug}.html" class="dir-tile">
+        <div class="dir-tile__scrim" aria-hidden="true"></div>
+        <div class="dir-tile__photo"><img src="../assets/photos/${PHOTO[slug]}.webp" alt="${esc(PROC[slug])} в клинике RA|RÉ" loading="lazy" decoding="async"/></div>
+        <div class="dir-tile__body">
+          <span class="dir-tile__num">${num}</span>
+          <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+          <p class="dir-tile__title">${esc(PROC[slug])}</p>
+          <div class="dir-tile__desc"><p>${esc(DESC[slug] || '')}</p></div>
+        </div>
+        <span class="dir-tile__num-hover" aria-hidden="true">${num}</span>
+        <p class="dir-tile__title-hover" aria-hidden="true">${esc(PROC[slug])}</p>
+        <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>`;
 }
 
@@ -218,7 +258,7 @@ ${blocks.join('\n')}
 
   parts.push(`<section class="prob-procs wrap">
   <h2 class="prob-procs__heading">Что поможет</h2>
-  <div class="prob-procs__grid">
+  <div class="dir-grid">
 ${p.procs.map(card).join('\n')}
   </div>
   <a href="../services.html" class="prob-procs__all">Все услуги клиники</a>
@@ -229,7 +269,7 @@ ${p.procs.map(card).join('\n')}
   html = html.replace(/<link rel="canonical" href="[^"]*"\/>/, `<link rel="canonical" href="https://rare.a-4-to.ru/${OUT}/${p.slug}.html"/>`);
   html = html.replace(/<meta name="description" content="[^"]*"\/>/, `<meta name="description" content="${esc(p.desc)}"/>`);
   html = html.replace(/<link rel="stylesheet" href="\.\.\/css\/pages\/article-detail\.css[^"]*"\/>/,
-    `<link rel="stylesheet" href="../css/pages/article-detail.css?v=202609110100"/>\n<link rel="stylesheet" href="../css/pages/problems.css?v=202610021500"/>`);
+    `<link rel="stylesheet" href="../css/pages/article-detail.css?v=202609110100"/>\n<link rel="stylesheet" href="../css/components/dir-tile.css?v=202610021600"/>\n<link rel="stylesheet" href="../css/pages/problems.css?v=202610021600"/>`);
   html = html.replace('<body class="page page--article-detail">', '<body class="page page--problem">');
   html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n/g, '');
   html = html.replace(/<!-- schema:auto[\s\S]*?<!-- \/schema:auto -->\n/, '');

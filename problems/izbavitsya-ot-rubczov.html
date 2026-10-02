@@ -24,60 +24,8 @@
 <link rel="stylesheet" href="../css/components/booking-popup.css?v=202608311700"/>
   <link rel="stylesheet" href="../css/components/booking-modal.css?v=202609110300"/>
 <link rel="stylesheet" href="../css/pages/article-detail.css?v=202609110100"/>
-<link rel="stylesheet" href="../css/pages/problems.css?v=202610021500"/>
-<!-- schema:auto — сгенерировано build-schema.mjs, править вручную не нужно -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "MedicalWebPage",
-      "@id": "https://rare.a-4-to.ru/problems/izbavitsya-ot-rubczov.html#webpage",
-      "url": "https://rare.a-4-to.ru/problems/izbavitsya-ot-rubczov.html",
-      "name": "Избавиться от рубцов",
-      "description": "Коррекция рубцов, постакне и растяжек в клинике RA|RÉ в Анапе: лазерная шлифовка, коллагенотерапия и PRP-терапия.",
-      "inLanguage": "ru-RU",
-      "about": {
-        "@type": "MedicalCondition",
-        "name": "Избавиться от рубцов"
-      },
-      "isPartOf": {
-        "@id": "https://rare.a-4-to.ru/#organization"
-      },
-      "publisher": {
-        "@id": "https://rare.a-4-to.ru/#organization"
-      },
-      "lastReviewed": "2026-10-02",
-      "reviewedBy": {
-        "@id": "https://rare.a-4-to.ru/#organization"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Главная",
-          "item": "https://rare.a-4-to.ru/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Я хочу",
-          "item": "https://rare.a-4-to.ru/#wish"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Избавиться от рубцов"
-        }
-      ]
-    }
-  ]
-}
-</script>
-<!-- /schema:auto -->
+<link rel="stylesheet" href="../css/components/dir-tile.css?v=202610021600"/>
+<link rel="stylesheet" href="../css/pages/problems.css?v=202610021600"/>
 </head>
 <body class="page page--problem">
 <header class="site-header">
@@ -215,22 +163,58 @@
 
 <section class="prob-procs wrap">
   <h2 class="prob-procs__heading">Что поможет</h2>
-  <div class="prob-procs__grid">
-      <a href="../services/procedures/laser-resurfacing.html" class="prob-card">
-        <span class="prob-card__frame"><img src="../assets/photos/dir-resurfacing.webp" alt="Лазерная шлифовка в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/dir-resurfacing-200.webp 200w, ../assets/photos/dir-resurfacing-350.webp 350w, ../assets/photos/dir-resurfacing-450.webp 450w, ../assets/photos/dir-resurfacing.webp 900w" sizes="(max-width: 767px) 168px, (max-width: 1024px) 197px, 220px"/></span>
-        <span class="prob-card__title">Лазерная шлифовка</span>
+  <div class="dir-grid">
+      <a href="../services/procedures/laser-resurfacing.html" class="dir-tile">
+        <div class="dir-tile__scrim" aria-hidden="true"></div>
+        <div class="dir-tile__photo"><img src="../assets/photos/dir-resurfacing.webp" alt="Лазерная шлифовка в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/dir-resurfacing-250.webp 250w, ../assets/photos/dir-resurfacing.webp 900w" sizes="(max-width: 767px) 56px, (max-width: 1024px) 125px, 115px"/></div>
+        <div class="dir-tile__body">
+          <span class="dir-tile__num">01</span>
+          <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+          <p class="dir-tile__title">Лазерная шлифовка</p>
+          <div class="dir-tile__desc"><p>Обновление текстуры и рельефа кожи лазером.</p></div>
+        </div>
+        <span class="dir-tile__num-hover" aria-hidden="true">01</span>
+        <p class="dir-tile__title-hover" aria-hidden="true">Лазерная шлифовка</p>
+        <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
-      <a href="../services/procedures/kollagenoterapiya.html" class="prob-card">
-        <span class="prob-card__frame"><img src="../assets/photos/dir-injections.webp" alt="Коллагенотерапия в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/dir-injections-200.webp 200w, ../assets/photos/dir-injections-350.webp 350w, ../assets/photos/dir-injections-450.webp 450w, ../assets/photos/dir-injections.webp 900w" sizes="(max-width: 767px) 168px, (max-width: 1024px) 197px, 220px"/></span>
-        <span class="prob-card__title">Коллагенотерапия</span>
+      <a href="../services/procedures/kollagenoterapiya.html" class="dir-tile">
+        <div class="dir-tile__scrim" aria-hidden="true"></div>
+        <div class="dir-tile__photo"><img src="../assets/photos/dir-injections.webp" alt="Коллагенотерапия в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/dir-injections-250.webp 250w, ../assets/photos/dir-injections.webp 900w" sizes="(max-width: 767px) 56px, (max-width: 1024px) 125px, 115px"/></div>
+        <div class="dir-tile__body">
+          <span class="dir-tile__num">02</span>
+          <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+          <p class="dir-tile__title">Коллагенотерапия</p>
+          <div class="dir-tile__desc"><p>Стимуляция выработки собственного коллагена.</p></div>
+        </div>
+        <span class="dir-tile__num-hover" aria-hidden="true">02</span>
+        <p class="dir-tile__title-hover" aria-hidden="true">Коллагенотерапия</p>
+        <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
-      <a href="../services/procedures/prp-therapy.html" class="prob-card">
-        <span class="prob-card__frame"><img src="../assets/photos/proc-prp.webp" alt="PRP-терапия в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/proc-prp-350.webp 350w, ../assets/photos/proc-prp-700.webp 700w, ../assets/photos/proc-prp.webp 960w" sizes="(max-width: 767px) 350px, (max-width: 1024px) 624px, 800px"/></span>
-        <span class="prob-card__title">PRP-терапия</span>
+      <a href="../services/procedures/prp-therapy.html" class="dir-tile">
+        <div class="dir-tile__scrim" aria-hidden="true"></div>
+        <div class="dir-tile__photo"><img src="../assets/photos/proc-prp.webp" alt="PRP-терапия в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/proc-prp-350.webp 350w, ../assets/photos/proc-prp-700.webp 700w, ../assets/photos/proc-prp.webp 960w" sizes="(max-width: 767px) 350px, (max-width: 1024px) 624px, 800px"/></div>
+        <div class="dir-tile__body">
+          <span class="dir-tile__num">03</span>
+          <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+          <p class="dir-tile__title">PRP-терапия</p>
+          <div class="dir-tile__desc"><p>Инъекции собственной плазмы для обновления кожи.</p></div>
+        </div>
+        <span class="dir-tile__num-hover" aria-hidden="true">03</span>
+        <p class="dir-tile__title-hover" aria-hidden="true">PRP-терапия</p>
+        <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
-      <a href="../services/procedures/rf-sylfirm.html" class="prob-card">
-        <span class="prob-card__frame"><img src="../assets/photos/proc-sylfirm.webp" alt="RF-лифтинг Sylfirm X в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/proc-sylfirm-200.webp 200w, ../assets/photos/proc-sylfirm-350.webp 350w, ../assets/photos/proc-sylfirm-450.webp 450w, ../assets/photos/proc-sylfirm.webp 960w" sizes="(max-width: 767px) 168px, (max-width: 1024px) 197px, 220px"/></span>
-        <span class="prob-card__title">RF-лифтинг Sylfirm X</span>
+      <a href="../services/procedures/rf-sylfirm.html" class="dir-tile">
+        <div class="dir-tile__scrim" aria-hidden="true"></div>
+        <div class="dir-tile__photo"><img src="../assets/photos/proc-sylfirm.webp" alt="RF-лифтинг Sylfirm X в клинике RA|RÉ" loading="lazy" decoding="async" srcset="../assets/photos/proc-sylfirm-250.webp 250w, ../assets/photos/proc-sylfirm.webp 960w" sizes="(max-width: 767px) 56px, (max-width: 1024px) 125px, 115px"/></div>
+        <div class="dir-tile__body">
+          <span class="dir-tile__num">04</span>
+          <div class="dir-tile__photo-spacer" aria-hidden="true"></div>
+          <p class="dir-tile__title">RF-лифтинг Sylfirm X</p>
+          <div class="dir-tile__desc"><p>Микроигольчатый RF для упругости и текстуры кожи.</p></div>
+        </div>
+        <span class="dir-tile__num-hover" aria-hidden="true">04</span>
+        <p class="dir-tile__title-hover" aria-hidden="true">RF-лифтинг Sylfirm X</p>
+        <span class="dir-tile__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
   </div>
   <a href="../services.html" class="prob-procs__all">Все услуги клиники</a>
