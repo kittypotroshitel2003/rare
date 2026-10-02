@@ -290,6 +290,14 @@ const STATIC_IGNORE = new Set([
   "serve.mjs",
   "screenshot.mjs",
   "audit.mjs",
+  // внутренние артефакты: карта пути клиента содержит прямую критику
+  // сайта и в публичный доступ не выкладывается
+  "journey-map.html",
+  "design-check.mjs",
+  "speed-check.mjs",
+  "build-schema.mjs",
+  "build-responsive-images.mjs",
+  "build-problem-pages.mjs",
 ]);
 
 function collectStaticFiles(dir, baseDir = dir) {
