@@ -67,3 +67,13 @@ section + section, section + footer, section + .contacts-footer-wrap { margin-to
   background: #fff; transform: translateX(-50%) rotate(45deg);
   border-radius: 0 0 3px 0; box-shadow: 2px 2px 4px rgba(48,54,46,0.12);
 }
+
+/* Числа в карточках акций: «до» и «₽» набраны мельче цифры, чтобы длинная
+   цена помещалась в панель, а взгляд цеплялся за саму цифру. «до» на
+   хиро-баннере — потолок скидки колеса фортуны (20% — максимум). */
+.promo-upto { font-size: 0.42em; font-weight: 400; letter-spacing: -0.02em; margin-right: 0.18em; vertical-align: 0.12em; }
+.promo-unit { font-size: 0.5em; font-weight: 400; letter-spacing: 0; margin-left: 0.12em; }
+/* цена в рублях длиннее процента: держим её одной строкой и набираем
+   мельче, иначе «49 300» не помещается в узкую панель плитки */
+.promo-price { white-space: nowrap; font-size: 0.64em; }
+.mh-promo-card__pct .promo-price, .mh-promo-card-pct .promo-price, .mh-promo-others__num .promo-price { font-size: 0.82em; }

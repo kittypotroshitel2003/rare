@@ -235,6 +235,14 @@ body.page--services { background: #fff; color: var(--c-text); }
   .svc-acc__count { flex-shrink: 0; font-size: 13px; font-weight: 400; color: var(--c-muted); }
   .svc-acc__chev { flex-shrink: 0; width: 20px; height: 20px; color: var(--c-muted); transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); }
   .svc-acc__toggle[aria-expanded="true"] .svc-acc__chev { transform: rotate(180deg); }
+  /* одиночная услуга: та же строка, но ссылка — стрелка вправо вместо шеврона */
+  a.svc-acc__toggle { text-decoration: none; }
+  .svc-acc__go { flex-shrink: 0; width: 20px; height: 20px; color: var(--c-muted); transition: transform 0.2s cubic-bezier(0.23,1,0.32,1), color 0.2s ease; }
+  @media (hover: hover) and (pointer: fine) {
+    a.svc-acc__toggle:hover .svc-acc__go { transform: translateX(3px); color: var(--c-accent); }
+  }
+  a.svc-acc__toggle:active { color: var(--c-accent-hover); }
+  .svc-acc__links { display: flex; flex-wrap: wrap; gap: 8px; }
 
   .svc-acc__panel { padding: 0 0 18px; }
   /* Панель раскрывается мгновенно — список навигационный, его открывают
@@ -275,7 +283,7 @@ body.page--services { background: #fff; color: var(--c-text); }
 
   @media (prefers-reduced-motion: reduce) {
     .svc-acc__panel:not([hidden]) { animation: none; }
-    .svc-acc__chev, .svc-problem, .svc-acc__price, .svc-search__clear { transition: none; }
+    .svc-acc__chev, .svc-acc__go, .svc-problem, .svc-acc__price, .svc-search__clear { transition: none; }
     .svc-problem:active, .svc-acc__price:active, .svc-search__clear:active { transform: none; }
   }
 }

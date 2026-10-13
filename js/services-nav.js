@@ -22,7 +22,9 @@
   function panelOf(item) { return item.querySelector('.svc-acc__panel'); }
   function toggleOf(item) { return item.querySelector('.svc-acc__toggle'); }
 
+  /* одиночная услуга — просто ссылка, раскрывать нечего */
   function setOpen(item, open) {
+    if (!panelOf(item)) return;
     panelOf(item).hidden = !open;
     toggleOf(item).setAttribute('aria-expanded', String(open));
   }
@@ -31,6 +33,7 @@
      одному» здесь уместна — с семью раскрытыми списками экран снова
      превращается в бесконечную ленту, от которой и уходили. */
   items.forEach(function (item) {
+    if (!panelOf(item)) return;
     toggleOf(item).addEventListener('click', function () {
       var open = panelOf(item).hidden;
       if (filtering()) { setOpen(item, open); return; }

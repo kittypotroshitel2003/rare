@@ -11,7 +11,7 @@
    and expressed as clamp(min, px/19.2 vw, px) so proportions stay locked at
    any viewport width — 19.2px = 1vw at the 1920px canvas width. */
 .about-hero { padding-top: calc(var(--header-h) + clamp(24px, 3.7vw, 71px)); }
-.about-hero__row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.25vw, 24px); align-items: stretch; }
+.about-hero__row { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(12px, 1.25vw, 24px); align-items: stretch; }
 .about-hero__row > * { min-width: 0; }
 .about-hero__left { display: flex; flex-direction: column; justify-content: space-between; gap: clamp(10px, 1.04vw, 20px); }
 .about-hero__title { font-size: clamp(28px, 3.33vw, 64px); font-weight: 400; line-height: 1; letter-spacing: -0.04em; color: var(--c-text); font-style: normal; }
@@ -39,12 +39,14 @@
    абсолютно, поэтому его собственная пропорция 768×769 больше не тянет
    блок вниз и нижний ряд карточек не срезается краем окна */
 .about-hero__team-photo { position: relative; width: 100%; height: 100%; min-height: clamp(280px, 26vw, 520px); border-radius: clamp(12px, 1.04vw, 20px); overflow: hidden; }
-.about-hero__team-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 49% 100%; display: block; }
+.about-hero__team-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
 
 @media (max-width: 900px) {
   .about-hero__row { grid-template-columns: 1fr; }
   .about-hero__left { gap: 32px; }
-  .about-hero__team-photo { aspect-ratio: 4/3; }
+  /* групповой снимок горизонтальный (1280×781): на узких экранах блок
+     берёт его пропорцию, чтобы в кадр попала вся команда */
+  .about-hero__team-photo { aspect-ratio: 1280 / 781; }
 }
 .about-hero__dots { display: none; }
 /* ── mobile hero — exact values pulled from Figma node 2250:865 ── */
@@ -66,8 +68,7 @@
   .about-hero__card-title { font-size: 24px; font-weight: 500; line-height: 1.2; letter-spacing: -0.04em; }
   .about-hero__card-text { font-size: 18px; line-height: 1.4; letter-spacing: -0.04em; }
   .about-hero__dots { display: flex; gap: 10px; justify-content: center; margin-top: 0; }
-  .about-hero__team-photo { aspect-ratio: 350 / 462; border-radius: 16px; }
-  .about-hero__team-photo img { object-position: center 22%; }
+  .about-hero__team-photo { aspect-ratio: 1280 / 781; min-height: 0; border-radius: 16px; }
 }
 
 /* ── HERO ENTRANCE SEQUENCE — photo (right) → title (left) → cards (stagger) on

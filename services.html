@@ -14,7 +14,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
   <link rel="dns-prefetch" href="https://yandex.ru"/>
   <link rel="stylesheet" href="css/tokens.css?v=202609092100"/>
-  <link rel="stylesheet" href="css/base.css?v=202608311600"/>
+  <link rel="stylesheet" href="css/base.css?v=202610131200"/>
   <link rel="stylesheet" href="css/components/header.css?v=202609120600"/>
   <link rel="stylesheet" href="css/components/footer.css?v=202609232000"/>
   <link rel="stylesheet" href="css/components/buttons.css?v=202609092100"/>
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="css/components/dots.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/ratings.css?v=202609041000"/>
   <link rel="stylesheet" href="css/components/dir-tile.css?v=202610021600"/>
-<link rel="stylesheet" href="css/pages/services.css?v=202609232200"/>
+<link rel="stylesheet" href="css/pages/services.css?v=202610131200"/>
   <link rel="stylesheet" href="responsive.css?v=202609092100"/>
 <script type="application/ld+json">
 {
@@ -200,7 +200,7 @@
           <a href="reviews/index.html" class="price-rating" data-rr="up" style="--rr-dur:0.5s;--rr-del:0.0s">
             <img src="assets/icons/rating-yandex.webp" alt="" width="26" height="26"/>
             <span class="price-rating__stars">★★★★★</span>
-            <span class="price-rating__score" data-rating="yandex">4.9</span>
+            <span class="price-rating__score" data-rating="yandex">5.0</span>
             <span class="price-rating__name">Яндекс</span>
           </a>
           <a href="https://2gis.ru/anapa/firm/70000001062569003" target="_blank" rel="noopener" class="price-rating" data-rr="up" style="--rr-dur:0.5s;--rr-del:0.08s">
@@ -549,12 +549,15 @@
             <button type="button" class="svc-problem" data-problem="shape" data-procs="fat-reduction lpg-massage rsl-beautylizer carboxy" aria-pressed="false">Фигура и локальный жир</button>
           </div>
         </div>
+        <!-- Порядок и вложенность повторяют меню «Услуги» в шапке десктопа:
+             направления с вложенными процедурами раскрываются, одиночные
+             услуги ведут сразу на свою страницу. -->
         <ul class="svc-acc">
           <li class="svc-acc__item" data-dir="consult">
             <h3 class="svc-acc__head">
               <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-consult">
-                <span class="svc-acc__name">Консультации и диагностика</span>
-                <span class="svc-acc__count">4</span>
+                <span class="svc-acc__name">Консультации врачей</span>
+                <span class="svc-acc__count">3</span>
                 <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
             </h3>
@@ -563,122 +566,110 @@
                 <li class="svc-acc__row" data-proc="cosmetologist-consultation"><a href="services/procedures/cosmetologist-consultation.html">Приём косметолога</a></li>
                 <li class="svc-acc__row" data-proc="trichologist-consultation"><a href="services/procedures/trichologist-consultation.html">Приём трихолога</a></li>
                 <li class="svc-acc__row" data-proc="nutritionist-consultation"><a href="services/procedures/nutritionist-consultation.html">Приём нутрициолога</a></li>
-                <li class="svc-acc__row" data-proc="ultrasound-diagnostics"><a href="services/procedures/ultrasound-diagnostics.html">Ультразвуковая диагностика</a></li>
               </ul>
-              <a class="svc-acc__price" href="prices.html#cat-consult">Цены на направление</a>
+              <div class="svc-acc__links">
+                <a class="svc-acc__price" href="prices.html#cat-consult">Цены на направление</a>
+              </div>
             </div>
           </li>
-          <li class="svc-acc__item" data-dir="lifting">
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="ultrasound-diagnostics">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="ultrasound-diagnostics" href="services/procedures/ultrasound-diagnostics.html"><span class="svc-acc__name">УЗИ в косметологии</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="smas-lifting">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="smas-lifting" href="services/procedures/smas-lifting.html"><span class="svc-acc__name">SMAS-лифтинг</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="rf-volnewmer">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="rf-volnewmer" href="services/procedures/rf-volnewmer.html"><span class="svc-acc__name">Монополярный RF-лифтинг Volnewmer</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="rf-sylfirm">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="rf-sylfirm" href="services/procedures/rf-sylfirm.html"><span class="svc-acc__name">Микроигольчатый RF-лифтинг Sylfirm X</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item" data-dir="nordlys">
             <h3 class="svc-acc__head">
-              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-lifting">
-                <span class="svc-acc__name">Аппаратный лифтинг</span>
-                <span class="svc-acc__count">4</span>
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-nordlys">
+                <span class="svc-acc__name">Фотосистема IPL Nordlys</span>
+                <span class="svc-acc__count">5</span>
                 <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
             </h3>
-            <div class="svc-acc__panel" id="svc-dir-lifting" hidden>
+            <div class="svc-acc__panel" id="svc-dir-nordlys" hidden>
               <ul class="svc-acc__list">
-                <li class="svc-acc__row" data-proc="smas-lifting"><a href="services/procedures/smas-lifting.html">SMAS-лифтинг Ultraformer MPT</a></li>
-                <li class="svc-acc__row" data-proc="rf-volnewmer"><a href="services/procedures/rf-volnewmer.html">Монополярный RF-лифтинг Volnewmer</a></li>
-                <li class="svc-acc__row" data-proc="rf-sylfirm"><a href="services/procedures/rf-sylfirm.html">Микроигольчатый RF-лифтинг Sylfirm X</a></li>
-                <li class="svc-acc__row" data-proc="microcurrent-therapy"><a href="services/procedures/microcurrent-therapy.html">Микротоковая терапия</a></li>
-              </ul>
-              <a class="svc-acc__price" href="prices.html#cat-smas">Цены на направление</a>
-            </div>
-          </li>
-          <li class="svc-acc__item" data-dir="light">
-            <h3 class="svc-acc__head">
-              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-light">
-                <span class="svc-acc__name">Свет и лазер</span>
-                <span class="svc-acc__count">7</span>
-                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </h3>
-            <div class="svc-acc__panel" id="svc-dir-light" hidden>
-              <ul class="svc-acc__list">
-                <li class="svc-acc__row" data-proc="nordlys"><a href="services/procedures/nordlys.html">Фотосистема IPL Nordlys</a></li>
                 <li class="svc-acc__row" data-proc="photorejuvenation"><a href="services/procedures/photorejuvenation.html">Фотоомоложение</a></li>
                 <li class="svc-acc__row" data-proc="acne-treatment"><a href="services/procedures/acne-treatment.html">Лечение акне</a></li>
                 <li class="svc-acc__row" data-proc="rosacea-treatment"><a href="services/procedures/rosacea-treatment.html">Лечение купероза и розацеа</a></li>
                 <li class="svc-acc__row" data-proc="pigmentation-removal"><a href="services/procedures/pigmentation-removal.html">Устранение пигментации</a></li>
                 <li class="svc-acc__row" data-proc="laser-resurfacing"><a href="services/procedures/laser-resurfacing.html">Лазерная шлифовка</a></li>
-                <li class="svc-acc__row" data-proc="photodynamic-therapy"><a href="services/procedures/photodynamic-therapy.html">Фотодинамическая терапия Revixan</a></li>
               </ul>
-              <a class="svc-acc__price" href="prices.html#cat-nordlys">Цены на направление</a>
+              <div class="svc-acc__links">
+                <a class="svc-acc__price" href="services/procedures/nordlys.html">О фотосистеме Nordlys</a>
+                <a class="svc-acc__price" href="prices.html#cat-nordlys">Цены на направление</a>
+              </div>
             </div>
           </li>
-          <li class="svc-acc__item" data-dir="epil">
-            <h3 class="svc-acc__head">
-              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-epil">
-                <span class="svc-acc__name">Лазерная эпиляция</span>
-                <span class="svc-acc__count">1</span>
-                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </h3>
-            <div class="svc-acc__panel" id="svc-dir-epil" hidden>
-              <ul class="svc-acc__list">
-                <li class="svc-acc__row" data-proc="laser-epilation"><a href="services/procedures/laser-epilation.html">Лазерная эпиляция Candela</a></li>
-              </ul>
-              <a class="svc-acc__price" href="prices.html#cat-epil-women">Цены на направление</a>
-            </div>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="photodynamic-therapy">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="photodynamic-therapy" href="services/procedures/photodynamic-therapy.html"><span class="svc-acc__name">Фотодинамическая терапия Revixan</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="microcurrent-therapy">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="microcurrent-therapy" href="services/procedures/microcurrent-therapy.html"><span class="svc-acc__name">Микротоковая терапия</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
           </li>
           <li class="svc-acc__item" data-dir="inject">
             <h3 class="svc-acc__head">
               <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-inject">
                 <span class="svc-acc__name">Инъекционная косметология</span>
-                <span class="svc-acc__count">10</span>
+                <span class="svc-acc__count">8</span>
                 <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
             </h3>
             <div class="svc-acc__panel" id="svc-dir-inject" hidden>
               <ul class="svc-acc__list">
-                <li class="svc-acc__row" data-proc="injection-cosmetology"><a href="services/procedures/injection-cosmetology.html">Инъекционная косметология</a></li>
+                <li class="svc-acc__row" data-proc="prp-therapy"><a href="services/procedures/prp-therapy.html">PRP-терапия</a></li>
+                <li class="svc-acc__row" data-proc="contour-plastic"><a href="services/procedures/contour-plastic.html">Контурная пластика</a></li>
+                <li class="svc-acc__row" data-proc="botulinoterapiya"><a href="services/procedures/botulinoterapiya.html">Ботулинотерапия</a></li>
+                <li class="svc-acc__row" data-proc="kollagenoterapiya"><a href="services/procedures/kollagenoterapiya.html">Коллагенотерапия</a></li>
+                <li class="svc-acc__row" data-proc="carboxy"><a href="services/procedures/carboxy.html">Карбокситерапия</a></li>
                 <li class="svc-acc__row" data-proc="biorevitalization"><a href="services/procedures/biorevitalization.html">Биоревитализация</a></li>
                 <li class="svc-acc__row" data-proc="mesotherapy"><a href="services/procedures/mesotherapy.html">Мезотерапия</a></li>
-                <li class="svc-acc__row" data-proc="botulinoterapiya"><a href="services/procedures/botulinoterapiya.html">Ботулинотерапия</a></li>
-                <li class="svc-acc__row" data-proc="contour-plastic"><a href="services/procedures/contour-plastic.html">Контурная пластика</a></li>
-                <li class="svc-acc__row" data-proc="kollagenoterapiya"><a href="services/procedures/kollagenoterapiya.html">Коллагенотерапия</a></li>
-                <li class="svc-acc__row" data-proc="prp-therapy"><a href="services/procedures/prp-therapy.html">PRP-терапия</a></li>
-                <li class="svc-acc__row" data-proc="carboxy"><a href="services/procedures/carboxy.html">Карбокситерапия</a></li>
-                <li class="svc-acc__row" data-proc="exosomes"><a href="services/procedures/exosomes.html">Экзосомы</a></li>
                 <li class="svc-acc__row" data-proc="fat-reduction"><a href="services/procedures/fat-reduction.html">Устранение локальных жировых отложений</a></li>
               </ul>
-              <a class="svc-acc__price" href="prices.html#cat-injections">Цены на направление</a>
+              <div class="svc-acc__links">
+                <a class="svc-acc__price" href="services/procedures/injection-cosmetology.html">Об инъекционной косметологии</a>
+                <a class="svc-acc__price" href="prices.html#cat-injections">Цены на направление</a>
+              </div>
             </div>
           </li>
-          <li class="svc-acc__item" data-dir="care">
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="hydra-touch">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="hydra-touch" href="services/procedures/hydra-touch.html"><span class="svc-acc__name">Гидропилинг Hydra Touch H2</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="laser-epilation">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="laser-epilation" href="services/procedures/laser-epilation.html"><span class="svc-acc__name">Лазерная эпиляция Candela</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="lpg-massage">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="lpg-massage" href="services/procedures/lpg-massage.html"><span class="svc-acc__name">LPG-массаж</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="rsl-beautylizer">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="rsl-beautylizer" href="services/procedures/rsl-beautylizer.html"><span class="svc-acc__name">RSL-скульптурирование</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item svc-acc__item--leaf" data-dir="exosomes">
+            <h3 class="svc-acc__head"><a class="svc-acc__toggle svc-acc__row" data-proc="exosomes" href="services/procedures/exosomes.html"><span class="svc-acc__name">Экзосомы</span><svg class="svc-acc__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></h3>
+          </li>
+          <li class="svc-acc__item" data-dir="aesthetic">
             <h3 class="svc-acc__head">
-              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-care">
-                <span class="svc-acc__name">Уход и чистки</span>
-                <span class="svc-acc__count">5</span>
+              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-aesthetic">
+                <span class="svc-acc__name">Эстетическая косметология</span>
+                <span class="svc-acc__count">3</span>
                 <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
             </h3>
-            <div class="svc-acc__panel" id="svc-dir-care" hidden>
+            <div class="svc-acc__panel" id="svc-dir-aesthetic" hidden>
               <ul class="svc-acc__list">
-                <li class="svc-acc__row" data-proc="hydra-touch"><a href="services/procedures/hydra-touch.html">Гидропилинг Hydra Touch H2</a></li>
-                <li class="svc-acc__row" data-proc="aesthetic-cosmetology"><a href="services/procedures/aesthetic-cosmetology.html">Эстетическая косметология</a></li>
-                <li class="svc-acc__row" data-proc="cleansing"><a href="services/procedures/cleansing.html">Чистки</a></li>
                 <li class="svc-acc__row" data-proc="peeling"><a href="services/procedures/peeling.html">Пилинг</a></li>
+                <li class="svc-acc__row" data-proc="cleansing"><a href="services/procedures/cleansing.html">Чистки</a></li>
                 <li class="svc-acc__row" data-proc="spa-care"><a href="services/procedures/spa-care.html">Спа-процедуры для лица и тела</a></li>
               </ul>
-              <a class="svc-acc__price" href="prices.html#cat-aesthetic">Цены на направление</a>
-            </div>
-          </li>
-          <li class="svc-acc__item" data-dir="body">
-            <h3 class="svc-acc__head">
-              <button type="button" class="svc-acc__toggle" aria-expanded="false" aria-controls="svc-dir-body">
-                <span class="svc-acc__name">Тело и фигура</span>
-                <span class="svc-acc__count">2</span>
-                <svg class="svc-acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </h3>
-            <div class="svc-acc__panel" id="svc-dir-body" hidden>
-              <ul class="svc-acc__list">
-                <li class="svc-acc__row" data-proc="lpg-massage"><a href="services/procedures/lpg-massage.html">LPG-массаж</a></li>
-                <li class="svc-acc__row" data-proc="rsl-beautylizer"><a href="services/procedures/rsl-beautylizer.html">RSL Beautylizer</a></li>
-              </ul>
-              <a class="svc-acc__price" href="prices.html#cat-lpg">Цены на направление</a>
+              <div class="svc-acc__links">
+                <a class="svc-acc__price" href="services/procedures/aesthetic-cosmetology.html">Об эстетической косметологии</a>
+                <a class="svc-acc__price" href="prices.html#cat-aesthetic">Цены на направление</a>
+              </div>
             </div>
           </li>
         </ul>
@@ -695,47 +686,92 @@
     <div class="promo-banner-wrap">
       <div class="promo-banner-strip" id="promo-banner-strip-desktop">
         <div class="promo-banner">
-          <img class="promo-banner__photo" src="assets/photos/promo-banner-laser-figma.webp" alt="Лазерная эпиляция в клинике RA|RÉ" loading="lazy" srcset="assets/photos/promo-banner-laser-figma-650.webp 650w, assets/photos/promo-banner-laser-figma-1250.webp 1250w, assets/photos/promo-banner-laser-figma.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px"/>
-          <a href="promos/laser-new-client.html" class="promo-banner__card">
+          <img class="promo-banner__photo" src="assets/photos/promo-first-visit.webp" srcset="assets/photos/promo-first-visit-650.webp 650w, assets/photos/promo-first-visit-1250.webp 1250w, assets/photos/promo-first-visit.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px" alt="Гостья в зоне ожидания клиники RA|RÉ" loading="lazy"/>
+          <a href="promos/first-visit.html" class="promo-banner__card">
             <div class="promo-banner__top">
-              <p class="promo-banner__label">Скидка на лазерную эпиляцию для новых клиентов</p>
+              <p class="promo-banner__label">Скидка до 20% на первый визит</p>
               <span class="promo-banner__arr" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </div>
             <div class="promo-banner__bottom">
-              <p class="promo-banner__pct">30%</p>
-              <p class="promo-banner__desc">При первом посещении нашей клиники вы получаете скидку 30% на лазерное удаление волос.</p>
+              <p class="promo-banner__pct"><span class="promo-upto">до</span>20%</p>
+              <p class="promo-banner__desc">В честь знакомства дарим скидку на любые услуги в первое посещение.</p>
             </div>
           </a>
         </div>
         <div class="promo-banner">
-          <img class="promo-banner__photo" src="assets/photos/promo-smas-figma.webp" alt="СМАС-лифтинг в клинике RA|RÉ" loading="lazy" srcset="assets/photos/promo-smas-figma-650.webp 650w, assets/photos/promo-smas-figma-1250.webp 1250w, assets/photos/promo-smas-figma.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px"/>
-          <a href="promos/smas-lifting.html" class="promo-banner__card">
+          <img class="promo-banner__photo" src="assets/photos/promo-cleansing.webp" srcset="assets/photos/promo-cleansing-650.webp 650w, assets/photos/promo-cleansing-1250.webp 1250w, assets/photos/promo-cleansing.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px" alt="Чистка лица в клинике RA|RÉ" loading="lazy"/>
+          <a href="promos/cleansing-peeling.html" class="promo-banner__card">
             <div class="promo-banner__top">
-              <p class="promo-banner__label">Скидка на СМАС от 500 линий</p>
+              <p class="promo-banner__label">Чистка + пилинг + фотобиомодуляция</p>
               <span class="promo-banner__arr" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </div>
             <div class="promo-banner__bottom">
-              <p class="promo-banner__pct">20%</p>
-              <p class="promo-banner__desc">Весь август получите приятную скидку 20% на процедуру СМАС-лифтинга.</p>
+              <p class="promo-banner__pct"><span class="promo-price">9 500<span class="promo-unit">₽</span></span></p>
+              <p class="promo-banner__desc">Комплекс для сияния здоровой кожи по специальной цене весь октябрь.</p>
             </div>
           </a>
         </div>
         <div class="promo-banner">
-          <img class="promo-banner__photo" src="assets/photos/promo-rf-figma.webp" alt="Монополярный РФ-лифтинг в клинике RA|RÉ" loading="lazy" srcset="assets/photos/promo-rf-figma-650.webp 650w, assets/photos/promo-rf-figma-1250.webp 1250w, assets/photos/promo-rf-figma.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px"/>
-          <a href="promos/rf-lifting.html" class="promo-banner__card">
+          <img class="promo-banner__photo" src="assets/photos/promo-glow.webp" srcset="assets/photos/promo-glow-650.webp 650w, assets/photos/promo-glow-1250.webp 1250w, assets/photos/promo-glow.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px" alt="Фотоомоложение на аппарате Nordlys в клинике RA|RÉ" loading="lazy"/>
+          <a href="promos/biorevit-photo.html" class="promo-banner__card">
             <div class="promo-banner__top">
-              <p class="promo-banner__label">Монополярный РФ-лифтинг со скидкой</p>
+              <p class="promo-banner__label">Биоревитализация + фотоомоложение</p>
               <span class="promo-banner__arr" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </div>
             <div class="promo-banner__bottom">
-              <p class="promo-banner__pct">30%</p>
-              <p class="promo-banner__desc">Только до конца августа скидка 30% от 400 импульсов.</p>
+              <p class="promo-banner__pct"><span class="promo-price">25 500<span class="promo-unit">₽</span></span></p>
+              <p class="promo-banner__desc">Вместо 30 500 ₽ — комплекс для глубокого увлажнения и сияния кожи.</p>
+            </div>
+          </a>
+        </div>
+        <div class="promo-banner">
+          <img class="promo-banner__photo" src="assets/photos/promo-rf-exo.webp" srcset="assets/photos/promo-rf-exo-650.webp 650w, assets/photos/promo-rf-exo-1250.webp 1250w, assets/photos/promo-rf-exo.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px" alt="Монополярный RF-лифтинг в клинике RA|RÉ" loading="lazy"/>
+          <a href="promos/rf-exosomes.html" class="promo-banner__card">
+            <div class="promo-banner__top">
+              <p class="promo-banner__label">RF-лифтинг + экзосомы + фотобиомодуляция</p>
+              <span class="promo-banner__arr" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="promo-banner__bottom">
+              <p class="promo-banner__pct"><span class="promo-price">49 300<span class="promo-unit">₽</span></span></p>
+              <p class="promo-banner__desc">Вместо 51 000 ₽ — мощное омоложение комплексом из трёх процедур.</p>
+            </div>
+          </a>
+        </div>
+        <div class="promo-banner">
+          <img class="promo-banner__photo" src="assets/photos/promo-cashback.webp" srcset="assets/photos/promo-cashback-650.webp 650w, assets/photos/promo-cashback-1250.webp 1250w, assets/photos/promo-cashback.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px" alt="Ресепшен клиники RA|RÉ" loading="lazy"/>
+          <a href="promos/cashback.html" class="promo-banner__card">
+            <div class="promo-banner__top">
+              <p class="promo-banner__label">Кешбэк до 10% на всё</p>
+              <span class="promo-banner__arr" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="promo-banner__bottom">
+              <p class="promo-banner__pct"><span class="promo-upto">до</span>10%</p>
+              <p class="promo-banner__desc">Копите рубли и оплачивайте ими до 100% стоимости процедуры.</p>
+            </div>
+          </a>
+        </div>
+        <div class="promo-banner">
+          <img class="promo-banner__photo" src="assets/photos/promo-laser.webp" srcset="assets/photos/promo-laser-650.webp 650w, assets/photos/promo-laser-1250.webp 1250w, assets/photos/promo-laser.webp 2000w" sizes="(max-width: 1024px) 624px, 1170px" alt="Лазерная эпиляция Candela в клинике RA|RÉ" loading="lazy"/>
+          <a href="promos/laser-combo.html" class="promo-banner__card">
+            <div class="promo-banner__top">
+              <p class="promo-banner__label">Комбо на лазерную эпиляцию</p>
+              <span class="promo-banner__arr" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="promo-banner__bottom">
+              <p class="promo-banner__pct"><span class="promo-upto">до</span>25%</p>
+              <p class="promo-banner__desc">Бикини, подмышки, ноги и руки — комплексом выгоднее, чем по отдельности.</p>
             </div>
           </a>
         </div>
@@ -748,7 +784,7 @@
     <div class="booking-inner">
       <div class="booking-col booking-col--form">
         <div class="booking-text">
-          <h2 class="booking-heading"><em class="serif-italic">Онлайн</em>-запись</h2>
+          <h2 class="booking-heading"><em class="serif-italic">Оставьте</em> заявку</h2>
           <p class="booking-desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
         </div>
         <form class="booking-form" action="#" method="POST">
@@ -843,42 +879,81 @@
   <div class="mh-promos-hero">
     <h2 class="mh-promos-heading">Действующие акции</h2>
     <div class="mh-promos-cards" id="mh-promos-cards">
-      <a href="promos/laser-new-client.html" class="mh-promo-card">
-        <img src="assets/photos/promo-card-epilation.webp" alt="Скидка на лазерную эпиляцию" srcset="assets/photos/promo-card-epilation-350.webp 350w, assets/photos/promo-card-epilation-700.webp 700w, assets/photos/promo-card-epilation-1250.webp 1250w, assets/photos/promo-card-epilation.webp 1534w" sizes="(max-width: 767px) 350px, (max-width: 1024px) 624px, 572px"/>
+      <a href="promos/first-visit.html" class="mh-promo-card">
+        <img src="assets/photos/promo-first-visit-m.webp" srcset="assets/photos/promo-first-visit-m-350.webp 350w, assets/photos/promo-first-visit-m-700.webp 700w, assets/photos/promo-first-visit-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px" alt="Гостья в зоне ожидания клиники RA|RÉ" loading="lazy"/>
         <div class="mh-promo-card__panel">
           <div class="mh-promo-card__head">
-            <p class="mh-promo-card__label">Скидка на лазерную эпиляцию для новых клиентов</p>
+            <p class="mh-promo-card__label">Скидка до 20% на первый визит</p>
             <span class="mh-promo-arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 1.5L1 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 1H12C12.5 1 12.7 1 12.85 1.15C13 1.3 13 1.5 13 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="mh-promo-card__body">
-            <p class="mh-promo-card__pct">30%</p>
-            <p class="mh-promo-card__desc">При первом посещении нашей клиники вы получаете скидку 30% на лазерное удаление волос.</p>
+            <p class="mh-promo-card__pct"><span class="promo-upto">до</span>20%</p>
+            <p class="mh-promo-card__desc">В честь знакомства дарим скидку на любые услуги в первое посещение.</p>
           </div>
         </div>
       </a>
-      <a href="promos/smas-lifting.html" class="mh-promo-card">
-        <img src="assets/photos/promo-card-smas.webp" alt="Скидка на СМАС от 500 линий" srcset="assets/photos/promo-card-smas-350.webp 350w, assets/photos/promo-card-smas-700.webp 700w, assets/photos/promo-card-smas-1250.webp 1250w, assets/photos/promo-card-smas.webp 1474w" sizes="(max-width: 767px) 350px, (max-width: 1024px) 624px, 572px"/>
+      <a href="promos/cleansing-peeling.html" class="mh-promo-card">
+        <img src="assets/photos/promo-cleansing-m.webp" srcset="assets/photos/promo-cleansing-m-350.webp 350w, assets/photos/promo-cleansing-m-700.webp 700w, assets/photos/promo-cleansing-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px" alt="Чистка лица в клинике RA|RÉ" loading="lazy"/>
         <div class="mh-promo-card__panel">
           <div class="mh-promo-card__head">
-            <p class="mh-promo-card__label">Скидка на СМАС от 500 линий</p>
+            <p class="mh-promo-card__label">Чистка + пилинг + фотобиомодуляция</p>
             <span class="mh-promo-arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 1.5L1 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 1H12C12.5 1 12.7 1 12.85 1.15C13 1.3 13 1.5 13 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="mh-promo-card__body">
-            <p class="mh-promo-card__pct">20%</p>
-            <p class="mh-promo-card__desc">Весь август получите приятную скидку 20% на процедуру СМАС-лифтинга.</p>
+            <p class="mh-promo-card__pct"><span class="promo-price">9 500<span class="promo-unit">₽</span></span></p>
+            <p class="mh-promo-card__desc">Комплекс для сияния здоровой кожи по специальной цене весь октябрь.</p>
           </div>
         </div>
       </a>
-      <a href="promos/rf-lifting.html" class="mh-promo-card">
-        <img src="assets/photos/promo-card-rf-lifting.webp" alt="Монополярный РФ-лифтинг со скидкой" srcset="assets/photos/promo-card-rf-lifting-350.webp 350w, assets/photos/promo-card-rf-lifting-700.webp 700w, assets/photos/promo-card-rf-lifting-1250.webp 1250w, assets/photos/promo-card-rf-lifting.webp 1474w" sizes="(max-width: 767px) 350px, (max-width: 1024px) 624px, 1170px"/>
+      <a href="promos/biorevit-photo.html" class="mh-promo-card">
+        <img src="assets/photos/promo-glow-m.webp" srcset="assets/photos/promo-glow-m-350.webp 350w, assets/photos/promo-glow-m-700.webp 700w, assets/photos/promo-glow-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px" alt="Фотоомоложение на аппарате Nordlys в клинике RA|RÉ" loading="lazy"/>
         <div class="mh-promo-card__panel">
           <div class="mh-promo-card__head">
-            <p class="mh-promo-card__label">Монополярный РФ-лифтинг со скидкой</p>
+            <p class="mh-promo-card__label">Биоревитализация + фотоомоложение</p>
             <span class="mh-promo-arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 1.5L1 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 1H12C12.5 1 12.7 1 12.85 1.15C13 1.3 13 1.5 13 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="mh-promo-card__body">
-            <p class="mh-promo-card__pct">30%</p>
-            <p class="mh-promo-card__desc">Только до конца августа скидка 30% от 400 импульсов.</p>
+            <p class="mh-promo-card__pct"><span class="promo-price">25 500<span class="promo-unit">₽</span></span></p>
+            <p class="mh-promo-card__desc">Вместо 30 500 ₽ — комплекс для глубокого увлажнения и сияния кожи.</p>
+          </div>
+        </div>
+      </a>
+      <a href="promos/rf-exosomes.html" class="mh-promo-card">
+        <img src="assets/photos/promo-rf-exo-m.webp" srcset="assets/photos/promo-rf-exo-m-350.webp 350w, assets/photos/promo-rf-exo-m-700.webp 700w, assets/photos/promo-rf-exo-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px" alt="Монополярный RF-лифтинг в клинике RA|RÉ" loading="lazy"/>
+        <div class="mh-promo-card__panel">
+          <div class="mh-promo-card__head">
+            <p class="mh-promo-card__label">RF-лифтинг + экзосомы + фотобиомодуляция</p>
+            <span class="mh-promo-arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 1.5L1 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 1H12C12.5 1 12.7 1 12.85 1.15C13 1.3 13 1.5 13 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="mh-promo-card__body">
+            <p class="mh-promo-card__pct"><span class="promo-price">49 300<span class="promo-unit">₽</span></span></p>
+            <p class="mh-promo-card__desc">Вместо 51 000 ₽ — мощное омоложение комплексом из трёх процедур.</p>
+          </div>
+        </div>
+      </a>
+      <a href="promos/cashback.html" class="mh-promo-card">
+        <img src="assets/photos/promo-cashback-m.webp" srcset="assets/photos/promo-cashback-m-350.webp 350w, assets/photos/promo-cashback-m-700.webp 700w, assets/photos/promo-cashback-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px" alt="Ресепшен клиники RA|RÉ" loading="lazy"/>
+        <div class="mh-promo-card__panel">
+          <div class="mh-promo-card__head">
+            <p class="mh-promo-card__label">Кешбэк до 10% на всё</p>
+            <span class="mh-promo-arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 1.5L1 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 1H12C12.5 1 12.7 1 12.85 1.15C13 1.3 13 1.5 13 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="mh-promo-card__body">
+            <p class="mh-promo-card__pct"><span class="promo-upto">до</span>10%</p>
+            <p class="mh-promo-card__desc">Копите рубли и оплачивайте ими до 100% стоимости процедуры.</p>
+          </div>
+        </div>
+      </a>
+      <a href="promos/laser-combo.html" class="mh-promo-card">
+        <img src="assets/photos/promo-laser-m.webp" srcset="assets/photos/promo-laser-m-350.webp 350w, assets/photos/promo-laser-m-700.webp 700w, assets/photos/promo-laser-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px" alt="Лазерная эпиляция Candela в клинике RA|RÉ" loading="lazy"/>
+        <div class="mh-promo-card__panel">
+          <div class="mh-promo-card__head">
+            <p class="mh-promo-card__label">Комбо на лазерную эпиляцию</p>
+            <span class="mh-promo-arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 1.5L1 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 1H12C12.5 1 12.7 1 12.85 1.15C13 1.3 13 1.5 13 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="mh-promo-card__body">
+            <p class="mh-promo-card__pct"><span class="promo-upto">до</span>25%</p>
+            <p class="mh-promo-card__desc">Бикини, подмышки, ноги и руки — комплексом выгоднее, чем по отдельности.</p>
           </div>
         </div>
       </a>
@@ -888,7 +963,7 @@
 
   <section class="mh-booking" id="booking-mobile">
     <div>
-      <h2 class="mh-section-title">Онлайн-запись</h2>
+      <h2 class="mh-section-title">Оставьте заявку</h2>
       <p class="mh-booking__desc">Наши менеджеры свяжутся с вами, ответят на все интересующие вопросы, расскажут о действующих акциях и помогут записаться на приём. Работаем ежедневно с 9:00 до 20:00.</p>
     </div>
     <form class="mh-form" id="mh-booking-form">
@@ -1201,12 +1276,12 @@ function openBookingPopup() {
 })();
 </script>
 <script src="docs-popup.js?v=202609021900" defer></script>
-<script src="js/services-nav.js?v=202609232100" defer></script>
+<script src="js/services-nav.js?v=202610131200" defer></script>
 <script src="animations.js?v=202609120400" defer></script>
 <script src="mobile-nav.js?v=202608311610" defer></script>
 <script src="assets/vendor/bvi/js/bvi.min.js?v=202608251400" defer></script><script src="./accessibility.js?v=202608311610" defer></script>
 <script src="booking-widget.js?v=202608311610" defer></script>
-<script src="js/booking-modal.js?v=202609110300" defer></script>
+<script src="js/booking-modal.js?v=202610131200" defer></script>
 <script src="map-widget.js?v=202609231400" defer></script>
 <script>
 (function () {

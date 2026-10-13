@@ -19,4 +19,9 @@ upload-fix.mjs
 !speed-check.mjs
 !build-responsive-images.mjs
 !build-problem-pages.mjs
+!build-promos.mjs
 !journey-map.html
+
+# исходники клиента (фото с диска) — на сайте не используются
+Специалисты/
+услуги (1)/

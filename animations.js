@@ -483,7 +483,7 @@
     // ── Promo card (sticky) ────────────────────────────────
     ['.promo-card.promo-card--sticky', 'right', 0.8, 0.15, 0  ],
 
-    // ── Promo OFFER pages (laser-new-client / smas-lifting / rf-lifting)
+    // ── Promo OFFER pages (promos/*.html, see build-promos.mjs)
     // desktop — slow, unhurried pacing per the "медленные" request. ──
     ['.promo-title h1',             'up',     1.1,  0,    0    ],
     ['.promo-offer__badge',         'up',     0.95, 0,    0    ],
@@ -847,7 +847,7 @@
 
   /* Several sections ship a separate mobile-layout and desktop-layout
      <video autoplay> for the same clip (e.g. index.html's .mh-hero__photo
-     vs .hero__photo, both pointing at hero-clip.mp4), toggled via CSS
+     vs .hero__photo, both pointing at hero-rf-mono.mp4), toggled via CSS
      display at the 767px breakpoint. Both still decode/play even while
      display:none, doubling CPU/battery cost for a video only one of
      which is ever visible — pause whichever copy isn't. */

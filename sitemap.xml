@@ -249,19 +249,34 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Promo detail pages -->
+  <!-- Promo detail pages (build-promos.mjs) -->
   <url>
-    <loc>https://rare.a-4-to.ru/promos/laser-new-client.html</loc>
+    <loc>https://rare.a-4-to.ru/promos/first-visit.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/promos/rf-lifting.html</loc>
+    <loc>https://rare.a-4-to.ru/promos/cleansing-peeling.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://rare.a-4-to.ru/promos/smas-lifting.html</loc>
+    <loc>https://rare.a-4-to.ru/promos/biorevit-photo.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/promos/rf-exosomes.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/promos/cashback.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rare.a-4-to.ru/promos/laser-combo.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

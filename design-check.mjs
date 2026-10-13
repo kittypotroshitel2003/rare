@@ -20,7 +20,7 @@ const PAGES = [
   'specialists/yana-vladimirovna', 'specialists/mariya-viktorovna',
   'services/procedures/smas-lifting', 'services/procedures/laser-epilation',
   'services/procedures/botulinoterapiya', 'services/procedures/cleansing',
-  'promos/smas-lifting',
+  'promos/first-visit',
   'articles/index', 'articles/article-hair-loss', 'articles/article-office-syndrome',
   'problems/ubrat-morshhiny', 'problems/gladkoe-telo', 'problems/uprugoe-i-strojnoe-telo',
   'problems/moshhnyj-lifting-licza', 'problems/izbavitsya-ot-rubczov', 'problems/rozac-kyperoz',

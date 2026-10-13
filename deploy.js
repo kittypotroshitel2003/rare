@@ -298,6 +298,11 @@ const STATIC_IGNORE = new Set([
   "build-schema.mjs",
   "build-responsive-images.mjs",
   "build-problem-pages.mjs",
+  "build-promos.mjs",
+  "promo-detail.template.html",
+  // исходники клиента (фото с диска) — на сайте не используются
+  "Специалисты",
+  "услуги (1)",
 ]);
 
 function collectStaticFiles(dir, baseDir = dir) {
@@ -445,7 +450,7 @@ async function refreshRatings() {
   const ratingsPath = path.join(process.cwd(), "ratings.json");
 
   // Load existing ratings as fallback
-  let existing = { yandex: { score: "4.9", count: 127 }, gis: { score: "4.8", count: 84 }, prodoc: { score: "5.0", count: 41 } };
+  let existing = { yandex: { score: "5.0", count: 127 }, gis: { score: "4.8", count: 84 }, prodoc: { score: "5.0", count: 41 } };
   if (fs.existsSync(ratingsPath)) {
     try { existing = JSON.parse(fs.readFileSync(ratingsPath, "utf8")); } catch {}
   }
