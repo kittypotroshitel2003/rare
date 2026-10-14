@@ -147,12 +147,15 @@
 
     /* ── ЭКСПЕРТНАЯ КРАСОТА ───────────────────── */
     .sec-about { padding: clamp(32px, 4vw, 64px) var(--gutter) 0; }
+    /* text → button → circle stack in normal flow: the button used to be
+       absolutely positioned at a fixed top, so wherever the heading wrapped
+       onto a third line (901–1100px) it landed on top of the lead paragraph */
     .about-frame {
       position: relative; width: 100%; max-width: 1324px; margin: 0 auto;
-      height: clamp(575px, 58.3vw, 772px);
+      display: flex; flex-direction: column; align-items: center;
+      padding-bottom: 15px;
     }
     .about-text {
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
       width: clamp(260px, 68vw, 900px);
       display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 1.8vw, 24px);
       text-align: center;
@@ -163,13 +166,13 @@
       color: rgba(48,54,46,0.6); letter-spacing: -0.02em; font-style: normal; margin: 0;
     }
     .about-showcase__btn {
-      position: absolute; top: clamp(120px, 15.5vw, 205px); left: 50%; transform: translateX(-50%);
+      margin-top: clamp(16px, 2.2vw, 32px);
       padding: clamp(9px, 0.9vw, 13px) clamp(18px, 2.4vw, 32px); font-size: clamp(13px, 1vw, 17px);
       background: var(--c-accent); color: #fff; border-color: var(--c-accent);
     }
     .about-showcase__btn:hover { background: #6A7C64; border-color: #6A7C64; color: #fff; }
     .about-circle {
-      position: absolute; top: clamp(180px, 22.43vw, 297px); left: 50%; transform: translateX(-50%);
+      position: relative; margin-top: clamp(28px, 3.5vw, 50px);
       width: clamp(230px, 34.7vw, 460px); aspect-ratio: 1;
     }
     /* .about-circle__photo is a portrait-ratio RECTANGLE inset inside the
@@ -269,19 +272,6 @@
     .about-point--personal .about-point__dot { left: 84.73%; top: 85.97%; }
     .about-point--personal .about-point__line { left: 84.73%; top: 85.97%; width: 12%; transform: rotate(-20deg); }
     .about-point--personal .about-point__label { left: 97.4%; top: 79.5%; }
-
-    @media (max-width: 900px) {
-      .about-frame { height: auto; padding-top: 40px; padding-bottom: 40px; }
-      .about-text { position: static; transform: none; width: 100%; margin: 0 auto 32px; }
-      .about-showcase__btn { position: static; transform: none; margin: 0 auto 40px; }
-      .about-circle { position: static; transform: none; width: min(70vw, 320px); margin: 0 auto; }
-      .about-point__line, .about-point__dot { display: none; }
-      .about-point__label {
-        position: static; transform: none; width: 100%; max-width: 320px; margin: 20px auto 0;
-        text-align: center; align-items: center;
-      }
-      .about-point__text { white-space: normal; max-width: none; width: 100%; }
-    }
 
     .home-counters {
       display: flex; align-items: center; justify-content: space-between;
@@ -868,7 +858,7 @@
     @media (max-width: 767px) {
       .hero, .sec-promo-banner, .sec-about, .sec-dir, .sec-adv,
       .sec-founder, .sec-spec, .sec-interior, .sec-results,
-      .sec-booking, footer.site-footer { display: none !important; }
+      .sec-booking, #wish, footer.site-footer { display: none !important; }
       .mobile-home { display: flex; flex-direction: column; gap: 64px; padding-top: 84px; }
     }
 

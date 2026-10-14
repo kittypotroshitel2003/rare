@@ -310,6 +310,13 @@
      none of these classes exist in current specialist-detail.html. ── */
 }
 
+/* ≤900 the hero stacks photo → headline → ratings (home.css), which is far
+   taller than the fixed height set in the block above — it clipped the
+   headline, CTA and ratings at 768–900. Let it grow with its content. */
+@media (min-width: 768px) and (max-width: 900px) {
+  .hero { height: auto; }
+}
+
 /* ─── MOBILE ≤767px ─────────────────────────────── */
 @media (max-width: 767px) {
 

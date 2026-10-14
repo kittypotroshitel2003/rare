@@ -272,3 +272,11 @@ body.page--service-procedure { background: #fff; color: var(--c-text); }
    колонки на 768px — переносим по слогам, а не срезаем по краю */
 .svc-hero__title,
 .mh-svc-hero__title { overflow-wrap: break-word; hyphens: auto; }
+
+/* Здесь баннер акции уже, чем на главной (~62% ширины), и при 768–900 px его
+   высота по пропорции 1320:561 оказывалась меньше карточки со скидкой —
+   карточку обрезало сверху и снизу. 260px вмещает самую высокую карточку
+   с отступами; с 1024 баннер и так выше. */
+@media (min-width: 768px) {
+  .promo-banner { min-height: 260px; }
+}

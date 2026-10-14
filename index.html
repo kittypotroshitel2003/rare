@@ -23,8 +23,8 @@
   <link rel="stylesheet" href="css/components/dots.css?v=202608311600"/>
   <link rel="stylesheet" href="css/components/booking-popup.css?v=202608311700"/>
   <link rel="stylesheet" href="css/components/booking-modal.css?v=202609110300"/>
-  <link rel="stylesheet" href="css/pages/home.css?v=202610131200"/>
-  <link rel="stylesheet" href="responsive.css?v=202609092100"/>
+  <link rel="stylesheet" href="css/pages/home.css?v=202610141600"/>
+  <link rel="stylesheet" href="responsive.css?v=202610141500"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -370,9 +370,9 @@
   </section>
 
 <!-- Я ХОЧУ — вход по причине обращения -->
-<section class="wish wrap" id="wish" aria-labelledby="wish-title">
+<section class="wish wrap" id="wish-mobile" aria-labelledby="wish-mobile-title">
   <div class="wish__head">
-    <h2 class="wish__title" id="wish-title">Я хочу</h2>
+    <h2 class="wish__title" id="wish-mobile-title">Я хочу</h2>
     <p class="wish__sub">Выберите, что беспокоит — покажем, какие процедуры с этим работают.</p>
   </div>
   <div class="wish__row">
@@ -1317,10 +1317,12 @@
   // #booking, which is the desktop-only form and display:none on mobile —
   // without this, arriving on mobile silently lands at the top of the page
   // instead of the form. Redirect to the mobile form when #booking is hidden.
-  if (location.hash === '#booking') {
-    var target = document.getElementById('booking');
+  // Same for #wish: the "Я хочу" breadcrumb on problem pages links here.
+  if (location.hash === '#booking' || location.hash === '#wish') {
+    var id = location.hash.slice(1);
+    var target = document.getElementById(id);
     if (target && getComputedStyle(target).display === 'none') {
-      var mobileTarget = document.getElementById('booking-mobile');
+      var mobileTarget = document.getElementById(id + '-mobile');
       if (mobileTarget) {
         requestAnimationFrame(function () {
           mobileTarget.scrollIntoView({ block: 'start' });
@@ -1491,10 +1493,8 @@
     /* generic: play explicit keyframes, then bake the last keyframe's values
        into a real inline style so the result doesn't depend on the Animation
        object staying alive — same approach as the hero sequence. Keyframes
-       are given explicitly (rather than a bare "opacity:0 -> 1") because
-       .about-text / .about-showcase__btn / .about-circle already rely on a
-       translateX(-50%) for horizontal centering, which this must preserve
-       instead of clobbering. */
+       are given explicitly (rather than a bare "opacity:0 -> 1") so each
+       element gets its own entrance offset. */
     function reveal(el, keyframes, ms, delayMs) {
       function apply(kf) {
         if (kf.opacity !== undefined) el.style.opacity = String(kf.opacity);
@@ -1559,18 +1559,18 @@
         (async function run() {
           await Promise.all([
             reveal(textBlock, [
-              { opacity: 0, transform: 'translateX(-50%) translateY(24px)', filter: 'blur(8px)' },
-              { opacity: 1, transform: 'translateX(-50%) translateY(0)', filter: 'blur(0)' }
+              { opacity: 0, transform: 'translateY(24px)', filter: 'blur(8px)' },
+              { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' }
             ], 750, 0),
             reveal(btn, [
-              { opacity: 0, transform: 'translateX(-50%) translateY(18px)', filter: 'blur(6px)' },
-              { opacity: 1, transform: 'translateX(-50%) translateY(0)', filter: 'blur(0)' }
+              { opacity: 0, transform: 'translateY(18px)', filter: 'blur(6px)' },
+              { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' }
             ], 600, 150)
           ]);
           await wait(200);
           await reveal(circle, [
-            { opacity: 0, transform: 'translateX(-50%) scale(0.35)', filter: 'blur(10px)' },
-            { opacity: 1, transform: 'translateX(-50%) scale(1)', filter: 'blur(0)' }
+            { opacity: 0, transform: 'scale(0.35)', filter: 'blur(10px)' },
+            { opacity: 1, transform: 'scale(1)', filter: 'blur(0)' }
           ], 800, 0);
           if (scan) startScanLoop(scan);
           await wait(200);

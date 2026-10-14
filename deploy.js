@@ -305,10 +305,15 @@ const STATIC_IGNORE = new Set([
   "услуги (1)",
 ]);
 
+// служебные файлы в корне: скрипты сборки/проверки, заметки, токены дизайна.
+// Один из скриптов однажды содержал пароль от сервера и висел в открытом доступе.
+const ROOT_IGNORE_RE = /\.(mjs|md)$|^design-system-.*\.json$/;
+
 function collectStaticFiles(dir, baseDir = dir) {
   const results = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (dir === baseDir && STATIC_IGNORE.has(entry.name)) continue;
+    if (entry.name === ".DS_Store" || entry.name.startsWith("._")) continue;
+    if (dir === baseDir && (STATIC_IGNORE.has(entry.name) || ROOT_IGNORE_RE.test(entry.name))) continue;
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       results.push(...collectStaticFiles(fullPath, baseDir));
