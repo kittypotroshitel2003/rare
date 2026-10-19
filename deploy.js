@@ -7,6 +7,7 @@
  *   → installs dependencies, adds npm scripts, asks for domain & type
  *
  * Deploy:       node deploy.js   (or npm run deploy)
+ *   --only a.html b.webp  → upload just these files
  *   → SPA:    fixes paths, builds, uploads dist/, configures Caddy
  *   → Static: uploads site files from project root, configures Caddy
  *
@@ -347,7 +348,7 @@ async function uploadDist(creds, domain) {
   }
 }
 
-async function uploadStatic(creds, domain) {
+async function uploadStatic(creds, domain, only = null) {
   const SftpClient = (await import("ssh2-sftp-client")).default;
   const sftp = new SftpClient();
   const remotePath = `${SITES_DIR}/${domain}`;
@@ -362,7 +363,7 @@ async function uploadStatic(creds, domain) {
       await sftp.mkdir(remotePath, true);
     }
 
-    const files = collectStaticFiles(baseDir);
+    const files = filterOnly(collectStaticFiles(baseDir), only);
     // Create remote directories first
     const dirs = new Set();
     for (const file of files) {
@@ -381,6 +382,29 @@ async function uploadStatic(creds, domain) {
   } finally {
     await sftp.end();
   }
+}
+
+// --only a.html,b/c.webp — upload just these files (handy on a flaky link)
+function parseOnly(args) {
+  const i = args.indexOf("--only");
+  if (i === -1) return null;
+  return new Set(
+    args.slice(i + 1).filter((a) => !a.startsWith("--"))
+      .flatMap((a) => a.split(","))
+      .filter(Boolean)
+      .map((f) => path.resolve(process.cwd(), f)),
+  );
+}
+
+function filterOnly(files, only) {
+  if (!only) return files;
+  const picked = files.filter((f) => only.has(path.resolve(f)));
+  const missing = [...only].filter((f) => !picked.includes(f));
+  if (missing.length) {
+    err(`--only: not deployable: ${missing.map((f) => path.relative(process.cwd(), f)).join(", ")}`);
+    process.exit(1);
+  }
+  return picked;
 }
 
 // ── Configure Caddy ─────────────────────────────────────────────────────
@@ -598,9 +622,10 @@ async function main() {
     await refreshRatings();
 
     // Static site: upload files directly from project root
-    const files = collectStaticFiles(process.cwd());
+    const only = parseOnly(args);
+    const files = filterOnly(collectStaticFiles(process.cwd()), only);
     log(`Uploading ${files.length} files...`);
-    await uploadStatic(creds, domain);
+    await uploadStatic(creds, domain, only);
     ok("Files uploaded");
   } else {
     // SPA: fix paths, build, upload dist/
