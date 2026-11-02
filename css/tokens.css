@@ -9,6 +9,8 @@
   --c-accent:   #8DA585;
   --c-accent-hover: #6A7C64;
   --c-bg:       #FFFFFF;
+  --c-promo-glass: rgba(255, 255, 255, 0.35);
+  --c-promo-text: rgba(48, 54, 46, 0.85);
   --c-text:     #30362E;
   --c-muted:    #5B6159;
   --c-white:    #FFFFFF;

@@ -232,6 +232,7 @@
       return;
     }
     errorEl.style.display = 'none';
+    if (window.RRLeads) window.RRLeads.send(form);
     form.style.display = 'none';
     success.style.display = 'block';
     setTimeout(closeModal, 2400);

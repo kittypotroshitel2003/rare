@@ -25,12 +25,7 @@
   }
 
   function logoPath(el) {
-    /* figure out how many folders deep the current page is, same trick
-       used by booking-widget.js, so the logo asset resolves correctly
-       regardless of which page embeds the map */
-    var segments = window.location.pathname.split('/').filter(Boolean);
-    var depth = Math.max(0, segments.length - 1);
-    return '../'.repeat(depth) + 'assets/icons/logo.svg';
+    return '/assets/icons/logo.svg';
   }
 
   function build() {

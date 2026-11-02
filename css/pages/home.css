@@ -571,7 +571,7 @@
     .promo-banner__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 56% 42%; }
     .promo-banner__card {
       position: absolute; left: clamp(16px, 3.6vw, 48px); top: 50%; transform: translateY(-50%);
-      width: clamp(207px, 19.55vw, 264px); background: rgba(255,255,255,0.22);
+      width: clamp(207px, 19.55vw, 264px); background: var(--c-promo-glass);
       border: 1px solid rgba(255,255,255,0.45);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-radius: 18px; padding: clamp(18px, 1.44vw, 23px) clamp(16px, 1.27vw, 21px);
@@ -581,7 +581,7 @@
     }
     .promo-banner__card:hover { transform: translateY(-54%); }
     .promo-banner__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
-    .promo-banner__label { font-size: clamp(14px, 0.95vw, 16px); font-weight: 500; color: rgba(48,54,46,0.6); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
+    .promo-banner__label { font-size: clamp(14px, 0.95vw, 16px); font-weight: 500; color: var(--c-promo-text); letter-spacing: -0.02em; line-height: 1.15; font-style: normal; }
     .promo-banner__arr {
       flex-shrink: 0; width: 37px; height: 37px; border-radius: 50%;
       background: var(--c-accent); color: #fff;
@@ -590,9 +590,9 @@
     }
     .promo-banner__arr svg { width: 18px; height: 18px; }
     .promo-banner__card:hover .promo-banner__arr { transform: translate(3px, -3px); }
-    .promo-banner__bottom { display: flex; flex-direction: column; gap: 9px; color: rgba(48,54,46,0.6); }
+    .promo-banner__bottom { display: flex; flex-direction: column; gap: 9px; color: var(--c-promo-text); }
     .promo-banner__pct { font-size: clamp(37px, 3.91vw, 64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-style: normal; }
-    .promo-banner__desc { font-size: 14px; font-weight: 300; opacity: 0.7; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
+    .promo-banner__desc { font-size: 14px; font-weight: 300; opacity: 1; letter-spacing: -0.02em; line-height: 1.3; font-style: normal; }
     .promo-banner__dots { display: flex; align-items: center; gap: 10px; }
 
     /* ── ВНУТРИ КЛИНИКИ ───────────────────────── */
@@ -925,16 +925,16 @@
     .mh-promo-imgwrap img { position: absolute; display: block; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; max-width: none !important; }
     .mh-promo-card {
       position: absolute; left: 16px; right: 16px; bottom: 16px; height: 190px;
-      background: rgba(255,253,249,0.2); border: 1px solid rgba(255,255,255,0.35);
+      background: var(--c-promo-glass); border: 1px solid rgba(255,255,255,0.35);
       border-radius: 16px; padding: 20px;
       display: flex; flex-direction: column; justify-content: space-between;
-      color: rgba(48,54,46,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      color: var(--c-promo-text); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
     .mh-promo-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 9px; }
     .mh-promo-card-label { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; width: 229px; flex-shrink: 0; }
     .mh-promo-card-body { display: flex; flex-direction: column; gap: 6px; }
     .mh-promo-card-pct { font-size: 52px; font-weight: 500; line-height: 1; }
-    .mh-promo-card-desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 0.8; }
+    .mh-promo-card-desc { font-size: 10px; font-weight: 400; line-height: 1.4; letter-spacing: -0.04em; opacity: 1; }
 
     /* ── STATS / MISSION ──────────────────────────────── */
     .mh-stats { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 20px; text-align: center; color: var(--c-text); }

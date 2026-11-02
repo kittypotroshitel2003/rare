@@ -6,12 +6,17 @@
  *   node design-check.mjs                     все страницы, все ширины
  *   node design-check.mjs --width=820         одна ширина
  *   node design-check.mjs --page=index        одна страница
+ *   node design-check.mjs --page=promos,/kurs-pilingov/  несколько страниц; старые имена или текущие URL
  *   node design-check.mjs --json              машиночитаемый вывод
  *
  * Выходной код 1, если есть ошибки (предупреждения код не меняют).
  */
 
 import puppeteer from 'puppeteer';
+import fs from 'node:fs';
+
+const URL_MAP = JSON.parse(fs.readFileSync(new URL('./url-map.json', import.meta.url), 'utf8')).pages;
+const pageURL = (name) => name.startsWith('/') ? name : URL_MAP[`${name}.html`] || `/${name}.html`;
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:3000';
 const PAGES = [
@@ -38,7 +43,7 @@ const args = Object.fromEntries(
 );
 
 const widths = args.width ? [Number(args.width)] : WIDTHS;
-const pages = args.page ? [args.page] : PAGES;
+const pages = args.page ? String(args.page).split(',') : PAGES;
 
 /* ---------------------------------------------------------------------------
    Проверки выполняются внутри страницы: здесь нет доступа к Node,
@@ -442,7 +447,11 @@ const report = [];
 for (const width of widths) {
   for (const name of pages) {
     await page.setViewport({ width, height: 900 });
-    await page.goto(`${BASE}/${name}.html`, { waitUntil: 'load', timeout: 60000 });
+    const response = await page.goto(`${BASE}${pageURL(name)}`, { waitUntil: 'load', timeout: 60000 });
+    if (!response || response.status() >= 400) {
+      report.push({ width, page: name, level: 'ошибка', check: 'HTTP', message: `Страница вернула ${response?.status() ?? 'нет ответа'}`, el: null });
+      continue;
+    }
     // гасим вступительную анимацию и раскрываем всё, что появляется по скроллу,
     // иначе половина страницы измеряется в смещённом состоянии
     await page.evaluate(() => {
@@ -450,7 +459,9 @@ for (const width of widths) {
       document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-revealed'));
       document.querySelectorAll('img[loading="lazy"]').forEach((i) => i.setAttribute('loading', 'eager'));
     });
-    await new Promise((r) => setTimeout(r, 900));
+    await page.addStyleTag({ content: '[data-rr] { opacity: 1 !important; animation: none !important; filter: none !important; transform: none !important; }' });
+    await page.evaluate(() => Promise.all(Array.from(document.images, img => img.decode().catch(() => {}))));
+    await page.evaluate(() => document.fonts.ready);
 
     const findings = await page.evaluate(collectFindings, width <= TOUCH_MAX);
     findings.forEach((f) => report.push({ width, page: name, ...f }));

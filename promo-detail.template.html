@@ -13,17 +13,36 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
   <link rel="dns-prefetch" href="https://yandex.ru"/>
-  <link rel="stylesheet" href="../css/tokens.css?v=202609092100"/>
+  <link rel="stylesheet" href="../css/tokens.css?v=202611021200"/>
   <link rel="stylesheet" href="../css/base.css?v=202610131200"/>
   <link rel="stylesheet" href="../css/components/header.css?v=202609120600"/>
   <link rel="stylesheet" href="../css/components/footer.css?v=202609232000"/>
   <link rel="stylesheet" href="../css/components/buttons.css?v=202609092100"/>
   <link rel="stylesheet" href="../css/components/mobile-booking.css?v=202609232000"/>
-  <link rel="stylesheet" href="../css/pages/promo-offer.css?v=202609092300"/>
+  <link rel="stylesheet" href="../css/pages/promo-offer.css?v=202611021150"/>
   <link rel="stylesheet" href="../responsive.css?v=202610141500"/>
   <link rel="stylesheet" href="../css/components/booking-modal.css?v=202609110300"/>
+<script src="/js/leads.js?v=202610271200" defer></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  /* считаем только боевой домен: визиты на тестовую копию и localhost в статистику не попадают */
+  if (/(^|\.)rare-anapa\.ru$/.test(location.hostname)) {
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(97361418, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  }
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Активатор: колесо фортуны -->
+<script>var js=document.createElement("script");js.async = true;js.src="https://pro.aktivator.top/widget/js/widget.js?"+Date.now();document.getElementsByTagName("head")[0].appendChild(js); </script>
 </head>
 <body class="page page--inner page--promo-offer">
+<noscript><div><img src="https://mc.yandex.ru/watch/97361418" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <header class="site-header">
   <a href="../index.html" class="site-header__logo">
     <img src="../assets/icons/logo.svg" alt="RA|RÉ"/>
@@ -125,7 +144,7 @@
         </a>
       </div>
     </div>
-    <a href="../index.html#booking" class="pill-btn site-header__cta">Записаться</a>
+    <a href="https://klientiks.ru/app2/RARE" target="_blank" rel="noopener" class="pill-btn site-header__cta">Записаться</a>
   </div>
 </header>
 
@@ -233,5 +252,6 @@
   if (connectTrigger && connectPanel) hoverIntent(connectTrigger, connectPanel, 300);
 })();
 </script>
+<aktiv-fortune id="1353"></aktiv-fortune>
 </body>
 </html>

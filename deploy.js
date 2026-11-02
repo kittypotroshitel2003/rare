@@ -283,6 +283,10 @@ const STATIC_IGNORE = new Set([
   "dist",
   "deploy.js",
   "deploy.config.json",
+  // карта переезда со старого сайта — нужна только deploy.js и serve.mjs
+  "url-map.json",
+  // обработчик заявок ставится на сервер отдельно (см. server/README.md)
+  "server",
   "DEPLOY.md",
   "package.json",
   "package-lock.json",
@@ -308,12 +312,13 @@ const STATIC_IGNORE = new Set([
 
 // служебные файлы в корне: скрипты сборки/проверки, заметки, токены дизайна.
 // Один из скриптов однажды содержал пароль от сервера и висел в открытом доступе.
-const ROOT_IGNORE_RE = /\.(mjs|md)$|^design-system-.*\.json$/;
+const ROOT_IGNORE_RE = /\.(mjs|md|py)$|^design-system-.*\.json$/;
 
 function collectStaticFiles(dir, baseDir = dir) {
   const results = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name === ".DS_Store" || entry.name.startsWith("._")) continue;
+    if (dir === path.join(baseDir, "docs") && entry.name === "qa") continue;
     if (dir === baseDir && (STATIC_IGNORE.has(entry.name) || ROOT_IGNORE_RE.test(entry.name))) continue;
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
@@ -409,7 +414,19 @@ function filterOnly(files, only) {
 
 // ── Configure Caddy ─────────────────────────────────────────────────────
 
-function buildCaddyConfig(domain, type, redirects = []) {
+// 301 со старых адресов, которым на новом сайте нет пары (url-map.json →
+// redirects). Каждый адрес — в двух вариантах, со слешем на конце и без.
+function urlMapRedirects() {
+  if (!fs.existsSync("url-map.json")) return [];
+  const map = JSON.parse(fs.readFileSync("url-map.json", "utf8")).redirects || {};
+  return Object.entries(map).flatMap(([from, to]) => {
+    const forms = from.endsWith("/") ? [from, from.slice(0, -1)] : [from];
+    return forms.map((f) => ({ from: f, to, code: 301 }));
+  });
+}
+
+function buildCaddyConfig(domain, type, redirects = [], options = {}) {
+  const { basicAuth, wwwRedirect, api } = options;
   const routing =
     type === "static"
       ? "    try_files {path} {path}/ =404"
@@ -421,10 +438,34 @@ function buildCaddyConfig(domain, type, redirects = []) {
     .map((r) => `    redir ${r.from} ${r.to} ${r.code || 301}`)
     .join("\n");
 
+  // Пароль на сайт (тестовая копия до запуска): basicAuth = { user, hash },
+  // hash — bcrypt, например из \`htpasswd -nbB user пароль\`.
+  const authBlock = basicAuth
+    ? `    basic_auth {\n        ${basicAuth.user} ${basicAuth.hash}\n    }\n`
+    : "";
+
+  // www.domain → domain одним 301, с сохранением пути
+  const wwwBlock = wwwRedirect
+    ? `\n\nwww.${domain} {\n    redir https://${domain}{uri} 301\n}`
+    : "";
+
+  // Приём заявок (server/rare-leads.py). try_files в Caddy срабатывает раньше
+  // reverse_proxy и отдал бы на /api/lead 404, поэтому статика и API
+  // разведены по отдельным handle-блокам.
+  const serving = api
+    ? `    handle /api/lead {
+        reverse_proxy ${api}
+    }
+    handle {
+        file_server
+    ${routing}
+    }`
+    : `    file_server
+${routing}`;
+
   return `${domain} {
     root * ${SITES_DIR}/${domain}
-${redirLines ? redirLines + "\n" : ""}    file_server
-${routing}
+${authBlock}${redirLines ? redirLines + "\n" : ""}${serving}
     encode gzip zstd
 
     # Cache hashed assets (js, css, images) — immutable, long TTL
@@ -434,8 +475,8 @@ ${routing}
     @images path *.webp *.webp *.webp *.gif *.webp *.avif *.svg *.ico
     header @images Cache-Control "public, max-age=2592000"
 
-    # HTML — always revalidate
-    @html path *.html /
+    # HTML — always revalidate (страницы живут как /раздел/ → index.html)
+    @html path *.html */
     header @html Cache-Control "public, max-age=0, must-revalidate"
 
     # Security & performance headers
@@ -447,13 +488,13 @@ ${routing}
         Permissions-Policy "camera=(), microphone=(), geolocation=()"
         -Server
     }
-}`;
+}${wwwBlock}`;
 }
 
-async function configureCaddy(creds, domain, type, redirects = []) {
+async function configureCaddy(creds, domain, type, redirects = [], options = {}) {
   const configPath = `${CADDY_SITES_DIR}/${domain}`;
 
-  const siteConfig = buildCaddyConfig(domain, type, redirects);
+  const siteConfig = buildCaddyConfig(domain, type, redirects, options);
   const escaped = siteConfig.replace(/'/g, "'\\''");
 
   const checkResult = await sshExec(
@@ -607,7 +648,8 @@ async function main() {
 
   const config = loadConfig();
   const creds = getServerCreds();
-  const { domain, type = "spa", redirects = [] } = config;
+  const { domain, type = "spa", basicAuth, wwwRedirect, api } = config;
+  const redirects = [...(config.redirects || []), ...urlMapRedirects()];
 
   if (!isValidDomain(domain)) {
     err(`Invalid domain in ${CONFIG_FILE}: "${domain}"`);
@@ -650,7 +692,7 @@ async function main() {
 
   // Step 5: Caddy
   log("Checking Caddy config...");
-  await configureCaddy(creds, domain, type, redirects);
+  await configureCaddy(creds, domain, type, redirects, { basicAuth, wwwRedirect, api });
 
   console.log(`\n\x1b[32m\x1b[1m✓ Deployed!\x1b[0m https://${domain}\n`);
 }

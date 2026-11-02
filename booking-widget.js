@@ -1,13 +1,8 @@
 (function () {
   'use strict';
 
-  /* figure out how many folders deep the current page is, to build a
-     correct relative link back to the homepage booking section */
-  var segments = window.location.pathname.split('/').filter(Boolean);
-  var isHome = segments.length === 0 || (segments.length === 1 && segments[0] === 'index.html');
-  var depth = Math.max(0, segments.length - 1);
-  var prefix = '../'.repeat(depth);
-  var href = isHome ? '#booking' : prefix + 'index.html#booking';
+  /* онлайн-запись живёт в Клиентиксе — открываем её в новом окне */
+  var href = 'https://klientiks.ru/app2/RARE';
 
   var css = '#rr-booking-widget{position:fixed;bottom:24px;right:24px;z-index:600;display:flex;align-items:center;gap:8px;' +
     'background:#8DA585;color:#fdfcf8;text-decoration:none;padding:14px 22px;border-radius:8px;' +
@@ -30,6 +25,8 @@
   var a = document.createElement('a');
   a.id = 'rr-booking-widget';
   a.href = href;
+  a.target = '_blank';
+  a.rel = 'noopener';
   a.setAttribute('aria-label', 'Онлайн-запись');
   a.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8.5 14.5l2 2 4.5-4.5"/></svg><span class="rr-bw-label">Онлайн-запись</span>';
   document.body.appendChild(a);

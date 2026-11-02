@@ -57,12 +57,9 @@
   });
   // "Правовая информация" lives only in the footer on desktop (not the top
   // nav, to avoid crowding it) but should still be reachable from the
-  // mobile menu — appended here from the logo's own href so the relative
-  // path resolves correctly regardless of the current page's folder depth.
-  var logoHrefForLegal = logoEl ? (logoEl.getAttribute('href') || '/') : '/';
-  var legalPrefix = logoHrefForLegal === '/' ? '/' : logoHrefForLegal.replace(/index\.html$/, '');
+  // mobile menu.
   var legalLink = document.createElement('a');
-  legalLink.href = legalPrefix + 'legal.html';
+  legalLink.href = '/pravovaya-informacziya/';
   legalLink.textContent = 'Правовая информация';
   navEl2.appendChild(legalLink);
   overlay.appendChild(navEl2);
@@ -76,6 +73,10 @@
   var cta = document.createElement('a');
   cta.href = ctaEl ? (ctaEl.getAttribute('href') || '#booking') : '#booking';
   cta.className = 'mobile-nav-cta';
+  if (/^https?:/.test(cta.href) && cta.host !== location.host) {
+    cta.target = '_blank';
+    cta.rel = 'noopener';
+  }
   cta.textContent = 'Записаться на приём';
   bottom.appendChild(phone);
   bottom.appendChild(cta);

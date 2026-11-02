@@ -75,9 +75,52 @@
     });
   }
 
+  /* ── Адреса страниц (совпадают со старым сайтом, см. url-map.json) ── */
+  var PROCEDURE_SLUGS = {
+      "/uslugi/nordlys/acne/": "acne-treatment",
+      "/uslugi/esteticheskaya-kosmetologiya/": "aesthetic-cosmetology",
+      "/uslugi/inekczionnaya-kosmetologiya/biorevitalizacziya/": "biorevitalization",
+      "/uslugi/inekczionnaya-kosmetologiya/botulinoterapiya/": "botulinoterapiya",
+      "/uslugi/inekczionnaya-kosmetologiya/carboxy/": "carboxy",
+      "/uslugi/esteticheskaya-kosmetologiya/chistki/": "cleansing",
+      "/uslugi/inekczionnaya-kosmetologiya/konturnaya-plastika/": "contour-plastic",
+      "/uslugi/priyom-kosmetologa/": "cosmetologist-consultation",
+      "/uslugi/exos/": "exosomes",
+      "/uslugi/inekczionnaya-kosmetologiya/lipolytic/": "fat-reduction",
+      "/uslugi/vakuumnyj-gidropiling-hydra-touch-h2/": "hydra-touch",
+      "/uslugi/inekczionnaya-kosmetologiya/": "injection-cosmetology",
+      "/uslugi/inekczionnaya-kosmetologiya/kollagenoterapiya/": "kollagenoterapiya",
+      "/uslugi/lazernaya-epilyacziya/": "laser-epilation",
+      "/uslugi/laser-grinding/": "laser-resurfacing",
+      "/uslugi/lpg-massazh/": "lpg-massage",
+      "/uslugi/inekczionnaya-kosmetologiya/mezoterapiya/": "mesotherapy",
+      "/uslugi/micro-esma/": "microcurrent-therapy",
+      "/uslugi/nordlys/": "nordlys",
+      "/uslugi/inekczionnaya-kosmetologiya/nutrit/": "nutritionist-consultation",
+      "/uslugi/esteticheskaya-kosmetologiya/piling-2/": "peeling",
+      "/uslugi/fdt-revixan/": "photodynamic-therapy",
+      "/uslugi/nordlys/ipl-photo/": "photorejuvenation",
+      "/uslugi/nordlys/pigment-2/": "pigmentation-removal",
+      "/uslugi/inekczionnaya-kosmetologiya/prp-terapiya/": "prp-therapy",
+      "/uslugi/rf-lifting/": "rf-sylfirm",
+      "/uslugi/volnewmer/": "rf-volnewmer",
+      "/uslugi/nordlys/rozacea/": "rosacea-treatment",
+      "/uslugi/beautylizer/": "rsl-beautylizer",
+      "/uslugi/smas-lifting/": "smas-lifting",
+      "/uslugi/spa-proczedury-dlya-licza-i-tela/": "spa-care",
+      "/uslugi/triho/": "trichologist-consultation",
+      "/uslugi/ultrazvukovaya-diagnostika/": "ultrasound-diagnostics"
+  };
+  var PROMO_PATHS = ["/bio_foto/", "/keshbek-3-na-vsyo/", "/chistka-piling-foto/", "/new-meet/", "/bikini-goleni-podmyshki/", "/rf-exso-foto/"];
+
+  function currentPath() {
+    var p = window.location.pathname.replace(/index\.html$/, '');
+    return /\/$/.test(p) ? p : p + '/';
+  }
+
   /* ── Контекст страницы → заголовок попапа ──────────────────── */
   function pageContext() {
-    var path = window.location.pathname;
+    var path = currentPath();
     function h1() {
       var el = document.querySelector('h1');
       return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
@@ -86,31 +129,31 @@
       var el = document.querySelector('.svc-breadcrumb__current, .mh-svc-breadcrumb__current');
       return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
     }
-    if (/\/services\/procedures\//.test(path)) {
+    if (PROCEDURE_SLUGS[path]) {
       return { title: 'Запись на процедуру', eyebrow: crumb() || h1() };
     }
-    if (/\/promos\//.test(path)) {
+    if (PROMO_PATHS.indexOf(path) !== -1) {
       return { title: 'Запись по акции', eyebrow: h1() };
     }
-    if (/\/promos\.html$/.test(path)) {
+    if (path === '/category/akcii/') {
       return { title: 'Запись по акции', eyebrow: '' };
     }
-    if (/\/specialists\/index\.html$|\/specialists\/?$/.test(path)) {
+    if (path === '/speczialisty/') {
       return { title: 'Запись к специалисту', eyebrow: '' };
     }
-    if (/\/specialists\//.test(path)) {
+    if (/^\/speczialisty\//.test(path)) {
       return { title: 'Запись к специалисту', eyebrow: h1() };
     }
-    if (/\/articles\//.test(path)) {
+    if (document.querySelector('.article-sidebar')) {
       return { title: 'Запись на консультацию', eyebrow: '' };
     }
-    if (/\/prices\.html$/.test(path)) {
+    if (path === '/prajs/') {
       return { title: 'Запись на приём', eyebrow: 'Стоимость подтвердим на консультации' };
     }
-    if (/\/services\.html$/.test(path)) {
+    if (path === '/uslugi/') {
       return { title: 'Запись на приём', eyebrow: 'Услугу можно выбрать в форме' };
     }
-    if (/\/certificates\.html$/.test(path)) {
+    if (path === '/sertifikaty/') {
       return { title: 'Оставьте заявку', eyebrow: 'Сертификат тоже оформим по заявке' };
     }
     return { title: 'Оставьте заявку', eyebrow: '' };
@@ -160,7 +203,7 @@
   function serviceOptions() {
     var src = document.querySelector('select[name="service"]:not(#bkm-service)');
     if (src) return src.innerHTML;
-    var slug = (window.location.pathname.match(/\/services\/procedures\/([^/]+)\.html$/) || [])[1] || '';
+    var slug = PROCEDURE_SLUGS[currentPath()] || '';
     var html = '<option value="" disabled' + (slug ? '' : ' selected') + '>Выбрать услугу</option>';
     SERVICES.forEach(function (o) {
       html += '<option value="' + o[0] + '"' + (o[0] === slug ? ' selected' : '') + '>' + o[1] + '</option>';
@@ -460,6 +503,7 @@
       var okPhone = validatePhone();
       if (!okName) { nameEl.focus(); return; }
       if (!okPhone) { phoneEl.focus(); return; }
+      if (window.RRLeads) window.RRLeads.send(this);
       this.reset();
       success();
     });

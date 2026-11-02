@@ -1,6 +1,6 @@
 // build-promos.mjs — one source of truth for the clinic's current promotions.
 //
-// The same six offers appear in many places: the promos.html grid (desktop
+// The current offers appear in many places: the promos.html grid (desktop
 // tiles + mobile cards), the banner strip and mobile carousel on the home
 // page, the banner strip on services.html, a single relevant banner on a few
 // procedure pages, and one detail page per offer under promos/. Editing them
@@ -19,6 +19,28 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
+const URL_MAP = JSON.parse(fs.readFileSync(path.join(ROOT, 'url-map.json'), 'utf8'));
+const promoURL = (id) => URL_MAP.pages[`promos/${id}.html`] || ({
+  'peeling-course': '/kurs-pilingov/',
+  'laser-new': '/lazernaya-epilyacziya-dlya-novyh-paczientov/',
+})[id];
+const currentFile = (file) => URL_MAP.pages[file] ? URL_MAP.pages[file].slice(1) + 'index.html' : file;
+
+// Templates retain their original relative links; normalize them to the current
+// public URLs before writing, including assets and booking anchors.
+function currentLinks(html, originalFile) {
+  const resolve = (value) => {
+    if (!value || /^(?:[a-z][\w+.-]*:|#|\/\/)/i.test(value)) return value;
+    const [, pathname, suffix] = value.match(/^([^?#]*)(.*)$/);
+    const key = pathname.startsWith('/') ? pathname.slice(1) : path.posix.normalize(path.posix.join(path.posix.dirname(originalFile), pathname));
+    return (URL_MAP.pages[key] || '/' + key) + suffix;
+  };
+  html = html.replace(/\b(href|src|poster)="([^"{}]+)"/g, (_, attr, value) => `${attr}="${resolve(value)}"`);
+  return html.replace(/\bsrcset="([^"]+)"/g, (_, value) => `srcset="${value.split(',').map(part => {
+    const [url, ...descriptor] = part.trim().split(/\s+/);
+    return [resolve(url), ...descriptor].join(' ');
+  }).join(', ')}"`);
+}
 
 const PROMOS = [
   {
@@ -36,58 +58,58 @@ const PROMOS = [
   {
     id: 'cleansing-peeling',
     img: 'cleansing',
-    title: 'Идеальное очищение и обновление',
+    title: 'Чистка + пилинг + фотобиомодуляция',
     label: 'Чистка + пилинг + фотобиомодуляция',
     num: { value: '9 500', unit: '₽' },
-    desc: 'Комплекс для сияния здоровой кожи по специальной цене весь октябрь.',
-    badge: 'Комплекс за 9 500 ₽',
-    lead: 'В октябре комплекс «Чистка + Пилинг + Фотобиомодуляция» по специальной цене — 9 500 ₽.',
-    about: { h: 'О комплексе', p: 'Идеальное очищение и обновление: чистка убирает загрязнения, пилинг выравнивает рельеф, а фотобиомодуляция успокаивает кожу и ускоряет восстановление.' },
+    desc: 'Вместо 11 900 ₽ — выгода 2 400 ₽ на комплексе для свежести кожи.',
+    badge: '9 500 ₽ вместо 11 900 ₽',
+    lead: 'В ноябре комплекс «Чистка + Пилинг + Фотобиомодуляция» — 9 500 ₽ вместо 11 900 ₽. Выгода 2 400 ₽.',
+    about: { h: 'О комплексе', p: 'Кожа очищается от загрязнений и ороговевших клеток, а фотобиомодуляция успокаивает и ускоряет восстановление, оставляя лицо свежим и ухоженным.' },
     list: { h: 'Что входит в комплекс', items: [
       'Чистка лица — убирает загрязнения и открывает поры.',
       'Пилинг — выравнивает рельеф и тон кожи.',
       'Фотобиомодуляция — успокаивает кожу и ускоряет восстановление.',
     ] },
-    terms: 'Предложение действует с 1 по 31 октября 2026 года.',
+    terms: 'Предложение действует в ноябре.',
     alt: 'Чистка лица в клинике RA|RÉ',
-    meta: 'Комплекс «Чистка + Пилинг + Фотобиомодуляция» за 9 500 ₽ в октябре — клиника RA|RÉ, Анапа.',
+    meta: 'Чистка + пилинг + фотобиомодуляция за 9 500 ₽ вместо 11 900 ₽ в ноябре. Выгода 2 400 ₽ — RA|RÉ, Анапа.',
   },
   {
     id: 'biorevit-photo',
     img: 'glow',
-    title: 'Время сиять',
+    title: 'Биоревитализация + фотоомоложение',
     label: 'Биоревитализация + фотоомоложение',
     num: { value: '25 500', unit: '₽' },
-    desc: 'Вместо 30 500 ₽ — комплекс для глубокого увлажнения и сияния кожи.',
+    desc: 'Вместо 30 500 ₽ — выгода 5 000 ₽ на увлажнении и фотоомоложении.',
     badge: '25 500 ₽ вместо 30 500 ₽',
-    lead: 'С 1 по 31 октября действует специальная цена на комплекс «Биоревитализация + Фотоомоложение» — 25 500 ₽ вместо 30 500 ₽.',
-    about: { h: 'О комплексе', p: 'Глубокое увлажнение и сияние кожи: биоревитализация наполняет кожу влагой изнутри, а фотоомоложение усиливает эффект и выравнивает тон.' },
+    lead: 'В ноябре комплекс «Биоревитализация + Фотоомоложение» — 25 500 ₽ вместо 30 500 ₽. Выгода 5 000 ₽.',
+    about: { h: 'О комплексе', p: 'Кожа получает интенсивное увлажнение изнутри и импульсное омоложение снаружи, становясь более гладкой, увлажнённой и однородной по тону.' },
     list: { h: 'Что входит в комплекс', items: [
       'Биоревитализация — глубоко увлажняет кожу изнутри.',
       'Фотоомоложение на фотосистеме Nordlys — усиливает эффект и выравнивает тон.',
     ] },
-    terms: 'Предложение действует до 31 октября 2026 года.',
+    terms: 'Предложение действует в ноябре.',
     alt: 'Фотоомоложение на аппарате Nordlys в клинике RA|RÉ',
-    meta: 'Биоревитализация + фотоомоложение за 25 500 ₽ вместо 30 500 ₽ до 31 октября — клиника RA|RÉ, Анапа.',
+    meta: 'Биоревитализация + фотоомоложение за 25 500 ₽ вместо 30 500 ₽ в ноябре. Выгода 5 000 ₽ — RA|RÉ, Анапа.',
   },
   {
     id: 'rf-exosomes',
-    img: 'rf-exo',
-    title: 'Красота без возраста',
-    label: 'RF-лифтинг + экзосомы + фотобиомодуляция',
-    num: { value: '49 300', unit: '₽' },
-    desc: 'Вместо 51 000 ₽ — мощное омоложение комплексом из трёх процедур.',
-    badge: '49 300 ₽ вместо 51 000 ₽',
-    lead: 'Весь октябрь — специальная цена на комплекс из трёх процедур: RF-лифтинг 2 зоны + экзосомы + фотобиомодуляция. 49 300 ₽ вместо 51 000 ₽.',
-    about: { h: 'О комплексе', p: 'Мощное омоложение в одной процедуре: RF-лифтинг подтягивает контур, экзосомы запускают восстановление клеток, а фотобиомодуляция закрепляет результат.' },
+    img: 'rf-needling',
+    title: 'Микроигольчатый RF + экзосомы + фотобиомодуляция',
+    label: 'Микроигольчатый RF (2 зоны) + экзосомы + фотобиомодуляция',
+    num: { value: '40 000', unit: '₽' },
+    desc: 'Вместо 49 300 ₽ — выгода 9 300 ₽ на комплексе из трёх процедур.',
+    badge: '40 000 ₽ вместо 49 300 ₽',
+    lead: 'В ноябре микроигольчатый RF (2 зоны) + Экзосомы + Фотобиомодуляция — 40 000 ₽ вместо 49 300 ₽. Выгода 9 300 ₽.',
+    about: { h: 'О комплексе', p: 'Комплекс глубоко обновляет кожу, запускает выработку коллагена и ускоряет восстановление, возвращая плотность, упругость и здоровое сияние.' },
     list: { h: 'Что входит в комплекс', items: [
-      'Монополярный RF-лифтинг Volnewmer, 2 зоны — подтягивает контур лица.',
+      'Микроигольчатый RF, 2 зоны — запускает выработку коллагена.',
       'Экзосомы — запускают восстановление клеток.',
       'Фотобиомодуляция — закрепляет результат.',
     ] },
-    terms: 'Предложение действует с 1 по 31 октября 2026 года.',
-    alt: 'Монополярный RF-лифтинг в клинике RA|RÉ',
-    meta: 'RF-лифтинг 2 зоны + экзосомы + фотобиомодуляция за 49 300 ₽ вместо 51 000 ₽ в октябре — клиника RA|RÉ, Анапа.',
+    terms: 'Предложение действует в ноябре.',
+    alt: 'Микроигольчатый RF-лифтинг Sylfirm в клинике RA|RÉ',
+    meta: 'Микроигольчатый RF (2 зоны) + экзосомы + фотобиомодуляция за 40 000 ₽ вместо 49 300 ₽ в ноябре — RA|RÉ, Анапа.',
   },
   {
     id: 'cashback',
@@ -125,12 +147,40 @@ const PROMOS = [
     alt: 'Лазерная эпиляция Candela в клинике RA|RÉ',
     meta: 'Комбо-предложения на лазерную эпиляцию Candela со скидкой до 25% — клиника RA|RÉ, Анапа.',
   },
+  {
+    id: 'peeling-course',
+    img: 'peeling-course',
+    title: 'Курс из 3 пилингов',
+    label: 'Курс из 3 пилингов',
+    num: { value: '15%' },
+    desc: 'Скидка на весь курс из трёх процедур в ноябре.',
+    badge: 'Скидка 15% на весь курс',
+    lead: 'В ноябре скидка 15% на весь курс из 3 пилингов.',
+    about: { h: 'О курсе', p: 'Регулярное отшелушивание обновляет кожу, выравнивает рельеф и тон, а курс усиливает результат от процедуры к процедуре.' },
+    terms: 'Предложение действует в ноябре. Скидка 15% на весь курс из 3 пилингов.',
+    alt: 'Нанесение состава кистью на кожу лица в клинике RA|RÉ',
+    meta: 'Курс из 3 пилингов со скидкой 15% в ноябре — клиника RA|RÉ, Анапа.',
+  },
+  {
+    id: 'laser-new',
+    img: 'laser-new',
+    title: 'Лазерная эпиляция для новых пациентов',
+    label: 'Лазерная эпиляция для новых пациентов',
+    num: { value: '30%' },
+    desc: 'Скидка для новых пациентов при обработке от двух зон.',
+    badge: 'Скидка 30%',
+    lead: 'В ноябре скидка 30% на лазерную эпиляцию для новых пациентов при обработке от двух зон.',
+    about: { h: 'О предложении', p: 'Стойкое уменьшение нежелательных волос с первого курса, а скидка делает знакомство с процедурой максимально выгодным.' },
+    terms: 'Предложение действует в ноябре. Скидка 30% для новых пациентов при обработке от двух зон.',
+    alt: 'Лазерная эпиляция зоны ног в клинике RA|RÉ',
+    meta: 'Лазерная эпиляция со скидкой 30% для новых пациентов при обработке от двух зон в ноябре — RA|RÉ, Анапа.',
+  },
 ];
 
 // Which promo a procedure page shows in its single-banner slot.
 const PROCEDURE_PROMO = {
   'services/procedures/smas-lifting.html': 'first-visit',
-  'services/procedures/rf-volnewmer.html': 'rf-exosomes',
+  'services/procedures/rf-volnewmer.html': 'first-visit',
   'services/procedures/laser-epilation.html': 'laser-combo',
 };
 
@@ -151,16 +201,16 @@ const ARR20 = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path
 const ARR_MH = '<svg class="mh-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 const landscape = (p, pre, sizes) =>
-  `src="${pre}assets/photos/${imgBase(p)}.webp" srcset="${pre}assets/photos/${imgBase(p)}-650.webp 650w, ${pre}assets/photos/${imgBase(p)}-1250.webp 1250w, ${pre}assets/photos/${imgBase(p)}.webp 2000w" sizes="${sizes}"`;
+  p.photo ? `src="/assets/photos/${p.photo}"` : `src="${pre}assets/photos/${imgBase(p)}.webp" srcset="${pre}assets/photos/${imgBase(p)}-650.webp 650w, ${pre}assets/photos/${imgBase(p)}-1250.webp 1250w, ${pre}assets/photos/${imgBase(p)}.webp 2000w" sizes="${sizes}"`;
 const portrait = (p, pre) =>
-  `src="${pre}assets/photos/${imgBase(p)}-m.webp" srcset="${pre}assets/photos/${imgBase(p)}-m-350.webp 350w, ${pre}assets/photos/${imgBase(p)}-m-700.webp 700w, ${pre}assets/photos/${imgBase(p)}-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px"`;
+  p.photo ? `src="/assets/photos/${p.photo}"` : `src="${pre}assets/photos/${imgBase(p)}-m.webp" srcset="${pre}assets/photos/${imgBase(p)}-m-350.webp 350w, ${pre}assets/photos/${imgBase(p)}-m-700.webp 700w, ${pre}assets/photos/${imgBase(p)}-m.webp 1050w" sizes="(max-width: 767px) 350px, 350px"`;
 
 const indent = (s, n) => s.split('\n').map((l) => (l ? ' '.repeat(n) + l : l)).join('\n');
 
 /* ── markup per spot ─────────────────────────────────────────────────── */
 
 // promos.html desktop grid and the "other promos" grid on detail pages
-const tile = (p, pre, hrefPre) => `<a href="${hrefPre}${p.id}.html" class="promo-tile">
+const tile = (p, pre, hrefPre) => `<a href="${promoURL(p.id)}" class="promo-tile">
   <img ${landscape(p, pre, '(max-width: 767px) 350px, (max-width: 1024px) 624px, 572px')} alt="${p.alt}" class="promo-tile__img" loading="lazy"/>
   <div class="promo-tile__panel">
     <div class="promo-tile__top">
@@ -175,7 +225,7 @@ const tile = (p, pre, hrefPre) => `<a href="${hrefPre}${p.id}.html" class="promo
 </a>`;
 
 // promos.html / services.html / procedure pages — mobile card
-const mhCard = (p, pre, hrefPre) => `<a href="${hrefPre}${p.id}.html" class="mh-promo-card">
+const mhCard = (p, pre, hrefPre) => `<a href="${promoURL(p.id)}" class="mh-promo-card">
   <img ${portrait(p, pre)} alt="${p.alt}" loading="lazy"/>
   <div class="mh-promo-card__panel">
     <div class="mh-promo-card__head">
@@ -192,7 +242,7 @@ const mhCard = (p, pre, hrefPre) => `<a href="${hrefPre}${p.id}.html" class="mh-
 // wide banner strip (home, services, procedure pages)
 const banner = (p, pre, hrefPre) => `<div class="promo-banner">
   <img class="promo-banner__photo" ${landscape(p, pre, '(max-width: 1024px) 624px, 1170px')} alt="${p.alt}" loading="lazy"/>
-  <a href="${hrefPre}${p.id}.html" class="promo-banner__card">
+  <a href="${promoURL(p.id)}" class="promo-banner__card">
     <div class="promo-banner__top">
       <p class="promo-banner__label">${p.label}</p>
       <span class="promo-banner__arr" aria-hidden="true">
@@ -207,7 +257,7 @@ const banner = (p, pre, hrefPre) => `<div class="promo-banner">
 </div>`;
 
 // home page mobile carousel slide
-const mhSlide = (p) => `<a href="promos/${p.id}.html" class="mh-promo-slide">
+const mhSlide = (p) => `<a href="${promoURL(p.id)}" class="mh-promo-slide">
   <div class="mh-promo-imgwrap">
     <img ${portrait(p, '')} alt="" loading="lazy"/>
   </div>
@@ -224,7 +274,7 @@ const mhSlide = (p) => `<a href="promos/${p.id}.html" class="mh-promo-slide">
 </a>`;
 
 // mobile "other promos" card on a detail page
-const mhOther = (p) => `<a href="${p.id}.html" class="mh-promo-others__card">
+const mhOther = (p) => `<a href="${promoURL(p.id)}" class="mh-promo-others__card">
   <img ${portrait(p, '../')} alt="${p.alt}" loading="lazy"/>
   <div class="mh-promo-others__panel">
     <div class="mh-promo-others__head">
@@ -260,9 +310,9 @@ function replaceDivInner(html, openTag, inner, file) {
 }
 
 function edit(file, fn) {
-  const p = path.join(ROOT, file);
+  const p = path.join(ROOT, currentFile(file));
   const before = fs.readFileSync(p, 'utf8');
-  const after = fn(before);
+  const after = currentLinks(fn(before), file);
   if (after !== before) fs.writeFileSync(p, after);
   console.log((after !== before ? 'updated ' : 'unchanged ') + file);
 }
@@ -400,11 +450,13 @@ ${indent(others.map(mhOther).join('\n'), 6)}
   return tpl
     .replace('{{TITLE}}', `${p.title} — акция клиники RA|RÉ в Анапе`)
     .replace('{{META}}', p.meta)
-    .replace('{{CANONICAL}}', `https://rare.a-4-to.ru/promos/${p.id}.html`)
+    .replace('{{CANONICAL}}', `https://rare-anapa.ru${promoURL(p.id)}`)
     .replace('{{BODY}}\n', body);
 }
 
 for (const p of PROMOS) {
-  fs.writeFileSync(path.join(ROOT, 'promos', `${p.id}.html`), detail(p));
+  const output = path.join(ROOT, promoURL(p.id), 'index.html');
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  fs.writeFileSync(output, currentLinks(detail(p), `promos/${p.id}.html`));
   console.log(`wrote promos/${p.id}.html`);
 }
