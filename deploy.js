@@ -285,6 +285,7 @@ const STATIC_IGNORE = new Set([
   "deploy.config.json",
   // карта переезда со старого сайта — нужна только deploy.js и serve.mjs
   "url-map.json",
+  "content",
   // обработчик заявок ставится на сервер отдельно (см. server/README.md)
   "server",
   "DEPLOY.md",

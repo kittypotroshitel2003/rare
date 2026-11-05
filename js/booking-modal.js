@@ -109,7 +109,8 @@
       "/uslugi/smas-lifting/": "smas-lifting",
       "/uslugi/spa-proczedury-dlya-licza-i-tela/": "spa-care",
       "/uslugi/triho/": "trichologist-consultation",
-      "/uslugi/ultrazvukovaya-diagnostika/": "ultrasound-diagnostics"
+      "/uslugi/ultrazvukovaya-diagnostika/": "ultrasound-diagnostics",
+      "/uslugi/udalenie-fillerov-pod-kontrolem-uzi/": "filler-removal"
   };
   var PROMO_PATHS = ["/bio_foto/", "/keshbek-3-na-vsyo/", "/chistka-piling-foto/", "/new-meet/", "/bikini-goleni-podmyshki/", "/rf-exso-foto/"];
 
@@ -168,6 +169,7 @@
     ['trichologist-consultation',  'Приём трихолога'],
     ['nutritionist-consultation',  'Приём нутрициолога'],
     ['ultrasound-diagnostics',     'Ультразвуковая диагностика'],
+    ['filler-removal', 'Удаление филлеров под контролем УЗИ'],
     ['smas-lifting',               'SMAS лифтинг'],
     ['rf-volnewmer',               'Монополярный RF-лифтинг Volnewmer'],
     ['rf-sylfirm',                 'Микроигольчатый RF-лифтинг Sylfirm X'],

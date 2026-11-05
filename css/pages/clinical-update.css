@@ -1,0 +1,43 @@
+/* November clinic content: extend the existing page components and tokens. */
+.page--filler-removal .svc-hero__col { min-height: 0; gap: 28px; }
+.page--filler-removal .svc-hero__desc p + p,
+.page--filler-removal .mh-svc-hero__desc p + p { margin-top: 20px; }
+.page--filler-removal .svc-hero__media,
+.page--filler-removal .mh-svc-hero__media { cursor: default; }
+.filler-about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 4vw, 64px); align-items: start; padding: 0 var(--gutter); }
+.filler-about h2 { font-size: clamp(28px, 2.5vw, 40px); line-height: 1.15; letter-spacing: -0.03em; font-weight: 400; margin: 0 0 28px; }
+.filler-about p { font-size: 18px; line-height: 1.6; color: var(--c-muted); }
+.filler-about p + p { margin-top: 20px; }
+.filler-about figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 20px; }
+.filler-about img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
+.filler-price-table { width: 100%; }
+.page--filler-removal .svc-price-row__price { white-space: nowrap; }
+.page--filler-removal .mh-svc-faq-card__q .svc-faq-card__q-text { font-size: 16px; }
+.page--problem .clinical-intro p + p { margin-top: 20px; }
+.page--problem .article-section h2 { text-align: center; }
+.page--problem .article-section h3 { text-align: left; margin-top: 28px; }
+.clinical-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.clinical-method { padding: 24px; border: 1px solid rgba(141,165,133,0.3); border-radius: 16px; }
+.page--problem .clinical-method h3 { margin-top: 0; }
+.clinical-method .prob-procs__all { margin-top: 20px; }
+.clinical-faq { border-bottom: 1px solid rgba(141,165,133,0.3); padding: 20px 0; }
+.clinical-faq summary { cursor: pointer; font-size: 18px; font-weight: 500; line-height: 1.4; }
+.clinical-faq p { margin-top: 16px; }
+.clinical-faq summary:focus-visible { outline: 2px solid var(--c-accent-hover); outline-offset: 5px; }
+@media(max-width: 767px) {
+ .filler-about { grid-template-columns: 1fr; padding: 0 20px; gap: 24px; }
+ .filler-about h2 { font-size: 26px; margin-bottom: 20px; }
+ .filler-about p { font-size: 16px; }
+ .filler-about img { object-position: center 70%; }
+ .clinical-methods { grid-template-columns: 1fr; }
+ .clinical-method { padding: 20px; }
+ .page--filler-removal .mh-svc-prices__heading { font-size: 26px; }
+ .page--filler-removal .mh-svc-hero__desc { line-height: 1.5; }
+}
+
+/* Keep breadcrumb links comfortable to tap on the edited pages. */
+.page--filler-removal .svc-breadcrumb a,
+.page--filler-removal .mh-svc-breadcrumb a,
+.page--problem .article-bc a { display: inline-flex; align-items: center; min-height: 24px; }
+
+.clinical-method:only-child { grid-column: 1 / -1; }
